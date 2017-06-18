@@ -1,0 +1,32 @@
+{:site-title           "Tutorial Java"
+ :author               "Burhanuddin Baharuddin"
+ :description          "This blog is awesome"
+ :site-url             "https://jombelajarjava.github.io/"
+ :post-root            "posts"
+ :page-root            "pages"
+ :post-root-uri        ""
+ :page-root-uri        ""
+ :tag-root-uri         "tags-output"
+ :author-root-uri      "authors-output"
+ :blog-prefix          "/java"
+ :rss-name             "feed.xml"
+ :rss-filters          ["cryogen"]
+ :recent-posts         3
+ :post-date-format     "yyyy-MM-dd"
+ :archive-group-format "yyyy MMMM"
+ :sass-src             []
+ :sass-path            "sass"
+ :compass-path         "compass"
+ :theme                "blue"
+ :resources            ["img"]
+ :keep-files           [".git"]
+ :disqus?              false
+ :disqus-shortname     ""
+ :ignored-files        [#"\.#.*" #".*\.swp$"]
+ :posts-per-page       5
+ :blocks-per-preview   2
+ :previews?            false
+ :clean-urls?          true
+ :hide-future-posts?   true
+ :klipse               {}
+ :debug?               false}
