@@ -57,13 +57,13 @@
 
         <div class="col-md-3">
             <div id="sidebar">
-                {% if post.category|not-empty %}
-                <h3>{{ post.category }}</h3>
+                {% if page.category|not-empty %}
+                <h3>{{ page.category }}</h3>
                 <ul>
-                    {% with current_post=post %}
-                    {% for post in all-posts|sort-by:date %}
-                    {% ifequal current_post.category post.category %}
-                    <li><a href="{{post.uri}}">{{post.title}}</a></li>
+                    {% with current_page=page %}
+                    {% for page in sidebar-pages %}
+                    {% ifequal current_page.category page.category %}
+                    <li><a href="{{page.uri}}">{{page.title}}</a></li>
                     {% endifequal %}
                     {% endfor %}
                     {% endwith %}
