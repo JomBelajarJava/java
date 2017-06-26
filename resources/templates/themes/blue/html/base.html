@@ -57,6 +57,21 @@
 
         <div class="col-md-3">
             <div id="sidebar">
+                {% if post.category|not-empty %}
+                <h3>{{ post.category }}</h3>
+                <ul>
+                    {% with current_post=post %}
+                    {% for post in all-posts|sort-by:date %}
+                    {% ifequal current_post.category post.category %}
+                    <li><a href="{{post.uri}}">{{post.title}}</a></li>
+                    {% endifequal %}
+                    {% endfor %}
+                    {% endwith %}
+                </ul>
+                {% endif %}
+
+                {% comment %}
+                <!-- Removes default sidebar -->
                 <h3>Links</h3>
                 <ul id="links">
                     <li><a href="http://cryogenweb.org/docs/home.html">Cryogen Docs</a></li>
@@ -85,6 +100,7 @@
                     </ul>
                 </div>
                 {% endif %}
+                {% endcomment %}
             </div>
         </div>
     </div>
