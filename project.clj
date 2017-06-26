@@ -8,7 +8,7 @@
                            [compojure "1.6.0"]
                            [ring-server "0.4.0"]
                            [cryogen-asciidoc "0.1.2"]
-                           [cryogen-core "0.1.56"]]
+                           [com.jombelajarjava/cryogen-core "0.1.56"]]
             :plugins [[lein-ring "0.9.7"]]
             :main cryogen.core
             :ring {:init cryogen.server/init
