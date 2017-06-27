@@ -63,44 +63,18 @@
                     {% with current_page=page %}
                     {% for page in sidebar-pages %}
                     {% ifequal current_page.category page.category %}
-                    <li><a href="{{page.uri}}">{{page.title}}</a></li>
+                    <li>
+                        {% ifequal current_page page %}
+                        {{page.title}}
+                        {% else %}
+                        <a href="{{page.uri}}">{{page.title}}</a>
+                        {% endifequal %}
+                    </li>
                     {% endifequal %}
                     {% endfor %}
                     {% endwith %}
                 </ul>
                 {% endif %}
-
-                {% comment %}
-                <!-- Removes default sidebar -->
-                <h3>Links</h3>
-                <ul id="links">
-                    <li><a href="http://cryogenweb.org/docs/home.html">Cryogen Docs</a></li>
-                    <li><a href="http://carmenla.me/blog/archives">Carmen's Blog</a></li>
-                    {% for page in sidebar-pages %}
-                    <li><a href="{{page.uri}}">{{page.title}}</a></li>
-                    {% endfor %}
-                </ul>
-                {% if latest-posts|not-empty %}
-                <div id="recent">
-                    <h3>Recent Posts</h3>
-                    <ul>
-                        {% for post in latest-posts %}
-                        <li><a href="{{post.uri}}">{{post.title}}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                {% endif %}
-                {% if tags|not-empty %}
-                <div id="tags">
-                    <h3>Tags</h3>
-                    <ul>
-                        {% for tag in tags %}
-                        <li><a href="{{tag.uri}}">{{tag.name}}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                {% endif %}
-                {% endcomment %}
             </div>
         </div>
     </div>
