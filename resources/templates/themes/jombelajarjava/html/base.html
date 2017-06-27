@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>{{title}}{% block subtitle %}{% endblock %}</title>
+    <title>{% block subtitle %}{% endblock %}{{title}}</title>
     <link rel="canonical" href="{{site-url}}{{uri}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700' rel='stylesheet'
@@ -57,6 +57,21 @@
 
         <div class="col-md-3">
             <div id="sidebar">
+                {% if page.category|not-empty %}
+                <h3>{{ page.category }}</h3>
+                <ul>
+                    {% with current_page=page %}
+                    {% for page in sidebar-pages %}
+                    {% ifequal current_page.category page.category %}
+                    <li><a href="{{page.uri}}">{{page.title}}</a></li>
+                    {% endifequal %}
+                    {% endfor %}
+                    {% endwith %}
+                </ul>
+                {% endif %}
+
+                {% comment %}
+                <!-- Removes default sidebar -->
                 <h3>Links</h3>
                 <ul id="links">
                     <li><a href="http://cryogenweb.org/docs/home.html">Cryogen Docs</a></li>
@@ -85,6 +100,7 @@
                     </ul>
                 </div>
                 {% endif %}
+                {% endcomment %}
             </div>
         </div>
     </div>

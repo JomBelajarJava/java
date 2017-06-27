@@ -17,7 +17,7 @@
  :sass-src             []
  :sass-path            "sass"
  :compass-path         "compass"
- :theme                "blue"
+ :theme                "jombelajarjava"
  :resources            ["img"]
  :keep-files           [".git"]
  :disqus?              false
