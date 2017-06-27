@@ -5,6 +5,7 @@
     <title>{% block subtitle %}{% endblock %}{{title}}</title>
     <link rel="canonical" href="{{site-url}}{{uri}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if page.description %}<meta name="description" content="{{page.description}}">{% endif %}
     <link href='http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700' rel='stylesheet'
           type='text/css'>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
