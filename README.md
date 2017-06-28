@@ -1,3 +1,30 @@
 # java
 
 Tutorial Java
+
+### Update page index
+
+Page tutorial dalam Jom Belajar Java menggunakan metadata `:page-index`
+untuk menentukan kedudukan. Untuk update metadata tersebut, update
+kedudukan page tersebut dalam `page-index.txt`, kemudian run script
+`update-page-index.lisp`.
+
+_The tutorial pages in Jom Belajar Java uses `:page-index` metadata to
+determine their position. To update the metadata, update the position
+in `page-index.txt` file, and then run `update-page-index.lisp` script._
+
+Untuk run script tersebut, install mana-mana Lisp (saya guna SBCL).
+
+_To run the script, install any Lisp implementation (I used SBCL)._
+
+```
+sudo apt-get install sbcl
+```
+
+Run script tersebut,
+
+_Run the script,_
+
+```
+./update-page-index.lisp
+```
