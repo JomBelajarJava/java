@@ -32,3 +32,7 @@ _Run the script,_
 ```
 ./update-page-index.lisp
 ```
+
+### License
+
+[Open Publication License](https://www.opencontent.org/openpub/)
