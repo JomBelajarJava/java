@@ -15,9 +15,9 @@ in `page-index.txt` file, and then run `update-page-index.lisp` script._
 
 <br>
 
-Untuk run script tersebut, install mana-mana Lisp (saya guna SBCL).
+Untuk run script tersebut, install SBCL.
 
-_To run the script, install any Lisp implementation (I used SBCL)._
+_To run the script, install SBCL._
 
 ```
 sudo apt-get install sbcl
