@@ -28,6 +28,16 @@ _To compile without running interactive environment, run_
 lein run
 ```
 
+## Update gh-pages
+
+Selepas compile, run script `update-gh-pages.sh` seperti berikut:
+
+_After done compiling, run `update-gh-pages.sh` script like so:_
+
+```
+./update-gh-pages.sh "This is the commit message"
+```
+
 ## Update page index
 
 Page tutorial dalam Jom Belajar Java menggunakan metadata `:page-index`
