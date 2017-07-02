@@ -2,7 +2,7 @@
 
 Tutorial Java
 
-### Interactive development
+## Interactive development
 
 Untuk menulis post atau page secara interaktif, run
 
@@ -18,7 +18,7 @@ Website akan compile semula setiap kali kita ada perubahan pada file.
 
 _The website will get re-compiled whenever there is a file change._
 
-### Compile
+## Compile
 
 Untuk compile tanpa run interactive environment, run
 
@@ -28,7 +28,7 @@ _To compile without running interactive environment, run_
 lein run
 ```
 
-### Update page index
+## Update page index
 
 Page tutorial dalam Jom Belajar Java menggunakan metadata `:page-index`
 untuk menentukan kedudukan. Untuk update metadata tersebut, update
@@ -59,6 +59,6 @@ _Run the script,_
 ./update-page-index.lisp
 ```
 
-### License
+## License
 
 [Open Publication License](https://www.opencontent.org/openpub/)
