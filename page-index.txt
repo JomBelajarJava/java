@@ -34,6 +34,8 @@ set.asc
 queue.asc
 deque.asc
 map.asc
+build-tool.asc
+h2.asc
 pengenalan-javafx.asc
 scene-builder.asc
 hello-javafx.asc
