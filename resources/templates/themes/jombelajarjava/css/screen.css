@@ -74,6 +74,13 @@ body {
 #content img {
     max-width: 100%;
     height: auto;
+    display: block;
+    margin: 32px auto;
+}
+
+#content .videoblock iframe {
+    display: block;
+    margin: 32px auto;
 }
 
 footer {
