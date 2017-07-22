@@ -83,6 +83,15 @@ body {
     margin: 32px auto;
 }
 
+.highlight {
+    background-color: #3d80ba;
+    color: #fff;
+    border-radius: 3px;
+    font-weight: bold;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
 footer {
     font-size: 14px;
     text-align: center;
