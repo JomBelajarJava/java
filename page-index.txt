@@ -38,6 +38,7 @@ build-tool.asc
 h2.asc
 jdbc.asc
 dao-dan-service.asc
+crud.asc
 pengenalan-javafx.asc
 scene-builder.asc
 hello-javafx.asc
