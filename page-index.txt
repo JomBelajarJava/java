@@ -39,6 +39,7 @@ h2.asc
 jdbc.asc
 dao-dan-service.asc
 crud.asc
+connection-pool.asc
 pengenalan-javafx.asc
 scene-builder.asc
 hello-javafx.asc
