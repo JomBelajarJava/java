@@ -40,6 +40,7 @@ jdbc.asc
 dao-dan-service.asc
 crud.asc
 connection-pool.asc
+migration.asc
 pengenalan-javafx.asc
 scene-builder.asc
 hello-javafx.asc
