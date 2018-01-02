@@ -43,6 +43,7 @@ connection-pool.asc
 migration.asc
 final.asc
 immutable-collections.asc
+inversion-of-control.asc
 pengenalan-javafx.asc
 scene-builder.asc
 hello-javafx.asc
