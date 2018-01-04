@@ -55,9 +55,7 @@ Untuk run script tersebut, install SBCL.
 
 _To run the script, install SBCL._
 
-```
-sudo apt-get install sbcl
-```
+[Download](http://www.sbcl.org/platform-table.html)
 
 <br>
 
