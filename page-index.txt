@@ -45,6 +45,7 @@ final.asc
 immutable-collections.asc
 inversion-of-control.asc
 convenience-library.asc
+design-pattern.asc
 pengenalan-javafx.asc
 scene-builder.asc
 hello-javafx.asc
