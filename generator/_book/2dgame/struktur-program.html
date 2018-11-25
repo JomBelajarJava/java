@@ -1124,7 +1124,77 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="struktur-program">Struktur program</h1>
+<p>Struktur program untuk sesebuah game libGDX agak lain daripada program
+GUI yang biasa (seperti JavaFX) kerana melibatkan sesuatu yang dipanggil
+sebagai game loop yang akan sentiasa update semua benda yang ada di
+dunia game tersebut. Contohnya, seperti game Mario. Kita boleh kawal
+pergerakan Mario, dan pada masa yang sama watak-watak jahat juga
+bergerak dengan pergerakan masing-masing.</p>
+<p>Sebelum ini kita ada test untuk mula-mula run program libGDX. Code yang
+asalnya adalah seperti ini:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.mygdx.game;
+
+<span class="hljs-keyword">import</span> com.badlogic.gdx.ApplicationAdapter;
+<span class="hljs-keyword">import</span> com.badlogic.gdx.Gdx;
+<span class="hljs-keyword">import</span> com.badlogic.gdx.graphics.GL20;
+<span class="hljs-keyword">import</span> com.badlogic.gdx.graphics.Texture;
+<span class="hljs-keyword">import</span> com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyGdxGame</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ApplicationAdapter</span> </span>{
+
+  SpriteBatch batch;
+  Texture img;
+
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">create</span> <span class="hljs-params">()</span> </span>{
+    batch = <span class="hljs-keyword">new</span> SpriteBatch();
+    img = <span class="hljs-keyword">new</span> Texture(<span class="hljs-string">&quot;badlogic.jpg&quot;</span>);
+  }
+
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">render</span> <span class="hljs-params">()</span> </span>{
+    Gdx.gl.glClearColor(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>);
+    Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+    batch.begin();
+    batch.draw(img, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+    batch.end();
+  }
+}
+</code></pre>
+<p>Perhatikan class <code>MyGdxGame</code> extends daripada class <code>ApplicationAdapter</code>.
+Sekarang kita lihat class ApplicationAdapter di laman web
+libGDX dan kita boleh nampak method-method yang ada di situ.</p>
+<h2 id="create">create()</h2>
+<p>Dipanggil semasa mula-mula kita start game. Biasanya di sini kita akan
+letakkan code untuk load asset (seperti gambar sprite, gambar
+background, bunyi, dan sebagainya) untuk game.</p>
+<h2 id="resize">resize()</h2>
+<p>Dipanggil semasa screen Game bertukar saiz.</p>
+<h2 id="render">render()</h2>
+<p>Method untuk tentukan apa yang terpapar pada screen game. Di sinilah
+kita boleh letakkan code untuk update game.</p>
+<h2 id="pause">pause()</h2>
+<p>Boleh paham sendiri, untuk pause game.</p>
+<h2 id="resume">resume()</h2>
+<p>Boleh paham sendiri, untuk sambung balik game selepas pause.</p>
+<h2 id="dispose">dispose()</h2>
+<p>Method selepas game ditutup. Di sini kita boleh letakkan code untuk
+clear memory phone sebab libGDX bukanlah 100% Java tetapi ada campuran
+dengan native language (C/C++) untuk tujuan performance. Apabila kita
+menggunakan native language, kita kena buat memory management sendiri.</p>
+<h2 id="game-screen">Game screen</h2>
+<p>Selepas lihat method-method tersebut, barulah kita ada idea bagaimana
+untuk menulis code untuk sesebuah game. Tetapi sebelum itu, ada satu
+masalah. Katakanlah game kita ada beberapa screen, contohnya screen
+untuk tunjuk main menu, screen untuk game, dan screen untuk tunjuk
+score. Jika kita menggunakan ApplicationAdapter sahaja maka
+berteraburlah code untuk game.</p>
+<p>Oleh itu, libGDX ada menyediakan class Game.</p>
+<p><a href="http://libgdx.badlogicgames.com/nightlies/docs/api/com/badlogic/gdx/Game.html" target="_blank">Klik untuk lihat class Game</a></p>
+<p>Di situ kita boleh nampak satu lagi method iaitu
+<code>setScreen()</code> supaya kita boleh asingkan game tersebut mengikut Screen.</p>
+
                                 
                                 </section>
                             
@@ -1167,7 +1237,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Struktur program","level":"1.9.4","depth":2,"next":{"title":"SpriteBatch","level":"1.9.5","depth":2,"path":"2dgame/spritebatch.md","ref":"2dgame/spritebatch.md","articles":[]},"previous":{"title":"Setup libGDX","level":"1.9.3","depth":2,"path":"2dgame/setup-libgdx.md","ref":"2dgame/setup-libgdx.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"2dgame/struktur-program.md","mtime":"2018-11-25T04:16:05.038Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T10:36:51.760Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Struktur program","level":"1.9.4","depth":2,"next":{"title":"SpriteBatch","level":"1.9.5","depth":2,"path":"2dgame/spritebatch.md","ref":"2dgame/spritebatch.md","articles":[]},"previous":{"title":"Setup libGDX","level":"1.9.3","depth":2,"path":"2dgame/setup-libgdx.md","ref":"2dgame/setup-libgdx.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"2dgame/struktur-program.md","mtime":"2018-11-25T12:25:26.921Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T10:36:51.760Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

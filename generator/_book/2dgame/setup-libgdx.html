@@ -1124,7 +1124,92 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="setup-libgdx">Setup libGDX</h1>
+<p>Fokus utama framework libGDX adalah untuk <em>mobile game development</em>
+(Android dan iOS). Sesetengah IDE agak kurang support untuk Android
+development. Boleh itu boleh, cuma ada banyak configuration yang kena
+tukar. Agak leceh. Jadi, kita akan menggunakan IDE yang memang ada
+support dari pihak yang bangunkan Android itu sendiri, iaitu Google. IDE
+tersebut ialah IntelliJ dan Android Studio. Pilih sahaja yang mana satu,
+Android Studio pun sebenarnya berasaskan daripada IntelliJ. Untuk
+tutorial ini, saya akan gunakan IntelliJ.</p>
+<h2 id="gradle">Gradle</h2>
+<p>Sebelum ini kita pernah menggunakan Ant build system untuk deploy
+JavaFX. Untuk libGDX pula, kita akan menggunakan Gradle build
+system. Dengan menggunakan Gradle, project libGDX akan download semua
+yang diperlukan secara automatik. Untuk setup project, download Setup
+App daripada website libGDX.</p>
+<p><a href="https://libgdx.badlogicgames.com/download.html" target="_blank">Klik untuk download gdx-setup</a></p>
+<p>Setelah selesai, double-click file tersebut untuk membuka libGDX Project
+Generator.</p>
+<h2 id="libgdx-project-generator">libGDX Project Generator</h2>
+<p>libGDX Project Generator digunakan untuk menghasilkan project untuk
+game. Setelah selesai generate project, project tersebut boleh dibuka
+menggunakan mana-mana IDE.</p>
+<p><img src="img/libgdx-project-generator.png" alt="Gambar rupa libGDX Project Generator"></p>
+<p>Seperti yang kita nampak, kita boleh pilih untuk deploy ke beberapa
+platform seperti Desktop, Mobile, dan Web. Kita juga boleh pilih untuk
+tambah extensions untuk game tersebut.</p>
+<ul>
+<li><code>Bullet</code> &#x2013; Physics engine untuk game 3D. Antara game yang menggunakan
+Bullet ialah GTA.</li>
+<li><code>Freetype</code> &#x2013; Font kualiti tinggi.</li>
+<li><code>Tools</code> &#x2013; Package tambahan yang mengandungi particle editors, texture
+packer, dan sebagainya.</li>
+<li><code>Controllers</code> &#x2013; Support untuk controller tambahan seperti gamepad.</li>
+<li><code>Box2d</code> &#x2013; Physics engine untuk game 2D. Antara game yang menggunakan
+Box2d ialah Angry Bird.</li>
+<li><code>Box2dlights</code> &#x2013; Lighting yang menggunakan Box2d.</li>
+<li><code>Ashley</code> &#x2013; Entity System Framework.</li>
+<li><code>Ai</code> &#x2013; Game AI algorithm contohnya untuk <em>pathfinding</em>.</li>
+</ul>
+<p>Pilih extensions bergantung kepada jenis game yang kita nak buat,
+kemudian klik <code>Generate</code>. Kalau ada pilih Android, dia akan tanya sama
+ada mahu guna Android API yang latest. Pilih <code>No</code> untuk kedua-duanya.
+Proses untuk generate project akan mengambil masa
+kerana sedang download.</p>
+<h2 id="open-project">Open project</h2>
+<p>Selepas siap generate project, buka project tersebut menggunakan
+IntelliJ. Jika ini projek yang pertama menggunakan IntelliJ, proses ini
+akan sekali lagi mengambil masa yang lama kerana IntelliJ sedang
+menghasilkan project menggunakan Gradle dan download beberapa
+<em>dependencies</em>.</p>
+<p>Setelah selesai, kita boleh nampak package untuk project. Bergantung
+kepada platform mana yang kita pilih, akan ada beberapa project yang
+telah dihasilkan:</p>
+<ul>
+<li><code>Core</code> &#x2013; Tempat utama untuk letak semua code untuk game.</li>
+<li><code>Desktop</code> &#x2013; Code untuk run game desktop.</li>
+<li><code>Android/iOS</code> &#x2013; Code untuk run game mobile.</li>
+<li><code>HTML</code> &#x2013; Code untuk run di browser.</li>
+</ul>
+<p>Secara ringkasnya, semua code berkaitan game seperti game logic, input,
+sound dan sebagainya akan diletakkan di Core. Untuk run game tersebut,
+run menggunakan project untuk platform masing-masing.</p>
+<p>Kelebihan cara ini adalah untuk memudahkan developer untuk test game
+kerana untuk run Android di desktop perlu menggunakan emulator. Emulator
+yang disediakan Google pula sangat perlahan. Cara lain ialah test
+menggunakan phone sendiri, tetapi mungkin developer tidak mempunyai
+phone Android atau iOS. Oleh itu, kita run terus di atas desktop, dan
+apabila sudah siap barulah kita boleh test di atas mobile phone.</p>
+<h2 id="test-run">Test run</h2>
+<p>Kita akan test run project atas desktop untuk lihat sama ada
+configuration untuk game kita betul ataupun tidak. Sebelum itu, kita
+perlu buat sesuatu terlebih dahulu.</p>
+<p>Pergi ke menu <code>Run</code>, kemudian <code>Edit Configurations...</code>. Selepas itu, klik
+<code>+</code> dan pilih <code>Application</code>. Tulis <code>Desktop</code> di <code>Name</code>. Pilih <code>desktop</code>
+untuk <code>Use classpath of module</code>. Pilih <code>DesktopLauncher</code> untuk <code>Main
+class</code>. Pilih <code>android/assets</code> untuk <code>Working directory</code> (kalau bukan
+project Android, pilih <code>core/assets</code>).</p>
+<p>Klik <code>Apply</code> dan <code>OK</code>.</p>
+<p><img src="img/config.png" alt="Gambar configuration untuk run libGDX atas desktop"></p>
+<p>Setelah selesai, kita boleh run game libGDX di atas desktop menggunakan
+menu <code>Run Desktop</code> atau klik butang dengan icon play hijau.</p>
+<p>Kalau ada keluar windows dengan gambar seperti di bawah ini dengan
+background merah maksudnya kita sudah berjaya setup game menggunakan
+libGDX.</p>
+<p><img src="img/logo-badlogicgames.png" alt="Gambar logo badlogicgames"></p>
+
                                 
                                 </section>
                             
@@ -1167,7 +1252,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Setup libGDX","level":"1.9.3","depth":2,"next":{"title":"Struktur program","level":"1.9.4","depth":2,"path":"2dgame/struktur-program.md","ref":"2dgame/struktur-program.md","articles":[]},"previous":{"title":"Tools 2D","level":"1.9.2","depth":2,"path":"2dgame/tools-2d.md","ref":"2dgame/tools-2d.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"2dgame/setup-libgdx.md","mtime":"2018-11-25T04:16:05.038Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T10:36:51.760Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Setup libGDX","level":"1.9.3","depth":2,"next":{"title":"Struktur program","level":"1.9.4","depth":2,"path":"2dgame/struktur-program.md","ref":"2dgame/struktur-program.md","articles":[]},"previous":{"title":"Tools 2D","level":"1.9.2","depth":2,"path":"2dgame/tools-2d.md","ref":"2dgame/tools-2d.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"2dgame/setup-libgdx.md","mtime":"2018-11-25T12:23:59.445Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T10:36:51.760Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

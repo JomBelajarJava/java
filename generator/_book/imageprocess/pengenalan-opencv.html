@@ -1122,7 +1122,56 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="pengenalan-opencv">Pengenalan OpenCV</h1>
+<p>Image processing secara amnya sangat luas. Ada image processing untuk:</p>
+<ul>
+<li>orang seni mencantikkan gambar (<em>image enhancement</em>),</li>
+<li>membaik pulih gambar yang telah rosak untuk tujuan perisikan (<em>image
+restoration</em>),</li>
+<li>mengesan pergerakan untuk tujuan keselamatan (<em>camera
+surveillance</em>),</li>
+<li>mengecilkan saiz fail gambar (<em>image compression</em>), dan</li>
+<li>memperoleh maklumat daripada gambar untuk tujuan analisis (<em>image
+analysis</em>), contohnya untuk mengesan muka seperti yang terdapat di
+kamera, membaca tulisan daripada gambar, dan mengesan cancer
+daripada gambar x-ray.</li>
+</ul>
+<p>Walaupun tujuan-tujuan tersebut berlainan, ada beberapa teknik yang
+biasa digunakan dalam setiap image processing, contohnya untuk
+mendapatkan kesan kabur (<em>blur</em>), dan menghasilkan kontras (<em>contrast</em>)
+yang tinggi. Jadi, teknik-teknik tersebut dikumpulkan dalam satu library
+supaya programmer tidak perlu tulis semula code yang sama.</p>
+<p>Library image processing untuk Java ada banyak, antaranya ImageJ,
+ImageJ2, Marvin, OpenCV, dan JavaCV (wrapper untuk OpenCV). Untuk
+tutorial Jom Belajar Java, kita akan gunakan OpenCV.</p>
+<h2 id="opencv">OpenCV</h2>
+<p>OpenCV secara asalnya ialah library image processing untuk C/C++, tetapi
+disediakan interface untuk Python dan Java. Ini kerana image processing
+memerlukan performance yang tinggi kerana image processing melibatkan
+data yang banyak iaitu data untuk setiap pixel dalam sesebuah gambar.
+Jadi, proses perlu dilakukan menggunakan programming language yang
+paling hampir dengan machine language seperti C/C++.</p>
+<h2 id="opencv-vs-javacv">OpenCV vs JavaCV</h2>
+<p>Jadi, kenapa kita tidak menggunakan JavaCV walaupun JavaCV juga
+menggunakan OpenCV untuk membuat image processing? Jawapannya ialah
+documentation. JavaCV lebih mudah digunakan oleh Java programmer tetapi
+kurang documentation. OpenCV pula perlu diprogram seperti
+cara programming untuk C/C++, dan documentation untuk OpenCV banyak
+ditulis untuk C/C++. Oleh itu, kita boleh lihat rujukan daripada
+documentation untuk C/C++ dan cuba tulis semula menggunakan Java.</p>
+<p>Jadi bila boleh guna JavaCV?</p>
+<p>Kita boleh mula guna JavaCV jika kita sudah semakin mahir dengan image
+processing dan mahu menggunakan library tambahan kerana selain OpenCV,
+JavaCV juga menggunakan library lain yang biasa digunakan dalam sesebuah
+research seperti FFmpeg, OpenKinect, dan videoInput.</p>
+<h2 id="kekurangan-opencv-menggunakan-java-interface">Kekurangan OpenCV menggunakan Java interface</h2>
+<p>Jika kita menggunakan C/C++ untuk OpenCV, kita boleh menggunakan class
+Highgui untuk memaparkan sesebuah image, tetapi class Highgui tidak
+disediakan untuk Java. Jadi bagaimana kita nak paparkan image daripada
+OpenCV?</p>
+<p>Kalau anda dapat teka, bagus!</p>
+<p>Ya, kita akan gunakan GUI untuk Java, iaitu JavaFX.</p>
+
                                 
                                 </section>
                             
@@ -1161,7 +1210,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Pengenalan OpenCV","level":"1.10.1","depth":2,"previous":{"title":"Image Processing","level":"1.10","depth":1,"path":"imageprocess/README.md","ref":"imageprocess/README.md","articles":[{"title":"Pengenalan OpenCV","level":"1.10.1","depth":2,"path":"imageprocess/pengenalan-opencv.md","ref":"imageprocess/pengenalan-opencv.md","articles":[]}]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"imageprocess/pengenalan-opencv.md","mtime":"2018-11-25T04:16:33.926Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T10:36:51.760Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Pengenalan OpenCV","level":"1.10.1","depth":2,"previous":{"title":"Image Processing","level":"1.10","depth":1,"path":"imageprocess/README.md","ref":"imageprocess/README.md","articles":[{"title":"Pengenalan OpenCV","level":"1.10.1","depth":2,"path":"imageprocess/pengenalan-opencv.md","ref":"imageprocess/pengenalan-opencv.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"imageprocess/pengenalan-opencv.md","mtime":"2018-11-25T12:30:21.160Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T10:36:51.760Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
