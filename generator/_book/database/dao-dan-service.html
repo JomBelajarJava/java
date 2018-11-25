@@ -1124,7 +1124,262 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="dao-dan-service">DAO dan Service</h1>
+<p>Sebelum kita tulis lebih banyak SQL query, kita akan lihat bagaimana untuk
+menyusun code kita dengan lebih teratur. Cara ini memang biasa digunakan dalam
+industri.</p>
+<h2 id="data-access-object-dao">Data Access Object (DAO)</h2>
+<p>DAO ialah class yang kita boleh gunakan untuk membuat operasi melibatkan
+database. Class ini akan memisahkan code aplikasi dengan code database, jadi
+apabila kita ingin membuat operasi database, kita hanya perlu memanggil method
+yang ada dalam DAO.</p>
+<p>Kelebihan menggunakan class DAO ialah kita boleh mengubah code database tanpa
+perlu menyentuh code aplikasi. Contoh apabila kita mahu tukar dari H2 ke
+<a href="https://www.postgresql.org" target="_blank">PostgreSQL</a>, atau dari hanya JDBC ke
+<a href="https://www.jooq.org" target="_blank">jOOQ</a>.</p>
+<h2 id="service">Service</h2>
+<p>Service pula ialah class untuk kita letakkan lojik bisnes (<em>business logic</em>),
+maksudnya mana-mana code yang kita perlu tulis untuk menentukan apa yang patut
+berlaku dengan data, proses apa yang perlu digunakan, dan sebagainya. Disebabkan
+aplikasi yang kita akan buat agak simple, lojik bisnes yang kita akan buat
+hanyalah untuk menggunakan method dari class DAO.</p>
+<h2 id="model">Model</h2>
+<p>Kita boleh menyusun data dari setiap table dalam database menggunakan class.
+Class ini disebut sebagai <em>model layer</em>. Dalam tutorial sebelum ini, kita ada
+membuat table bernama Kucing yang mempunyai id, nama, jantina, dan tarikh lahir.
+Jadi, kita boleh menyusun semua data tersebut dalam sebuah class bernama Kucing.
+Di sini saya letakkan class tersebut di dalam package
+<code>com.jombelajarjava.kucing</code>.</p>
+<p>Class tersebut akan kelihatan seperti ini:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.jombelajarjava.kucing;
+
+<span class="hljs-keyword">import</span> java.time.LocalDate;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Kucing</span> </span>{
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Long id;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String nama;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Jantina jantina;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> LocalDate tarikhLahir;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Kucing</span><span class="hljs-params">(<span class="hljs-keyword">final</span> String nama, <span class="hljs-keyword">final</span> Jantina jantina, <span class="hljs-keyword">final</span> LocalDate tarikhLahir)</span> </span>{
+        <span class="hljs-keyword">this</span>(<span class="hljs-number">0L</span>, nama, jantina, tarikhLahir);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Kucing</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Long id, <span class="hljs-keyword">final</span> String nama, <span class="hljs-keyword">final</span> Jantina jantina, <span class="hljs-keyword">final</span> LocalDate tarikhLahir)</span> </span>{
+        <span class="hljs-keyword">this</span>.id = id;
+        <span class="hljs-keyword">this</span>.nama = nama;
+        <span class="hljs-keyword">this</span>.jantina = jantina;
+        <span class="hljs-keyword">this</span>.tarikhLahir = tarikhLahir;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Kucing <span class="hljs-title">cloneWithId</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Long id)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Kucing(id, nama, jantina, tarikhLahir);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Long <span class="hljs-title">getId</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> id;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getNama</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> nama;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Jantina <span class="hljs-title">getJantina</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> jantina;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> LocalDate <span class="hljs-title">getTarikhLahir</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> tarikhLahir;
+    }
+
+}
+</code></pre>
+<p>Jika anda menggunakan IDE, IDE akan complain mengenai <code>LocalDate</code> kerana package
+<code>java.time</code> adalah daripada Java 8. Jadi, kita update sahaja <code>pom.xml</code> untuk
+menggunakan Java 8, seperti ini,</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">source</span>&gt;</span>1.8<span class="hljs-tag">&lt;/<span class="hljs-name">source</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">target</span>&gt;</span>1.8<span class="hljs-tag">&lt;/<span class="hljs-name">target</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span>
+</code></pre>
+<h2 id="enum">Enum</h2>
+<p>Jika anda perasan, dalam class <code>Kucing</code> ada jenis data bernama <code>Jantina</code>. Kita
+boleh membuat jenis data rekaan sendiri menggunakan <code>enum</code>. Untuk membuat enum,
+tulis sahaja seperti ini,</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.jombelajarjava.kucing;
+
+<span class="hljs-keyword">import</span> java.util.Locale;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> Jantina {
+    JANTAN, BETINA
+}
+</code></pre>
+<p>Walaupun enum di atas nampak ok, tetapi jika kita lihat kembali dalam database,
+enum untuk Jantina menggunakan huruf kecil. Jadi kita perlu mengubahsuai enum
+tersebut supaya menggunakan huruf kecil apabila di-print.</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.jombelajarjava.kucing;
+
+<span class="hljs-keyword">import</span> java.util.Locale;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> Jantina {
+    JANTAN(<span class="hljs-string">&quot;jantan&quot;</span>), BETINA(<span class="hljs-string">&quot;betina&quot;</span>);
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String text;
+
+    Jantina(<span class="hljs-keyword">final</span> String text) {
+        <span class="hljs-keyword">this</span>.text = text;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> text;
+    }
+}
+</code></pre>
+<h2 id="interface-kucingdao">Interface KucingDAO</h2>
+<p>Sebelum kita menulis DAO untuk akses database, kita akan membuat interface
+terlebih dahulu untuk merancang apa yang perlu ada pada class DAO nanti. Dengan
+membuat interface, kita juga boleh memberitahu programmer lain dalam team (jika
+ada) method yang akan ada dalam class DAO nanti tanpa perlu menunggu kita
+menyiapkan class DAO tersebut.</p>
+<p>Interface DAO untuk Kucing kelihatan seperti ini:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.jombelajarjava.kucing;
+
+<span class="hljs-keyword">import</span> java.util.List;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">KucingDao</span> </span>{
+    <span class="hljs-function">List&lt;Kucing&gt; <span class="hljs-title">findAll</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-function">List&lt;Kucing&gt; <span class="hljs-title">findById</span><span class="hljs-params">(Long id)</span></span>;
+    <span class="hljs-function">List&lt;Kucing&gt; <span class="hljs-title">findByNama</span><span class="hljs-params">(String nama)</span></span>;
+    <span class="hljs-function">Kucing <span class="hljs-title">insertKucing</span><span class="hljs-params">(Kucing kucing)</span></span>;
+    <span class="hljs-function">Kucing <span class="hljs-title">updateKucing</span><span class="hljs-params">(Kucing kucing)</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">deleteKucing</span><span class="hljs-params">(Kucing kucing)</span></span>;
+}
+</code></pre>
+<p>Perhatikan jenis data yang return daripada method <code>insert</code>, <code>update</code>, dan
+<code>delete</code>. Ada sesetengah orang lebih suka hanya return <code>int</code>, ada yang hanya
+return <code>void</code>. Semua boleh. Di sini saya return balik object untuk <code>insert</code> dan
+<code>update</code>, dan boolean untuk check jika telah berjaya <code>delete</code>.</p>
+<h2 id="class-simplekucingdao">Class SimpleKucingDAO</h2>
+<p>Sekarang kita boleh <em>implement</em> interface KucingDao. Jika anda menggunakan IDE,
+selepas menulis</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SimpleKucingDao</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">KucingDao</span> </span>{
+
+}
+</code></pre>
+<p>IDE boleh terus tambah method daripada KucingDao secara automatik. Contoh dalam
+IntelliJ, boleh tekan <code>Alt+Enter</code>. Kemudian tambah constructor untuk mengambil
+data yang diperlukan untuk membuat sambungan ke database.</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.jombelajarjava.kucing;
+
+<span class="hljs-keyword">import</span> java.sql.*;
+<span class="hljs-keyword">import</span> java.util.List;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SimpleKucingDao</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">KucingDao</span> </span>{
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String url;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String name;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String password;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">SimpleKucingDao</span><span class="hljs-params">(<span class="hljs-keyword">final</span> String url, <span class="hljs-keyword">final</span> String name, <span class="hljs-keyword">final</span> String password)</span> </span>{
+        <span class="hljs-keyword">this</span>.url = url;
+        <span class="hljs-keyword">this</span>.name = name;
+        <span class="hljs-keyword">this</span>.password = password;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Kucing&gt; <span class="hljs-title">findAll</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Kucing&gt; <span class="hljs-title">findById</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Long id)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Kucing&gt; <span class="hljs-title">findByNama</span><span class="hljs-params">(<span class="hljs-keyword">final</span> String nama)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Kucing <span class="hljs-title">insertKucing</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Kucing kucing)</span> </span>{
+          <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Kucing <span class="hljs-title">updateKucing</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Kucing kucing)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">deleteKucing</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Kucing kucing)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    }
+}
+</code></pre>
+<p>Jika anda lihat di industri, kadang kala class DAO dinamakan sebagai
+<code>KucingDaoImpl</code> atau <code>IKucingDao</code>. Isu ini pun ada perbincangan dan debat,
+masing-masing mempunyai pandangan dan hujah masing-masing. Ada yang suka, ada
+yang tak suka.</p>
+<p>Secara peribadi, saya tak suka sebab bila lihat standard library Java, tidak ada
+satu pun class yang menggunakan <code>Impl</code>.Kalau ada satu class sahaja yang
+implement interface DAO tersebut, saya lebih suka menamakannya
+<code>DefaultKucingDao</code> contohnya. Jadi, tidak ada salah tidak ada betul. Ikut sahaja
+apa yang digunakan dalam syarikat.</p>
+<h2 id="class-pendaftaranservice">Class PendaftaranService</h2>
+<p>Selepas wujud DAO, kita boleh membuat service untuk memanggil method daripada
+DAO tersebut,</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.jombelajarjava.daftar;
+
+<span class="hljs-keyword">import</span> com.jombelajarjava.kucing.Kucing;
+<span class="hljs-keyword">import</span> com.jombelajarjava.kucing.KucingDao;
+
+<span class="hljs-keyword">import</span> java.util.List;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PendaftaranService</span> </span>{
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> KucingDao kucingDAO;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">PendaftaranService</span><span class="hljs-params">(<span class="hljs-keyword">final</span> KucingDao kucingDAO)</span> </span>{
+        <span class="hljs-keyword">this</span>.kucingDAO = kucingDAO;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Kucing&gt; <span class="hljs-title">searchAll</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> kucingDAO.findAll();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Kucing&gt; <span class="hljs-title">searchById</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Long id)</span> </span>{
+        <span class="hljs-keyword">return</span> kucingDAO.findById(id);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Kucing&gt; <span class="hljs-title">searchByNama</span><span class="hljs-params">(<span class="hljs-keyword">final</span> String nama)</span> </span>{
+        <span class="hljs-keyword">return</span> kucingDAO.findByNama(nama);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Kucing <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Kucing kucing)</span> </span>{
+        <span class="hljs-keyword">return</span> kucingDAO.insertKucing(kucing);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Kucing <span class="hljs-title">edit</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Kucing kucing)</span> </span>{
+        <span class="hljs-keyword">return</span> kucingDAO.updateKucing(kucing);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">remove</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Kucing kucing)</span> </span>{
+        <span class="hljs-keyword">return</span> kucingDAO.deleteKucing(kucing);
+    }
+}
+</code></pre>
+
                                 
                                 </section>
                             
@@ -1167,7 +1422,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"DAO dan Service","level":"1.6.4","depth":2,"next":{"title":"CRUD","level":"1.6.5","depth":2,"path":"database/crud.md","ref":"database/crud.md","articles":[]},"previous":{"title":"JDBC","level":"1.6.3","depth":2,"path":"database/jdbc.md","ref":"database/jdbc.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"database/dao-dan-service.md","mtime":"2018-11-25T04:11:56.345Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T07:21:49.864Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"DAO dan Service","level":"1.6.4","depth":2,"next":{"title":"CRUD","level":"1.6.5","depth":2,"path":"database/crud.md","ref":"database/crud.md","articles":[]},"previous":{"title":"JDBC","level":"1.6.3","depth":2,"path":"database/jdbc.md","ref":"database/jdbc.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"database/dao-dan-service.md","mtime":"2018-11-25T07:52:47.984Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T07:21:49.864Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -1124,7 +1124,31 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="h2">H2</h1>
+<h2 id="pengenalan">Pengenalan</h2>
+<p>Database ialah tempat untuk kita menyimpan data yang berkaitan dengan projek.
+Apabila kita menyimpan data dalam variable, array atau data structure, kita
+sebenarnya menyimpan data tersebut hanya dalam memory (RAM). Apabila program
+kita berhenti, data tersebut akan hilang daripada memory.</p>
+<p>Untuk mengekalkan (<em>persist</em>) data tersebut supaya tidak hilang, kita boleh
+output ke file seperti tutorial sebelum ini. Namun, kita lihat proses tersebut
+agak menyusahkan. Oleh itu, kita boleh menggunakan database untuk menyimpan
+data dengan cara yang lebih selamat dan tersusun.</p>
+<h2 id="bila-perlu-guna-database">Bila perlu guna database?</h2>
+<p>Kalau boleh <em>semua projek</em>.</p>
+<p>Ya, semua projek. Anda mungkin berfikir projek anda nampak simple dan tidak
+memerlukan database. Sebaik sahaja anda mula menambah feature pada projek anda,
+anda pasti akan menyesal jika tidak menggunakan database.</p>
+<h2 id="jenis-database">Jenis database</h2>
+<p><em>Client/server database</em> adalah yang biasa digunakan semasa membuat projek
+aplikasi web. Contohnya, MySQL dan PostgreSQL.</p>
+<p><em>Embedded database</em> pula ialah database yang disertakan sekali dengan aplikasi
+seperti aplikasi desktop dan mobile. Contohnya, H2 dan SQLite.</p>
+<h2 id="tutorial">Tutorial</h2>
+<p>Untuk tutorial selepas ini, kita akan menggunakan database H2. Disebabkan H2
+ialah <em>embedded database</em>, kita tidak perlu install database seperti MySQL. Kita
+hanya perlu menambah nama library database tersebut di config Maven.</p>
+
                                 
                                 </section>
                             
@@ -1167,7 +1191,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"H2","level":"1.6.2","depth":2,"next":{"title":"JDBC","level":"1.6.3","depth":2,"path":"database/jdbc.md","ref":"database/jdbc.md","articles":[]},"previous":{"title":"Build Tool","level":"1.6.1","depth":2,"path":"database/build-tool.md","ref":"database/build-tool.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"database/h2.md","mtime":"2018-11-25T04:11:56.345Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T07:21:49.864Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"H2","level":"1.6.2","depth":2,"next":{"title":"JDBC","level":"1.6.3","depth":2,"path":"database/jdbc.md","ref":"database/jdbc.md","articles":[]},"previous":{"title":"Build Tool","level":"1.6.1","depth":2,"path":"database/build-tool.md","ref":"database/build-tool.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"database/h2.md","mtime":"2018-11-25T07:44:14.951Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T07:21:49.864Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

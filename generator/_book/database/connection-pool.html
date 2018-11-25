@@ -1124,7 +1124,61 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="connection-pool">Connection Pool</h1>
+<h2 id="pengenalan">Pengenalan</h2>
+<p><em>Pool</em> dalam English bermaksud &apos;kolam&apos;. Biasanya orang menyimpan ikan yang ditangkap ke dalam kolam untuk diguna/dimakan di kemudian hari. Jadi, <em>connection pool</em> bermaksud &apos;kolam connection database&apos;, supaya kita boleh menggunakan connection yang sudah disambung untuk membuat operasi database berkali-kali.</p>
+<p>Penyambungan ke database yang kita buat sebelum ini sebenarnya kurang efisyen terutamanya untuk aplikasi yang berjalan lama seperti web kerana kita perlu membuat penyambungan ke database semula tiap kali kita melakukan operasi database.</p>
+<h2 id="hikaricp">HikariCP</h2>
+<p>Kita boleh menulis sendiri code untuk membuat connection pool, tapi tak perlulah. Kita guna saja library yang telah banyak membuat research untuk menjadikan connection pool lebih efisyen. Saya perkenalkan, <a href="https://github.com/brettwooldridge/HikariCP" target="_blank">HikariCP</a>.</p>
+<p>HikariCP digunakan secara <em>default</em> jika anda menggunakan <em>web framework</em> seperti <a href="https://projects.spring.io/spring-boot" target="_blank">Spring Boot</a>, <a href="https://www.playframework.com" target="_blank">Play Framework</a> atau <a href="http://www.luminusweb.net" target="_blank">Luminus</a>.</p>
+<h2 id="setup">Setup</h2>
+<p>HikariCP ialah library Java, jadi kita tambah sahaja di file <code>pom.xml</code>:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.zaxxer<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>HikariCP<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.6.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+<p>Untuk membuat sambungan ke database menggunakan HikariCP, tambah code berikut di constructor H2Application:</p>
+<pre><code class="lang-java">HikariConfig config = <span class="hljs-keyword">new</span> HikariConfig();
+config.setJdbcUrl(DATABASE_URL);
+config.setUsername(NAME);
+config.setPassword(PASSWORD);
+</code></pre>
+<p>Tambah field untuk <code>DataSource</code>:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> DataSource dataSource;
+</code></pre>
+<p>dan initialize field tersebut menggunakan config yang telah dibuat:</p>
+<pre><code class="lang-java">dataSource = <span class="hljs-keyword">new</span> HikariDataSource(config);
+</code></pre>
+<h2 id="getconnection">getConnection()</h2>
+<p>Untuk membuat operasi database, kita boleh menggunakan method <code>getConnection()</code> daripada <code>DataSource</code>.</p>
+<p>Sebagai contoh, sebelum ini di dalam method <code>init()</code>, kita menggunakan <code>DriverManager</code> untuk mendapatkan <code>Connection</code>. Jadi, ganti sahaja code</p>
+<pre><code class="lang-java">DriverManager.getConnection(DATABASE_URL, NAME, PASSWORD)
+</code></pre>
+<p>ke</p>
+<pre><code class="lang-java">dataSource.getConnection()
+</code></pre>
+<h2 id="update-dao">Update DAO</h2>
+<p>Untuk menggunakan <code>DataSource</code> yang sama, hantar sahaja field tersebut melalui constructor untuk DAO.</p>
+<p>Tukar constructor SimpleKucingDao daripada</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">SimpleKucingDao</span><span class="hljs-params">(<span class="hljs-keyword">final</span> String url, <span class="hljs-keyword">final</span> String name, <span class="hljs-keyword">final</span> String password)</span> </span>{
+    <span class="hljs-keyword">this</span>.url = url;
+    <span class="hljs-keyword">this</span>.name = name;
+    <span class="hljs-keyword">this</span>.password = password;
+}
+</code></pre>
+<p>ke</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">SimpleKucingDao</span><span class="hljs-params">(<span class="hljs-keyword">final</span> DataSource dataSource)</span> </span>{
+    <span class="hljs-keyword">this</span>.dataSource = dataSource;
+}
+</code></pre>
+<p>Kemudian hantar <code>dataSource</code> sebagai argument di constructor H2Application:</p>
+<pre><code class="lang-java">pendaftaranService = <span class="hljs-keyword">new</span> PendaftaranService(<span class="hljs-keyword">new</span> SimpleKucingDao(dataSource));
+</code></pre>
+<p>Setelah selesai, bolehlah ganti semua code yang menggunakan <code>DriverManager</code> ke <code>DataSource</code>.</p>
+<p>Code yang lengkap boleh dilihat di <a href="https://github.com/JomBelajarJava/contoh-code-java/tree/master/database/tutorialh2-hikaricp" target="_blank">sini</a>.</p>
+
                                 
                                 </section>
                             
@@ -1167,7 +1221,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Connection Pool","level":"1.6.6","depth":2,"next":{"title":"Migration","level":"1.6.7","depth":2,"path":"database/migration.md","ref":"database/migration.md","articles":[]},"previous":{"title":"CRUD","level":"1.6.5","depth":2,"path":"database/crud.md","ref":"database/crud.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"database/connection-pool.md","mtime":"2018-11-25T04:11:56.345Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T07:21:49.864Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Connection Pool","level":"1.6.6","depth":2,"next":{"title":"Migration","level":"1.6.7","depth":2,"path":"database/migration.md","ref":"database/migration.md","articles":[]},"previous":{"title":"CRUD","level":"1.6.5","depth":2,"path":"database/crud.md","ref":"database/crud.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"database/connection-pool.md","mtime":"2018-11-25T08:09:06.167Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T07:21:49.864Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

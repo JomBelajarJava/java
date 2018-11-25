@@ -1124,7 +1124,45 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="build-tool">Build Tool</h1>
+<p>Sebelum ini kita diperkenalkan dengan beberapa IDE. Jika anda perasan saya tidak
+memaksa sesiapa untuk menggunakan IDE tertentu kerana setiap orang mempunyai
+citarasa masing-masing. Jadi, jika anda ingin memulakan sesuatu projek yang
+melibatkan lebih daripada seorang programmer, setiap programmer mungkin
+menggunakan IDE yang berlainan antara satu sama lain. Ini akan mendatangkan
+masalah kerana setiap IDE mempunyai cara yang berlainan untuk menguruskan
+projek Java. Oleh itu, kita sangat digalakkan untuk menggunakan <em>build
+automation software</em> atau dikenali sebagai <em>build tool</em>.</p>
+<p>Setiap programming language mempunyai <em>build tool</em> masing-masing. Untuk Java,
+kita boleh menggunakan,</p>
+<ul>
+<li><a href="https://maven.apache.org" target="_blank">Maven</a></li>
+<li><a href="https://gradle.org" target="_blank">Gradle</a></li>
+<li><a href="http://www.scala-sbt.org" target="_blank">sbt</a></li>
+<li><a href="http://ant.apache.org" target="_blank">Ant</a></li>
+</ul>
+<p><em>Maven</em> sememangnya biasa digunakan di industri yang menggunakan Java. Kelebihan
+Maven berbanding Ant ialah Maven boleh download secara automatik library
+yang kita gunakan dalam projek kita hanya dengan menulis nama library tersebut.
+Jadi, kita tidak perlu download file JAR secara manual. Ada yang tidak suka
+Maven kerana ia menggunakan XML untuk file config (sukar difahami).</p>
+<p><em>Gradle</em> lebih kurang sama dengan Maven. Kelebihannya ialah Gradle lebih mudah
+untuk membuat custom build script jika anda tahu programming language Groovy.
+File config Gradle juga lebih mudah difahami oleh manusia berbanding Maven.</p>
+<p><em>Sbt</em> sebenarnya ialah <em>build tool</em> untuk programming language Scala. Disebabkan
+Scala ialah programming language yang boleh run di Java Virtual Machine (JVM),
+kita juga boleh menggunakannya untuk projek Java. Contoh apabila anda
+menggunakan web framework seperti <a href="https://www.playframework.com" target="_blank">Play Framework</a>.</p>
+<p><em>Ant</em> ialah <em>build tool</em> yang digunakan secara default jika anda menggunakan IDE
+untuk generate projek Java. Seperti yang diberitahu sebelum ini, Ant lebih sukar
+untuk projek yang menggunakan banyak library. Cuba elakkan Ant kalau boleh.</p>
+<p>Pilihan <em>build tool</em> bergantung kepada team dan projek anda.</p>
+<p>Saya akan menggunakan Maven untuk tutorial database selepas ini kerana saya
+bercadang untuk menggunakan database H2. H2 sukar digunakan dengan Gradle
+kerana H2 ialah <em>embedded database</em> dan saya menghadapi masalah dengan
+classpath H2 semasa menggunakan Gradle. Plugin H2 untuk Gradle juga tidak
+sematang plugin H2 untuk Maven.</p>
+
                                 
                                 </section>
                             
@@ -1167,7 +1205,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Build Tool","level":"1.6.1","depth":2,"next":{"title":"H2","level":"1.6.2","depth":2,"path":"database/h2.md","ref":"database/h2.md","articles":[]},"previous":{"title":"Database","level":"1.6","depth":1,"path":"database/README.md","ref":"database/README.md","articles":[{"title":"Build Tool","level":"1.6.1","depth":2,"path":"database/build-tool.md","ref":"database/build-tool.md","articles":[]},{"title":"H2","level":"1.6.2","depth":2,"path":"database/h2.md","ref":"database/h2.md","articles":[]},{"title":"JDBC","level":"1.6.3","depth":2,"path":"database/jdbc.md","ref":"database/jdbc.md","articles":[]},{"title":"DAO dan Service","level":"1.6.4","depth":2,"path":"database/dao-dan-service.md","ref":"database/dao-dan-service.md","articles":[]},{"title":"CRUD","level":"1.6.5","depth":2,"path":"database/crud.md","ref":"database/crud.md","articles":[]},{"title":"Connection Pool","level":"1.6.6","depth":2,"path":"database/connection-pool.md","ref":"database/connection-pool.md","articles":[]},{"title":"Migration","level":"1.6.7","depth":2,"path":"database/migration.md","ref":"database/migration.md","articles":[]}]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"database/build-tool.md","mtime":"2018-11-25T04:11:56.345Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T07:21:49.864Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Build Tool","level":"1.6.1","depth":2,"next":{"title":"H2","level":"1.6.2","depth":2,"path":"database/h2.md","ref":"database/h2.md","articles":[]},"previous":{"title":"Database","level":"1.6","depth":1,"path":"database/README.md","ref":"database/README.md","articles":[{"title":"Build Tool","level":"1.6.1","depth":2,"path":"database/build-tool.md","ref":"database/build-tool.md","articles":[]},{"title":"H2","level":"1.6.2","depth":2,"path":"database/h2.md","ref":"database/h2.md","articles":[]},{"title":"JDBC","level":"1.6.3","depth":2,"path":"database/jdbc.md","ref":"database/jdbc.md","articles":[]},{"title":"DAO dan Service","level":"1.6.4","depth":2,"path":"database/dao-dan-service.md","ref":"database/dao-dan-service.md","articles":[]},{"title":"CRUD","level":"1.6.5","depth":2,"path":"database/crud.md","ref":"database/crud.md","articles":[]},{"title":"Connection Pool","level":"1.6.6","depth":2,"path":"database/connection-pool.md","ref":"database/connection-pool.md","articles":[]},{"title":"Migration","level":"1.6.7","depth":2,"path":"database/migration.md","ref":"database/migration.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"database/build-tool.md","mtime":"2018-11-25T07:43:01.707Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T07:21:49.864Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

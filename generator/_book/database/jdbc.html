@@ -1124,7 +1124,225 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="jdbc">JDBC</h1>
+<h2 id="pengenalan">Pengenalan</h2>
+<p><em>JDBC</em> ialah <em>interface</em> yang kita boleh guna untuk menyambungkan aplikasi Java
+dengan database. Benda yang diperlukan untuk membuat connection JDBC ialah url,
+nama dan password untuk database tersebut.</p>
+<p>Contoh url untuk database H2 ialah seperti,</p>
+<pre><code>jdbc:h2:~/tempat/letak/db
+</code></pre><p>Contoh untuk Windows,</p>
+<pre><code>jdbc:h2:C:/tempat/letak/db
+</code></pre><p>Contoh menggunakan database client/server,</p>
+<pre><code>jdbc:mysql://websitesaya.com:9001/nama_database
+</code></pre><h2 id="setup-projek">Setup projek</h2>
+<p>Kita akan membuat projek menggunakan Maven. Di sini, saya menggunakan IDE
+IntelliJ Community Edition (Free). Jadi, buka IntelliJ. Kemudian, klik <code>Create
+New Project</code>. Di sebelah kiri, pilih <code>Maven</code> dan klik <code>Next</code>.</p>
+<p><code>GroupId</code> ialah nama package untuk menentukan bahawa projek tersebut ialah milik
+kita, biasanya kita letak mengikut nama domain. Jika anda tidak memiliki domain,
+suka hati anda nak letak apa. Jadi, saya akan letak <code>com.jombelajarjava</code> sebagai
+<code>GroupId</code>. <code>ArtifactId</code> pula ialah nama package untuk projek kita. Jadi, saya
+akan letakkan <code>tutorialh2</code>. Setelah selesai, klik <code>Next</code>.</p>
+<p>Di skrin berikutnya, tentukan di mana anda ingin letak folder untuk projek anda.
+Kemudian, klik <code>Finish</code>.</p>
+<p>Setelah selesai, IntelliJ akan membina projek Maven dan anda akan nampak file
+XML seperti ini,</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">project</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
+         <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+         <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.jombelajarjava<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lalala<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span>
+</code></pre>
+<p>File ini bernama <code>pom.xml</code>. File inilah tempat untuk kita menentukan config untuk projek Maven.</p>
+<p>Untuk menambah library database H2, tambah config ini di <code>pom.xml</code>:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.h2database<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>h2<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.4.196<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
+</code></pre>
+<p>File <code>pom.xml</code> kemudiannya akan kelihatan seperti ini:</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">project</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
+         <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+         <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.jombelajarjava<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>tutorialh2<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.h2database<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>h2<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.4.196<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span>
+</code></pre>
+<p>Anda boleh check version library tersebut di
+<a href="https://search.maven.org" target="_blank">Maven Central</a>.</p>
+<p>Jika anda menggunakan IntelliJ, IntelliJ akan tanya sama ada anda ingin download
+library H2 tersebut.</p>
+<h2 id="class-main">Class Main</h2>
+<p>Code Java untuk projek Maven kebiasaannya diletakkan di dalam folder
+<code>src/main/java</code>. Jadi, right click folder tersebut, kemudian <code>New</code> dan klik
+<code>Java Class</code>. Letakkan nama class termasuk nama package, contoh yang saya akan
+guna, <code>com.jombelajarjava.H2Application</code>.</p>
+<p>Class <code>H2Application</code> kita jadikan sebagai class untuk aplikasi. Di sini kita
+akan letakkan config untuk database. Kita juga akan meletakkan code untuk mula
+membina database dalam method <code>init()</code>. Oleh itu, class <code>H2Application</code> pada
+awalnya akan kelihatan seperti ini:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.jombelajarjava;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">H2Application</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String DATABASE_URL = <span class="hljs-string">&quot;jdbc:h2:~/tutorialh2/db&quot;</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String NAME = <span class="hljs-string">&quot;root&quot;</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String PASSWORD = <span class="hljs-string">&quot;root&quot;</span>;
+
+    H2Application() {
+        init();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span> </span>{
+
+    }
+}
+</code></pre>
+<p>Perhatian, dalam situasi sebenar, elakkan meletakkan nama dan password dalam
+code. Biasanya kita perlu dapatkan maklumat tersebut daripada <em>environment
+variable</em> ataupun file yang berasingan supaya lebih selamat.</p>
+<p>Selepas ini, dalam folder yang sama, create class <code>Main</code> untuk kita letakkan
+<code>main()</code> method untuk run aplikasi tersebut. Class <code>Main</code> akan menjadi seperti
+ini,</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.jombelajarjava;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        H2Application app = <span class="hljs-keyword">new</span> H2Application();
+    }
+}
+</code></pre>
+<h2 id="menggunakan-database">Menggunakan database</h2>
+<p>Untuk menggunakan database daripada aplikasi Java, kita perlu membuat dua
+langkah ini:</p>
+<ol>
+<li>Membuat connection ke database.</li>
+<li>Menjalankan code SQL.</li>
+</ol>
+<p>Untuk membuat connection, kita boleh menggunakan class <code>DriverManager</code>. Sebagai
+contoh, kita akan buat dalam method <code>init()</code> yang sedia ada, seperti ini:</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span> </span>{
+    Connection conn;
+    <span class="hljs-keyword">try</span> {
+        conn = DriverManager.getConnection(DATABASE_URL, NAME, PASSWORD);
+        conn.close();
+    } <span class="hljs-keyword">catch</span> (SQLException e) {
+        e.printStackTrace();
+    }
+}
+</code></pre>
+<p>Selepas selesai dengan panggilan database, kita perlu menutup semula connection
+tersebut dengan menggunakan method <code>close()</code>.</p>
+<p>Untuk menjalankan code SQL daripada connection tersebut, kita boleh menggunakan
+method <code>createStatement()</code> atau <code>prepareStatement()</code>. Daripada statement
+tersebut kita boleh jalankan code SQL menggunakan method <code>executeUpdate()</code> atau
+<code>executeQuery()</code>. Contoh:</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span> </span>{
+    Connection conn;
+    Statement stmt;
+    <span class="hljs-keyword">try</span> {
+        conn = DriverManager.getConnection(DATABASE_URL, NAME, PASSWORD);
+        stmt = conn.createStatement();
+        stmt.executeUpdate(
+            <span class="hljs-string">&quot;CREATE TABLE IF NOT EXISTS KUCING (&quot;</span> +
+                <span class="hljs-string">&quot;ID IDENTITY, &quot;</span> +
+                <span class="hljs-string">&quot;NAMA VARCHAR(100) NOT NULL, &quot;</span> +
+                <span class="hljs-string">&quot;JANTINA ENUM(&apos;jantan&apos;, &apos;betina&apos;), &quot;</span> +
+                <span class="hljs-string">&quot;TARIKH_LAHIR DATE NOT NULL&quot;</span> +
+            <span class="hljs-string">&quot;)&quot;</span>);
+        stmt.close();
+        conn.close();
+    } <span class="hljs-keyword">catch</span> (SQLException e) {
+        e.printStackTrace();
+    }
+}
+</code></pre>
+<p>Statement juga sama seperti Connection, perlu ditutup menggunakan method
+<code>close()</code> setelah digunakan.</p>
+<h2 id="try-with-resources">try-with-resources</h2>
+<p>Jika kita lihat code tersebut agak menyusahkan kerana perlu <code>close()</code> setiap
+masa. Jika anda masih ingat, dalam tutorial link:/exception-part-2/[Exception]
+lepas kita ada belajar <code>try-with-resources</code>. Jadi, kita akan menggunakannya di
+sini. Code terbaru kemudiannya akan menjadi seperti ini:</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">try</span> (Connection conn = DriverManager.getConnection(DATABASE_URL, NAME, PASSWORD);
+         Statement stmt = conn.createStatement()) {
+        stmt.executeUpdate(
+            <span class="hljs-string">&quot;CREATE TABLE IF NOT EXISTS KUCING (&quot;</span> +
+                <span class="hljs-string">&quot;ID IDENTITY, &quot;</span> +
+                <span class="hljs-string">&quot;NAMA VARCHAR(100) NOT NULL, &quot;</span> +
+                <span class="hljs-string">&quot;JANTINA ENUM(&apos;jantan&apos;, &apos;betina&apos;), &quot;</span> +
+                <span class="hljs-string">&quot;TARIKH_LAHIR DATE NOT NULL&quot;</span> +
+            <span class="hljs-string">&quot;)&quot;</span>);
+    } <span class="hljs-keyword">catch</span> (SQLException e) {
+        e.printStackTrace();
+    }
+}
+</code></pre>
+<p>Jika anda menggunakan IntelliJ, IntelliJ akan complain kerana
+<code>try-with-resources</code> ialah feature Java 7 dan ke atas. Untuk selesaikannya,
+tekan <code>Alt+Enter</code> kemudian pilih <code>Set language level to 7</code>. IntelliJ akan
+menambah config pada <code>pom.xml</code> secara automatik. Anda boleh nampak config baru
+dalam file <code>pom.xml</code>, iaitu</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">source</span>&gt;</span>1.7<span class="hljs-tag">&lt;/<span class="hljs-name">source</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">target</span>&gt;</span>1.7<span class="hljs-tag">&lt;/<span class="hljs-name">target</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span>
+</code></pre>
+<p>Sekarang barulah kita boleh run aplikasi kita.</p>
+<h2 id="run-code">Run code</h2>
+<p>Semasa development, kita boleh saja terus run menggunakan IntelliJ tanpa
+menggunakan Maven. Jadi kita run seperti biasa, klik kanan pada class <code>Main</code>
+kemudian klik <code>Run &apos;Main.main()&apos;</code>. Setelah selesai, H2 akan create table
+<code>KUCING</code>.</p>
+<h2 id="h2-console">H2 Console</h2>
+<p>Antara feature yang saya suka pada H2 ialah H2 Console. Jika anda pernah
+menggunakan database seperti MySQL, anda mungkin perlu setup phpMyAdmin untuk
+melihat kandungan database tersebut di browser.</p>
+<p>Dengan H2, kita hanya perlu run library JAR H2 untuk mendapatkan fungsi yang
+sama. Jadi, cari file JAR yang di download oleh Maven. Di komputer saya (Linux),
+lokasi tersebut ialah</p>
+<pre><code>~/.m2/repository/com/h2database/h2/1.4.196
+</code></pre><p>Setelah <code>cd</code> ke lokasi tersebut, kita boleh run H2 Console menggunakan command</p>
+<pre><code>java -jar h2-1.4.196.jar
+</code></pre><p>Browser akan automatik terbuka dengan GUI ke database H2. Masukkan URL, nama,
+dan password yang sama untuk lihat kandungan database kita dan anda akan dapat
+lihat kita ada table <code>KUCING</code> yang kita create sebelum ini.</p>
+<p>Anda boleh lihat di
+<a href="http://www.h2database.com/html/tutorial.html#tutorial_starting_h2_console" target="_blank">sini</a>
+cara untuk buka H2 Console jika anda menggunakan Windows.</p>
+
                                 
                                 </section>
                             
@@ -1167,7 +1385,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"JDBC","level":"1.6.3","depth":2,"next":{"title":"DAO dan Service","level":"1.6.4","depth":2,"path":"database/dao-dan-service.md","ref":"database/dao-dan-service.md","articles":[]},"previous":{"title":"H2","level":"1.6.2","depth":2,"path":"database/h2.md","ref":"database/h2.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"database/jdbc.md","mtime":"2018-11-25T04:11:56.345Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T07:21:49.864Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"JDBC","level":"1.6.3","depth":2,"next":{"title":"DAO dan Service","level":"1.6.4","depth":2,"path":"database/dao-dan-service.md","ref":"database/dao-dan-service.md","articles":[]},"previous":{"title":"H2","level":"1.6.2","depth":2,"path":"database/h2.md","ref":"database/h2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"database/jdbc.md","mtime":"2018-11-25T07:49:16.231Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T07:21:49.864Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

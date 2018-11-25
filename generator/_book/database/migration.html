@@ -1124,7 +1124,87 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="migration">Migration</h1>
+<h2 id="pengenalan">Pengenalan</h2>
+<p><em>Migration</em> bermaksud penghijrahan, sama ada secara perbuatan atau rohani. Dari segi rohani, hijrah boleh bermaksud berubah daripada jahat kepada baik, atau daripada baik kepada lebih baik. Kata kunci yang perlu difokus ialah &apos;berubah&apos;.</p>
+<p>Untuk database, migration bermaksud mengubah bentuk database kepada bentuk yang lain. Kadang kala kita perlu membuat database migration mungkin atas sebab kesilapan, atau mungkin atas sebab untuk menambah baik aplikasi.</p>
+<p>Sebelum ini, operasi database yang kita gunakan untuk membuat table ada di dalam method <code>init()</code>. Sekarang kita akan asingkan operasi tersebut ke tempat yang khas untuk database migration.</p>
+<h2 id="flyway">Flyway</h2>
+<p>Dalam Java, ada beberapa library untuk membuat database migration, antaranya <a href="http://www.liquibase.org" target="_blank">Liquibase</a> dan <a href="https://flywaydb.org" target="_blank">Flyway</a>. Flyway lebih mudah untuk setup, manakala Liquibase lebih sesuai untuk team yang ramai. Untuk tutorial ini, kita akan menggunakan Flyway.</p>
+<h2 id="setup">Setup</h2>
+<p>Database migration hanya dilakukan untuk mengubah database sahaja. Setelah selesai, proses tersebut tidak perlu lagi berlaku semasa ingin menjalankan aplikasi.</p>
+<p>Oleh itu, untuk menambah Flyway ke aplikasi, kita tambah library Flyway sebagai plugin, bukannya dependency:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.flywaydb<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>flyway-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.2.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>
+</code></pre>
+<p>Database migration perlu membuat sambungan ke database untuk membuat operasi database. Sama seperti sebelum ini, untuk membuat sambungan ke database, kita perlu memberi url database, nama dan password:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.flywaydb<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>flyway-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.2.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>jdbc:h2:./db<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">user</span>&gt;</span>root<span class="hljs-tag">&lt;/<span class="hljs-name">user</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">password</span>&gt;</span>root<span class="hljs-tag">&lt;/<span class="hljs-name">password</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>
+</code></pre>
+<p>Anda boleh lihat cara lain di <a href="https://flywaydb.org/documentation/maven/" target="_blank">sini</a>.</p>
+<h2 id="file-migration">File migration</h2>
+<p>Semasa melakukan migration, Flyway akan membaca query daripada file. File tersebut secara default perlu diletakkan di <code>src/main/resources/db/migration/</code>.</p>
+<p>Nama file tersebut adalah seperti ini:</p>
+<pre><code>V1__tajuk_migration.sql
+</code></pre><p>Bermula dengan huruf <code>V</code>, kemudian angka untuk version, kemudian <em>DUA</em> underscore, dan diakhiri dengan tajuk untuk migration tersebut.</p>
+<p>Contoh yang kita akan buat,</p>
+<pre><code>V1__init.sql
+</code></pre><p>Init bermaksud permulaan.</p>
+<p>Kandungannya adalah sama seperti operasi database dalam method <code>init()</code>:</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> KUCING (
+  <span class="hljs-keyword">ID</span> <span class="hljs-keyword">IDENTITY</span>,
+  NAMA <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">100</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+  JANTINA ENUM(<span class="hljs-string">&apos;jantan&apos;</span>, <span class="hljs-string">&apos;betina&apos;</span>),
+  TARIKH_LAHIR <span class="hljs-built_in">DATE</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>
+)
+</code></pre>
+<p>Setelah selesai, anda boleh padam terus method <code>init()</code> kerana tidak perlu digunakan lagi.</p>
+<h2 id="migrate">Migrate</h2>
+<p>Oleh sebab kita menggunakan Maven, untuk menjalankan migration kita boleh menggunakan command:</p>
+<pre><code>mvn flyway:migrate
+</code></pre><p>Setelah selesai, semua operasi database dalam file <code>V1</code> sepatutnya sudah berjaya. Anda boleh melihat sendiri kandungan database anda.</p>
+<h2 id="schema-version">Schema version</h2>
+<p>Maklumat mengenai database migration akan diletakkan dalam table <code>schema_version</code>. Anda boleh lihat kandungan table tersebut untuk melihat database anda sedang berada dalam version berapa.</p>
+<h2 id="alter-table">Alter table</h2>
+<p>Sekarang kita akan saja-saja update table Kucing untuk melihat kegunaan sebenar database migration.</p>
+<p>Katakanlah untuk enum <code>Jantina</code>, kita tidak mahu enum tersebut menggunakan huruf kecil kerana menyusahkan dan tidak selari dengan enum Java. Oleh itu, kita perlu mengubah table Kucing.</p>
+<p>Untuk mengubah table Kucing, kita boleh menggunakan operasi <code>ALTER TABLE</code>. Jadi, create file dengan nama <code>V2__uppercase_enum_jantina.sql</code> dengan kandungan seperti berikut:</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> KUCING
+  <span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">COLUMN</span> JANTINA ENUM(<span class="hljs-string">&apos;JANTAN&apos;</span>, <span class="hljs-string">&apos;BETINA&apos;</span>)
+</code></pre>
+<p>Kemudian, jalankan migration menggunakan command <code>mvn flyway:migrate</code>.</p>
+<p>Setelah selesai, bolehlah kita update code Java untuk enum Jantina seperti berikut:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> Jantina {
+    JANTAN, BETINA;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Jantina <span class="hljs-title">fromChar</span><span class="hljs-params">(<span class="hljs-keyword">final</span> <span class="hljs-keyword">char</span> firstChar)</span> </span>{
+        <span class="hljs-keyword">for</span> (Jantina jantina : Jantina.values()) {
+            <span class="hljs-keyword">if</span> (String.valueOf(jantina.toString().charAt(<span class="hljs-number">0</span>)).equalsIgnoreCase(String.valueOf(firstChar))) {
+                <span class="hljs-keyword">return</span> jantina;
+            }
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Jantina <span class="hljs-title">fromString</span><span class="hljs-params">(<span class="hljs-keyword">final</span> String text)</span> </span>{
+        <span class="hljs-keyword">return</span> Jantina.valueOf(text.toUpperCase(Locale.ENGLISH));
+    }
+}
+</code></pre>
+<p>Sekarang code tersebut lebih pendek berbanding sebelum ini.</p>
+<p>Anda boleh melihat code yang lengkap di <a href="https://github.com/JomBelajarJava/contoh-code-java/tree/master/database/tutorialh2-flyway" target="_blank">sini</a>.</p>
+
                                 
                                 </section>
                             
@@ -1167,7 +1247,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Migration","level":"1.6.7","depth":2,"next":{"title":"Code Quality","level":"1.7","depth":1,"path":"quality/README.md","ref":"quality/README.md","articles":[{"title":"Final","level":"1.7.1","depth":2,"path":"quality/final.md","ref":"quality/final.md","articles":[]},{"title":"Immutable Collections","level":"1.7.2","depth":2,"path":"quality/immutable-collections.md","ref":"quality/immutable-collections.md","articles":[]},{"title":"Inversion of Control","level":"1.7.3","depth":2,"path":"quality/inversion-of-control.md","ref":"quality/inversion-of-control.md","articles":[]},{"title":"Convenience Library","level":"1.7.4","depth":2,"path":"quality/convenience-library.md","ref":"quality/convenience-library.md","articles":[]},{"title":"Design Pattern","level":"1.7.5","depth":2,"path":"quality/design-pattern.md","ref":"quality/design-pattern.md","articles":[]}]},"previous":{"title":"Connection Pool","level":"1.6.6","depth":2,"path":"database/connection-pool.md","ref":"database/connection-pool.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"database/migration.md","mtime":"2018-11-25T04:11:56.345Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T07:21:49.864Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Migration","level":"1.6.7","depth":2,"next":{"title":"Code Quality","level":"1.7","depth":1,"path":"quality/README.md","ref":"quality/README.md","articles":[{"title":"Final","level":"1.7.1","depth":2,"path":"quality/final.md","ref":"quality/final.md","articles":[]},{"title":"Immutable Collections","level":"1.7.2","depth":2,"path":"quality/immutable-collections.md","ref":"quality/immutable-collections.md","articles":[]},{"title":"Inversion of Control","level":"1.7.3","depth":2,"path":"quality/inversion-of-control.md","ref":"quality/inversion-of-control.md","articles":[]},{"title":"Convenience Library","level":"1.7.4","depth":2,"path":"quality/convenience-library.md","ref":"quality/convenience-library.md","articles":[]},{"title":"Design Pattern","level":"1.7.5","depth":2,"path":"quality/design-pattern.md","ref":"quality/design-pattern.md","articles":[]}]},"previous":{"title":"Connection Pool","level":"1.6.6","depth":2,"path":"database/connection-pool.md","ref":"database/connection-pool.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"database/migration.md","mtime":"2018-11-25T08:12:45.836Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T07:21:49.864Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
