@@ -1124,7 +1124,51 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="switch-statement">Switch statement</h1>
+<p><code>Switch statement</code> adalah sama dengan <code>if statement</code> iaitu untuk
+membolehkan program membuat pilihan (<em>decision making</em>). <code>Switch
+statement</code> biasa digunakan jika pilihan terlalu banyak.</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TutorialSwitch</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+
+        <span class="hljs-keyword">int</span> bulan = <span class="hljs-number">5</span>;
+
+        <span class="hljs-keyword">switch</span> (bulan) {
+        <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:  System.out.println(<span class="hljs-string">&quot;Januari&quot;</span>); <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:  System.out.println(<span class="hljs-string">&quot;Februari&quot;</span>); <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:  System.out.println(<span class="hljs-string">&quot;Mac&quot;</span>); <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:  System.out.println(<span class="hljs-string">&quot;April&quot;</span>); <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:  System.out.println(<span class="hljs-string">&quot;Mei&quot;</span>); <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-number">6</span>:  System.out.println(<span class="hljs-string">&quot;Jun&quot;</span>); <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-number">7</span>:  System.out.println(<span class="hljs-string">&quot;Julai&quot;</span>); <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-number">8</span>:  System.out.println(<span class="hljs-string">&quot;Ogos&quot;</span>); <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-number">9</span>:  System.out.println(<span class="hljs-string">&quot;September&quot;</span>); <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-number">10</span>: System.out.println(<span class="hljs-string">&quot;Oktober&quot;</span>); <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-number">11</span>: System.out.println(<span class="hljs-string">&quot;November&quot;</span>); <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-number">12</span>: System.out.println(<span class="hljs-string">&quot;Disember&quot;</span>); <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">default</span>: System.out.println(<span class="hljs-string">&quot;bulan tidak wujud&quot;</span>); <span class="hljs-keyword">break</span>;
+        }
+    }
+}
+</code></pre>
+<p>Kurungan selepas <code>switch</code> diletakkan variable yang digunakan untuk
+perbandingan. Data selepas <code>case</code> diletakkan perbandingan yang ada.
+Jadi, <code>case 1</code> bermaksud adakah bulan sama dengan 1? Jika ya, code
+selepasnya akan dilaksanakan. Akhir sekali, diletakkan <code>break</code>
+menandakan berakhirnya code yang perlu dilaksanakan.</p>
+<p><code>default</code> adalah sama dengan <code>else</code> dalam <code>if statement</code> iaitu
+merupakan pilihan terakhir untuk code tersebut.</p>
+<p>Kelebihan menggunakan <code>switch</code> adalah untuk memudahkan orang membaca
+code tersebut (<em>readability</em>). Jika anda mahu, anda boleh tulis semua
+code tersebut menggunakan <code>if statement</code>.</p>
+<blockquote>
+<p>P/S: Jangan lupa untuk menulis <code>break</code> selepas setiap
+<code>case</code> kerana walaupun code tiada error, akan berlaku sesuatu yang
+anda tidak jangkakan. Anda boleh cuba buang <code>break</code> untuk lihat apa
+yang berlaku.</p>
+</blockquote>
+
                                 
                                 </section>
                             
@@ -1167,7 +1211,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Switch statement","level":"1.2.8","depth":2,"next":{"title":"Boolean","level":"1.2.9","depth":2,"path":"asas/boolean.md","ref":"asas/boolean.md","articles":[]},"previous":{"title":"If statement","level":"1.2.7","depth":2,"path":"asas/if-statement.md","ref":"asas/if-statement.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"asas/switch-statement.md","mtime":"2018-11-25T03:56:20.667Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T05:30:10.966Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Switch statement","level":"1.2.8","depth":2,"next":{"title":"Boolean","level":"1.2.9","depth":2,"path":"asas/boolean.md","ref":"asas/boolean.md","articles":[]},"previous":{"title":"If statement","level":"1.2.7","depth":2,"path":"asas/if-statement.md","ref":"asas/if-statement.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"asas/switch-statement.md","mtime":"2018-11-25T06:05:36.910Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T05:41:03.029Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

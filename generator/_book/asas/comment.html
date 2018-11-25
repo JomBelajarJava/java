@@ -1124,7 +1124,35 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="comment">Comment</h1>
+<p>Sebelum program kita jadi lebih rumit, kita akan lihat cara untuk letak
+comment pada code kita.</p>
+<p>Comment ialah teks yang kita letak pada code untuk menerangkan kepada
+orang lain mengenai apa, mengapa, dan bagaimana kita tulis code
+tersebut.</p>
+<p>Sebelum kita tulis comment, kita kena terlebih dahulu beritahu kepada
+komputer bahawa teks tersebut ialah comment. Caranya adalah
+dengan menggunakan simbol <code>//</code>. Semua teks yang berada selepas <code>//</code> akan
+menjadi comment.</p>
+<p>Sebagai alternatif jika comment kita terlalu panjang, kita juga boleh
+menggunakan simbol <code>/\*</code> dan <code>*/</code>. Semua teks yang berada di antara dua
+simbol tersebut akan menjadi comment.</p>
+<p>Contoh comment yang kita boleh letak pada HelloWorld:</p>
+<pre><code class="lang-java"><span class="hljs-comment">/*
+ * Program ini akan memaparkan Hello, World!
+ * di command line interface.
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloWorld</span> </span>{
+
+  <span class="hljs-comment">// Mula-mula sekali, komputer akan cari main()</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+    System.out.println(<span class="hljs-string">&quot;Hello, World!&quot;</span>); <span class="hljs-comment">// Paparkan teks tersebut</span>
+  }
+}
+</code></pre>
+<p>Apabila kita compile HelloWorld bersama comment, komputer akan abaikan
+segala comment tersebut.</p>
+
                                 
                                 </section>
                             
@@ -1167,7 +1195,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Comment","level":"1.2.3","depth":2,"next":{"title":"Matematik","level":"1.2.4","depth":2,"path":"asas/matematik.md","ref":"asas/matematik.md","articles":[]},"previous":{"title":"Simple Program","level":"1.2.2","depth":2,"path":"asas/simple-program.md","ref":"asas/simple-program.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"asas/comment.md","mtime":"2018-11-25T03:56:20.667Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T05:30:10.966Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Comment","level":"1.2.3","depth":2,"next":{"title":"Matematik","level":"1.2.4","depth":2,"path":"asas/matematik.md","ref":"asas/matematik.md","articles":[]},"previous":{"title":"Simple Program","level":"1.2.2","depth":2,"path":"asas/simple-program.md","ref":"asas/simple-program.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"asas/comment.md","mtime":"2018-11-25T06:09:56.367Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T05:41:03.029Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

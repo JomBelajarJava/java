@@ -1124,7 +1124,149 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="variable">Variable</h1>
+<p>Variable ialah tempat untuk menyimpan data.</p>
+<p>Contohnya, jika kita buat sesuatu pengiraan dan sudah mendapat jawapan.
+Kemudian kita mahu menggunakan jawapan tersebut di tempat lain, tetapi
+kita tidak mahu membuat pengiraan semula. Jadi, kita boleh menggunakan
+variable untuk menyimpan jawapan tersebut dan terus guna di tempat yang
+kita mahu.</p>
+<p>Untuk membuat variable, kita tulis jenis data kemudian nama variable
+tersebut. Sebagai contoh,</p>
+<pre><code class="lang-java"><span class="hljs-keyword">int</span> nombor;
+</code></pre>
+<p>Untuk menyimpan data dalam variable tersebut, tulis nama variable,
+kemudian tulis simbol <code>=</code> diikuti dengan data. Contoh,</p>
+<pre><code class="lang-java">nombor = <span class="hljs-number">5</span>;
+</code></pre>
+<p>Kita juga boleh terus memasukkan data sebaik sahaja kita membuat
+variable,</p>
+<pre><code class="lang-java"><span class="hljs-keyword">int</span> nombor = <span class="hljs-number">5</span>;
+</code></pre>
+<p>Berikut adalah contoh program menggunakan variable untuk menyimpan
+pelbagai jenis data, dan cara untuk menggunakannya:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohVariable</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+
+        <span class="hljs-comment">// &apos;int&apos; adalah jenis data yang kita nak simpan, int bermaksud</span>
+        <span class="hljs-comment">// integer(nombor bulat). &apos;nomborBulat&apos; adalah nama kepada variable</span>
+        <span class="hljs-comment">// tersebut, kita boleh namakan apa-apa sahaja.</span>
+        <span class="hljs-keyword">int</span> nomborBulat = <span class="hljs-number">5</span>;
+        System.out.println(nomborBulat);
+
+        <span class="hljs-comment">// &apos;double&apos; adalah jenis data untuk nombor perpuluhan</span>
+        <span class="hljs-keyword">double</span> nomborPerpuluhan = <span class="hljs-number">6.7345</span>;
+        System.out.println(nomborPerpuluhan);
+
+        <span class="hljs-comment">// &apos;char&apos; adalah jenis data untuk character (huruf, nombor, simbol</span>
+        <span class="hljs-comment">// dan sebagainya)</span>
+        <span class="hljs-keyword">char</span> huruf = <span class="hljs-string">&apos;z&apos;</span>;
+        System.out.println(huruf);
+
+        <span class="hljs-comment">// &apos;boolean&apos; adalah jenis data untuk simpan true atau false sahaja</span>
+        <span class="hljs-keyword">boolean</span> betulAtauSalah = <span class="hljs-keyword">false</span>;
+        System.out.println(betulAtauSalah);
+
+        <span class="hljs-comment">// String adalah jenis data untuk gabungan beberapa character</span>
+        String email = <span class="hljs-string">&quot;Email saya ialah [email protected]&quot;</span>;
+        System.out.println(email);
+    }
+}
+</code></pre>
+<h2 id="contoh-penggunaan-variable">Contoh penggunaan variable</h2>
+<p>Variable boleh digunakan dalam operasi matematik:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohPenggunaanVariable</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+
+        <span class="hljs-keyword">int</span> a = <span class="hljs-number">10</span>;
+        <span class="hljs-keyword">int</span> b = <span class="hljs-number">15</span>;
+        <span class="hljs-keyword">int</span> c = a + b;
+        System.out.println(c);  <span class="hljs-comment">// akan papar 25</span>
+    }
+}
+</code></pre>
+<p>Variable hanya boleh menyimpan satu data pada satu masa. Apabila kita
+masukkan data yang lain pada variable yang sama, data yang asal akan
+digantikan dengan data yang baru:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohPenggunaanVariable</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+
+        <span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;
+        x = <span class="hljs-number">10</span>;
+        System.out.println(x);  <span class="hljs-comment">// akan papar 10</span>
+    }
+}
+</code></pre>
+<p>Kita boleh menggunakan data yang asal untuk digunakan dalam mana-mana
+operasi, kemudian masukkan kembali ke variable yang sama. Contoh:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohPenggunaanVariable</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+
+        <span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;
+        x = x + <span class="hljs-number">1</span>;
+        System.out.println(x);  <span class="hljs-comment">// akan papar 6</span>
+    }
+}
+</code></pre>
+<p>Cara yang sama, cuma lebih ringkas:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohPenggunaanVariable</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+
+        <span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;
+        x += <span class="hljs-number">1</span>;
+        System.out.println(x);  <span class="hljs-comment">// sama, akan papar 6</span>
+    }
+}
+</code></pre>
+<p>Juga cara yang sama, tetapi cara ini hanya boleh bertambah atau
+berkurang satu sahaja:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohPenggunaanVariable</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+
+        <span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;
+        x++;
+        System.out.println(x);  <span class="hljs-comment">// juga sama, akan papar 6</span>
+    }
+}
+</code></pre>
+<h2 id="tujuan-kita-perlu-menulis-jenis-data">Tujuan kita perlu menulis jenis data</h2>
+<p>Kita perlu menulis jenis data kerana ada sesetengah operasi yang boleh
+digunapakai oleh lebih dari satu jenis data. Contohnya, jika kita tambah
+dua nombor, kita akan dapat jumlahnya. Tetapi jika kita tambah dua
+string, kita menggabungkan dua string tersebut.</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohPenggunaanVariable</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+
+        <span class="hljs-keyword">int</span> nombor1 = <span class="hljs-number">10</span>;
+        <span class="hljs-keyword">int</span> nombor2 = <span class="hljs-number">10</span>;
+        System.out.println(nombor1 + nombor2);  <span class="hljs-comment">// akan papar 20</span>
+    }
+}
+</code></pre>
+<p>Berbeza dengan ini,</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohPenggunaanVariable</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+
+        String nombor1 = <span class="hljs-string">&quot;10&quot;</span>;
+        String nombor2 = <span class="hljs-string">&quot;10&quot;</span>;
+        System.out.println(nombor1 + nombor2);  <span class="hljs-comment">// akan papar 1010</span>
+    }
+}
+</code></pre>
+<p>Ataupun gabungan daripada yang berlainan jenis,</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohPenggunaanVariable</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+
+        <span class="hljs-keyword">int</span> duit = <span class="hljs-number">150</span>;
+        String ayat = <span class="hljs-string">&quot;Saya ada RM &quot;</span>;
+        System.out.println(ayat + duit);  <span class="hljs-comment">// &quot;Saya ada RM 150&quot;</span>
+    }
+}
+</code></pre>
+
                                 
                                 </section>
                             
@@ -1167,7 +1309,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Variable","level":"1.2.5","depth":2,"next":{"title":"Loop","level":"1.2.6","depth":2,"path":"asas/loop.md","ref":"asas/loop.md","articles":[]},"previous":{"title":"Matematik","level":"1.2.4","depth":2,"path":"asas/matematik.md","ref":"asas/matematik.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"asas/variable.md","mtime":"2018-11-25T03:56:20.667Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T05:30:10.966Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Variable","level":"1.2.5","depth":2,"next":{"title":"Loop","level":"1.2.6","depth":2,"path":"asas/loop.md","ref":"asas/loop.md","articles":[]},"previous":{"title":"Matematik","level":"1.2.4","depth":2,"path":"asas/matematik.md","ref":"asas/matematik.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"asas/variable.md","mtime":"2018-11-25T06:11:38.808Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T05:41:03.029Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

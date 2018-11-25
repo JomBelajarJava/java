@@ -1124,7 +1124,99 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="loop">Loop</h1>
+<p>Loop ialah kaedah untuk mengulangi sesuatu proses.</p>
+<p>Contohnya, jika kita mahu menulis sesuatu sebanyak 100 kali. Satu cara
+adalah dengan menulis <code>System.out.println()</code> sebanyak 100 kali, tapi
+apakan daya, kita manusia biasa. Jadi, kita boleh beritahu program untuk
+<code>System.out.println()</code> sebanyak 100 kali.</p>
+<p>Ada tiga cara untuk menulis loop, iaitu: <code>while loop</code>, <code>for loop</code>, dan
+<code>do while loop</code>. Semuanya lakukan benda yang sama iaitu untuk mengulangi
+sesuatu.</p>
+<h2 id="while-loop">While loop</h2>
+<p>Program untuk menulis sesuatu berkali-kali:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohWhileLoop</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>; <span class="hljs-comment">// variable untuk mengira</span>
+
+        <span class="hljs-keyword">while</span> (count &lt; <span class="hljs-number">100</span>) { <span class="hljs-comment">// bermaksud selagi count kurang daripada 100</span>
+
+            System.out.println(<span class="hljs-string">&quot;Cikgu suka main bola, hari-hari cikgu main bola.&quot;</span>);
+            count++; <span class="hljs-comment">// tambah satu setelah menulis sesuatu pada terminal</span>
+        }
+    }
+}
+</code></pre>
+<p>Kurungan selepas <code>while</code> ialah syarat yang kita tetapkan untuk
+mengulang. Jadi, code tersebut bermaksud:</p>
+<ul>
+<li>Tulis <code>Cikgu suka main bola, hari-hari cikgu main bola</code>.</li>
+<li>Tambah satu pada <code>count</code>.</li>
+<li>Ulang dengan syarat <code>count kurang daripada 100</code>.</li>
+<li>Loop akan berhenti apabila count sudah menjadi 100 kerana sudah
+melanggar syarat.</li>
+</ul>
+<h2 id="for-loop">For loop</h2>
+<p>Program yang sama tetapi menggunakan <em>for loop</em>:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohForLoop</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>; count &lt; <span class="hljs-number">100</span>; count++) {
+            System.out.println(<span class="hljs-string">&quot;Cikgu suka main bola, hari-hari cikgu main bola.&quot;</span>);
+        }
+    }
+}
+</code></pre>
+<p>Kurungan selepas <code>for</code> diletakkan tiga benda sama yang ada pada <em>while
+loop</em>:</p>
+<ul>
+<li>Variable <code>count</code> untuk mengira.</li>
+<li>Syarat untuk mengulang, <code>count &lt; 100</code>.</li>
+<li>Penambahan kepada variable <code>count</code>.</li>
+</ul>
+<h2 id="do-while-loop">Do while loop</h2>
+<p>Program yang sama tetapi menggunakan <em>do while loop</em>:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohDoWhileLoop</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;
+
+        do {
+            System.out.println(<span class="hljs-string">&quot;Cikgu suka main bola, hari-hari cikgu main bola.&quot;</span>);
+            count++;
+        } <span class="hljs-keyword">while</span> (count &lt; <span class="hljs-number">100</span>);
+    }
+}
+</code></pre>
+<h2 id="while-loop-vs-do-while-loop">While loop vs do while loop</h2>
+<p>Beza antara dua loop ini ialah kedudukan syarat untuk mengulang. Untuk
+<code>while loop</code> diletakkan pada awal code, dan untuk <code>do while loop</code>
+diletakkan pada akhir code. Kesannya, <code>do while loop</code> mesti akan execute
+code tersebut paling kurang sekali.</p>
+<p>Sebagai bukti, kita boleh execute dua program menggunakan syarat <code>count
+&lt; 0</code>:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WhileVsDoWhile</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;
+
+        <span class="hljs-keyword">while</span> (count &lt; <span class="hljs-number">0</span>) {
+            System.out.println(<span class="hljs-string">&quot;Cikgu suka main bola, hari-hari cikgu main bola.&quot;</span>);
+            count++;
+        }
+    }
+}
+</code></pre>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WhileVsDoWhile</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;
+
+        do {
+            System.out.println(<span class="hljs-string">&quot;Cikgu suka main bola, hari-hari cikgu main bola.&quot;</span>);
+            count++;
+        } <span class="hljs-keyword">while</span> (count &lt; <span class="hljs-number">0</span>);
+    }
+}
+</code></pre>
+<p>Hasilnya, hanya string dari <code>do while loop</code> yang dipaparkan.</p>
+
                                 
                                 </section>
                             
@@ -1167,7 +1259,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Loop","level":"1.2.6","depth":2,"next":{"title":"If statement","level":"1.2.7","depth":2,"path":"asas/if-statement.md","ref":"asas/if-statement.md","articles":[]},"previous":{"title":"Variable","level":"1.2.5","depth":2,"path":"asas/variable.md","ref":"asas/variable.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"asas/loop.md","mtime":"2018-11-25T03:56:20.667Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T05:30:10.966Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Loop","level":"1.2.6","depth":2,"next":{"title":"If statement","level":"1.2.7","depth":2,"path":"asas/if-statement.md","ref":"asas/if-statement.md","articles":[]},"previous":{"title":"Variable","level":"1.2.5","depth":2,"path":"asas/variable.md","ref":"asas/variable.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"asas/loop.md","mtime":"2018-11-25T06:12:55.188Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T05:41:03.029Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

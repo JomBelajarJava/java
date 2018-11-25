@@ -1124,7 +1124,41 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="simple-program">Simple Program</h1>
+<blockquote>
+<p>&quot;1000 langkah bermula dari satu langkah pertama&quot;</p>
+</blockquote>
+<p>Kita akan mula programming dengan membuat program yang sangat simple,
+iaitu memaparkan perkataan &quot;Hello, World!&quot;.</p>
+<p>Buka text editor (Notepad/Vim/Emacs), kemudian tulis code
+berikut:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloWorld</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+    System.out.println(<span class="hljs-string">&quot;Hello, World!&quot;</span>);
+  }
+}
+</code></pre>
+<p>dan save sebagai <code>HelloWorld.java</code>.</p>
+<h2 id="compile">Compile</h2>
+<p>Compile ialah proses untuk menukar code kita kepada bahasa yang difahami
+oleh komputer. Untuk compile code Java, buka command line interface
+(command prompt untuk Windows, terminal untuk Linux), dan tulis:</p>
+<pre><code>javac C:\Users\NamaAnda\Desktop\FolderAnda\HelloWorld.java
+</code></pre><p>Path tersebut bergantung kepada di mana anda save HelloWorld.java di
+komputer anda.</p>
+<p>Selepas compile, akan ada file <code>HelloWorld.class</code> di dalam folder yang
+sama untuk <code>HelloWorld.java</code>, yang bermaksud anda telah berjaya compile
+program tersebut.</p>
+<h2 id="execute">Execute</h2>
+<p>Setelah berjaya compile, kita sudah boleh execute program HelloWorld,
+dengan cara tulis seperti di bawah di command line interface.</p>
+<pre><code>java C:\Users\NamaAnda\Desktop\FolderAnda\HelloWorld
+</code></pre><p>dan kita akan nampak teks &quot;Hello, World!&quot; pada command line interface.</p>
+<p>Perhatikan untuk execute, kita hanya tulis &#x2018;java&#x2019; tanpa huruf c, berbeza
+dengan compile, iaitu <code>javac</code>.</p>
+<p>Tahniah! Anda telah berjaya menulis, compile, dan execute program
+pertama anda.</p>
+
                                 
                                 </section>
                             
@@ -1167,7 +1201,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Simple Program","level":"1.2.2","depth":2,"next":{"title":"Comment","level":"1.2.3","depth":2,"path":"asas/comment.md","ref":"asas/comment.md","articles":[]},"previous":{"title":"Installation","level":"1.2.1","depth":2,"path":"asas/installation.md","ref":"asas/installation.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"asas/simple-program.md","mtime":"2018-11-25T03:56:20.667Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T05:30:10.966Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Simple Program","level":"1.2.2","depth":2,"next":{"title":"Comment","level":"1.2.3","depth":2,"path":"asas/comment.md","ref":"asas/comment.md","articles":[]},"previous":{"title":"Installation","level":"1.2.1","depth":2,"path":"asas/installation.md","ref":"asas/installation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"asas/simple-program.md","mtime":"2018-11-25T06:08:52.923Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T05:41:03.029Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
