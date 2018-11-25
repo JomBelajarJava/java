@@ -1124,7 +1124,126 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="queue">Queue</h1>
+<p>Queue menggunakan kaedah <em>first in, first out</em> (FIFO) yang bermaksud
+data yang mula-mula masuk akan keluar dahulu. Sebagai contoh semasa
+beratur di kantin, orang yang mula-mula datang yang akan dapat beli
+dahulu, siapa yang lambat kena beratur di belakang.</p>
+<p>Class yang menggunakan queue antaranya ialah <code>LinkedList</code> dan
+<code>PriorityQueue</code>.</p>
+<h2 id="linkedlist">LinkedList</h2>
+<p>Contoh untuk membuat queue menggunakan LinkedList:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> datastructure;
+
+<span class="hljs-keyword">import</span> java.util.LinkedList;
+<span class="hljs-keyword">import</span> java.util.Queue;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohQueue</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+
+        Queue&lt;String&gt; customers = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();
+        customers.offer(<span class="hljs-string">&quot;pelanggan pertama&quot;</span>);
+        customers.offer(<span class="hljs-string">&quot;pelanggan kedua&quot;</span>);
+        customers.offer(<span class="hljs-string">&quot;pelanggan ketiga&quot;</span>);
+
+        System.out.println(<span class="hljs-string">&quot;Ambik order &quot;</span> + customers.poll());
+        System.out.println(<span class="hljs-string">&quot;Next!&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;Ambik order &quot;</span> + customers.poll());
+
+        System.out.println(<span class="hljs-string">&quot;Alamak makanan sudah habis, siapa pelanggaan seterusnya?&quot;</span>);
+        System.out.println(customers .peek());
+        System.out.println(customers.peek() + <span class="hljs-string">&quot; sedang menunggu...&quot;</span>);
+    }
+}
+</code></pre>
+<p>Method yang digunakan adalah seperti berikut:</p>
+<ul>
+<li><code>offer()</code> &#x2013; untuk memasukkan data ke dalam Queue</li>
+<li><code>poll()</code> &#x2013; mengeluarkan data untuk digunakan</li>
+<li><code>peek()</code> &#x2013; mengakses data tanpa mengeluarkan data tersebut</li>
+</ul>
+<h2 id="priorityqueue">PriorityQueue</h2>
+<p>Walaupun queue secara umumnya menggunakan kaedah FIFO, PriorityQueue
+agak berlainan sedikit. Data di dalam PriorityQueue ditentukan
+menggunakan <em>priority</em> (keutamaan). Data yang mempunyai keutamaan yang
+tinggi akan didahulukan untuk keluar (diproses).</p>
+<p>Contoh situasi sewaktu menaiki kapal terbang. Selepas penumpang diberi
+kebenaran untuk masuk, pramugari pun minta warga emas yang naik dahulu,
+kemudian penumpang yang ada anak kecil, diikuti oleh penumpang-penumpang
+yang lain. Jadi, di sini warga emas mempunyai keutamaan (<em>priority</em>)
+yang lebih tinggi berbanding penumpang yang lain.</p>
+<p>Kita akan gunakan class Penumpang untuk dimasukkan ke dalam
+PriorityQueue:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> datastructure;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Penumpang</span> </span>{
+
+    String jenis;
+    <span class="hljs-keyword">int</span> keutamaan;      <span class="hljs-comment">// nombor besar bermaksud high priority</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Penumpang</span><span class="hljs-params">(String jenis, <span class="hljs-keyword">int</span> keutamaan)</span> </span>{
+        <span class="hljs-keyword">this</span>.jenis = jenis;
+        <span class="hljs-keyword">this</span>.keutamaan = keutamaan;
+    }
+}
+</code></pre>
+<p>Bagi menentukan keutamaan sesuatu class, kita boleh menggunakan class
+yang menggunakan interface <code>Comparator&lt;E&gt;</code>:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> datastructure;
+
+<span class="hljs-keyword">import</span> java.util.Comparator;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">KeutamaanPenumpang</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Comparator</span>&lt;<span class="hljs-title">Penumpang</span>&gt; </span>{
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compare</span><span class="hljs-params">(Penumpang o1, Penumpang o2)</span> </span>{
+        <span class="hljs-keyword">return</span> o2.keutamaan - o1.keutamaan;
+    }
+
+}
+</code></pre>
+<p>Untuk interface <code>Comparator</code>, jika method <code>compare()</code> menghasilkan
+nombor negatif bermaksud <code>o1</code> lebih diutamakan, jika nombor positif
+bermaksud <code>o2</code> diutamakan, dan jika <code>return 0</code> bermaksud sama
+priority.</p>
+<p>Kita mahu field <code>keutamaan</code> di class Penumpang menjadi <em>high priority</em>
+jika nombor besar dan <em>low priority</em> jika nombor kecil, jadi kita
+tentukan priority dengan cara,</p>
+<pre><code class="lang-java">o2.keutamaan &#x2013; o1.keutamaan;
+</code></pre>
+<p>Jika diterbalikkan seperti ini,</p>
+<pre><code class="lang-java">o1.keutamaan &#x2013; o2.keutamaan;
+</code></pre>
+<p>bermaksud nombor kecil ialah <em>high priority</em>, dan nombor besar ialah
+<em>low priority</em>. Terpulang kepada anda hendak pilih yang mana.</p>
+<p>Cara penggunaan PriorityQueue adalah seperti berikut:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> datastructure;
+
+<span class="hljs-keyword">import</span> java.util.PriorityQueue;
+<span class="hljs-keyword">import</span> java.util.Queue;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohQueue</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+
+        Queue&lt;Penumpang&gt; airport = <span class="hljs-keyword">new</span> PriorityQueue&lt;&gt;(<span class="hljs-keyword">new</span> KeutamaanPenumpang());
+        airport.offer(<span class="hljs-keyword">new</span> Penumpang(<span class="hljs-string">&quot;lelaki dewasa bujang&quot;</span>, <span class="hljs-number">1</span>));
+        airport.offer(<span class="hljs-keyword">new</span> Penumpang(<span class="hljs-string">&quot;wanita bujang&quot;</span>, <span class="hljs-number">1</span>));
+        airport.offer(<span class="hljs-keyword">new</span> Penumpang(<span class="hljs-string">&quot;warga emas lelaki&quot;</span>, <span class="hljs-number">3</span>));
+        airport.offer(<span class="hljs-keyword">new</span> Penumpang(<span class="hljs-string">&quot;pasangan pengantin&quot;</span>, <span class="hljs-number">1</span>));
+        airport.offer(<span class="hljs-keyword">new</span> Penumpang(<span class="hljs-string">&quot;warga emas perempuan&quot;</span>, <span class="hljs-number">3</span>));
+        airport.offer(<span class="hljs-keyword">new</span> Penumpang(<span class="hljs-string">&quot;ada anak kecil&quot;</span>, <span class="hljs-number">2</span>));
+
+        <span class="hljs-keyword">while</span> (!airport.isEmpty()) {
+            System.out.println(airport.poll().jenis);
+        }
+    }
+}
+</code></pre>
+<p>Hasilnya Penumpang yang mempunyai keutamaan yang lebih tinggi akan
+dikeluarkan dahulu.</p>
+
                                 
                                 </section>
                             
@@ -1167,7 +1286,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Queue","level":"1.5.8","depth":2,"next":{"title":"Deque","level":"1.5.9","depth":2,"path":"datastructure/deque.md","ref":"datastructure/deque.md","articles":[]},"previous":{"title":"Set","level":"1.5.7","depth":2,"path":"datastructure/set.md","ref":"datastructure/set.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"datastructure/queue.md","mtime":"2018-11-25T04:10:46.180Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T06:54:08.367Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Queue","level":"1.5.8","depth":2,"next":{"title":"Deque","level":"1.5.9","depth":2,"path":"datastructure/deque.md","ref":"datastructure/deque.md","articles":[]},"previous":{"title":"Set","level":"1.5.7","depth":2,"path":"datastructure/set.md","ref":"datastructure/set.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"datastructure/queue.md","mtime":"2018-11-25T07:35:14.272Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T07:21:49.864Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

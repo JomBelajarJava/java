@@ -1124,7 +1124,137 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="set">Set</h1>
+<p>Set boleh digunakan untuk menyimpan data yang lain dari yang lain.
+Jika ada yang sama, Set akan menyimpan satu sahaja. Class yang
+menggunakan interface <code>Set</code> antaranya ialah <code>HashSet</code>, <code>TreeSet</code>, dan
+<code>LinkedHashSet</code>.</p>
+<h2 id="hashset">HashSet</h2>
+<p>HashSet digunakan jika kita tidak kisah bagaimana kedudukan data di
+dalam Set. Dari segi performance, HashSet adalah yang terbaik.</p>
+<p>Contoh penggunaannya:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> datastructure;
+
+<span class="hljs-keyword">import</span> java.util.HashSet;
+<span class="hljs-keyword">import</span> java.util.Set;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohSet</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">( args)</span> </span>{
+        Set&lt;String&gt; kuih = <span class="hljs-keyword">new</span> HashSet&lt;&gt;();
+        kuih.add(<span class="hljs-string">&quot;karipap&quot;</span>);
+        kuih.add(<span class="hljs-string">&quot;donat&quot;</span>);
+        kuih.add(<span class="hljs-string">&quot;kuih lapis&quot;</span>);
+        kuih.add(<span class="hljs-string">&quot;karipap&quot;</span>);
+
+        <span class="hljs-keyword">for</span> (String k : kuih) {
+            System.out.println(k);
+        }
+    }
+}
+</code></pre>
+<p>Hasilnya hanya satu <code>karipap</code> sahaja yang ada dalam Set tersebut
+walaupun kita masukkan dua. Perhatikan juga kedudukan kuih tidak
+mengikut urutan seperti yang kita masukkan.</p>
+<h2 id="treeset">TreeSet</h2>
+<p>TreeSet akan menyusun data di dalamnya mengikut nilai data tersebut,
+contohnya jika nombor akan mengikut urutan angka naik, jika String akan
+mengikut huruf:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> datastructure;
+
+<span class="hljs-keyword">import</span> java.util.Set;
+<span class="hljs-keyword">import</span> java.util.TreeSet;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohSet</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        Set&lt;Integer&gt; nombor = <span class="hljs-keyword">new</span> TreeSet&lt;&gt;();
+        nombor.add(<span class="hljs-number">10</span>);
+        nombor.add(<span class="hljs-number">10</span>);
+        nombor.add(<span class="hljs-number">5</span>);
+        nombor.add(<span class="hljs-number">12</span>);
+
+        <span class="hljs-keyword">for</span> (Integer k : nombor) {
+            System.out.println(k);
+        }
+    }
+}
+</code></pre>
+<p>Dari segi performance, TreeSet adalah yang paling lambat.</p>
+<h2 id="linkedhashset">LinkedHashSet</h2>
+<p>LinkedHashSet pula menyusun data mengikut urutan sebagaimana
+urutan kita memasukkan data:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> datastructure;
+
+<span class="hljs-keyword">import</span> java.util.LinkedHashSet;
+<span class="hljs-keyword">import</span> java.util.Set;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohSet</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        Set&lt;Integer&gt; nombor = <span class="hljs-keyword">new</span> LinkedHashSet&lt;&gt;();
+        nombor.add(<span class="hljs-number">10</span>);
+        nombor.add(<span class="hljs-number">10</span>);
+        nombor.add(<span class="hljs-number">5</span>);
+        nombor.add(<span class="hljs-number">12</span>);
+
+        <span class="hljs-keyword">for</span> (Integer k : nombor) {
+            System.out.println(k);
+        }
+    }
+}
+</code></pre>
+<p>Dari segi performance, LinkedHashSet hampir sama laju dengan
+HashSet.</p>
+<h2 id="buang-duplicate">Buang duplicate</h2>
+<p>Set boleh digunakan untuk membuang duplicate daripada <em>data structure</em>
+yang lain.</p>
+<p>Contoh membuang duplicate dalam array:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> datastructure;
+
+<span class="hljs-keyword">import</span> java.util.Arrays;
+<span class="hljs-keyword">import</span> java.util.HashSet;
+<span class="hljs-keyword">import</span> java.util.Set;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohSet</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+
+        Integer[] nombor = {<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">6</span>, <span class="hljs-number">6</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>};
+
+        Set&lt;Integer&gt; setNombor = <span class="hljs-keyword">new</span> HashSet&lt;&gt;(Arrays.asList(nombor));
+
+        Integer[] nomborTanpaDuplicate = setNombor.toArray(<span class="hljs-keyword">new</span> Integer[setNombor.size()]);
+
+        <span class="hljs-keyword">for</span> (Integer n : nomborTanpaDuplicate) {
+            System.out.println(n);
+        }
+    }
+}
+</code></pre>
+<p>Contoh membuang duplicate dalam List:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> datastructure;
+
+<span class="hljs-keyword">import</span> java.util.ArrayList;
+<span class="hljs-keyword">import</span> java.util.HashSet;
+<span class="hljs-keyword">import</span> java.util.List;
+<span class="hljs-keyword">import</span> java.util.Set;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohSet</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        List&lt;String&gt; listNama = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+        listNama.add(<span class="hljs-string">&quot;ali&quot;</span>);
+        listNama.add(<span class="hljs-string">&quot;ali&quot;</span>);
+        listNama.add(<span class="hljs-string">&quot;ali&quot;</span>);
+
+        Set&lt;String&gt; setNama = <span class="hljs-keyword">new</span> HashSet&lt;&gt;(listNama);
+
+        listNama.clear();
+        listNama.addAll(setNama);
+
+        <span class="hljs-keyword">for</span> (String nama : listNama) {
+            System.out.println(nama);
+        }
+    }
+}
+</code></pre>
+
                                 
                                 </section>
                             
@@ -1167,7 +1297,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Set","level":"1.5.7","depth":2,"next":{"title":"Queue","level":"1.5.8","depth":2,"path":"datastructure/queue.md","ref":"datastructure/queue.md","articles":[]},"previous":{"title":"List","level":"1.5.6","depth":2,"path":"datastructure/list.md","ref":"datastructure/list.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"datastructure/set.md","mtime":"2018-11-25T04:10:46.180Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T06:54:08.367Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Set","level":"1.5.7","depth":2,"next":{"title":"Queue","level":"1.5.8","depth":2,"path":"datastructure/queue.md","ref":"datastructure/queue.md","articles":[]},"previous":{"title":"List","level":"1.5.6","depth":2,"path":"datastructure/list.md","ref":"datastructure/list.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"datastructure/set.md","mtime":"2018-11-25T07:33:18.967Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T07:21:49.864Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

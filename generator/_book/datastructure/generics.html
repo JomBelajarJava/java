@@ -1124,7 +1124,38 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="generics">Generics</h1>
+<p>Cuba lihat mana-mana interface yang ada dalam Collections di Java API.</p>
+<p><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html" target="_blank">Klik untuk buka Java API</a></p>
+<p>Jika perasan interface tersebut meletakkan <code>&lt;E&gt;</code> selepas nama
+interface, contohnya,</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">List</span>&lt;<span class="hljs-title">E</span>&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title">Collection</span>&lt;<span class="hljs-title">E</span>&gt;
+</span></code></pre>
+<p>Huruf besar tersebut dinamakan sebagai <em>generics</em>. <em>Generics</em> ini
+digunakan untuk menentukan class apa yang boleh dimasukkan ke dalam data
+structure tersebut. Konsep ini lebih kurang sama seperti parameter.
+Contoh data structure untuk menyimpan class String akan kelihatan
+begini:</p>
+<pre><code class="lang-java">List&lt;String&gt; words = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+</code></pre>
+<p>Selain E, huruf lain juga boleh digunakan seperti T, K, N.</p>
+<h2 id="primitive-wrapper-class">Primitive wrapper class</h2>
+<p>Hanya class yang boleh diletakkan pada <em>generics</em>. Data primitive
+seperti <code>int</code>, <code>double</code>, <code>boolean</code>, dan <code>char</code> bukan class, jadi Java
+menyediakan class <em>wrapper</em> untuk digunakan oleh data primitive. Antara
+class <em>wrapper</em> adalah:</p>
+<ul>
+<li><code>Integer</code> untuk int</li>
+<li><code>Long</code> untuk long</li>
+<li><code>Double</code> untuk double</li>
+<li><code>Character</code> untuk char</li>
+<li><code>Boolean</code> untuk boolean</li>
+</ul>
+<p>Jadi, kita boleh menggunakan class <em>wrapper</em> untuk diletakkan pada
+<em>generics</em>, contohnya:</p>
+<pre><code class="lang-java">List&lt;Integer&gt; numbers = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+</code></pre>
+
                                 
                                 </section>
                             
@@ -1167,7 +1198,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Generics","level":"1.5.5","depth":2,"next":{"title":"List","level":"1.5.6","depth":2,"path":"datastructure/list.md","ref":"datastructure/list.md","articles":[]},"previous":{"title":"Interface Collections","level":"1.5.4","depth":2,"path":"datastructure/interface-collections.md","ref":"datastructure/interface-collections.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"datastructure/generics.md","mtime":"2018-11-25T04:10:46.180Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T06:54:08.367Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Generics","level":"1.5.5","depth":2,"next":{"title":"List","level":"1.5.6","depth":2,"path":"datastructure/list.md","ref":"datastructure/list.md","articles":[]},"previous":{"title":"Interface Collections","level":"1.5.4","depth":2,"path":"datastructure/interface-collections.md","ref":"datastructure/interface-collections.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"datastructure/generics.md","mtime":"2018-11-25T07:29:02.465Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T07:21:49.864Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

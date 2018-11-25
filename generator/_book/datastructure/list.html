@@ -1124,7 +1124,100 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="list">List</h1>
+<p>Antara class yang menggunakan interface List ialah <code>ArrayList</code> dan
+<code>LinkedList</code>. Cara penggunaannya adalah seperti berikut:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> datastructure;
+
+<span class="hljs-keyword">import</span> java.util.ArrayList;
+<span class="hljs-keyword">import</span> java.util.List;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohList</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+
+        List&lt;String&gt; names = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+        names.add(<span class="hljs-string">&quot;Abu&quot;</span>);
+        names.add(<span class="hljs-string">&quot;Ali&quot;</span>);
+        names.add(<span class="hljs-string">&quot;Atan&quot;</span>);
+
+        System.out.println(<span class="hljs-string">&quot;List yang asal:&quot;</span>);
+
+        <span class="hljs-keyword">for</span> (String name : names) {
+            System.out.println(name);
+        }
+
+        names.remove(<span class="hljs-number">1</span>);
+
+        System.out.println(<span class="hljs-string">&quot;Selepas buang nama di indeks 1:&quot;</span>);
+
+        <span class="hljs-keyword">for</span> (String name : names) {
+            System.out.println(name);
+        }
+    }
+}
+</code></pre>
+<p>Java 7 dan ke atas membenarkan <em>diamond interface</em> seperti ini:</p>
+<pre><code class="lang-java">List&lt;String&gt; names = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+</code></pre>
+<p>Jika anda menggunakan Java 6 atau ke bawah, anda mungkin perlu menulis begini:</p>
+<pre><code class="lang-java">List&lt;String&gt; names = <span class="hljs-keyword">new</span> ArrayList&lt;String&gt;();
+</code></pre>
+<p>Contoh di atas menggunakan method <code>add()</code> untuk menambah data ke dalam
+List, dan method <code>remove()</code> untuk membuang data daripada List. Untuk
+lihat method lain yang boleh digunakan, sila rujuk Java API.</p>
+<p><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html" target="_blank">Klik untuk lihat List di Java API</a></p>
+<p>Cara lain untuk membuat List adalah dengan mengambil data daripada array
+menggunakan method <code>Arrays.asList()</code>:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> datastructure;
+
+<span class="hljs-keyword">import</span> java.util.ArrayList;
+<span class="hljs-keyword">import</span> java.util.Arrays;
+<span class="hljs-keyword">import</span> java.util.List;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohList</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        String[] nameArray = {<span class="hljs-string">&quot;Abu&quot;</span>, <span class="hljs-string">&quot;Ali&quot;</span>, <span class="hljs-string">&quot;Atan&quot;</span>};
+
+        List&lt;String&gt; names = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(Arrays.asList(nameArray));
+
+        System.out.println(<span class="hljs-string">&quot;List yang asal:&quot;</span>);
+
+        <span class="hljs-keyword">for</span> (String name : names) {
+            System.out.println(name);
+        }
+
+        names.remove(<span class="hljs-number">1</span>);
+
+        System.out.println(<span class="hljs-string">&quot;Selepas buang nama di indeks 1:&quot;</span>);
+
+        <span class="hljs-keyword">for</span> (String name : names) {
+            System.out.println(name);
+        }
+    }
+}
+</code></pre>
+<p>Untuk menggunakan <code>LinkedList</code>, tukar sahaja <code>ArrayList</code> kepada
+<code>LinkedList</code>, contohnya,</p>
+<pre><code class="lang-java">List&lt;String&gt; names = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();
+</code></pre>
+<p>Inilah kelebihan apabila menggunakan <em>program to interface</em>.</p>
+<h2 id="arraylist-vs-linkedlist">ArrayList vs LinkedList</h2>
+<p>Kita lihat cara penggunaan kedua-dua class tersebut adalah sama. Yang
+membezakan ialah apa yang berlaku di dalam class tersebut.</p>
+<p>Secara umumnya, class ArrayList adalah lebih baik. Jika program kita
+banyak melibatkan <em>add</em> atau <em>remove</em> pada awal indeks, barulah
+digalakkan menggunakan LinkedList. Itupun jika program tersebut tidak
+banyak mengakses data daripada LinkedList tersebut. Kesimpulannya,
+jika kita mahu menggunakan LinkedList, kita perlu lihat perbandingan
+performance program kita menggunakan kedua-duanya terlebih dahulu.</p>
+<p>Jika malas fikir banyak, guna sahaja ArrayList.</p>
+<p>Tips untuk meningkatkan performance ArrayList adalah dengan menentukan
+saiznya terlebih dahulu sesuai dengan data. Contohnya gunakan saiz 300
+jika anda membuat program untuk check perkataan dari sebuah esei:</p>
+<pre><code class="lang-java">List&lt;String&gt; words = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(<span class="hljs-number">300</span>);
+</code></pre>
+<p>Secara default, saiz ArrayList ialah 10.</p>
+
                                 
                                 </section>
                             
@@ -1167,7 +1260,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"List","level":"1.5.6","depth":2,"next":{"title":"Set","level":"1.5.7","depth":2,"path":"datastructure/set.md","ref":"datastructure/set.md","articles":[]},"previous":{"title":"Generics","level":"1.5.5","depth":2,"path":"datastructure/generics.md","ref":"datastructure/generics.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"datastructure/list.md","mtime":"2018-11-25T04:10:46.180Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T06:54:08.367Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"List","level":"1.5.6","depth":2,"next":{"title":"Set","level":"1.5.7","depth":2,"path":"datastructure/set.md","ref":"datastructure/set.md","articles":[]},"previous":{"title":"Generics","level":"1.5.5","depth":2,"path":"datastructure/generics.md","ref":"datastructure/generics.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"datastructure/list.md","mtime":"2018-11-25T07:31:13.590Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T07:21:49.864Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

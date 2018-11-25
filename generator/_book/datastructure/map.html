@@ -1124,7 +1124,128 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="map">Map</h1>
+<p>Map digunakan untuk menghubungkan antara satu data (<em>key</em>) dengan data
+yang lain (<em>value</em>). Array dan List menggunakan indeks untuk
+menentukan data yang mana satu, manakala Map menggunakan key yang
+kita letak untuk merujuk data yang mana.</p>
+<p>Antara class yang menggunakan interface <code>Map</code> ialah <code>HashMap</code>,
+<code>TreeMap</code>, dan <code>LinkedHashMap</code>. Kalau perasan nama ketiga-tiga class
+tersebut lebih kurang sama dengan nama untuk class Set. Ini bermaksud
+fungsi ketiga-tiga class Map tersebut sama sahaja dengan class Set.</p>
+<p>Contoh penggunaan Map:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> datastructure;
+
+<span class="hljs-keyword">import</span> java.util.HashMap;
+<span class="hljs-keyword">import</span> java.util.Map;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohMap</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        Map&lt;String, Double&gt; harga = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+        harga.put(<span class="hljs-string">&quot;burger_ayam&quot;</span>, <span class="hljs-number">2.0</span>);
+        harga.put(<span class="hljs-string">&quot;burger_ayam_special&quot;</span>, <span class="hljs-number">3.6</span>);
+        harga.put(<span class="hljs-string">&quot;burger_ayam_double_special&quot;</span>, <span class="hljs-number">5.4</span>);
+
+        System.out.printf(<span class="hljs-string">&quot;Harga burger ayam: RM %.2f&quot;</span>, harga.get(<span class="hljs-string">&quot;burger_ayam&quot;</span>));
+        System.out.println();
+    }
+}
+</code></pre>
+<p>Berpandukan Java API, interface Map adalah seperti berikut:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Map</span>&lt;<span class="hljs-title">K</span>,<span class="hljs-title">V</span>&gt;
+</span></code></pre>
+<p>Ini bermaksud kita perlu letakkan dua jenis data untuk <em>generics</em> K
+(<em>key</em>) dan V (<em>value</em>). Oleh itu, code di atas bermaksud <em>key</em> kita
+ialah jenis <code>String</code> dan <em>value</em> kita ialah jenis <code>Double</code>.</p>
+<p>Method yang boleh digunakan ialah,</p>
+<ul>
+<li><code>put()</code> &#x2013; untuk memasukkan data</li>
+<li><code>get()</code> &#x2013; untuk mengakses data menggunakan <em>key</em></li>
+</ul>
+<h2 id="cara-untuk-mendapatkan-semua-key">Cara untuk mendapatkan semua key</h2>
+<p>Kita boleh menggunakan method <code>keySet()</code> untuk mendapatkan senarai
+<em>key</em> yang ada dalam sesebuah Map:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> datastructure;
+
+<span class="hljs-keyword">import</span> java.util.HashMap;
+<span class="hljs-keyword">import</span> java.util.Map;
+<span class="hljs-keyword">import</span> java.util.Set;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohMap</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        Map&lt;String, Double&gt; harga = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+        harga.put(<span class="hljs-string">&quot;burger_ayam&quot;</span>, <span class="hljs-number">2.0</span>);
+        harga.put(<span class="hljs-string">&quot;burger_ayam_special&quot;</span>, <span class="hljs-number">3.6</span>);
+        harga.put(<span class="hljs-string">&quot;burger_ayam_double_special&quot;</span>, <span class="hljs-number">5.4</span>);
+
+        System.out.println(<span class="hljs-string">&quot;Senarai burger:&quot;</span>);
+
+        Set&lt;String&gt; senaraiBurger = harga.keySet();
+
+        <span class="hljs-keyword">for</span> (String burger : senaraiBurger) {
+            System.out.println(burger);
+        }
+    }
+}
+</code></pre>
+<p>dan boleh digunakan seperti berikut:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> datastructure;
+
+<span class="hljs-keyword">import</span> java.util.HashMap;
+<span class="hljs-keyword">import</span> java.util.Map;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohMap</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        Map&lt;String, Double&gt; harga = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+        harga.put(<span class="hljs-string">&quot;burger_ayam&quot;</span>, <span class="hljs-number">2.0</span>);
+        harga.put(<span class="hljs-string">&quot;burger_ayam_special&quot;</span>, <span class="hljs-number">3.6</span>);
+        harga.put(<span class="hljs-string">&quot;burger_ayam_double_special&quot;</span>, <span class="hljs-number">5.4</span>);
+
+        <span class="hljs-keyword">for</span> (String key : harga.keySet()) {
+            System.out.printf(<span class="hljs-string">&quot;Harga %s : RM %.2f&quot;</span>, key, harga.get(key));
+            System.out.println();
+        }
+    }
+}
+</code></pre>
+<p>Jika mahu ikut susunan seperti mana yang kita masukkan, tukar sahaja
+dari <code>HashMap</code> ke <code>LinkedHashMap</code>.</p>
+<h2 id="multimap">MultiMap</h2>
+<p><code>MultiMap</code> ialah Map yang membenarkan satu <em>key</em> merujuk beberapa
+<em>value</em>. Interface <em>Map</em> yang biasa hanya membenarkan satu <em>key</em> untuk
+merujuk satu <em>value</em> sahaja. Java tidak menyediakan MultiMap tetapi
+dengan sedikit <em>trick</em>, kita boleh membuat MultiMap menggunakan Map
+yang biasa.</p>
+<p><em>Trick</em> tersebut adalah dengan menggunakan mana-mana <em>data structure</em>
+sebagai <em>value</em>, contohnya:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> datastructure;
+
+<span class="hljs-keyword">import</span> java.util.ArrayList;
+<span class="hljs-keyword">import</span> java.util.HashMap;
+<span class="hljs-keyword">import</span> java.util.List;
+<span class="hljs-keyword">import</span> java.util.Map;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohMap</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        Map&lt;String, List&lt;String&gt;&gt; haiwan = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+
+        haiwan.put(<span class="hljs-string">&quot;karnivor&quot;</span>, <span class="hljs-keyword">new</span> ArrayList&lt;&gt;());
+        haiwan.get(<span class="hljs-string">&quot;karnivor&quot;</span>).add(<span class="hljs-string">&quot;harimau&quot;</span>);
+        haiwan.get(<span class="hljs-string">&quot;karnivor&quot;</span>).add(<span class="hljs-string">&quot;singa&quot;</span>);
+
+        haiwan.put(<span class="hljs-string">&quot;omnivor&quot;</span>, <span class="hljs-keyword">new</span> ArrayList&lt;&gt;());
+        haiwan.get(<span class="hljs-string">&quot;omnivor&quot;</span>).add(<span class="hljs-string">&quot;beruang&quot;</span>);
+        haiwan.get(<span class="hljs-string">&quot;omnivor&quot;</span>).add(<span class="hljs-string">&quot;ayam&quot;</span>);
+
+        <span class="hljs-keyword">for</span> (String karnivor : haiwan.get(<span class="hljs-string">&quot;karnivor&quot;</span>)) {
+            System.out.println(karnivor);
+        }
+    }
+}
+</code></pre>
+
                                 
                                 </section>
                             
@@ -1167,7 +1288,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Map","level":"1.5.10","depth":2,"next":{"title":"Database","level":"1.6","depth":1,"path":"database/README.md","ref":"database/README.md","articles":[{"title":"Build Tool","level":"1.6.1","depth":2,"path":"database/build-tool.md","ref":"database/build-tool.md","articles":[]},{"title":"H2","level":"1.6.2","depth":2,"path":"database/h2.md","ref":"database/h2.md","articles":[]},{"title":"JDBC","level":"1.6.3","depth":2,"path":"database/jdbc.md","ref":"database/jdbc.md","articles":[]},{"title":"DAO dan Service","level":"1.6.4","depth":2,"path":"database/dao-dan-service.md","ref":"database/dao-dan-service.md","articles":[]},{"title":"CRUD","level":"1.6.5","depth":2,"path":"database/crud.md","ref":"database/crud.md","articles":[]},{"title":"Connection Pool","level":"1.6.6","depth":2,"path":"database/connection-pool.md","ref":"database/connection-pool.md","articles":[]},{"title":"Migration","level":"1.6.7","depth":2,"path":"database/migration.md","ref":"database/migration.md","articles":[]}]},"previous":{"title":"Deque","level":"1.5.9","depth":2,"path":"datastructure/deque.md","ref":"datastructure/deque.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"datastructure/map.md","mtime":"2018-11-25T04:10:46.180Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T06:54:08.367Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Map","level":"1.5.10","depth":2,"next":{"title":"Database","level":"1.6","depth":1,"path":"database/README.md","ref":"database/README.md","articles":[{"title":"Build Tool","level":"1.6.1","depth":2,"path":"database/build-tool.md","ref":"database/build-tool.md","articles":[]},{"title":"H2","level":"1.6.2","depth":2,"path":"database/h2.md","ref":"database/h2.md","articles":[]},{"title":"JDBC","level":"1.6.3","depth":2,"path":"database/jdbc.md","ref":"database/jdbc.md","articles":[]},{"title":"DAO dan Service","level":"1.6.4","depth":2,"path":"database/dao-dan-service.md","ref":"database/dao-dan-service.md","articles":[]},{"title":"CRUD","level":"1.6.5","depth":2,"path":"database/crud.md","ref":"database/crud.md","articles":[]},{"title":"Connection Pool","level":"1.6.6","depth":2,"path":"database/connection-pool.md","ref":"database/connection-pool.md","articles":[]},{"title":"Migration","level":"1.6.7","depth":2,"path":"database/migration.md","ref":"database/migration.md","articles":[]}]},"previous":{"title":"Deque","level":"1.5.9","depth":2,"path":"datastructure/deque.md","ref":"datastructure/deque.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"datastructure/map.md","mtime":"2018-11-25T07:38:43.246Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T07:21:49.864Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

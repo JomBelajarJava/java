@@ -1124,7 +1124,61 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="deque">Deque</h1>
+<p>Deque (cara sebutan &apos;deck&apos;) boleh menggunakan kaedah <em>first in, first
+out</em> (FIFO) dan <em>last in, first out</em> (LIFO). Cara untuk menggunakan
+kaedah FIFO sama sahaja dengan menggunakan queue, jadi kita akan lihat
+kaedah LIFO pula. Class yang menggunakan interface <code>Deque</code> ialah
+<code>ArrayDeque</code> dan <code>LinkedList</code>.</p>
+<h2 id="arraydeque">ArrayDeque</h2>
+<p>Kaedah LIFO boleh diibaratkan seperti membuat burger. Kita letak
+bahagian-bahagian burger bermula dari bawah ke atas. Apabila kita hendak
+lihat daging apa, kita selak roti yang di atas.</p>
+<p>Contoh kaedah LIFO menggunakan ArrayDeque:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> datastructure;
+
+<span class="hljs-keyword">import</span> java.util.ArrayDeque;
+<span class="hljs-keyword">import</span> java.util.Deque;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohDeque</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+
+        Deque&lt;String&gt; burger = <span class="hljs-keyword">new</span> ArrayDeque&lt;&gt;();
+        burger.push(<span class="hljs-string">&quot;roti&quot;</span>);
+        burger.push(<span class="hljs-string">&quot;sayur&quot;</span>);
+        burger.push(<span class="hljs-string">&quot;daging&quot;</span>);
+        burger.push(<span class="hljs-string">&quot;roti&quot;</span>);
+
+        System.out.println(<span class="hljs-string">&quot;Susunan burger:&quot;</span>);
+        <span class="hljs-keyword">for</span> (String partBurger : burger) {
+            System.out.println(partBurger);
+        }
+
+        System.out.println(<span class="hljs-string">&quot;Oops, lupa letak sos!&quot;</span>);
+        String pegang = burger.pop();   <span class="hljs-comment">// keluarkan roti paling atas</span>
+        burger.push(<span class="hljs-string">&quot;sos + mayonis&quot;</span>);   <span class="hljs-comment">// tambah sos</span>
+        burger.push(pegang);    <span class="hljs-comment">// letak balik roti</span>
+
+        System.out.println(<span class="hljs-string">&quot;Susunan burger yang baru:&quot;</span>);
+        <span class="hljs-keyword">for</span> (String partBurger : burger) {
+            System.out.println(partBurger);
+        }
+    }
+}
+</code></pre>
+<p>Method yang digunakan untuk LIFO ialah:</p>
+<ul>
+<li><code>push()</code> &#x2013; untuk memasukkan data di hujung/atas</li>
+<li><code>pop()</code> &#x2013; keluarkan data di hujung/atas</li>
+<li><code>peek()</code> &#x2013; untuk akses data di hujung/atas tanpa keluarkan data tersebut</li>
+</ul>
+<p>Method yang boleh digunakan untuk FIFO pula adalah sama seperti Queue
+iaitu <code>offer()</code>, <code>poll()</code>, dan <code>peek()</code>.</p>
+<h2 id="linkedlist">LinkedList</h2>
+<p>Cara gunanya sama sahaja dengan ArrayDeque. Secara umumnya,
+ArrayDeque lebih efisyen berbanding LinkedList.</p>
+
                                 
                                 </section>
                             
@@ -1167,7 +1221,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Deque","level":"1.5.9","depth":2,"next":{"title":"Map","level":"1.5.10","depth":2,"path":"datastructure/map.md","ref":"datastructure/map.md","articles":[]},"previous":{"title":"Queue","level":"1.5.8","depth":2,"path":"datastructure/queue.md","ref":"datastructure/queue.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"datastructure/deque.md","mtime":"2018-11-25T04:10:46.180Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T06:54:08.367Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Deque","level":"1.5.9","depth":2,"next":{"title":"Map","level":"1.5.10","depth":2,"path":"datastructure/map.md","ref":"datastructure/map.md","articles":[]},"previous":{"title":"Queue","level":"1.5.8","depth":2,"path":"datastructure/queue.md","ref":"datastructure/queue.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"datastructure/deque.md","mtime":"2018-11-25T07:37:00.901Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T07:21:49.864Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

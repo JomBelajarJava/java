@@ -1124,7 +1124,29 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="pengenalan-kepada-collections">Pengenalan kepada Collections</h1>
+<p><code>Array</code> merupakan <em>data structure</em> yang paling simple. Antara
+kelemahannya ialah saiz yang tidak boleh berubah. Ada cara untuk
+mengatasi masalah ini dengan menggunakan teknik-teknik tertentu.
+Disebabkan teknik-teknik tersebut selalu digunakan, maka Java
+menyediakan framework <code>Collections</code> supaya programmer tidak perlu
+tulis semula code yang sama.</p>
+<p>Teknik-teknik di dalam framework <code>Collections</code> berbeza-beza mengikut
+interface walaupun di bawah class yang sama. Oleh itu, kita digalakkan
+untuk menggunakan interface untuk menentukan teknik mana yang
+digunakan. Istilah ini dipanggil sebagai <em>program to interface</em>.
+Contohnya sebelum ini kita create object daripada class Kucing seperti
+ini:</p>
+<pre><code class="lang-java">Kucing kucingSaya = <span class="hljs-keyword">new</span> Kucing();
+</code></pre>
+<p>Untuk <em>program to interface</em> pula adalah seperti ini:</p>
+<pre><code class="lang-java">&lt;<span class="hljs-class"><span class="hljs-keyword">interface</span>&gt; &lt;<span class="hljs-title">nama</span> <span class="hljs-title">object</span>&gt; </span>= <span class="hljs-keyword">new</span> &lt;<span class="hljs-class"><span class="hljs-keyword">class</span>&gt;()</span>;
+</code></pre>
+<p>Contohnya jika class Kucing dengan interface HaiwanBergerak akan jadi
+begini:</p>
+<pre><code class="lang-java">HaiwanBergerak kucingSaya = <span class="hljs-keyword">new</span> Kucing();
+</code></pre>
+
                                 
                                 </section>
                             
@@ -1167,7 +1189,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Pengenalan kepada Collections","level":"1.5.3","depth":2,"next":{"title":"Interface Collections","level":"1.5.4","depth":2,"path":"datastructure/interface-collections.md","ref":"datastructure/interface-collections.md","articles":[]},"previous":{"title":"For each loop","level":"1.5.2","depth":2,"path":"datastructure/for-each-loop.md","ref":"datastructure/for-each-loop.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"datastructure/pengenalan-kepada-collections.md","mtime":"2018-11-25T04:10:46.180Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T06:54:08.367Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Pengenalan kepada Collections","level":"1.5.3","depth":2,"next":{"title":"Interface Collections","level":"1.5.4","depth":2,"path":"datastructure/interface-collections.md","ref":"datastructure/interface-collections.md","articles":[]},"previous":{"title":"For each loop","level":"1.5.2","depth":2,"path":"datastructure/for-each-loop.md","ref":"datastructure/for-each-loop.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"datastructure/pengenalan-kepada-collections.md","mtime":"2018-11-25T07:25:35.887Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T07:21:49.864Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
