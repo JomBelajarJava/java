@@ -72,6 +72,7 @@
     * [Deployment (Ant)](javafx/deployment-ant.md)
     * [Deployment (NetBeans)](javafx/deployment-netbeans.md)
 
+<!--
 * [2D Game Development](2dgame/README.md)
     * [Pengenalan libGDX](2dgame/pengenalan-libgdx.md)
     * [Tools 2D](2dgame/tools-2d.md)
@@ -81,3 +82,4 @@
 
 * [Image Processing](imageprocess/README.md)
     * [Pengenalan OpenCV](imageprocess/pengenalan-opencv.md)
+-->
