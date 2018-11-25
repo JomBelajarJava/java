@@ -1124,7 +1124,90 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="exception-part-1">Exception (part 1)</h1>
+<p>Java menggunakan exception untuk mengendalikan error. Apabila
+error berlaku, exception ini dilancarkan untuk menghentikan proses
+yang mempunyai error.</p>
+<p>Cara mudah untuk menghasilkan error adalah dengan membahagikan satu
+nombor dengan kosong:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> essential;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BahagiKosong</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-keyword">int</span> a = <span class="hljs-number">1</span> / <span class="hljs-number">0</span>;
+    }
+}
+</code></pre>
+<p>Apabila kita run code tersebut, program akan keluarkan teks
+menjelaskan tentang error tersebut, iaitu <code>ArithmeticException: / by
+zero</code>.</p>
+<h2 id="try-catch">try-catch</h2>
+<p>Apabila exception berlaku, biasanya program akan terus tutup dan code
+selepasnya tidak akan dilaksanakan. Contohnya,</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> essential;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BahagiKosong</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-keyword">int</span> a = <span class="hljs-number">1</span> / <span class="hljs-number">0</span>;
+        System.out.println(<span class="hljs-string">&quot;ini selepas bahagi kosong&quot;</span>);
+    }
+}
+</code></pre>
+<p>Jika kita mahu run code selepasnya, kita mesti handle exception itu
+secara manual. Untuk handle exception, kita boleh menggunakan
+<code>try-catch</code> seperti berikut:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> essential;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BahagiKosong</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-keyword">int</span> a = <span class="hljs-number">1</span> / <span class="hljs-number">0</span>;
+        } <span class="hljs-keyword">catch</span> (ArithmeticException e) {
+            System.out.println(<span class="hljs-string">&quot;tidak boleh bahagi kosong!&quot;</span>);
+        }
+
+        System.out.println(<span class="hljs-string">&quot;ini selepas bahagi kosong&quot;</span>);
+    }
+}
+</code></pre>
+<h2 id="finally">finally</h2>
+<p>Satu tambahan kepada <code>try-catch</code> ialah <code>finally</code>. Code di dalam
+<code>finally</code> akan wajib dilaksanakan. Ini bertujuan jika ada exception
+lain yang tidak disangkakan berlaku.</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> essential;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BahagiKosong</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-keyword">int</span> a = <span class="hljs-number">1</span> / <span class="hljs-number">0</span>;
+        } <span class="hljs-keyword">catch</span> (ArithmeticException e) {
+            System.out.println(<span class="hljs-string">&quot;tidak boleh bahagi kosong!&quot;</span>);
+        } <span class="hljs-keyword">finally</span> {
+            System.out.println(<span class="hljs-string">&quot;ini confirm dilaksanakan&quot;</span>);
+        }
+
+        System.out.println(<span class="hljs-string">&quot;ini selepas bahagi kosong&quot;</span>);
+    }
+}
+</code></pre>
+<h2 id="throws">throws</h2>
+<p>Kita boleh menggunakan <code>throws</code> bagi menggantikan <code>catch</code>. Bezanya kita
+tidak boleh handle exception secara manual jika menggunakan <code>throws</code>.</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> essential;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BahagiKosong</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> ArithmeticException </span>{
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-keyword">int</span> a = <span class="hljs-number">1</span> / <span class="hljs-number">0</span>;
+        } <span class="hljs-keyword">finally</span> {
+            System.out.println(<span class="hljs-string">&quot;ini confirm berlaku&quot;</span>);
+        }
+
+        System.out.println(<span class="hljs-string">&quot;ini selepas bahagi kosong&quot;</span>);
+    }
+}
+</code></pre>
+
                                 
                                 </section>
                             
@@ -1167,7 +1250,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Exception (part 1)","level":"1.4.2","depth":2,"next":{"title":"Input dari user","level":"1.4.3","depth":2,"path":"essentials/input-dari-user.md","ref":"essentials/input-dari-user.md","articles":[]},"previous":{"title":"Pengenalan library Java","level":"1.4.1","depth":2,"path":"essentials/pengenalan-library-java.md","ref":"essentials/pengenalan-library-java.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"essentials/exception-part-1.md","mtime":"2018-11-25T04:08:58.243Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T06:16:11.672Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Exception (part 1)","level":"1.4.2","depth":2,"next":{"title":"Input dari user","level":"1.4.3","depth":2,"path":"essentials/input-dari-user.md","ref":"essentials/input-dari-user.md","articles":[]},"previous":{"title":"Pengenalan library Java","level":"1.4.1","depth":2,"path":"essentials/pengenalan-library-java.md","ref":"essentials/pengenalan-library-java.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"essentials/exception-part-1.md","mtime":"2018-11-25T07:02:00.891Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T06:54:08.367Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
