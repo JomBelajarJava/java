@@ -1124,7 +1124,54 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="class-part-1">Class (part 1)</h1>
+<p>Buka Netbeans (atau mana-mana IDE yang anda guna), kemudian buat <code>New
+project</code>. Namakan project tersebut apa-apa sahaja yang anda mahu.</p>
+<p>Untuk membuat <code>class</code>, klik kanan pada <code>Source Packages</code> dan klik
+<code>New Java Class</code>. Kita namakan class tersebut sebagai
+<code>Kucing</code>, dan nama package sebagai <code>kucing</code>. Selepas tekan
+<code>Finish</code>, Netbeans akan menghasilkan file berikut:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> kucing;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Kucing</span> </span>{
+
+}
+</code></pre>
+<h2 id="fields">Fields</h2>
+<p><code>Fields</code> ialah variable yang kita letakkan pada class, seperti
+berikut:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> kucing;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Kucing</span> </span>{
+
+    String nama;
+    <span class="hljs-keyword">int</span> umur;
+}
+</code></pre>
+<p><code>Fields</code> inilah yang dikatakan ciri-ciri kepada sesuatu class. Jadi,
+antara ciri-ciri untuk Kucing ialah nama dan umur.</p>
+<h2 id="methods">Methods</h2>
+<p><code>Methods</code> menentukan tingkah laku yang boleh dilakukan oleh class
+tersebut. Contohnya,</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> kucing;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Kucing</span> </span>{
+
+    String nama;
+    <span class="hljs-keyword">int</span> umur;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">mengiau</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;Meow&quot;</span>);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">minum</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;Slrrp, slrrp&quot;</span>);
+    }
+}
+</code></pre>
+<p>Jadi, antara tingkah laku yang boleh dilakukan oleh Kucing ialah
+mengiau dan minum.</p>
+
                                 
                                 </section>
                             
@@ -1167,7 +1214,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Class (part 1)","level":"1.3.3","depth":2,"next":{"title":"Object","level":"1.3.4","depth":2,"path":"oop/object.md","ref":"oop/object.md","articles":[]},"previous":{"title":"Konsep OOP","level":"1.3.2","depth":2,"path":"oop/konsep-oop.md","ref":"oop/konsep-oop.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"oop/class-part-1.md","mtime":"2018-11-25T04:05:09.929Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T05:41:03.029Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Class (part 1)","level":"1.3.3","depth":2,"next":{"title":"Object","level":"1.3.4","depth":2,"path":"oop/object.md","ref":"oop/object.md","articles":[]},"previous":{"title":"Konsep OOP","level":"1.3.2","depth":2,"path":"oop/konsep-oop.md","ref":"oop/konsep-oop.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"oop/class-part-1.md","mtime":"2018-11-25T06:30:14.394Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T06:16:11.672Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

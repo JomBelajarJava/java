@@ -1124,7 +1124,91 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="object">Object</h1>
+<p>Setelah berjaya membuat class Kucing, barulah kita boleh membuat
+<code>object</code> untuk class tersebut.</p>
+<p>Menggunakan project yang sama dengan sebelum ini, klik kanan pada
+package <code>kucing</code> dan klik <code>New Java Class</code>. Kita boleh namakan
+apa-apa sahaja, jadi kita letakkan <code>Main</code> sebagai nama class. Selepas
+klik <code>Finish</code>, Netbeans akan menghasilkan file berikut:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> kucing;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+
+}
+</code></pre>
+<p>Dalam Java, mula-mula sekali program akan run method <code>main()</code>. Jadi,
+kita tambah method <code>main()</code> tersebut dalam class <code>Main</code>, seperti
+berikut:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> kucing;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+
+    }
+}
+</code></pre>
+<p>Sekarang barulah kelihatan sama seperti program yang pernah kita lihat.</p>
+<h2 id="create-object">Create object</h2>
+<p>Untuk membuat <code>object</code>, kita tentukan <code>class</code>, nama untuk
+<code>object</code> tersebut, dan keyword <code>new</code>. Contohnya,</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> kucing;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        Kucing kucingSaya = <span class="hljs-keyword">new</span> Kucing();
+    }
+}
+</code></pre>
+<p>Selepas create object, kita boleh mengakses fields untuk object
+tersebut dengan menggunakan titik noktah:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> kucing;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        Kucing kucingSaya = <span class="hljs-keyword">new</span> Kucing();
+        kucingSaya.nama = <span class="hljs-string">&quot;Tompok&quot;</span>;
+        kucingSaya.umur = <span class="hljs-number">5</span>;
+    }
+}
+</code></pre>
+<p>Kita juga boleh menggunakan methods dari object tersebut menggunakan
+titik noktah dan diakhiri dengan kurungan:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> kucing;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+
+        Kucing kucingSaya = <span class="hljs-keyword">new</span> Kucing();
+        kucingSaya.nama = <span class="hljs-string">&quot;Tompok&quot;</span>;
+        kucingSaya.umur = <span class="hljs-number">5</span>;
+        kucingSaya.mengiau();
+    }
+}
+</code></pre>
+<p>Untuk create lebih dari satu object, kita boleh gunakan nama yang lain
+untuk object tersebut, contohnya <code>kucingKawanSaya</code> seperti berikut:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> kucing;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+
+        Kucing kucingSaya = <span class="hljs-keyword">new</span> Kucing();
+        kucingSaya.nama = <span class="hljs-string">&quot;Tompok&quot;</span>;
+        kucingSaya.umur = <span class="hljs-number">5</span>;
+        kucingSaya.mengiau();
+
+        Kucing kucingKawanSaya = <span class="hljs-keyword">new</span> Kucing();
+        kucingKawanSaya.nama = <span class="hljs-string">&quot;Comel&quot;</span>;
+        kucingKawanSaya.umur = <span class="hljs-number">6</span>;
+        kucingKawanSaya.minum();
+    }
+}
+</code></pre>
+
                                 
                                 </section>
                             
@@ -1167,7 +1251,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Object","level":"1.3.4","depth":2,"next":{"title":"Class (part 2)","level":"1.3.5","depth":2,"path":"oop/class-part-2.md","ref":"oop/class-part-2.md","articles":[]},"previous":{"title":"Class (part 1)","level":"1.3.3","depth":2,"path":"oop/class-part-1.md","ref":"oop/class-part-1.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"oop/object.md","mtime":"2018-11-25T04:05:09.929Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T05:41:03.029Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Object","level":"1.3.4","depth":2,"next":{"title":"Class (part 2)","level":"1.3.5","depth":2,"path":"oop/class-part-2.md","ref":"oop/class-part-2.md","articles":[]},"previous":{"title":"Class (part 1)","level":"1.3.3","depth":2,"path":"oop/class-part-1.md","ref":"oop/class-part-1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"oop/object.md","mtime":"2018-11-25T06:32:18.956Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T06:16:11.672Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

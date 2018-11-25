@@ -1124,7 +1124,193 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="class-part-2">Class (part 2)</h1>
+<p>Kita kembali kepada class Kucing untuk menambah sesuatu pada
+class tersebut, iaitu <code>constructor</code>, <code>setter</code>, dan <code>getter</code>. Kita juga
+akan melihat pengenalan kepada <code>parameter</code>.</p>
+<h2 id="constructor">Constructor</h2>
+<p>Constructor ialah method yang mempunyai nama yang sama dengan nama
+class. Tujuannya adalah untuk melaksanakan sesuatu code sebaik
+sahaja kita create object daripada class tersebut. Kebiasaannya
+kita letak proses untuk memasukkan data ke dalam fields di dalam
+constructor, contohnya:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> kucing;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Kucing</span> </span>{
+
+    String nama;
+    <span class="hljs-keyword">int</span> umur;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Kucing</span><span class="hljs-params">()</span> </span>{
+        nama = <span class="hljs-string">&quot;Tiada nama&quot;</span>;
+        umur = <span class="hljs-number">0</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">mengiau</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;Meow&quot;</span>);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">minum</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;Slrrp, slrrp&quot;</span>);
+    }
+}
+</code></pre>
+<p>Ini untuk mengelakkan error, contohnya jika kita mengakses fields
+walaupun fields tersebut tidak mempunyai data.</p>
+<p>Untuk melihat fungsi constructor, kita boleh create object daripada
+class Kucing:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> kucing;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        Kucing kucingSaya = <span class="hljs-keyword">new</span> Kucing();
+
+        System.out.println(kucingSaya.nama);
+    }
+}
+</code></pre>
+<p>Lihat, kita tidak perlu memasukkan data ke dalam fields seperti
+sebelum ini. Program secara automatik akan memasukkan data ke
+dalam fields bergantung kepada apa yang kita tentukan di dalam
+constructor.</p>
+<h2 id="setter">Setter</h2>
+<p><code>Setter</code> ialah method yang digunakan untuk memasukkan data ke dalam
+fields.</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> kucing;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Kucing</span> </span>{
+
+    String nama;
+    <span class="hljs-keyword">int</span> umur;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Kucing</span><span class="hljs-params">()</span> </span>{
+        nama = <span class="hljs-string">&quot;Tiada nama&quot;</span>;
+        umur = <span class="hljs-number">0</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setNama</span><span class="hljs-params">(String n)</span> </span>{
+        nama = n;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">mengiau</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;Meow&quot;</span>);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">minum</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;Slrrp, slrrp&quot;</span>);
+    }
+}
+</code></pre>
+<p><code>String n</code> yang berada di dalam kurungan <code>setNama()</code> ialah
+<code>parameter</code>. Parameter ialah data yang diperlukan untuk menggunakan
+method tersebut. Contoh kegunaan setter adalah seperti berikut:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> kucing;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        Kucing kucingSaya = newKucing();
+        kucingSaya.setNama(<span class="hljs-string">&quot;Tompok&quot;</span>);
+    }
+}
+</code></pre>
+<p>Antara kelebihan menggunakan <code>setter</code> ialah kita dapat memastikan data
+yang dimasukkan adalah data yang betul. Contohnya umur tidak boleh
+menjadi negatif, jadi kita boleh pastikan nombor yang dimasukkan bukan
+nombor negatif seperti berikut:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> kucing;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Kucing</span> </span>{
+
+    String nama;
+    <span class="hljs-keyword">int</span> umur;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Kucing</span><span class="hljs-params">()</span> </span>{
+        nama = <span class="hljs-string">&quot;Tiada nama&quot;</span>;
+        umur = <span class="hljs-number">0</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setNama</span><span class="hljs-params">(String n)</span> </span>{
+        nama = n;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setUmur</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u)</span> </span>{
+        <span class="hljs-keyword">if</span> (u &lt; <span class="hljs-number">0</span>) {
+            System.out.println(<span class="hljs-string">&quot;Error, umur tidak boleh negatif!&quot;</span>);
+        } <span class="hljs-keyword">else</span> {
+            umur = u;
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">mengiau</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;Meow&quot;</span>);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">minum</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;Slrrp, slrrp&quot;</span>);
+    }
+
+}
+</code></pre>
+<h2 id="getter">Getter</h2>
+<p><code>Getter</code> pula ialah method untuk mengakses data. Berbeza dengan
+methods sebelum ini yang menggunakan keyword <code>void</code>, untuk mengakses
+data, kita perlu tukar keyword <code>void</code> kepada jenis data yang kita
+ingin akses. Contohnya, jika kita mahu mengakses data dari
+field <code>nama</code>, kita perlu tukar <code>void</code> kepada <code>String</code>:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> kucing;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Kucing</span> </span>{
+
+    String nama;
+    <span class="hljs-keyword">int</span> umur;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Kucing</span><span class="hljs-params">()</span> </span>{
+        nama = <span class="hljs-string">&quot;Tiada nama&quot;</span>;
+        umur = <span class="hljs-number">0</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getNama</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> nama;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getUmur</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> umur;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setNama</span><span class="hljs-params">(String n)</span> </span>{
+        nama = n;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setUmur</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u)</span> </span>{
+        <span class="hljs-keyword">if</span> (u &lt; <span class="hljs-number">0</span>) {
+            System.out.println(<span class="hljs-string">&quot;Error, umur tidak boleh negatif!&quot;</span>);
+        } <span class="hljs-keyword">else</span> {
+            umur = u;
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">mengiau</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;Meow&quot;</span>);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">minum</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;Slrrp, slrrp&quot;</span>);
+    }
+}
+</code></pre>
+<p>Kita gunakan keyword <code>return</code> untuk akses data tersebut atau dalam
+erti kata lain <em>memulangkan</em> data tersebut.</p>
+<p>Kita boleh menggunakan getter seperti berikut:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> kucing;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        Kucing kucingSaya = <span class="hljs-keyword">new</span> Kucing();
+        System.out.println(kucingSaya.getNama());
+    }
+}
+</code></pre>
+
                                 
                                 </section>
                             
@@ -1167,7 +1353,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Class (part 2)","level":"1.3.5","depth":2,"next":{"title":"Access modifiers","level":"1.3.6","depth":2,"path":"oop/access-modifiers.md","ref":"oop/access-modifiers.md","articles":[]},"previous":{"title":"Object","level":"1.3.4","depth":2,"path":"oop/object.md","ref":"oop/object.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"oop/class-part-2.md","mtime":"2018-11-25T04:05:09.929Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T05:41:03.029Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Class (part 2)","level":"1.3.5","depth":2,"next":{"title":"Access modifiers","level":"1.3.6","depth":2,"path":"oop/access-modifiers.md","ref":"oop/access-modifiers.md","articles":[]},"previous":{"title":"Object","level":"1.3.4","depth":2,"path":"oop/object.md","ref":"oop/object.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"oop/class-part-2.md","mtime":"2018-11-25T06:34:29.917Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T06:16:11.672Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

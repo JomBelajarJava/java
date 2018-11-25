@@ -1124,7 +1124,87 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="polymorphism">Polymorphism</h1>
+<p>Istilah <code>polymorphism</code> diambil daripada konsep biologi yang menyatakan
+setiap spesies boleh mempunyai beberapa bentuk, contohnya spesies
+harimau ada harimau belang, jaguar, cheetah, dan sebagainya.</p>
+<p>Setiap harimau tersebut mempunyai ciri-ciri dan tingkahlaku yang
+tersendiri tetapi melakukan benda yang sama, contohnya harimau belang
+menghendap di sebalik semak dahulu sebelum menerkam mangsa, cheetah
+gunakan kepantasan untuk menangkap mangsa, tetapi kedua-duanya bertujuan
+untuk menangkap mangsa.</p>
+<p>Dalam programming, kita boleh menggunakan konsep ini untuk memudahkan
+kita. Kita akan menggunakan tiga class ini (Harimau, HarimauBelang,
+dan Cheetah) untuk lihat penggunaan polymorphism:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> harimau;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Harimau</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Harimau</span><span class="hljs-params">()</span> </span>{
+
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">tangkapMangsa</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;Saya terus tangkap saja.&quot;</span>);
+    }
+}
+</code></pre>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> harimau;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HarimauBelang</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Harimau</span> </span>{
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">tangkapMangsa</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;Saya menyorok dahulu, kemudian terkam mangsa.&quot;</span>);
+    }
+
+}
+</code></pre>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> harimau;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Cheetah</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Harimau</span> </span>{
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">tangkapMangsa</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;Saya laju, saya kejar, saya ngap mangsa.&quot;</span>);
+    }
+
+}
+</code></pre>
+<p>Kita boleh menggunakan nama superclass untuk merujuk kepada
+subclass. Jadi, kita boleh create object seperti berikut:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> harimau;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        Harimau harimau1 = <span class="hljs-keyword">new</span> Harimau();
+        Harimau harimau2 = <span class="hljs-keyword">new</span> HarimauBelang();
+        Harimau harimau3 = <span class="hljs-keyword">new</span> Cheetah();
+    }
+}
+</code></pre>
+<p>Dengan adanya konsep polymorphism, kita boleh menggunakan method
+yang sama tetapi melakukan kerja yang berbeza seperti berikut:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> harimau;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        Harimau harimau1 = <span class="hljs-keyword">new</span> Harimau();
+        Harimau harimau2 = <span class="hljs-keyword">new</span> HarimauBelang();
+        Harimau harimau3 = <span class="hljs-keyword">new</span> Cheetah();
+
+        harimau1.tangkapMangsa();
+        harimau2.tangkapMangsa();
+        harimau3.tangkapMangsa();
+    }
+}
+</code></pre>
+<p>Antara kelebihan menggunakan polymorphism ialah kita boleh menggunakan
+loop untuk melakukan method yang sama, contohnya jika kita ada lebih
+daripada seribu jenis Harimau.</p>
+
                                 
                                 </section>
                             
@@ -1167,7 +1247,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Polymorphism","level":"1.3.10","depth":2,"next":{"title":"String","level":"1.3.11","depth":2,"path":"oop/string.md","ref":"oop/string.md","articles":[]},"previous":{"title":"Inheritance","level":"1.3.9","depth":2,"path":"oop/inheritance.md","ref":"oop/inheritance.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"oop/polymorphism.md","mtime":"2018-11-25T04:05:09.929Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T05:41:03.029Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Polymorphism","level":"1.3.10","depth":2,"next":{"title":"String","level":"1.3.11","depth":2,"path":"oop/string.md","ref":"oop/string.md","articles":[]},"previous":{"title":"Inheritance","level":"1.3.9","depth":2,"path":"oop/inheritance.md","ref":"oop/inheritance.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"oop/polymorphism.md","mtime":"2018-11-25T06:49:15.200Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T06:16:11.672Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

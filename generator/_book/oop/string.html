@@ -1124,7 +1124,72 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="string">String</h1>
+<p>Kalau perasan jenis data String ditulis bermula dengan huruf besar,
+berbanding jenis data yang lain seperti <code>int</code>, <code>double</code>, dan <code>boolean</code>.
+Ini kerana String sebenarnya ialah class.</p>
+<p>String merupakan gabungan daripada beberapa character (huruf, nombor,
+simbol). Jadi, class String dibuat untuk menggabungkan character
+tersebut.</p>
+<p>Sama seperti class yang lain, String juga mempunyai method yang kita
+boleh gunakan.</p>
+<h2 id="length">length</h2>
+<p>Kita boleh menggunakan method <code>length()</code> untuk mendapatkan panjang
+sesuatu String atau dalam erti kata lain, untuk mendapatkan bilangan
+<em>character</em> yang ada dalam sesuatu String:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> tutorialjava;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        String cikgu = <span class="hljs-string">&quot;Cikgu suka main bola, hari-hari cikgu main bola&quot;</span>;
+        <span class="hljs-keyword">int</span> bilanganCharacter = cikgu.length();
+
+        System.out.println(bilanganCharacter);
+    }
+}
+</code></pre>
+<p>Character yang dikira termasuklah tempat kosong (<em>blank</em>).</p>
+<h2 id="charat">charAt</h2>
+<p>Method <code>charAt()</code> boleh digunakan untuk mendapatkan character daripada
+String. Contohnya,</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> tutorialjava;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+
+        String cikgu = <span class="hljs-string">&quot;Cikgu suka main bola, hari-hari cikgu main bola&quot;</span>;
+
+        <span class="hljs-keyword">char</span> hurufPertama = cikgu.charAt(<span class="hljs-number">0</span>);
+        <span class="hljs-keyword">char</span> hurufKedua = cikgu.charAt(<span class="hljs-number">1</span>);
+
+        System.out.println(hurufPertama);
+        System.out.println(hurufKedua);
+    }
+}
+</code></pre>
+<p>Dalam programming, kiraan biasanya dibuat bermula dari 0 seperti ini:</p>
+<pre><code>0, 1, 2, 3, 4, 5&#x2026;
+</code></pre><p>bukannya,</p>
+<pre><code>1, 2, 3, 4, 5&#x2026;
+</code></pre><h2 id="tolowercasetouppercase">toLowerCase/toUpperCase</h2>
+<p>Kita boleh menggunakan method <code>toLowerCase()</code> untuk menjadikan String
+tersebut kepada semuanya huruf kecil. Method <code>toUpperCase()</code> pula untuk
+menjadikan String kepada huruf besar.</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> tutorialjava;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+
+        String cikgu = <span class="hljs-string">&quot;Cikgu suka main bola, hari-hari cikgu main bola&quot;</span>;
+
+        String cikguHurufBesar = cikgu.toUpperCase();
+
+        System.out.println(cikguHurufBesar);
+    }
+}
+</code></pre>
+
                                 
                                 </section>
                             
@@ -1167,7 +1232,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"String","level":"1.3.11","depth":2,"next":{"title":"Class yang Penting","level":"1.4","depth":1,"path":"essentials/README.md","ref":"essentials/README.md","articles":[{"title":"Pengenalan library Java","level":"1.4.1","depth":2,"path":"essentials/pengenalan-library-java.md","ref":"essentials/pengenalan-library-java.md","articles":[]},{"title":"Exception (part 1)","level":"1.4.2","depth":2,"path":"essentials/exception-part-1.md","ref":"essentials/exception-part-1.md","articles":[]},{"title":"Input dari user","level":"1.4.3","depth":2,"path":"essentials/input-dari-user.md","ref":"essentials/input-dari-user.md","articles":[]},{"title":"Input dari file","level":"1.4.4","depth":2,"path":"essentials/input-dari-file.md","ref":"essentials/input-dari-file.md","articles":[]},{"title":"Output ke file","level":"1.4.5","depth":2,"path":"essentials/output-ke-file.md","ref":"essentials/output-ke-file.md","articles":[]},{"title":"Exception (part 2)","level":"1.4.6","depth":2,"path":"essentials/exception-part-2.md","ref":"essentials/exception-part-2.md","articles":[]}]},"previous":{"title":"Polymorphism","level":"1.3.10","depth":2,"path":"oop/polymorphism.md","ref":"oop/polymorphism.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"oop/string.md","mtime":"2018-11-25T04:05:09.929Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T05:41:03.029Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"String","level":"1.3.11","depth":2,"next":{"title":"Class yang Penting","level":"1.4","depth":1,"path":"essentials/README.md","ref":"essentials/README.md","articles":[{"title":"Pengenalan library Java","level":"1.4.1","depth":2,"path":"essentials/pengenalan-library-java.md","ref":"essentials/pengenalan-library-java.md","articles":[]},{"title":"Exception (part 1)","level":"1.4.2","depth":2,"path":"essentials/exception-part-1.md","ref":"essentials/exception-part-1.md","articles":[]},{"title":"Input dari user","level":"1.4.3","depth":2,"path":"essentials/input-dari-user.md","ref":"essentials/input-dari-user.md","articles":[]},{"title":"Input dari file","level":"1.4.4","depth":2,"path":"essentials/input-dari-file.md","ref":"essentials/input-dari-file.md","articles":[]},{"title":"Output ke file","level":"1.4.5","depth":2,"path":"essentials/output-ke-file.md","ref":"essentials/output-ke-file.md","articles":[]},{"title":"Exception (part 2)","level":"1.4.6","depth":2,"path":"essentials/exception-part-2.md","ref":"essentials/exception-part-2.md","articles":[]}]},"previous":{"title":"Polymorphism","level":"1.3.10","depth":2,"path":"oop/polymorphism.md","ref":"oop/polymorphism.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"oop/string.md","mtime":"2018-11-25T06:51:03.382Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T06:16:11.672Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
