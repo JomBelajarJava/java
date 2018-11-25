@@ -1124,7 +1124,93 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="immutable-collections">Immutable Collections</h1>
+<h2 id="pengenalan">Pengenalan</h2>
+<p>Dalam tutorial <code>final</code>, variable tidak akan berubah apabila diletakkan keyword
+<em>final</em>, tetapi bagaimana pula untuk Collections seperti List, Map, dan Set?</p>
+<p>Kita boleh buat sedikit eksperimen seperti ini:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">final</span> List&lt;String&gt; cubaan = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(Arrays.asList(<span class="hljs-string">&quot;satu&quot;</span>, <span class="hljs-string">&quot;dua&quot;</span>, <span class="hljs-string">&quot;tiga&quot;</span>));
+cubaan.add(<span class="hljs-string">&quot;empat&quot;</span>);
+
+System.out.println(cubaan);
+</code></pre>
+<p>Jika anda cuba code di atas, program akan print keempat-empat string tersebut.
+Maksudnya nilai variable tersebut berubah. Jadi, apa yang berlaku?</p>
+<p>Sebenarnya dalam Java, apa yang berlaku apabila kita letak final untuk object
+ialah cuma <em>reference</em> kepada object yang tidak berubah tetapi kandungan object
+masih boleh berubah.</p>
+<p>Ini contoh yang akan membuatkan program keluar error untuk Collections:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">final</span> List&lt;String&gt; cubaan = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(Arrays.asList(<span class="hljs-string">&quot;satu&quot;</span>, <span class="hljs-string">&quot;dua&quot;</span>, <span class="hljs-string">&quot;tiga&quot;</span>));
+cubaan = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+</code></pre>
+<p>Jadi, sekarang kita akan lihat bagaimana untuk mencapai <code>const correctness</code>
+untuk Collections.</p>
+<h2 id="unmodifiable-collections">Unmodifiable Collections</h2>
+<p>Cara yang paling senang adalah dengan menggunakan method <code>unmodifiableXXX()</code>
+yang ada dalam <code>java.util.Collections</code>. Contoh untuk List:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">final</span> List&lt;String&gt; namaKucingJantan = Collections.unmodifiableList(Arrays.asList(<span class="hljs-string">&quot;Atan&quot;</span>, <span class="hljs-string">&quot;Boboi&quot;</span>, <span class="hljs-string">&quot;Tom&quot;</span>));
+namaKucingJantan.add(<span class="hljs-string">&quot;Lisa&quot;</span>);
+</code></pre>
+<p>Code di atas akan mengeluarkan error kerana kita tidak boleh <em>modify</em> List
+tersebut.</p>
+<p>Walaupun cara ini mudah, tetapi ada sedikit isu kerana method
+<code>unmodifiableXXX()</code> hanya memberi <em>view</em>, bukannya Collection yang betul-betul
+Collection. Kalau ada <em>reference</em> lain yang <em>refer</em> ke List yang asal, List
+tersebut masih boleh diubah. Contoh:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">final</span> List&lt;String&gt; listAsal = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(Arrays.asList(<span class="hljs-string">&quot;satu&quot;</span>, <span class="hljs-string">&quot;dua&quot;</span>, <span class="hljs-string">&quot;tiga&quot;</span>));
+<span class="hljs-keyword">final</span> List&lt;String&gt; listBaru = Collections.unmodifiableList(listAsal);
+listAsal.add(<span class="hljs-string">&quot;empat&quot;</span>);
+
+System.out.println(listBaru);
+</code></pre>
+<p>Bagi mengatasi masalah ini, kita perlu menggunakan library yang ada <code>immutable
+collections</code>.</p>
+<h2 id="immutable-collections">Immutable Collections</h2>
+<p>Antara library yang saya biasa guna yang ada <code>immutable collections</code> ialah
+<a href="https://github.com/vavr-io/vavr" target="_blank">Vavr</a> dan
+<a href="https://github.com/google/guava" target="_blank">Google Guava</a>. Saya akan cadangkan Vavr
+untuk sesiapa yang biasa dengan <em>functional programming</em>, jadi untuk tutorial
+ini saya akan gunakan Google Guava.</p>
+<h2 id="google-guava">Google Guava</h2>
+<p>Seperti biasa, kita perlu dapatkan library Guava terlebih dahulu. Jadi tambah
+ini ke file <code>pom.xml</code> jika anda menggunakan Maven (atau apa saja cara yang anda
+tahu untuk menambah library):</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.google.guava<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>guava<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>23.6-jre<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+<p>Guava juga ada versi untuk Android dengan menukar version ke <code>23.6-android</code>.
+Rujuk documentation di GitHub.</p>
+<p>Contoh penggunaan <code>immutable collections</code> dengan Guava adalah seperti ini (ini
+akan menghasilkan error):</p>
+<pre><code class="lang-java"><span class="hljs-keyword">final</span> List&lt;String&gt; cubaan = ImmutableList.of(<span class="hljs-string">&quot;satu&quot;</span>, <span class="hljs-string">&quot;dua&quot;</span>, <span class="hljs-string">&quot;tiga&quot;</span>);
+cubaan.add(<span class="hljs-string">&quot;empat&quot;</span>);
+</code></pre>
+<p>Ini pula contoh untuk menggabungkan <em>immutable list</em> menggunakan method
+<code>concat()</code> dari class <code>Iterables</code>:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">final</span> List&lt;String&gt; namaKucingJantan = ImmutableList.of(<span class="hljs-string">&quot;Atan&quot;</span>, <span class="hljs-string">&quot;Boboi&quot;</span>, <span class="hljs-string">&quot;Tom&quot;</span>);
+<span class="hljs-keyword">final</span> List&lt;String&gt; namaKucingBetina = ImmutableList.of(<span class="hljs-string">&quot;Lisa&quot;</span>, <span class="hljs-string">&quot;Tasha&quot;</span>, <span class="hljs-string">&quot;Mimi&quot;</span>);
+
+<span class="hljs-keyword">final</span> Iterable&lt;String&gt; namaKucing = Iterables.concat(namaKucingJantan, namaKucingBetina);
+
+System.out.println(namaKucing);
+</code></pre>
+<p>Kalau perasan, hasil dari <em>concat</em> ialah interface <code>Iterable&lt;T&gt;</code>. Jika anda
+ingin menggunakan method-method yang ada pada interface <code>List&lt;T&gt;</code> contohnya
+method <code>size()</code>, anda boleh menggunakan method yang ada pada library Guava.
+Contohnya:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">final</span> List&lt;String&gt; namaKucingJantan = ImmutableList.of(<span class="hljs-string">&quot;Atan&quot;</span>, <span class="hljs-string">&quot;Boboi&quot;</span>, <span class="hljs-string">&quot;Tom&quot;</span>);
+<span class="hljs-keyword">final</span> List&lt;String&gt; namaKucingBetina = ImmutableList.of(<span class="hljs-string">&quot;Lisa&quot;</span>, <span class="hljs-string">&quot;Tasha&quot;</span>, <span class="hljs-string">&quot;Mimi&quot;</span>);
+
+<span class="hljs-keyword">final</span> Iterable&lt;String&gt; namaKucing = Iterables.concat(namaKucingJantan, namaKucingBetina);
+<span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> bilanganNamaKucing = Iterables.size(namaKucing);
+
+System.out.println(bilanganNamaKucing);
+</code></pre>
+<p>Apa-apa rujuk JavaDoc Google Guava.</p>
+
                                 
                                 </section>
                             
@@ -1167,7 +1253,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Immutable Collections","level":"1.7.2","depth":2,"next":{"title":"Inversion of Control","level":"1.7.3","depth":2,"path":"quality/inversion-of-control.md","ref":"quality/inversion-of-control.md","articles":[]},"previous":{"title":"Final","level":"1.7.1","depth":2,"path":"quality/final.md","ref":"quality/final.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"quality/immutable-collections.md","mtime":"2018-11-25T04:13:12.774Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T07:21:49.864Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Immutable Collections","level":"1.7.2","depth":2,"next":{"title":"Inversion of Control","level":"1.7.3","depth":2,"path":"quality/inversion-of-control.md","ref":"quality/inversion-of-control.md","articles":[]},"previous":{"title":"Final","level":"1.7.1","depth":2,"path":"quality/final.md","ref":"quality/final.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"quality/immutable-collections.md","mtime":"2018-11-25T10:42:24.288Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T10:36:51.760Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
