@@ -1124,7 +1124,162 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="deployment-ant">Deployment (Ant)</h1>
+<p>Setelah menyiapkan program JavaFX, kita boleh membuat <em>deployment</em> untuk
+mengedarkan program tersebut kepada pengguna. <em>Deployment</em> perlu dibuat
+kerana takkanlah kita mahu pengguna menggunakan Netbeans untuk run
+program kita.</p>
+<p>Jadi, seperti software-software yang lain, kita akan membuatkan program
+JavaFX boleh run hanya dengan <em>double-click</em> sahaja.</p>
+<h2 id="icon">Icon</h2>
+<p>Sebelum kita membuat <em>deployment</em>, kita akan tambah sedikit lagi pada
+program kita, iaitu <em>icon</em>. <em>Icon</em> biasanya diletakkan pada sesuatu
+software untuk memberi identiti kepada software tersebut.</p>
+<p>Kita boleh menggunakan mana-mana software seperti GIMP atau Photoshop,
+untuk membuat <em>icon</em>. Saya buat <em>icon</em> yang <em>simple</em> sahaja menggunakan
+Paint.NET. <em>Icon</em> tersebut mestilah menggunakan saiz segi empat sama,
+contohnya 32&#xD7;32, 48&#xD7;48, 64&#xD7;64 dan sebagainya. Icon tersebut kemudiannya
+diletakkan di dalam <em>package</em> <code>hellojavafx.style</code>.</p>
+<p>Untuk memaparkan <em>icon</em> pada program JavaFX, kita tambah code berikut di
+<code>HelloJavaFX.java</code>:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> hellojavafx;
+
+<span class="hljs-keyword">import</span> javafx.application.Application;
+<span class="hljs-keyword">import</span> javafx.fxml.FXMLLoader;
+<span class="hljs-keyword">import</span> javafx.scene.Parent;
+<span class="hljs-keyword">import</span> javafx.scene.Scene;
+<span class="hljs-keyword">import</span> javafx.scene.image.Image;
+<span class="hljs-keyword">import</span> javafx.stage.Stage;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloJavaFX</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Application</span> </span>{
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">start</span><span class="hljs-params">(Stage stage)</span> <span class="hljs-keyword">throws</span> Exception </span>{
+        Parent root = FXMLLoader.load(getClass().getResource(<span class="hljs-string">&quot;view/Home.fxml&quot;</span>));
+
+        Scene scene = <span class="hljs-keyword">new</span> Scene(root);
+
+        stage.setTitle(<span class="hljs-string">&quot;Hello World!&quot;</span>);
+        stage.getIcons().add(<span class="hljs-keyword">new</span> Image(getClass().getResourceAsStream(<span class="hljs-string">&quot;style/icon.png&quot;</span>)));
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@param</span> args the command line arguments
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        launch(args);
+    }
+
+}
+</code></pre>
+<p>Semestinya nama gambar tersebut mengikut nama yang anda gunakan. Selepas
+<em>run</em>, kita boleh nampak <em>icon</em> tersebut di atas kiri <em>stage</em> tersebut.</p>
+<p><img src="img/tambah_icon.png" alt="Gambar menunjukkan icon pada HelloJavaFX"></p>
+<h2 id="executable-jar">Executable JAR</h2>
+<p>Program Java biasanya dipakejkan di dalam file JAR. Contoh yang sama
+untuk <em>programming language</em> C/C++ ialah file EXE.</p>
+<p>Untuk membuat file JAR dengan Netbeans, klik kanan pada <code>project</code>,
+kemudian klik <code>Clean and Build</code>. File JAR tersebut akan berada di dalam
+folder <code>dist</code> di folder <code>project</code>.</p>
+<p><img src="img/executable_jar.png" alt="Gambar menunjukkan file executable JAR"></p>
+<p>Untuk <em>run</em> program tersebut, hanya perlu <em>double-click</em> pada
+<code>HelloJavaFX.jar</code>. Folder <code>dist</code> tersebut kemudian boleh diedarkan dalam
+bentuk file ZIP, contohnya dengan menggunakan 7-Zip.</p>
+<h2 id="executable-exe">Executable EXE</h2>
+<p>Note: Untuk lihat cara yang lebih senang, pergi ke Deployment
+(Netbeans).</p>
+<p>File JAR jarang digunakan untuk <em>desktop application</em>. Jadi, sebagai
+alternatif, kita boleh menggunakan file EXE.</p>
+<p>Untuk pengetahuan anda, program Java bukannya run secara <em>native</em>
+seperti C/C++, tetapi dengan menggunakan <em>Java Virtual Machine</em> (JVM).
+Itu sebabnya kita memerlukan <em>Java Runtime Environment</em> (JRE) untuk
+<em>run</em> program Java.</p>
+<p>Dengan membuat file EXE, kita boleh sertakan sekali JRE bersama dengan
+program kita supaya user tidak perlu download JRE secara berasingan.</p>
+<p>Untuk membuat file EXE, buka file <code>build.xml</code> di bawah <em>tab</em> Files.</p>
+<p><img src="img/build_xml.png" alt="Gambar build.xml"></p>
+<p>Kemudian tambah code ini sebelum <code>&lt;/project&gt;</code>:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">target</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;-post-jfx-deploy&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">fx:deploy</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;${javafx.run.width}&quot;</span>
+               <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;${javafx.run.height}&quot;</span> <span class="hljs-attr">nativeBundles</span>=<span class="hljs-string">&quot;all&quot;</span>
+               <span class="hljs-attr">outdir</span>=<span class="hljs-string">&quot;${basedir}/${dist.dir}&quot;</span> <span class="hljs-attr">outfile</span>=<span class="hljs-string">&quot;${application.title}&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">fx:application</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;${application.title}&quot;</span>
+                        <span class="hljs-attr">mainClass</span>=<span class="hljs-string">&quot;${javafx.main.class}&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">fx:resources</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">fx:fileset</span> <span class="hljs-attr">dir</span>=<span class="hljs-string">&quot;${basedir}/${dist.dir}&quot;</span> <span class="hljs-attr">includes</span>=<span class="hljs-string">&quot;*.jar&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">fx:resources</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">fx:info</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;${application.title}&quot;</span> <span class="hljs-attr">vendor</span>=<span class="hljs-string">&quot;${application.vendor}&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">fx:deploy</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">target</span>&gt;</span>
+</code></pre>
+<p>Setelah selesai, buat benda yang sama, klik kanan pada <em>project</em>
+kemudian klik <code>Clean and Build</code>.</p>
+<p>Hasilnya, akan ada folder <code>bundle</code> di dalam folder <code>dist</code> yang
+mengandungi file EXE tersebut.</p>
+<p><img src="img/executable_exe.png" alt="Gambar file executable EXE"></p>
+<h2 id="tukar-icon-file-exe">Tukar icon file EXE</h2>
+<p>Note: Untuk lihat cara yang lebih senang, pergi ke Deployment
+(Netbeans).</p>
+<p>Biasanya kita lihat setiap software yang menggunakan file EXE mempunyai
+<em>icon</em> yang tersendiri. Jadi, kita akan membuat benda yang sama
+menggunakan <em>icon</em> yang kita sudah buat sebelum ini.</p>
+<p>Sebelum itu, kita mesti menukar <em>file extension</em> icon kita kepada
+<code>.ico</code>. Saya menggunakan servis online di online-convert.com untuk
+menukar <em>icon</em> ke <em>extension</em> <code>.ico</code>.</p>
+<p>Namakan <em>icon</em> tersebut sama dengan nama program kita iaitu
+<code>HelloJavaFX.ico</code>.</p>
+<p>Kemudian buat folder baru di dalam folder <em>project</em> dengan nama
+<code>package</code>. Di dalam folder <code>package</code>, buat folder baru <code>windows</code>. Letak
+<code>HelloJavaFX.ico</code> di dalam folder <code>windows</code> tersebut.</p>
+<p><img src="img/folder_package.png" alt="Gambar folder package untuk meletakkan icon"></p>
+<p>Setelah selesai, buka Netbeans, kemudian klik menu <code>Tools</code> di menu atas,
+dan klik <code>Options</code>. Pergi ke seksyen <code>Java</code>, dan klik tab <code>Ant</code>. Klik
+<code>Add Directory...</code> untuk menambah Classpath. Pilih folder projek
+HelloJavaFX.</p>
+<p><img src="img/classpath_ant_build.png" alt="Gambar tambah classpath di Ant untuk icon"></p>
+<p>Klik <code>Apply</code> dan <code>OK</code>.</p>
+<p>Sekarang kita boleh <em>build</em> kembali dengan menggunakan <code>Clean and
+Build</code>. Hasilnya:</p>
+<p><img src="img/icon_pada_file_exe.png" alt="Gambar icon pada file EXE"></p>
+<h2 id="executable-exe-tanpa-jre">Executable EXE tanpa JRE</h2>
+<p>File EXE sebelum ini disertakan sekali dengan JRE. Saiz JRE adalah lebih
+kurang 150 MB. Kemungkinan ada <em>user</em> yang sudah <em>install</em> JRE pada
+komputer mereka, jadi kita beri mereka pilihan sama ada untuk
+mendapatkan program berserta JRE ataupun tidak.</p>
+<p>Untuk membuat file EXE tanpa JRE, buka kembali <code>build.xml</code> dan tambah
+<code>&lt;fx:platform basedir=&#x201D;&#x201D;/&gt;</code> seperti berikut:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">target</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;-post-jfx-deploy&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">fx:deploy</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;${javafx.run.width}&quot;</span>
+               <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;${javafx.run.height}&quot;</span> <span class="hljs-attr">nativeBundles</span>=<span class="hljs-string">&quot;all&quot;</span>
+               <span class="hljs-attr">outdir</span>=<span class="hljs-string">&quot;${basedir}/${dist.dir}&quot;</span> <span class="hljs-attr">outfile</span>=<span class="hljs-string">&quot;${application.title}&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">fx:application</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;${application.title}&quot;</span>
+                        <span class="hljs-attr">mainClass</span>=<span class="hljs-string">&quot;${javafx.main.class}&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">fx:resources</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">fx:fileset</span> <span class="hljs-attr">dir</span>=<span class="hljs-string">&quot;${basedir}/${dist.dir}&quot;</span> <span class="hljs-attr">includes</span>=<span class="hljs-string">&quot;*.jar&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">fx:resources</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">fx:info</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;${application.title}&quot;</span> <span class="hljs-attr">vendor</span>=<span class="hljs-string">&quot;${application.vendor}&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">fx:platform</span> <span class="hljs-attr">basedir</span>=<span class="hljs-string">&quot;&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">fx:deploy</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">target</span>&gt;</span>
+</code></pre>
+<p>Seperti biasa, <em>build</em> menggunakan <code>Clean and Build</code>.</p>
+<h2 id="installer">Installer</h2>
+<p>Setelah selesai membuat file EXE, kita boleh membuat <em>installer</em> untuk
+program tersebut. <em>Installer</em> dibuat bertujuan untuk memudahkan
+<em>user _menentukan di mana mahu meletakkan file-file program, dan juga
+memudahkan user untuk _uninstall</em> program tersebut.</p>
+<p>Dengan <em>installer</em> juga, kita hanya perlu mengedarkan file <em>installer</em>
+itu sahaja.</p>
+<p>Untuk membuat <em>installer</em>, kita boleh menggunakan sama ada <em>Inno Setup</em>
+ataupun <em>WiX</em>.</p>
+<p><a href="http://www.jrsoftware.org/isinfo.php" target="_blank">Klik untuk download Inno Setup</a></p>
+<p><a href="http://wixtoolset.org" target="_blank">Klik untuk download WiX</a></p>
+<p>Dengan Inno Setup, ikut sahaja arahan Script Wizard. Saya tidak pernah
+menggunakan WiX. Anda boleh baca arahan di documentation WiX jika anda
+mahu.</p>
+
                                 
                                 </section>
                             
@@ -1167,7 +1322,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Deployment (Ant)","level":"1.8.7","depth":2,"next":{"title":"Deployment (NetBeans)","level":"1.8.8","depth":2,"path":"javafx/deployment-netbeans.md","ref":"javafx/deployment-netbeans.md","articles":[]},"previous":{"title":"Animation","level":"1.8.6","depth":2,"path":"javafx/animation.md","ref":"javafx/animation.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"javafx/deployment-ant.md","mtime":"2018-11-25T04:14:37.190Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T10:36:51.760Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Deployment (Ant)","level":"1.8.7","depth":2,"next":{"title":"Deployment (NetBeans)","level":"1.8.8","depth":2,"path":"javafx/deployment-netbeans.md","ref":"javafx/deployment-netbeans.md","articles":[]},"previous":{"title":"Animation","level":"1.8.6","depth":2,"path":"javafx/animation.md","ref":"javafx/animation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"javafx/deployment-ant.md","mtime":"2018-11-25T12:04:38.304Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T10:36:51.760Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

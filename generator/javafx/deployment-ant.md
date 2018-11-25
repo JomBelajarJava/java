@@ -1,0 +1,208 @@
+# Deployment (Ant)
+
+Setelah menyiapkan program JavaFX, kita boleh membuat _deployment_ untuk
+mengedarkan program tersebut kepada pengguna. _Deployment_ perlu dibuat
+kerana takkanlah kita mahu pengguna menggunakan Netbeans untuk run
+program kita.
+
+Jadi, seperti software-software yang lain, kita akan membuatkan program
+JavaFX boleh run hanya dengan _double-click_ sahaja.
+
+## Icon
+
+Sebelum kita membuat _deployment_, kita akan tambah sedikit lagi pada
+program kita, iaitu _icon_. _Icon_ biasanya diletakkan pada sesuatu
+software untuk memberi identiti kepada software tersebut.
+
+Kita boleh menggunakan mana-mana software seperti GIMP atau Photoshop,
+untuk membuat _icon_. Saya buat _icon_ yang _simple_ sahaja menggunakan
+Paint.NET. _Icon_ tersebut mestilah menggunakan saiz segi empat sama,
+contohnya 32×32, 48×48, 64×64 dan sebagainya. Icon tersebut kemudiannya
+diletakkan di dalam _package_ `hellojavafx.style`.
+
+Untuk memaparkan _icon_ pada program JavaFX, kita tambah code berikut di
+`HelloJavaFX.java`:
+
+```java
+package hellojavafx;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
+
+public class HelloJavaFX extends Application {
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("view/Home.fxml"));
+
+        Scene scene = new Scene(root);
+
+        stage.setTitle("Hello World!");
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("style/icon.png")));
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+}
+```
+
+Semestinya nama gambar tersebut mengikut nama yang anda gunakan. Selepas
+_run_, kita boleh nampak _icon_ tersebut di atas kiri _stage_ tersebut.
+
+![Gambar menunjukkan icon pada HelloJavaFX](img/tambah_icon.png)
+
+## Executable JAR
+
+Program Java biasanya dipakejkan di dalam file JAR. Contoh yang sama
+untuk _programming language_ C/C++ ialah file EXE.
+
+Untuk membuat file JAR dengan Netbeans, klik kanan pada `project`,
+kemudian klik `Clean and Build`. File JAR tersebut akan berada di dalam
+folder `dist` di folder `project`.
+
+![Gambar menunjukkan file executable JAR](img/executable_jar.png)
+
+Untuk _run_ program tersebut, hanya perlu _double-click_ pada
+`HelloJavaFX.jar`. Folder `dist` tersebut kemudian boleh diedarkan dalam
+bentuk file ZIP, contohnya dengan menggunakan 7-Zip.
+
+## Executable EXE
+
+Note: Untuk lihat cara yang lebih senang, pergi ke Deployment
+(Netbeans).
+
+File JAR jarang digunakan untuk _desktop application_. Jadi, sebagai
+alternatif, kita boleh menggunakan file EXE.
+
+Untuk pengetahuan anda, program Java bukannya run secara _native_
+seperti C/C++, tetapi dengan menggunakan _Java Virtual Machine_ (JVM).
+Itu sebabnya kita memerlukan _Java Runtime Environment_ (JRE) untuk
+_run_ program Java.
+
+Dengan membuat file EXE, kita boleh sertakan sekali JRE bersama dengan
+program kita supaya user tidak perlu download JRE secara berasingan.
+
+Untuk membuat file EXE, buka file `build.xml` di bawah _tab_ Files.
+
+![Gambar build.xml](img/build_xml.png)
+
+Kemudian tambah code ini sebelum `</project>`:
+
+```xml
+<target name="-post-jfx-deploy">
+    <fx:deploy width="${javafx.run.width}"
+               height="${javafx.run.height}" nativeBundles="all"
+               outdir="${basedir}/${dist.dir}" outfile="${application.title}">
+        <fx:application name="${application.title}"
+                        mainClass="${javafx.main.class}"/>
+        <fx:resources>
+            <fx:fileset dir="${basedir}/${dist.dir}" includes="*.jar"/>
+        </fx:resources>
+        <fx:info title="${application.title}" vendor="${application.vendor}"/>
+    </fx:deploy>
+</target>
+```
+
+Setelah selesai, buat benda yang sama, klik kanan pada _project_
+kemudian klik `Clean and Build`.
+
+Hasilnya, akan ada folder `bundle` di dalam folder `dist` yang
+mengandungi file EXE tersebut.
+
+![Gambar file executable EXE](img/executable_exe.png)
+
+## Tukar icon file EXE
+
+Note: Untuk lihat cara yang lebih senang, pergi ke Deployment
+(Netbeans).
+
+Biasanya kita lihat setiap software yang menggunakan file EXE mempunyai
+_icon_ yang tersendiri. Jadi, kita akan membuat benda yang sama
+menggunakan _icon_ yang kita sudah buat sebelum ini.
+
+Sebelum itu, kita mesti menukar _file extension_ icon kita kepada
+`.ico`. Saya menggunakan servis online di online-convert.com untuk
+menukar _icon_ ke _extension_ `.ico`.
+
+Namakan _icon_ tersebut sama dengan nama program kita iaitu
+`HelloJavaFX.ico`.
+
+Kemudian buat folder baru di dalam folder _project_ dengan nama
+`package`. Di dalam folder `package`, buat folder baru `windows`. Letak
+`HelloJavaFX.ico` di dalam folder `windows` tersebut.
+
+![Gambar folder package untuk meletakkan icon](img/folder_package.png)
+
+Setelah selesai, buka Netbeans, kemudian klik menu `Tools` di menu atas,
+dan klik `Options`. Pergi ke seksyen `Java`, dan klik tab `Ant`. Klik
+`Add Directory...` untuk menambah Classpath. Pilih folder projek
+HelloJavaFX.
+
+![Gambar tambah classpath di Ant untuk icon](img/classpath_ant_build.png)
+
+Klik `Apply` dan `OK`.
+
+Sekarang kita boleh _build_ kembali dengan menggunakan `Clean and
+Build`. Hasilnya:
+
+![Gambar icon pada file EXE](img/icon_pada_file_exe.png)
+
+## Executable EXE tanpa JRE
+
+File EXE sebelum ini disertakan sekali dengan JRE. Saiz JRE adalah lebih
+kurang 150 MB. Kemungkinan ada _user_ yang sudah _install_ JRE pada
+komputer mereka, jadi kita beri mereka pilihan sama ada untuk
+mendapatkan program berserta JRE ataupun tidak.
+
+Untuk membuat file EXE tanpa JRE, buka kembali `build.xml` dan tambah
+`<fx:platform basedir=””/>` seperti berikut:
+
+```xml
+<target name="-post-jfx-deploy">
+    <fx:deploy width="${javafx.run.width}"
+               height="${javafx.run.height}" nativeBundles="all"
+               outdir="${basedir}/${dist.dir}" outfile="${application.title}">
+        <fx:application name="${application.title}"
+                        mainClass="${javafx.main.class}"/>
+        <fx:resources>
+            <fx:fileset dir="${basedir}/${dist.dir}" includes="*.jar"/>
+        </fx:resources>
+        <fx:info title="${application.title}" vendor="${application.vendor}"/>
+        <fx:platform basedir=""/>
+    </fx:deploy>
+</target>
+```
+
+Seperti biasa, _build_ menggunakan `Clean and Build`.
+
+## Installer
+
+Setelah selesai membuat file EXE, kita boleh membuat _installer_ untuk
+program tersebut. _Installer_ dibuat bertujuan untuk memudahkan
+_user _menentukan di mana mahu meletakkan file-file program, dan juga
+memudahkan user untuk _uninstall_ program tersebut.
+
+Dengan _installer_ juga, kita hanya perlu mengedarkan file _installer_
+itu sahaja.
+
+Untuk membuat _installer_, kita boleh menggunakan sama ada _Inno Setup_
+ataupun _WiX_.
+
+[Klik untuk download Inno Setup](http://www.jrsoftware.org/isinfo.php)
+
+[Klik untuk download WiX](http://wixtoolset.org)
+
+Dengan Inno Setup, ikut sahaja arahan Script Wizard. Saya tidak pernah
+menggunakan WiX. Anda boleh baca arahan di documentation WiX jika anda
+mahu.

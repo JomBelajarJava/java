@@ -1,0 +1,223 @@
+# Animation
+
+_Animation_ boleh ditambah pada program JavaFX untuk menjadikan program
+kita lebih menarik. Semua benda yang ada pada program JavaFX, seperti
+_control_, _shape_, _chart_ dan sebagainya, boleh dianimasikan.
+
+Sebagai demo, kita akan membuat _animation_ pada program yang sama iaitu
+HelloJavaFX.
+
+## Tambahan pada HelloJavaFX
+
+Saya ada menambah beberapa item pada HelloJavaFX sehingga
+kelihatan seperti ini:
+
+![Gambar HelloJavaFX ditambah dengan ucapan 'Selamat Datang'](img/hellojavafx_selamat_datang.png)
+
+Item yang ditambah ialah Label `Selamat Datang!` dan Rectangle biru
+melengkung di belakangnya.
+
+Jika perasan CSS untuk Label sudah dibuat tetapi Label `Selamat Datang!`
+tidak sama dengan Label yang lain. Untuk membezakan CSS sesebuah
+item dengan item yang lain, kita boleh meletakkan ‘id’ pada item
+tersebut. Contoh untuk meletakkan `id` CSS menggunakan Scene Builder:
+
+![Gambar meletakkan id CSS menggunakan Scene Builder](img/id_css_scene_builder.png)
+
+_Selector_ untuk id bermula dengan _hashtag_, `#`, jadi `home.css`
+ditambah dengan CSS berikut:
+
+```css
+#selamat-datang {
+  -fx-font-size: 24;
+  -fx-text-fill: white;
+  -fx-font-family: monospace;
+}
+```
+
+Sekarang kita akan menggunakan dua item ini, iaitu Label `Selamat
+Datang!` dan Rectangle biru di belakangnya, untuk membuat _animation_.
+
+## FXML injection
+
+Kita perlu membuat _FXML injection_ untuk Label `Selamat Datang` dan
+Rectangle biru kerana kita akan memanipulasi dua item ini melalui code
+Java.
+
+```java
+package hellojavafx.view;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.shape.Rectangle;
+
+public class HomeController
+implements Initializable {
+
+    @FXML
+    private Rectangle rect;
+
+    @FXML
+    private Label selamat;
+
+    @FXML
+    private Label label;
+
+    /**
+     * Papar 'Hello World!'. Padam jika dah ada.
+     */
+    @FXML
+    private void tulisHelloWorld(ActionEvent event) {
+        if (label.getText().isEmpty()) {
+            label.setText("Hello World!");
+        } else {
+            label.setText("");
+        }
+    }
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+    }
+}
+```
+
+_FXML injection_ tersebut kemudiannya perlu dihubungkan ke file FXML
+melalui Scene Builder.
+
+## Package javafx.animation
+
+Kita akan menggunakan _class_ dari _package_ `javafx.animation` untuk
+membuat _animation_. Antara _class_ yang boleh digunakan:
+
+-   `FadeTransition` – menukar _transparency_ sesuatu item
+-   `TranslateTransition` – menggerakkan item ke
+kiri/kanan/atas/bawah/depan/belakang
+-   `RotateTransition` – membuatkan item berputar
+-   `ScaleTransition` – mengubah saiz item
+-   `PathTransition` – menggerakkan item mengikut _path_ yang lebih
+kompleks
+-   `SequentialTransition` – melaksanakan beberapa _animation_ mengikut
+giliran
+-   `ParallelTransition` – melaksanakan beberapa _animation_ secara
+serentak
+
+Untuk maklumat lebih lanjut, boleh lihat API Java untuk package
+`javafx.animation`.
+
+[Klik untuk lihat package 'javafx.animation'](https://docs.oracle.com/javase/8/javafx/api/javafx/animation/package-summary.html)
+
+Sebagai demo, kita akan membuat _animation_ untuk memasukkan Rectangle
+dari kiri ke kanan, kemudian timbulkan perkataan Selamat Datang.
+
+## TranslateTransition
+
+Kita akan menggunakan `TranslateTransition` untuk menggerakkan Rectangle
+dari kiri ke kanan.
+
+```java
+    ...
+
+    /**
+     * Animate 'Selamat Datang!'.
+     */
+    private void animate() {
+        TranslateTransition rectTranslate = new TranslateTransition(Duration.millis(1500), rect);
+        rectTranslate.setFromX(-356);
+        rectTranslate.setToX(0);
+        rectTranslate.play();
+    }
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        animate();
+    }
+}
+```
+
+`Duration.millis()` untuk menentukan berapa lama masa yang diambil untuk
+melaksanakan _animation_ tersebut. `Duration.millis(1500)` bermaksud
+selama 1500 _milliseconds_. Method `setFromX()` menentukan kedudukan
+awal, dan method `setToX()` menentukan kedudukan terakhir. Method
+`play()` untuk menjalankan _animation_.
+
+Hasilnya:
+
+![Gambar menggunakan TranslateTransition](img/translate.gif)
+
+## FadeTransition
+
+Untuk Label `Selamat Datang` pula, kita akan menggunakan `FadeTransition`
+untuk menukar _opacity_ daripada 0 (_transparent_) ke 1 (_opaque_).
+
+```java
+    ...
+
+    /**
+     * Animate 'Selamat Datang!'.
+     */
+    private void animate() {
+//        TranslateTransition rectTranslate = new TranslateTransition(Duration.millis(1500), rect);
+//        rectTranslate.setFromX(-356);
+//        rectTranslate.setToX(0);
+
+        FadeTransition selamatFade = new FadeTransition(Duration.millis(1500), selamat);
+        selamatFade.setFromValue(0);
+        selamatFade.setToValue(1);
+        selamatFade.play();
+    }
+
+    ...
+```
+
+Saya comment animation sebelum FadeTransition supaya animation tersebut
+tidak akan dijalankan. Jika tidak, kedua-dua animation tersebut akan
+jalan serentak.
+
+Method `setFromValue()` untuk menentukan _opacity_ awal, dan method
+`setToValue()` untuk _opacity_ akhir.
+
+Hasilnya:
+
+![Gambar menggunakan FadeTransition](img/fade.gif)
+
+=== SequentialTransition
+
+Sekarang kita akan menggabungkan kedua-dua _animation_ tersebut
+dengan menggunakan `SequentialTransition`.
+
+```java
+    ...
+
+    /**
+     * Animate 'Selamat Datang!'.
+     */
+    private void animate() {
+        TranslateTransition rectTranslate = new TranslateTransition(Duration.millis(1500), rect);
+        rectTranslate.setFromX(-356);
+        rectTranslate.setToX(0);
+
+        FadeTransition selamatFade = new FadeTransition(Duration.millis(1500), selamat);
+        selamatFade.setFromValue(0);
+        selamatFade.setToValue(1);
+
+        SequentialTransition st = new SequentialTransition(rectTranslate, selamatFade);
+        st.play();
+    }
+
+    ...
+```
+
+Hasilnya:
+
+![Gambar menunjukkan SequentialTransition](img/sequential.gif)

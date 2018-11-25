@@ -1124,7 +1124,214 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="fxml">FXML</h1>
+<p>Program HelloJavaFX sebelum ini dibuat hanya dengan menggunakan code
+Java. Cara ini tidak menggunakan kaedah <em>model-view-controller</em> (MVC).
+Dengan kaedah MVC, kita boleh menggunakan FXML untuk menentukan rupa
+bentuk program kita.</p>
+<p>Sekarang kita akan <em>delete</em> balik projek HelloJavaFX sebelum ini dan
+akan buat benda yang sama tetapi menggunakan FXML.</p>
+<p>Jadi, seperti sebelum ini klik <code>File</code> kemudian <code>New Project</code>. Pilih
+kategori <code>JavaFX</code>, dan pilih projek <code>JavaFX FXML Application</code>.
+Selepas klik <code>Next</code>, namakan projek kita, contohnya <code>HelloJavaFX</code>.</p>
+<p>Setelah selesai, kita akan dapat tiga file iaitu <code>HelloJavaFX.java</code>,
+<code>FXMLDocument.fxml</code>, dan <code>FXMLDocumentController.java</code>. Anda boleh
+run program tersebut walaupun program tersebut agak lain daripada
+program sebelum ini.</p>
+<p>Untuk menunjukkan cara untuk membuat file FXML, kita akan <em>delete</em> dua
+file ini:</p>
+<ul>
+<li>FXMLDocument.fxml</li>
+<li>FXMLDocumentController.java</li>
+</ul>
+<h2 id="create-file-fxml">Create file FXML</h2>
+<p>Sebelum itu, kita akan membuat satu <em>package</em> baru untuk menyimpan file
+FXML. Anda boleh abaikan step ini, tetapi saya galakkan untuk membuat
+<em>package</em> baru supaya code lebih tersusun.</p>
+<p>Klik kanan pada package <code>hellojavafx</code>, kemudian <code>New</code>, dan klik
+<code>Java Package</code>.</p>
+<p><img src="img/package_baru_untuk_fxml.png" alt="Gambar membuat package baru untuk menyimpan file FXML"></p>
+<p>Namakan package ini sebagai <code>hellojavafx.view</code> dan klik <code>Finish</code>.</p>
+<p><img src="img/nama_package.png" alt="Gambar nama package untuk file FXML"></p>
+<p>Untuk membuat file FXML yang baru, klik kanan pada package <code>view</code>,
+kemudian <code>New</code>, dan klik <code>Empty FXML</code>. Namakan apa-apa sahaja, jadi
+kita akan namakan file tersebut sebagai <code>Home</code>. Selepas klik <code>Next</code>,
+tick pada <code>Use Java Controller</code>. Selepas <code>Next</code> yang seterusnya,
+ikut suka anda mahu menggunakan CSS ataupun tidak. Akhir sekali, klik
+<code>Finish</code>.</p>
+<h2 id="edit-fxml-menggunakan-scene-builder">Edit FXML menggunakan Scene Builder</h2>
+<p>Jika anda sudah <em>install</em> Scene Builder, <em>double-click</em> file
+<code>Home.fxml</code> untuk edit menggunakan Scene Builder.</p>
+<p>Sekarang kita akan buat program sama seperti HelloJavaFX sebelum ini.
+Jadi, kita <em>resize</em> AnchorPane kepada saiz 400&#xD7;300. Klik pada AnchorPane
+tersebut, dan segala Properties akan terpapar pada menu sebelah kanan.
+Klik pada Layout dan tukar lebar (<em>width</em>) dan tinggi (<em>height</em>).</p>
+<p><img src="img/tukar_saiz.png" alt="Gambar tukar saiz menggunakan Scene Builder"></p>
+<p>Untuk menambah control (atau <em>widget</em>) pada Pane, lihat menu di sebelah
+kiri dan klik <code>Controls</code>, kemudian tarik saja ke Pane tersebut.</p>
+<p><img src="img/fx_screencapture_x264.gif" alt="Gambar drag and drop menggunakan Scene Builder"></p>
+<p>Kita boleh menukar text pada button tersebut di menu sebelah kanan
+bahagian Properties.</p>
+<p><img src="img/tukar_text_pada_button.png" alt="Gambar tukar text pada button"></p>
+<p>Setelah selesai, kita boleh <em>save</em> dan tutup Scene Builder.</p>
+<h2 id="fxml-injection">FXML injection</h2>
+<p>Sekarang kita akan tambah fungsi kepada button tersebut menggunakan
+<code>FXML injection</code>.</p>
+<p>Buka <code>HomeController.java</code> dan tambah code seperti berikut:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> hellojavafx.view;
+
+<span class="hljs-keyword">import</span> java.net.URL;
+<span class="hljs-keyword">import</span> java.util.ResourceBundle;
+<span class="hljs-keyword">import</span> javafx.event.ActionEvent;
+<span class="hljs-keyword">import</span> javafx.fxml.FXML;
+<span class="hljs-keyword">import</span> javafx.fxml.Initializable;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HomeController</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Initializable</span> </span>{
+
+    <span class="hljs-meta">@FXML</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">tulisHelloWorld</span><span class="hljs-params">(ActionEvent event)</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;Hello World!&quot;</span>);
+    }
+
+    <span class="hljs-comment">/**
+     * Initializes the controller class.
+     */</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initialize</span><span class="hljs-params">(URL url, ResourceBundle rb)</span> </span>{
+        <span class="hljs-comment">// TODO</span>
+    }
+
+}
+</code></pre>
+<p>Tips: Untuk <em>import</em> secara automatik menggunakan Netbeans, tekan
+<code>Ctrl+Shift+I</code>. Pastikan juga anda import dari package <code>javafx</code>.</p>
+<p><img src="img/import_fxml.png" alt="Gambar import FXML menggunakan shortcut"></p>
+<p><code>FXML injection</code> ialah tanda <code>@FXML</code> yang kita letakkan pada method
+<code>tulisHelloWorld()</code>. Jika kita tidak letak <code>@FXML</code>, Scene Builder
+takkan jumpa method tersebut.</p>
+<p>Sekarang kita sudah boleh menghubungkan code dengan GUI
+kita. <em>Double-click</em> pada <code>Home.fxml</code> untuk membuka kembali Scene
+Builder. Klik pada button, dan pilih method <code>tulisHelloWorld()</code> di
+menu sebelah kanan bahagian <code>Code</code>.</p>
+<p><img src="img/tambah_action.png" alt="Gambar tambah action pada FXML"></p>
+<p>Setelah selesai, <em>save</em> dan tutup Scene Builder.</p>
+<h2 id="run">Run</h2>
+<p>Sebelum <em>run</em>, ada sedikit yang perlu kita tukar pada code disebabkan
+kita ada menambah package <code>view</code> sebelum ini.</p>
+<p>Buka HelloJavaFX.java dan tukar <em>path</em> ke file FXML seperti berikut:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> hellojavafx;
+
+<span class="hljs-keyword">import</span> javafx.application.Application;
+<span class="hljs-keyword">import</span> javafx.fxml.FXMLLoader;
+<span class="hljs-keyword">import</span> javafx.scene.Parent;
+<span class="hljs-keyword">import</span> javafx.scene.Scene;
+<span class="hljs-keyword">import</span> javafx.stage.Stage;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloJavaFX</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Application</span> </span>{
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">start</span><span class="hljs-params">(Stage stage)</span> <span class="hljs-keyword">throws</span> Exception </span>{
+        Parent root = FXMLLoader.load(getClass().getResource(<span class="hljs-string">&quot;view/Home.fxml&quot;</span>));
+
+        Scene scene = <span class="hljs-keyword">new</span> Scene(root);
+
+        stage.setTitle(<span class="hljs-string">&quot;Hello World!&quot;</span>);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@param</span> args the command line arguments
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        launch(args);
+    }
+
+}
+</code></pre>
+<p>Kita juga boleh menambah <em>title</em> pada program kita menggunakan
+<code>stage.setTitle()</code> seperti di atas.</p>
+<p>Sekarang program sudah siap sedia untuk <em>run</em>, dan hasilnya adalah sama
+seperti program sebelum ini.</p>
+<h2 id="fxml-injection-extra">FXML injection (extra)</h2>
+<p>Selain untuk menambah fungsi kepada sesebuah control, <em>FXML injection</em>
+juga boleh digunakan untuk meletakkan <code>id</code> pada <em>control</em>. Ini
+bertujuan untuk membolehkan kita mengawal <em>control</em> melalui code.
+Contohnya jika kita mahu tulis <code>Hello World!</code> di GUI.</p>
+<p>Sekarang tambah <em>control</em> <code>Label</code> ke atas <em>AnchorPane</em>. Padamkan text
+<em>Label</em> tersebut. Buka <code>HomeController.java</code> dan tambah code seperti
+berikut:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> hellojavafx.view;
+
+<span class="hljs-keyword">import</span> java.net.URL;
+<span class="hljs-keyword">import</span> java.util.ResourceBundle;
+<span class="hljs-keyword">import</span> javafx.event.ActionEvent;
+<span class="hljs-keyword">import</span> javafx.fxml.FXML;
+<span class="hljs-keyword">import</span> javafx.fxml.Initializable;
+<span class="hljs-keyword">import</span> javafx.scene.control.Label;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HomeController</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Initializable</span> </span>{
+
+    <span class="hljs-meta">@FXML</span>
+    <span class="hljs-keyword">private</span> Label label;
+
+    <span class="hljs-meta">@FXML</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">tulisHelloWorld</span><span class="hljs-params">(ActionEvent event)</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;Hello World!&quot;</span>);
+    }
+
+    <span class="hljs-comment">/**
+     * Initializes the controller class.
+     */</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initialize</span><span class="hljs-params">(URL url, ResourceBundle rb)</span> </span>{
+        <span class="hljs-comment">// TODO</span>
+    }
+
+}
+</code></pre>
+<p>Kita juga akan membuatkan program paparkan <code>Hello World!</code> di <em>Label</em>,
+bukannya di <em>command line</em>. Jadi, kita tukar method
+<code>tulisHelloWorld()</code> seperti berikut:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> hellojavafx.view;
+
+<span class="hljs-keyword">import</span> java.net.URL;
+<span class="hljs-keyword">import</span> java.util.ResourceBundle;
+<span class="hljs-keyword">import</span> javafx.event.ActionEvent;
+<span class="hljs-keyword">import</span> javafx.fxml.FXML;
+<span class="hljs-keyword">import</span> javafx.fxml.Initializable;
+<span class="hljs-keyword">import</span> javafx.scene.control.Label;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HomeController</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Initializable</span> </span>{
+
+    <span class="hljs-meta">@FXML</span>
+    <span class="hljs-keyword">private</span> Label label;
+
+    <span class="hljs-meta">@FXML</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">tulisHelloWorld</span><span class="hljs-params">(ActionEvent event)</span> </span>{
+        <span class="hljs-keyword">if</span> (label.getText().isEmpty()) {
+            label.setText(<span class="hljs-string">&quot;Hello World!&quot;</span>);
+        } <span class="hljs-keyword">else</span> {
+            label.setText(<span class="hljs-string">&quot;&quot;</span>);
+        }
+    }
+
+    <span class="hljs-comment">/**
+     * Initializes the controller class.
+     */</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initialize</span><span class="hljs-params">(URL url, ResourceBundle rb)</span> </span>{
+        <span class="hljs-comment">// TODO</span>
+    }
+
+}
+</code></pre>
+<p>Buka kembali <code>Home.fxml</code>. Klik pada <em>Label</em>, kemudian pilih id di menu
+sebelah kanan bahagian <code>Code</code>.</p>
+<p><img src="img/fxml_injection_untuk_id.png" alt="Gambar menambah id pada control"></p>
+<p><em>Save</em> dan tutup Scene Builder. Sekarang kita sudah boleh paparkan
+<code>Hello World!</code> terus di GUI.</p>
+
                                 
                                 </section>
                             
@@ -1167,7 +1374,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"FXML","level":"1.8.4","depth":2,"next":{"title":"Styling dengan CSS","level":"1.8.5","depth":2,"path":"javafx/styling-dengan-css.md","ref":"javafx/styling-dengan-css.md","articles":[]},"previous":{"title":"Hello JavaFX","level":"1.8.3","depth":2,"path":"javafx/hello-javafx.md","ref":"javafx/hello-javafx.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"javafx/fxml.md","mtime":"2018-11-25T04:14:37.190Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T10:36:51.760Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"FXML","level":"1.8.4","depth":2,"next":{"title":"Styling dengan CSS","level":"1.8.5","depth":2,"path":"javafx/styling-dengan-css.md","ref":"javafx/styling-dengan-css.md","articles":[]},"previous":{"title":"Hello JavaFX","level":"1.8.3","depth":2,"path":"javafx/hello-javafx.md","ref":"javafx/hello-javafx.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"javafx/fxml.md","mtime":"2018-11-25T11:49:56.717Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T10:36:51.760Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

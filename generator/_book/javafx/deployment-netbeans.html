@@ -1124,7 +1124,58 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="deployment-netbeans">Deployment (NetBeans)</h1>
+<p>Sebelum ini kita membuat <em>deployment</em> dengan menggunakan <em>Ant build
+system</em>. Ada sesetengah <em>steps</em> yang mungkin terlebih rumit untuk
+sesetengah orang. Jika anda menggunakan Netbeans, ada beberapa
+<em>shortcut</em> yang kita boleh gunakan.</p>
+<h2 id="icon">Icon</h2>
+<p>Cara yang sama digunakan seperti sebelum ini.</p>
+<h2 id="executable-jar">Executable JAR</h2>
+<p>Cara yang sama digunakan seperti sebelum ini.</p>
+<h2 id="executable-exe">Executable EXE</h2>
+<p>Untuk membuat file EXE menggunakan Netbeans, klik kanan pada <code>project</code>,
+kemudian <code>Properties</code>. Pergi ke <code>Deployment</code>, dan <em>tick</em> <code>Enable Native
+Packaging</code>. Klik <code>OK</code>.</p>
+<p>Setelah selesai, sekali lagi klik kanan pada <code>project</code>, dan kita boleh
+nampak menu baru iaitu <code>Package as</code>. Untuk membuat file EXE, pergi ke
+<code>Package as</code>, dan klik <code>Image Only</code>.</p>
+<p><img src="img/package_as.png" alt="Gambar membuat file EXE menggunakan Netbeans"></p>
+<p>File EXE tersebut akan berada di folder <code>dist/bundle</code>.</p>
+<h2 id="tukar-icon-file-exe">Tukar icon file EXE</h2>
+<p>Tukar format icon kepada <code>.ico</code> seperti sebelum ini. Kemudian klik kanan
+pada <code>project</code>, dan klik <code>Properties</code>. Pergi ke <code>Deployment</code>.</p>
+<p>Di sini kita boleh nampak <code>Icons and Splash Image:</code>. Klik <code>Edit...</code>, dan
+pilih gambar <code>.ico</code> untuk <code>Native Package Icon</code>.</p>
+<p><img src="img/icon_pada_exe.png" alt="Gambar menambah icon pada file EXE menggunakan Netbeans"></p>
+<p>Setelah selesai, hasilkan kembali file EXE seperti sebelum ini untuk
+lihat icon baru pada file EXE tersebut.</p>
+<h2 id="executable-exe-tanpa-jre">Executable EXE tanpa JRE</h2>
+<p>Sebab-sebab kenapa kita buat step ini telah diberitahu di post sebelum
+ini.</p>
+<p>Untuk membuang JRE daripada <em>deployment</em>, buka file config yang berada
+di folder <code>app</code> menggunakan Notepad/Notepad++. File tersebut akan
+kelihatan seperti ini:</p>
+<pre><code>app.runtime=$APPDIR\runtime
+app.mainjar=HelloJavaFX.jar
+app.version=1.0
+app.id=hellojavafx
+app.preferences.id=hellojavafx
+app.mainclass=hellojavafx/HelloJavaFX
+app.classpath=
+</code></pre><p>Padam <em>path</em> &#x2018;runtime&#x2019; tersebut seperti ini:</p>
+<pre><code>app.runtime=
+app.mainjar=HelloJavaFX.jar
+app.version=1.0
+app.id=hellojavafx
+app.preferences.id=hellojavafx
+app.mainclass=hellojavafx/HelloJavaFX
+app.classpath=
+</code></pre><p>Setelah selesai, kita boleh <em>delete</em> folder <code>runtime</code> daripada folder
+<em>deployment</em> kita.</p>
+<h2 id="installer">Installer</h2>
+<p>Cara yang sama digunakan seperti sebelum ini.</p>
+
                                 
                                 </section>
                             
@@ -1167,7 +1218,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Deployment (NetBeans)","level":"1.8.8","depth":2,"next":{"title":"2D Game Development","level":"1.9","depth":1,"path":"2dgame/README.md","ref":"2dgame/README.md","articles":[{"title":"Pengenalan libGDX","level":"1.9.1","depth":2,"path":"2dgame/pengenalan-libgdx.md","ref":"2dgame/pengenalan-libgdx.md","articles":[]},{"title":"Tools 2D","level":"1.9.2","depth":2,"path":"2dgame/tools-2d.md","ref":"2dgame/tools-2d.md","articles":[]},{"title":"Setup libGDX","level":"1.9.3","depth":2,"path":"2dgame/setup-libgdx.md","ref":"2dgame/setup-libgdx.md","articles":[]},{"title":"Struktur program","level":"1.9.4","depth":2,"path":"2dgame/struktur-program.md","ref":"2dgame/struktur-program.md","articles":[]},{"title":"SpriteBatch","level":"1.9.5","depth":2,"path":"2dgame/spritebatch.md","ref":"2dgame/spritebatch.md","articles":[]}]},"previous":{"title":"Deployment (Ant)","level":"1.8.7","depth":2,"path":"javafx/deployment-ant.md","ref":"javafx/deployment-ant.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"javafx/deployment-netbeans.md","mtime":"2018-11-25T04:14:37.190Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T10:36:51.760Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Deployment (NetBeans)","level":"1.8.8","depth":2,"next":{"title":"2D Game Development","level":"1.9","depth":1,"path":"2dgame/README.md","ref":"2dgame/README.md","articles":[{"title":"Pengenalan libGDX","level":"1.9.1","depth":2,"path":"2dgame/pengenalan-libgdx.md","ref":"2dgame/pengenalan-libgdx.md","articles":[]},{"title":"Tools 2D","level":"1.9.2","depth":2,"path":"2dgame/tools-2d.md","ref":"2dgame/tools-2d.md","articles":[]},{"title":"Setup libGDX","level":"1.9.3","depth":2,"path":"2dgame/setup-libgdx.md","ref":"2dgame/setup-libgdx.md","articles":[]},{"title":"Struktur program","level":"1.9.4","depth":2,"path":"2dgame/struktur-program.md","ref":"2dgame/struktur-program.md","articles":[]},{"title":"SpriteBatch","level":"1.9.5","depth":2,"path":"2dgame/spritebatch.md","ref":"2dgame/spritebatch.md","articles":[]}]},"previous":{"title":"Deployment (Ant)","level":"1.8.7","depth":2,"path":"javafx/deployment-ant.md","ref":"javafx/deployment-ant.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"javafx/deployment-netbeans.md","mtime":"2018-11-25T12:06:59.933Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T10:36:51.760Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

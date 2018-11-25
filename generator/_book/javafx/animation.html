@@ -1124,7 +1124,188 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="animation">Animation</h1>
+<p><em>Animation</em> boleh ditambah pada program JavaFX untuk menjadikan program
+kita lebih menarik. Semua benda yang ada pada program JavaFX, seperti
+<em>control</em>, <em>shape</em>, <em>chart</em> dan sebagainya, boleh dianimasikan.</p>
+<p>Sebagai demo, kita akan membuat <em>animation</em> pada program yang sama iaitu
+HelloJavaFX.</p>
+<h2 id="tambahan-pada-hellojavafx">Tambahan pada HelloJavaFX</h2>
+<p>Saya ada menambah beberapa item pada HelloJavaFX sehingga
+kelihatan seperti ini:</p>
+<p><img src="img/hellojavafx_selamat_datang.png" alt="Gambar HelloJavaFX ditambah dengan ucapan &apos;Selamat Datang&apos;"></p>
+<p>Item yang ditambah ialah Label <code>Selamat Datang!</code> dan Rectangle biru
+melengkung di belakangnya.</p>
+<p>Jika perasan CSS untuk Label sudah dibuat tetapi Label <code>Selamat Datang!</code>
+tidak sama dengan Label yang lain. Untuk membezakan CSS sesebuah
+item dengan item yang lain, kita boleh meletakkan &#x2018;id&#x2019; pada item
+tersebut. Contoh untuk meletakkan <code>id</code> CSS menggunakan Scene Builder:</p>
+<p><img src="img/id_css_scene_builder.png" alt="Gambar meletakkan id CSS menggunakan Scene Builder"></p>
+<p><em>Selector</em> untuk id bermula dengan <em>hashtag</em>, <code>#</code>, jadi <code>home.css</code>
+ditambah dengan CSS berikut:</p>
+<pre><code class="lang-css"><span class="hljs-selector-id">#selamat-datang</span> {
+  <span class="hljs-attribute">-fx-font-size</span>: <span class="hljs-number">24</span>;
+  <span class="hljs-attribute">-fx-text-fill</span>: white;
+  <span class="hljs-attribute">-fx-font-family</span>: monospace;
+}
+</code></pre>
+<p>Sekarang kita akan menggunakan dua item ini, iaitu Label <code>Selamat
+Datang!</code> dan Rectangle biru di belakangnya, untuk membuat <em>animation</em>.</p>
+<h2 id="fxml-injection">FXML injection</h2>
+<p>Kita perlu membuat <em>FXML injection</em> untuk Label <code>Selamat Datang</code> dan
+Rectangle biru kerana kita akan memanipulasi dua item ini melalui code
+Java.</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> hellojavafx.view;
+
+<span class="hljs-keyword">import</span> java.net.URL;
+<span class="hljs-keyword">import</span> java.util.ResourceBundle;
+<span class="hljs-keyword">import</span> javafx.event.ActionEvent;
+<span class="hljs-keyword">import</span> javafx.fxml.FXML;
+<span class="hljs-keyword">import</span> javafx.fxml.Initializable;
+<span class="hljs-keyword">import</span> javafx.scene.control.Label;
+<span class="hljs-keyword">import</span> javafx.scene.shape.Rectangle;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HomeController</span>
+<span class="hljs-keyword">implements</span> <span class="hljs-title">Initializable</span> </span>{
+
+    <span class="hljs-meta">@FXML</span>
+    <span class="hljs-keyword">private</span> Rectangle rect;
+
+    <span class="hljs-meta">@FXML</span>
+    <span class="hljs-keyword">private</span> Label selamat;
+
+    <span class="hljs-meta">@FXML</span>
+    <span class="hljs-keyword">private</span> Label label;
+
+    <span class="hljs-comment">/**
+     * Papar &apos;Hello World!&apos;. Padam jika dah ada.
+     */</span>
+    <span class="hljs-meta">@FXML</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">tulisHelloWorld</span><span class="hljs-params">(ActionEvent event)</span> </span>{
+        <span class="hljs-keyword">if</span> (label.getText().isEmpty()) {
+            label.setText(<span class="hljs-string">&quot;Hello World!&quot;</span>);
+        } <span class="hljs-keyword">else</span> {
+            label.setText(<span class="hljs-string">&quot;&quot;</span>);
+        }
+    }
+
+    <span class="hljs-comment">/**
+     * Initializes the controller class.
+     */</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initialize</span><span class="hljs-params">(URL url, ResourceBundle rb)</span> </span>{
+        <span class="hljs-comment">// TODO</span>
+    }
+}
+</code></pre>
+<p><em>FXML injection</em> tersebut kemudiannya perlu dihubungkan ke file FXML
+melalui Scene Builder.</p>
+<h2 id="package-javafxanimation">Package javafx.animation</h2>
+<p>Kita akan menggunakan <em>class</em> dari <em>package</em> <code>javafx.animation</code> untuk
+membuat <em>animation</em>. Antara <em>class</em> yang boleh digunakan:</p>
+<ul>
+<li><code>FadeTransition</code> &#x2013; menukar <em>transparency</em> sesuatu item</li>
+<li><code>TranslateTransition</code> &#x2013; menggerakkan item ke
+kiri/kanan/atas/bawah/depan/belakang</li>
+<li><code>RotateTransition</code> &#x2013; membuatkan item berputar</li>
+<li><code>ScaleTransition</code> &#x2013; mengubah saiz item</li>
+<li><code>PathTransition</code> &#x2013; menggerakkan item mengikut <em>path</em> yang lebih
+kompleks</li>
+<li><code>SequentialTransition</code> &#x2013; melaksanakan beberapa <em>animation</em> mengikut
+giliran</li>
+<li><code>ParallelTransition</code> &#x2013; melaksanakan beberapa <em>animation</em> secara
+serentak</li>
+</ul>
+<p>Untuk maklumat lebih lanjut, boleh lihat API Java untuk package
+<code>javafx.animation</code>.</p>
+<p><a href="https://docs.oracle.com/javase/8/javafx/api/javafx/animation/package-summary.html" target="_blank">Klik untuk lihat package &apos;javafx.animation&apos;</a></p>
+<p>Sebagai demo, kita akan membuat <em>animation</em> untuk memasukkan Rectangle
+dari kiri ke kanan, kemudian timbulkan perkataan Selamat Datang.</p>
+<h2 id="translatetransition">TranslateTransition</h2>
+<p>Kita akan menggunakan <code>TranslateTransition</code> untuk menggerakkan Rectangle
+dari kiri ke kanan.</p>
+<pre><code class="lang-java">    ...
+
+    <span class="hljs-comment">/**
+     * Animate &apos;Selamat Datang!&apos;.
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">animate</span><span class="hljs-params">()</span> </span>{
+        TranslateTransition rectTranslate = <span class="hljs-keyword">new</span> TranslateTransition(Duration.millis(<span class="hljs-number">1500</span>), rect);
+        rectTranslate.setFromX(-<span class="hljs-number">356</span>);
+        rectTranslate.setToX(<span class="hljs-number">0</span>);
+        rectTranslate.play();
+    }
+
+    <span class="hljs-comment">/**
+     * Initializes the controller class.
+     */</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initialize</span><span class="hljs-params">(URL url, ResourceBundle rb)</span> </span>{
+        animate();
+    }
+}
+</code></pre>
+<p><code>Duration.millis()</code> untuk menentukan berapa lama masa yang diambil untuk
+melaksanakan <em>animation</em> tersebut. <code>Duration.millis(1500)</code> bermaksud
+selama 1500 <em>milliseconds</em>. Method <code>setFromX()</code> menentukan kedudukan
+awal, dan method <code>setToX()</code> menentukan kedudukan terakhir. Method
+<code>play()</code> untuk menjalankan <em>animation</em>.</p>
+<p>Hasilnya:</p>
+<p><img src="img/translate.gif" alt="Gambar menggunakan TranslateTransition"></p>
+<h2 id="fadetransition">FadeTransition</h2>
+<p>Untuk Label <code>Selamat Datang</code> pula, kita akan menggunakan <code>FadeTransition</code>
+untuk menukar <em>opacity</em> daripada 0 (<em>transparent</em>) ke 1 (<em>opaque</em>).</p>
+<pre><code class="lang-java">    ...
+
+    <span class="hljs-comment">/**
+     * Animate &apos;Selamat Datang!&apos;.
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">animate</span><span class="hljs-params">()</span> </span>{
+<span class="hljs-comment">//        TranslateTransition rectTranslate = new TranslateTransition(Duration.millis(1500), rect);</span>
+<span class="hljs-comment">//        rectTranslate.setFromX(-356);</span>
+<span class="hljs-comment">//        rectTranslate.setToX(0);</span>
+
+        FadeTransition selamatFade = <span class="hljs-keyword">new</span> FadeTransition(Duration.millis(<span class="hljs-number">1500</span>), selamat);
+        selamatFade.setFromValue(<span class="hljs-number">0</span>);
+        selamatFade.setToValue(<span class="hljs-number">1</span>);
+        selamatFade.play();
+    }
+
+    ...
+</code></pre>
+<p>Saya comment animation sebelum FadeTransition supaya animation tersebut
+tidak akan dijalankan. Jika tidak, kedua-dua animation tersebut akan
+jalan serentak.</p>
+<p>Method <code>setFromValue()</code> untuk menentukan <em>opacity</em> awal, dan method
+<code>setToValue()</code> untuk <em>opacity</em> akhir.</p>
+<p>Hasilnya:</p>
+<p><img src="img/fade.gif" alt="Gambar menggunakan FadeTransition"></p>
+<p>=== SequentialTransition</p>
+<p>Sekarang kita akan menggabungkan kedua-dua <em>animation</em> tersebut
+dengan menggunakan <code>SequentialTransition</code>.</p>
+<pre><code class="lang-java">    ...
+
+    <span class="hljs-comment">/**
+     * Animate &apos;Selamat Datang!&apos;.
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">animate</span><span class="hljs-params">()</span> </span>{
+        TranslateTransition rectTranslate = <span class="hljs-keyword">new</span> TranslateTransition(Duration.millis(<span class="hljs-number">1500</span>), rect);
+        rectTranslate.setFromX(-<span class="hljs-number">356</span>);
+        rectTranslate.setToX(<span class="hljs-number">0</span>);
+
+        FadeTransition selamatFade = <span class="hljs-keyword">new</span> FadeTransition(Duration.millis(<span class="hljs-number">1500</span>), selamat);
+        selamatFade.setFromValue(<span class="hljs-number">0</span>);
+        selamatFade.setToValue(<span class="hljs-number">1</span>);
+
+        SequentialTransition st = <span class="hljs-keyword">new</span> SequentialTransition(rectTranslate, selamatFade);
+        st.play();
+    }
+
+    ...
+</code></pre>
+<p>Hasilnya:</p>
+<p><img src="img/sequential.gif" alt="Gambar menunjukkan SequentialTransition"></p>
+
                                 
                                 </section>
                             
@@ -1167,7 +1348,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Animation","level":"1.8.6","depth":2,"next":{"title":"Deployment (Ant)","level":"1.8.7","depth":2,"path":"javafx/deployment-ant.md","ref":"javafx/deployment-ant.md","articles":[]},"previous":{"title":"Styling dengan CSS","level":"1.8.5","depth":2,"path":"javafx/styling-dengan-css.md","ref":"javafx/styling-dengan-css.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"javafx/animation.md","mtime":"2018-11-25T04:14:37.190Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T10:36:51.760Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Animation","level":"1.8.6","depth":2,"next":{"title":"Deployment (Ant)","level":"1.8.7","depth":2,"path":"javafx/deployment-ant.md","ref":"javafx/deployment-ant.md","articles":[]},"previous":{"title":"Styling dengan CSS","level":"1.8.5","depth":2,"path":"javafx/styling-dengan-css.md","ref":"javafx/styling-dengan-css.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"javafx/animation.md","mtime":"2018-11-25T11:59:59.699Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T10:36:51.760Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

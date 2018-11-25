@@ -1,0 +1,31 @@
+# Pengenalan JavaFX
+
+JavaFX ialah toolkit yang disediakan oleh Java untuk membuat
+_graphical user interface_ (GUI). GUI dibuat untuk memudahkan pengguna
+menggunakan sesuatu program. Contohnya, browser (Google Chrome,
+Internet Explorer) yang anda gunakan untuk baca laman web ini ada
+macam-macam fungsi. Ada button Home, button Back, tempat nak tulis
+alamat laman web, tempat nak _search_, dan sebagainya.
+
+Tutorial asas sebelum ini semuanya hanya menggunakan _command line
+interface_ (seperti _command prompt_ dan _terminal_) untuk melihat
+output sesuatu program. Di dunia sebenar, pengguna sudah tidak ada masa
+untuk menaip menggunakan _command line_. Mereka seboleh-bolehnya hanya
+mahu menekan satu _button_ sahaja untuk melaksanakan sesuatu proses.
+Jadi, sebagai programmer, kita perlulah memudahkan, bukannya
+menyusahkan.
+
+Jika anda pernah belajar Java di tempat-tempat lain, anda mungkin pernah
+dengar tentang Swing atau AWT yang digunakan untuk membuat GUI. Selepas
+keluarnya JavaFX versi 8, Swing atau AWT sudah tidak digalakkan lagi
+untuk sesebuah projek.
+
+Antara kelebihan menggunakan JavaFX:
+
+-   menggunakan konsep _model-view-controller_ (MVC) – maksudnya
+diasingkan macam mana rupa program dengan apa yang program tersebut
+boleh buat
+-   boleh _customize_ theme menggunakan CSS
+-   ada _chart_ (_pie chart_, _bar chart_, _line chart_, dan sebagainya)
+-   ada projek yang sedang dijalankan untuk membolehkan JavaFX run di
+atas Android dan iOS – [klik untuk lihat JavaFXPorts](http://gluonhq.com/products/mobile/javafxports)

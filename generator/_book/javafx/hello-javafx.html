@@ -1124,7 +1124,103 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="hello-javafx">Hello JavaFX</h1>
+<blockquote>
+<p>&quot;1000 langkah bermula dari satu langkah pertama&quot;</p>
+</blockquote>
+<p>Macam biasa, jika kita jumpa teknologi baru kita akan cuba bina program
+yang paling simple iaitu memaparkan <code>Hello, World!</code>.</p>
+<p>Untuk membuat program JavaFX menggunakan Netbeans, klik <code>File</code>
+kemudian <code>New Project</code>. Pilih kategori <code>JavaFX</code> dan pilih projek
+<code>JavaFX Application</code>. Selepas klik <code>Next</code>, kita diberi pilihan untuk
+menamakan nama projek kita. Namakan projek tersebut apa-apa sahaja, jadi
+sebagai contoh kita namakan projek ini sebagai <code>HelloJavaFX</code>.</p>
+<p>Setelah selesai, kita akan dapat projek dengan file seperti ini:</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> hellojavafx;
+
+<span class="hljs-keyword">import</span> javafx.application.Application;
+<span class="hljs-keyword">import</span> javafx.event.ActionEvent;
+<span class="hljs-keyword">import</span> javafx.event.EventHandler;
+<span class="hljs-keyword">import</span> javafx.scene.Scene;
+<span class="hljs-keyword">import</span> javafx.scene.control.Button;
+<span class="hljs-keyword">import</span> javafx.scene.layout.StackPane;
+<span class="hljs-keyword">import</span> javafx.stage.Stage;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloJavaFX</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Application</span> </span>{
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">start</span><span class="hljs-params">(Stage primaryStage)</span> </span>{
+        Button btn = <span class="hljs-keyword">new</span> Button();
+        btn.setText(<span class="hljs-string">&quot;Say &apos;Hello World&apos;&quot;</span>);
+        btn.setOnAction(<span class="hljs-keyword">new</span> EventHandler&lt;ActionEvent&gt;() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handle</span><span class="hljs-params">(ActionEvent event)</span> </span>{
+                System.out.println(<span class="hljs-string">&quot;Hello World!&quot;</span>);
+            }
+        });
+
+        StackPane root = <span class="hljs-keyword">new</span> StackPane();
+        root.getChildren().add(btn);
+
+        Scene scene = <span class="hljs-keyword">new</span> Scene(root, <span class="hljs-number">300</span>, <span class="hljs-number">250</span>);
+
+        primaryStage.setTitle(<span class="hljs-string">&quot;Hello World!&quot;</span>);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@param</span> args the command line arguments
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        launch(args);
+    }
+
+}
+</code></pre>
+<p>Selepas run, akan keluar GUI seperti berikut:</p>
+<p><img src="img/HelloJavaFX.PNG" alt="HelloJavaFX, program simple menggunakan JavaFX"></p>
+<p>Jika kita klik <em>button</em> tersebut, akan terpapar <code>Hello World!</code> di
+terminal.</p>
+<p>Tahniah, anda telah berjaya membuat GUI menggunakan JavaFX!</p>
+<p>Sekarang kita akan lihat apa yang sebenarnya berlaku pada code tersebut.</p>
+<h2 id="control">Control</h2>
+<p><em>Control</em> (atau <em>widget</em>) ialah benda yang membolehkan interaksi antara
+user dengan program. Contohnya <em>button</em>, tempat untuk menulis text
+(<em>text field</em>), tempat untuk melukis (<em>canvas</em>), dan sebagainya. Kita
+boleh create <em>control</em> dengan cara create object untuk <em>control</em>
+tersebut seperti code di atas.</p>
+<p><em>Control</em> merupakan class jadi setiap <em>control</em> mempunyai <em>method</em> yang
+tersendiri. Contoh seperti di atas, kita menggunakan method
+<code>setText()</code> untuk menentukan text yang tertulis pada <em>button</em>
+tersebut.</p>
+<h2 id="eventhandler">EventHandler</h2>
+<p><em>EventHandler</em> ialah code yang kita letakkan pada sesebuah control.
+Tugasnya ialah menunggu interaksi daripada user. Selepas user
+berinteraksi dengannya, maka dia akan melaksanakan code yang ditugaskan.
+Contoh di atas, <em>EventHandler</em> tersebut menunggu user untuk tekan
+<em>button</em> tersebut. Selepas ditekan, <em>EventHandler</em> akan paparkan <code>Hello
+World!</code>.</p>
+<h2 id="pane">Pane</h2>
+<p>Control tidak boleh tergantung di skrin begitu sahaja. Control
+memerlukan tapak untuk diletakkan. Tapak ini disebut sebagai <em>Pane</em>.
+Dalam JavaFX ada pelbagai jenis Pane. Contoh di atas, kita menggunakan
+<em>StackPane</em> sebagai tapak kepada <em>button</em> tersebut. Kita boleh
+menggunakan,</p>
+<pre><code class="lang-java">pane.getChildren().add(control);
+</code></pre>
+<p>untuk menambah control pada <em>Pane</em> tersebut.</p>
+<h2 id="stage-dan-scene">Stage dan Scene</h2>
+<p>JavaFX menggunakan konsep <em>Stage</em> (pentas) dan <em>Scene</em> (babak).</p>
+<p>Contohnya di lakonan teater, lakonan tersebut berada di atas satu
+pentas, dan dibahagikan kepada beberapa babak. Setiap babak mempunyai
+prop yang berlainan.</p>
+<p>Dalam JavaFX juga sama, satu program boleh berada di atas satu program
+window, dan boleh dibahagikan kepada beberapa scene. Setiap scene
+mempunyai control yang berlainan.</p>
+<p>Contoh code di atas, kita hanya menggunakan satu <em>stage</em> dan satu
+<em>scene</em> sahaja.</p>
+
                                 
                                 </section>
                             
@@ -1167,7 +1263,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Hello JavaFX","level":"1.8.3","depth":2,"next":{"title":"FXML","level":"1.8.4","depth":2,"path":"javafx/fxml.md","ref":"javafx/fxml.md","articles":[]},"previous":{"title":"Scene Builder","level":"1.8.2","depth":2,"path":"javafx/scene-builder.md","ref":"javafx/scene-builder.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"javafx/hello-javafx.md","mtime":"2018-11-25T04:14:37.190Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T10:36:51.760Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Hello JavaFX","level":"1.8.3","depth":2,"next":{"title":"FXML","level":"1.8.4","depth":2,"path":"javafx/fxml.md","ref":"javafx/fxml.md","articles":[]},"previous":{"title":"Scene Builder","level":"1.8.2","depth":2,"path":"javafx/scene-builder.md","ref":"javafx/scene-builder.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"javafx/hello-javafx.md","mtime":"2018-11-25T11:21:55.223Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T10:36:51.760Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

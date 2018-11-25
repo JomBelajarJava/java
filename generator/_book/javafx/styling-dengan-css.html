@@ -1124,7 +1124,134 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="styling-dengan-css">Styling dengan CSS</h1>
+<p>Kita boleh menggunakan <em>Cascading Style Sheets</em> (CSS) untuk menghias
+program kita. CSS selalunya digunakan untuk menghias website. Selalu
+kita nampak setiap website mempunyai <em>button</em>, <em>menu</em>, dan <em>background</em>
+yang lain daripada website lain. Sebenarnya CSS yang menghias website
+tersebut.</p>
+<p>Format CSS adalah seperti berikut:</p>
+<pre><code class="lang-css">&lt;selector&gt; {
+    &lt;property&gt;: &lt;value&gt;;
+    &lt;property&gt;: &lt;value&gt;;
+}
+</code></pre>
+<p>Contohnya,</p>
+<pre><code class="lang-css"><span class="hljs-selector-class">.button</span> {
+  <span class="hljs-attribute">background-color</span>: black;
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">20</span>;
+  <span class="hljs-attribute">font-family</span>: &#x201C;Arial&#x201D;
+}
+</code></pre>
+<p>Untuk JavaFX ada sedikit tambahan pada nama <em>property</em>, iaitu &#x2018;-fx-&#x2018;,
+contohnya,</p>
+<pre><code class="lang-css"><span class="hljs-selector-class">.button</span> {
+    <span class="hljs-attribute">-fx-background-color</span>: black
+}
+</code></pre>
+<p>Sekarang kita akan menghias program kita sebelum ini, iaitu program
+HelloJavaFX.</p>
+<h2 id="create-file-css">Create file CSS</h2>
+<p>Sebelum itu, seperti biasa kita akan membuat <em>package</em> baru untuk
+menyimpan semua file CSS dan gambar-gambar (jika ada).</p>
+<p>Klik kanan pada <em>package</em> <code>hellojavafx</code>, kemudian <code>New</code>, dan klik <code>Java
+Package</code>. Kita namakan <em>package</em> ini sebagai <code>hellojavafx.style</code>. Klik
+<code>Finish</code>.</p>
+<p>Untuk <em>create</em> file CSS, klik kanan pada <em>package</em> <code>style</code>, kemudian
+<code>New</code>, dan klik <code>Empty File</code>. Namakan apa-apa sahaja jadi kita namakan
+file tersebut sebagai <code>home.css</code>. Klik <code>Finish</code>.</p>
+<h2 id="background">Background</h2>
+<p>Kita boleh menggunakan gambar sebagai <em>background</em>. Di sini saya
+menggunakan gambar dari <a href="http://www.freedigitalphotos.net" target="_blank">FreeDigitalPhotos.net</a>. Terpulang kepada anda
+untuk menggunakan gambar apa.</p>
+<p><a href="http://www.freedigitalphotos.net/images/blue-curved-abstract-background-photo-p285859" target="_blank">Klik untuk lihat gambar yang saya gunakan</a></p>
+<p>Hati-hati jika anda mengambil mana-mana gambar dari internet kerana
+gambar tersebut merupakan hak milik orang lain. Jika ada gambar-gambar
+yang boleh digunakan tanpa royalti seperti gambar yang saya gunakan itu,
+pastikan betul-betul yang gambar itu boleh digunakan. Gambar yang saya
+gunakan itu boleh digunakan secara <em>free</em> dengan syarat
+dinyatakan sumber gambar tersebut diambil.</p>
+<p>Cara alternatif adalah dengan membuat gambar sendiri menggunakan
+<em>software</em> seperti GIMP atau Photoshop.</p>
+<p>Setelah dapat gambar untuk digunakan, letakkan gambar tersebut di dalam
+folder yang sama dengan file CSS. Kita boleh namakan file tersebut
+sebagai <code>background.jpg</code>.</p>
+<h2 id="button">Button</h2>
+<p>Saya tidak berapa mahir sangat dalam <em>designing</em>, jadi saya search mana-mana
+<em>CSS generator</em> secara online. Untuk <em>button</em>, saya menggunakan <a href="http://css3buttongenerator.com" target="_blank">CSS Button
+Generator</a>, jumpa di Google dengan keyword &apos;css
+button&apos;.</p>
+<p>Kelebihan menggunakan CSS ialah kita dapat menukar sesuatu <em>style</em>
+mengikut apa yang user lakukan. Contohnya, kita mahu <em>button</em> bertukar
+warna sebaik sahaja user klik pada <em>button</em> tersebut. Berikut ialah
+<em>selector</em> yang boleh digunakan pada <em>button</em> untuk tujuan ini:</p>
+<ul>
+<li><code>:hover</code> &#x2013; tukar style jika user meletakkan <em>mouse</em> di atas
+<em>button</em></li>
+<li><code>:pressed</code> &#x2013; tukar style jika user klik pada <em>button</em></li>
+</ul>
+<h2 id="file-homecss">File &#x2018;home.css&#x2019;</h2>
+<p>Setelah mengambil kira semua perkara di atas, akhirnya file <code>home.css</code>
+kita akan jadi seperti ini:</p>
+<pre><code class="lang-css"><span class="hljs-selector-class">.root</span> {
+    <span class="hljs-attribute">-fx-background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;background.jpg&quot;</span>);
+}
+
+<span class="hljs-selector-class">.button</span> {
+    <span class="hljs-attribute">-fx-background-color</span>: <span class="hljs-built_in">linear-gradient</span>(to bottom, #3498db, #2980b9);
+    <span class="hljs-attribute">-fx-background-radius</span>: <span class="hljs-number">28</span>;
+    <span class="hljs-attribute">-fx-text-fill</span>: white;
+    <span class="hljs-attribute">-fx-font-family</span>: sans-serif;
+    <span class="hljs-attribute">-fx-opacity</span>: <span class="hljs-number">0.6</span>;
+}
+
+<span class="hljs-selector-class">.button</span><span class="hljs-selector-pseudo">:hover</span> {
+    <span class="hljs-attribute">-fx-opacity</span>: <span class="hljs-number">1.0</span>;
+}
+
+<span class="hljs-selector-class">.button</span><span class="hljs-selector-pseudo">:pressed</span> {
+    <span class="hljs-attribute">-fx-background-color</span>: <span class="hljs-built_in">linear-gradient</span>(to bottom, #3cb0fd, #3498db);
+}
+
+<span class="hljs-selector-class">.label</span> {
+    <span class="hljs-attribute">-fx-font-family</span>: sans-serif;
+    <span class="hljs-attribute">-fx-font-weight</span>: bold;
+    <span class="hljs-attribute">-fx-text-fill</span>: green;
+}
+</code></pre>
+<h2 id="scene-builder">Scene Builder</h2>
+<p>Selepas siap file CSS, kita perlu memberitahu file FXML untuk
+menggunakan file CSS tersebut. Salah satu cara adalah dengan menggunakan
+Scene Builder.</p>
+<p><em>Double-click</em> <code>Home.fxml</code> untuk membuka Scene Builder. Klik pada Pane
+yang di bawah sekali iaitu AnchorPane dan tetapkan file CSS di menu
+sebelah kanan bahagian Properties.</p>
+<p><img src="img/sambung_CSS_dengan_FXML.png" alt="Gambar menetapkan file CSS pada FXML menggunakan Scene Builder"></p>
+<p>Sekarang kita boleh nampak <em>preview</em> kepada program kita sudah bertukar.
+<em>Save</em> dan tutup Scene Builder.</p>
+<p>Kita boleh <em>run</em> program kita untuk melihat hasilnya.</p>
+<p><img src="img/css_screencapture_x264.gif" alt="Gambar demo HelloJavaFX dengan CSS"></p>
+<h2 id="css-analyzer">CSS Analyzer</h2>
+<p>Semasa kita menulis CSS, ada masa kita tidak tahu apa <em>property</em> yang
+boleh ditukar untuk sesuatu <em>control</em>. Jangan khuatir kerana kita boleh
+menggunakan CSS Analyzer di Scene Builder.</p>
+<p>Untuk membuka CSS Analyzer, klik <code>View</code> di menu atas dan klik <code>Show CSS
+Analyzer</code>.</p>
+<p><img src="img/show_css_analyzer.png" alt="Gambar Show CSS Analyzer"></p>
+<p>Setelah selesai, CSS Analyzer akan terpapar di bawah.</p>
+<p>Nama <em>selector</em> untuk sesebuah <em>control</em> juga boleh dilihat di
+<code>Styleable Path</code>:</p>
+<p><img src="img/selector_untuk_control.png" alt="Gambar menunjukkan nama selector untuk control"></p>
+<h2 id="edit-secara-live">Edit secara <em>live</em></h2>
+<p>Scene Builder juga boleh digunakan untuk melihat secara <em>live</em> sesuatu
+style yang kita tukar. Fungsi ini terletak di menu sebelah kanan
+bahagian Properties:</p>
+<p><img src="img/edit_secara_live.png" alt="Gambar edit CSS secara live"></p>
+<p>Cuma kekurangannya CSS yang kita tulis di Scene Builder tidak disimpan
+di file CSS, sebaliknya disimpan di dalam file FXML. Kita asingkan file
+CSS dengan file FXML supaya projek lebih tersusun, dan juga supaya
+<em>designer</em> mudah mencari file tersebut.</p>
+
                                 
                                 </section>
                             
@@ -1167,7 +1294,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Styling dengan CSS","level":"1.8.5","depth":2,"next":{"title":"Animation","level":"1.8.6","depth":2,"path":"javafx/animation.md","ref":"javafx/animation.md","articles":[]},"previous":{"title":"FXML","level":"1.8.4","depth":2,"path":"javafx/fxml.md","ref":"javafx/fxml.md","articles":[]},"dir":"neutral"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"javafx/styling-dengan-css.md","mtime":"2018-11-25T04:14:37.190Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T10:36:51.760Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Styling dengan CSS","level":"1.8.5","depth":2,"next":{"title":"Animation","level":"1.8.6","depth":2,"path":"javafx/animation.md","ref":"javafx/animation.md","articles":[]},"previous":{"title":"FXML","level":"1.8.4","depth":2,"path":"javafx/fxml.md","ref":"javafx/fxml.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"javafx/styling-dengan-css.md","mtime":"2018-11-25T11:55:55.690Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-25T10:36:51.760Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
