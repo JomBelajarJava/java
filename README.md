@@ -30,9 +30,13 @@ cd generator && gitbook build
 
 ## Deployment
 
-Pindahkan fail daripada `generator/_book` ke `docs`.
+Pindahkan fail daripada `generator/_book` ke `docs` selepas compile.
 
-_Move files from `generator/_book` into `docs`_
+_Move files from `generator/_book` into `docs`_ after compile.
+
+```
+rm -rf docs && mv generator/_book docs
+```
 
 ## License
 
