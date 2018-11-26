@@ -11,3 +11,6 @@ berkerjasama dengan lebih mudah.
 Kadangkala kita juga perlu mewarisi code daripada programmer yang sudah tiada
 dalam syarikat. Maka, permudahkanlah kerja-kerja mereka untuk memahami code yang
 telah kita tulis.
+
+Dalam bab ini, kita akan lihat antara teknik yang membolehkan atau memaksa kita
+untuk meningkatkan kualiti code kita.
