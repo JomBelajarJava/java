@@ -48,7 +48,6 @@
 
 * [Database](database/README.md)
     * [Build Tool](database/build-tool.md)
-    * [H2](database/h2.md)
     * [JDBC](database/jdbc.md)
     * [DAO dan Service](database/dao-dan-service.md)
     * [CRUD](database/crud.md)
