@@ -1,27 +1,29 @@
-# Inversion of Control
+# Dependency Injection Framework
 
-Dalam tutorial database, saya ada sentuh sedikit mengenai `inversion of
-control`. Maksud `inversion of control` memang susah sikit nak terangkan tanpa
+Dalam tutorial database, saya ada sentuh sedikit mengenai `dependency
+injection`. Maksud `dependency injection` memang susah sikit nak terangkan tanpa
 contoh.
 
 Jadi sebelum mula tutorial ini, sila lihat code di
 [sini](https://github.com/JomBelajarJava/contoh-code-java/tree/master/codequality/tutorialguice-sebelum)
 terlebih dahulu.
 
-## Pengenalan
+## Dependency injection
 
 Dalam code tersebut, kita ada dua servis (atau module), servis untuk User dan
 servis untuk Greeting. Dalam _implementation_, servis Greeting memerlukan servis
-User. Jadi kita memerlukan satu cara untuk memberi class servis User kepada
-servis Greeting.
+User. Maksudnya servis User adalah *dependency* kepada servis Greeting. Apabila
+kita memberi servis User kepada servis Greeting menggunakan keyword **new**, itu
+dinamakan sebagai *dependency injection*.
 
-Untuk code ini, saya memberi class servis User kepada servis Greeting dalam file
+## Inversion of control
+
+Dalam code tersebut, saya memberi class servis User kepada servis Greeting dalam
+file
 [Main.java](https://github.com/JomBelajarJava/contoh-code-java/blob/master/codequality/tutorialguice-sebelum/src/main/java/Main.java).
-Inilah yang dipanggil `inversion of control`. Maksudnya cara saya memberi
+Ini pula dinamakan `inversion of control`. Maksudnya cara saya memberi
 _dependency_ bukannya terletak dalam constructor servis Greeting, tetapi di
 tempat lain.
-
-Cara saya memberi _dependency_ seperti ini dipanggil `dependency injection`.
 
 ## Dependency injection framework
 
