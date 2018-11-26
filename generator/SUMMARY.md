@@ -27,7 +27,6 @@
     * [String](oop/string.md)
     
 * [Class yang Penting](essentials/README.md)
-    * [Pengenalan library Java](essentials/pengenalan-library-java.md)
     * [Exception (part 1)](essentials/exception-part-1.md)
     * [Input dari user](essentials/input-dari-user.md)
     * [Input dari file](essentials/input-dari-file.md)
