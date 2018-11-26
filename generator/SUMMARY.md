@@ -55,7 +55,7 @@
 * [Code Quality](quality/README.md)
     * [Final](quality/final.md)
     * [Immutable Collections](quality/immutable-collections.md)
-    * [Inversion of Control](quality/inversion-of-control.md)
+    * [Dependency Injection](quality/dependency-injection.md)
     * [Convenience Library](quality/convenience-library.md)
     * [Design Pattern](quality/design-pattern.md)
 

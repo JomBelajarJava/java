@@ -1,4 +1,4 @@
-# Dependency Injection Framework
+# Dependency Injection
 
 Dalam tutorial database, saya ada sentuh sedikit mengenai `dependency
 injection`. Maksud `dependency injection` memang susah sikit nak terangkan tanpa
@@ -7,8 +7,6 @@ contoh.
 Jadi sebelum mula tutorial ini, sila lihat code di
 [sini](https://github.com/JomBelajarJava/contoh-code-java/tree/master/codequality/tutorialguice-sebelum)
 terlebih dahulu.
-
-## Dependency injection
 
 Dalam code tersebut, kita ada dua servis (atau module), servis untuk User dan
 servis untuk Greeting. Dalam _implementation_, servis Greeting memerlukan servis
