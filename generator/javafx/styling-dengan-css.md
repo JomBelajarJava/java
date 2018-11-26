@@ -1,0 +1,172 @@
+# Styling dengan CSS
+
+Kita boleh menggunakan _Cascading Style Sheets_ (CSS) untuk menghias
+program kita. CSS selalunya digunakan untuk menghias website. Selalu
+kita nampak setiap website mempunyai _button_, _menu_, dan _background_
+yang lain daripada website lain. Sebenarnya CSS yang menghias website
+tersebut.
+
+Format CSS adalah seperti berikut:
+
+```css
+<selector> {
+    <property>: <value>;
+    <property>: <value>;
+}
+```
+
+Contohnya,
+
+```css
+.button {
+  background-color: black;
+  font-size: 20;
+  font-family: “Arial”
+}
+```
+
+Untuk JavaFX ada sedikit tambahan pada nama _property_, iaitu ‘-fx-‘,
+contohnya,
+
+```css
+.button {
+    -fx-background-color: black
+}
+```
+
+Sekarang kita akan menghias program kita sebelum ini, iaitu program
+HelloJavaFX.
+
+## Create file CSS
+
+Sebelum itu, seperti biasa kita akan membuat _package_ baru untuk
+menyimpan semua file CSS dan gambar-gambar (jika ada).
+
+Klik kanan pada _package_ `hellojavafx`, kemudian `New`, dan klik `Java
+Package`. Kita namakan _package_ ini sebagai `hellojavafx.style`. Klik
+`Finish`.
+
+Untuk _create_ file CSS, klik kanan pada _package_ `style`, kemudian
+`New`, dan klik `Empty File`. Namakan apa-apa sahaja jadi kita namakan
+file tersebut sebagai `home.css`. Klik `Finish`.
+
+## Background
+
+Kita boleh menggunakan gambar sebagai _background_. Di sini saya
+menggunakan gambar dari [FreeDigitalPhotos.net](http://www.freedigitalphotos.net). Terpulang kepada anda
+untuk menggunakan gambar apa.
+
+[Klik untuk lihat gambar yang saya gunakan](http://www.freedigitalphotos.net/images/blue-curved-abstract-background-photo-p285859)
+
+Hati-hati jika anda mengambil mana-mana gambar dari internet kerana
+gambar tersebut merupakan hak milik orang lain. Jika ada gambar-gambar
+yang boleh digunakan tanpa royalti seperti gambar yang saya gunakan itu,
+pastikan betul-betul yang gambar itu boleh digunakan. Gambar yang saya
+gunakan itu boleh digunakan secara _free_ dengan syarat
+dinyatakan sumber gambar tersebut diambil.
+
+Cara alternatif adalah dengan membuat gambar sendiri menggunakan
+_software_ seperti GIMP atau Photoshop.
+
+Setelah dapat gambar untuk digunakan, letakkan gambar tersebut di dalam
+folder yang sama dengan file CSS. Kita boleh namakan file tersebut
+sebagai `background.jpg`.
+
+## Button
+
+Saya tidak berapa mahir sangat dalam _designing_, jadi saya search mana-mana
+_CSS generator_ secara online. Untuk _button_, saya menggunakan [CSS Button
+Generator](http://css3buttongenerator.com), jumpa di Google dengan keyword 'css
+button'.
+
+Kelebihan menggunakan CSS ialah kita dapat menukar sesuatu _style_
+mengikut apa yang user lakukan. Contohnya, kita mahu _button_ bertukar
+warna sebaik sahaja user klik pada _button_ tersebut. Berikut ialah
+_selector_ yang boleh digunakan pada _button_ untuk tujuan ini:
+
+-   `:hover` – tukar style jika user meletakkan _mouse_ di atas
+_button_
+-   `:pressed` – tukar style jika user klik pada _button_
+
+## File ‘home.css’
+
+Setelah mengambil kira semua perkara di atas, akhirnya file `home.css`
+kita akan jadi seperti ini:
+
+```css
+.root {
+    -fx-background-image: url("background.jpg");
+}
+
+.button {
+    -fx-background-color: linear-gradient(to bottom, #3498db, #2980b9);
+    -fx-background-radius: 28;
+    -fx-text-fill: white;
+    -fx-font-family: sans-serif;
+    -fx-opacity: 0.6;
+}
+
+.button:hover {
+    -fx-opacity: 1.0;
+}
+
+.button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #3cb0fd, #3498db);
+}
+
+.label {
+    -fx-font-family: sans-serif;
+    -fx-font-weight: bold;
+    -fx-text-fill: green;
+}
+```
+
+## Scene Builder
+
+Selepas siap file CSS, kita perlu memberitahu file FXML untuk
+menggunakan file CSS tersebut. Salah satu cara adalah dengan menggunakan
+Scene Builder.
+
+_Double-click_ `Home.fxml` untuk membuka Scene Builder. Klik pada Pane
+yang di bawah sekali iaitu AnchorPane dan tetapkan file CSS di menu
+sebelah kanan bahagian Properties.
+
+![Gambar menetapkan file CSS pada FXML menggunakan Scene Builder](img/sambung_CSS_dengan_FXML.png)
+
+Sekarang kita boleh nampak _preview_ kepada program kita sudah bertukar.
+_Save_ dan tutup Scene Builder.
+
+Kita boleh _run_ program kita untuk melihat hasilnya.
+
+![Gambar demo HelloJavaFX dengan CSS](img/css_screencapture_x264.gif)
+
+## CSS Analyzer
+
+Semasa kita menulis CSS, ada masa kita tidak tahu apa _property_ yang
+boleh ditukar untuk sesuatu _control_. Jangan khuatir kerana kita boleh
+menggunakan CSS Analyzer di Scene Builder.
+
+Untuk membuka CSS Analyzer, klik `View` di menu atas dan klik `Show CSS
+Analyzer`.
+
+![Gambar Show CSS Analyzer](img/show_css_analyzer.png)
+
+Setelah selesai, CSS Analyzer akan terpapar di bawah.
+
+Nama _selector_ untuk sesebuah _control_ juga boleh dilihat di
+`Styleable Path`:
+
+![Gambar menunjukkan nama selector untuk control](img/selector_untuk_control.png)
+
+## Edit secara _live_
+
+Scene Builder juga boleh digunakan untuk melihat secara _live_ sesuatu
+style yang kita tukar. Fungsi ini terletak di menu sebelah kanan
+bahagian Properties:
+
+![Gambar edit CSS secara live](img/edit_secara_live.png)
+
+Cuma kekurangannya CSS yang kita tulis di Scene Builder tidak disimpan
+di file CSS, sebaliknya disimpan di dalam file FXML. Kita asingkan file
+CSS dengan file FXML supaya projek lebih tersusun, dan juga supaya
+_designer_ mudah mencari file tersebut.
