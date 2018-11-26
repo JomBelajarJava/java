@@ -15,7 +15,6 @@
 
 * [Object-oriented Programming](oop/README.md)
     * [IDE](oop/integrated-development-environment-ide.md)
-    * [Konsep OOP](oop/konsep-oop.md)
     * [Class (part 1)](oop/class-part-1.md)
     * [Object](oop/object.md)
     * [Class (part 2)](oop/class-part-2.md)
