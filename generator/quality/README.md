@@ -8,8 +8,8 @@ beberapa orang programmer. Jadi, setiap code yang ditulis perlulah mempunyai
 struktur yang kemas, konsisten, dan teratur supaya setiap programmer boleh
 berkerjasama dengan lebih mudah.
 
-Kadangkala kita juga perlu mewarisi code daripada programmer yang sudah tiada
-dalam syarikat. Maka, permudahkanlah kerja-kerja mereka untuk memahami code yang
+Kadangkala seseorang programmer juga perlu mewarisi code daripada programmer
+yang lain. Maka, permudahkanlah kerja-kerja mereka untuk memahami code yang
 telah kita tulis.
 
 Dalam bab ini, kita akan lihat antara teknik yang membolehkan atau memaksa kita
