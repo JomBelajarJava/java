@@ -9,7 +9,7 @@ Untuk menulis post atau page secara interaktif, run
 _To write a post or page interactively, run_
 
 ```
-lein ring server
+cd generator && gitbook serve
 ```
 
 <br>
@@ -25,47 +25,14 @@ Untuk compile tanpa run interactive environment, run
 _To compile without running interactive environment, run_
 
 ```
-lein run
+cd generator && gitbook build
 ```
 
-## Update gh-pages
+## Deployment
 
-Selepas compile, run script `update-gh-pages.sh` seperti berikut:
+Pindahkan fail daripada `generator/_book` ke `docs`.
 
-_After done compiling, run `update-gh-pages.sh` script like so:_
-
-```
-./update-gh-pages.sh "This is the commit message"
-```
-
-## Update page index
-
-Page tutorial dalam Jom Belajar Java menggunakan metadata `:page-index`
-untuk menentukan kedudukan. Untuk update metadata tersebut, update
-kedudukan page tersebut dalam `page-index.txt`, kemudian run script
-`update-page-index.lisp`.
-
-_The tutorial pages in Jom Belajar Java uses `:page-index` metadata to
-determine their position. To update the metadata, update the position
-in `page-index.txt` file, and then run `update-page-index.lisp` script._
-
-<br>
-
-Untuk run script tersebut, install SBCL.
-
-_To run the script, install SBCL._
-
-[Download](http://www.sbcl.org/platform-table.html)
-
-<br>
-
-Run script tersebut,
-
-_Run the script,_
-
-```
-./update-page-index.lisp
-```
+_Move files from `generator/_book` into `docs`_
 
 ## License
 
