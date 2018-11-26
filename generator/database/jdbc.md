@@ -209,7 +209,7 @@ Statement juga sama seperti Connection, perlu ditutup menggunakan method
 
 Jika kita lihat code tersebut agak menyusahkan kerana perlu `close()` setiap
 masa. Jika anda masih ingat, dalam tutorial
-[Exception](/exception-part-2/) lepas kita ada belajar
+[Exception](../essentials/exception-part-2.md) lepas kita ada belajar
 `try-with-resources`. Jadi, kita akan menggunakannya di sini. Code terbaru
 kemudiannya akan menjadi seperti ini:
 

@@ -2,7 +2,8 @@
 
 Sebelum kita lihat dengan lebih mendalam mengenai `design pattern`, kita lihat
 kembali ke tutorial sebelum ini iaitu [tutorial convenience
-library](/convenience-library). Lihat code yang paling terakhir, yang ini:
+library](../quality/convenience-library.md). Lihat code yang paling terakhir,
+yang ini:
 
 ```java
 ...
