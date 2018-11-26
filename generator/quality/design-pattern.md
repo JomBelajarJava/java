@@ -1,8 +1,8 @@
 # Design Pattern
 
 Sebelum kita lihat dengan lebih mendalam mengenai `design pattern`, kita lihat
-kembali ke tutorial sebelum ini iaitu link:/convenience-library[tutorial
-convenience library]. Lihat code yang paling terakhir, yang ini:
+kembali ke tutorial sebelum ini iaitu [tutorial convenience
+library](/convenience-library). Lihat code yang paling terakhir, yang ini:
 
 ```java
 ...

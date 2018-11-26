@@ -208,9 +208,10 @@ Statement juga sama seperti Connection, perlu ditutup menggunakan method
 ## try-with-resources
 
 Jika kita lihat code tersebut agak menyusahkan kerana perlu `close()` setiap
-masa. Jika anda masih ingat, dalam tutorial link:/exception-part-2/[Exception]
-lepas kita ada belajar `try-with-resources`. Jadi, kita akan menggunakannya di
-sini. Code terbaru kemudiannya akan menjadi seperti ini:
+masa. Jika anda masih ingat, dalam tutorial
+[Exception](/exception-part-2/) lepas kita ada belajar
+`try-with-resources`. Jadi, kita akan menggunakannya di sini. Code terbaru
+kemudiannya akan menjadi seperti ini:
 
 ```java
 private void init() {
