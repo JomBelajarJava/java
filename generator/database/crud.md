@@ -112,8 +112,9 @@ Initialize `PendaftaranService` dan `Scanner` di constructor `H2Application`:
 ```
 
 > Sebenarnya ada cara yang lebih baik berbanding menggunakan `new` untuk
-> menggunakan service dan DAO iaitu dengan menggunakan `inversion of control
-> (IoC)`, tetapi ini hanya untuk demo penggunaan database sahaja.
+> menggunakan service dan DAO iaitu dengan menggunakan `dependency injection
+> framework`, tetapi ini hanya untuk demo penggunaan database. Jadi, kita buat
+> dependency injection menggunakan **new** sahaja.
 
 Kita paparkan arahan aplikasi kepada pengguna dalam method `start()`, kemudian
 ambil input:
