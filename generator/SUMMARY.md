@@ -63,7 +63,6 @@
     * [Design Pattern](quality/design-pattern.md)
 
 * [JavaFX](javafx/README.md)
-    * [Pengenalan JavaFX](javafx/pengenalan-javafx.md)
     * [Scene Builder](javafx/scene-builder.md)
     * [Hello JavaFX](javafx/hello-javafx.md)
     * [FXML](javafx/fxml.md)
