@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Inversion of Control · Belajar Java</title>
+        <title>Dependency Injection · Belajar Java</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -757,12 +757,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.7.3" data-path="inversion-of-control.html">
+        <li class="chapter active" data-level="1.7.3" data-path="dependency-injection.html">
             
-                <a href="inversion-of-control.html">
+                <a href="dependency-injection.html">
             
                     
-                    Inversion of Control
+                    Dependency Injection
             
                 </a>
             
@@ -941,7 +941,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Inversion of Control</a>
+        <a href=".." >Dependency Injection</a>
     </h1>
 </div>
 
@@ -956,24 +956,25 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="inversion-of-control">Inversion of Control</h1>
-<p>Dalam tutorial database, saya ada sentuh sedikit mengenai <code>inversion of
-control</code>. Maksud <code>inversion of control</code> memang susah sikit nak terangkan tanpa
+                                <h1 id="dependency-injection">Dependency Injection</h1>
+<p>Dalam tutorial database, saya ada sentuh sedikit mengenai <code>dependency
+injection</code>. Maksud <code>dependency injection</code> memang susah sikit nak terangkan tanpa
 contoh.</p>
 <p>Jadi sebelum mula tutorial ini, sila lihat code di
 <a href="https://github.com/JomBelajarJava/contoh-code-java/tree/master/codequality/tutorialguice-sebelum" target="_blank">sini</a>
 terlebih dahulu.</p>
-<h2 id="pengenalan">Pengenalan</h2>
 <p>Dalam code tersebut, kita ada dua servis (atau module), servis untuk User dan
 servis untuk Greeting. Dalam <em>implementation</em>, servis Greeting memerlukan servis
-User. Jadi kita memerlukan satu cara untuk memberi class servis User kepada
-servis Greeting.</p>
-<p>Untuk code ini, saya memberi class servis User kepada servis Greeting dalam file
+User. Maksudnya servis User adalah <em>dependency</em> kepada servis Greeting. Apabila
+kita memberi servis User kepada servis Greeting menggunakan keyword <strong>new</strong>, itu
+dinamakan sebagai <em>dependency injection</em>.</p>
+<h2 id="inversion-of-control">Inversion of control</h2>
+<p>Dalam code tersebut, saya memberi class servis User kepada servis Greeting dalam
+file
 <a href="https://github.com/JomBelajarJava/contoh-code-java/blob/master/codequality/tutorialguice-sebelum/src/main/java/Main.java" target="_blank">Main.java</a>.
-Inilah yang dipanggil <code>inversion of control</code>. Maksudnya cara saya memberi
+Ini pula dinamakan <code>inversion of control</code>. Maksudnya cara saya memberi
 <em>dependency</em> bukannya terletak dalam constructor servis Greeting, tetapi di
 tempat lain.</p>
-<p>Cara saya memberi <em>dependency</em> seperti ini dipanggil <code>dependency injection</code>.</p>
 <h2 id="dependency-injection-framework">Dependency injection framework</h2>
 <p>Kalau anda lihat kembali code untuk membuat <code>dependency injection</code>, barangkali
 anda terfikir bagaimana jika sesuatu servis perlukan terlalu banyak servis lain.
@@ -1100,7 +1101,7 @@ hanya menggunakan <em>annotation</em>.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Inversion of Control","level":"1.7.3","depth":2,"next":{"title":"Convenience Library","level":"1.7.4","depth":2,"path":"quality/convenience-library.md","ref":"quality/convenience-library.md","articles":[]},"previous":{"title":"Immutable Collections","level":"1.7.2","depth":2,"path":"quality/immutable-collections.md","ref":"quality/immutable-collections.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"quality/inversion-of-control.md","mtime":"2018-11-25T10:46:54.546Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-26T04:57:16.110Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Dependency Injection","level":"1.7.3","depth":2,"next":{"title":"Convenience Library","level":"1.7.4","depth":2,"path":"quality/convenience-library.md","ref":"quality/convenience-library.md","articles":[]},"previous":{"title":"Immutable Collections","level":"1.7.2","depth":2,"path":"quality/immutable-collections.md","ref":"quality/immutable-collections.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"quality/dependency-injection.md","mtime":"2018-11-26T06:43:20.398Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-26T06:42:42.780Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
