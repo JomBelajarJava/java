@@ -58,6 +58,7 @@
     * [Dependency Injection](quality/dependency-injection.md)
     * [Convenience Library](quality/convenience-library.md)
     * [Design Pattern](quality/design-pattern.md)
+    * [Recursion](quality/recursion.md)
 
 * [JavaFX](javafx/README.md)
     * [Scene Builder](javafx/scene-builder.md)
