@@ -1,7 +1,5 @@
 # Migration
 
-## Pengenalan
-
 _Migration_ bermaksud penghijrahan, sama ada secara perbuatan atau rohani. Dari segi rohani, hijrah boleh bermaksud berubah daripada jahat kepada baik, atau daripada baik kepada lebih baik. Kata kunci yang perlu difokus ialah 'berubah'.
 
 Untuk database, migration bermaksud mengubah bentuk database kepada bentuk yang lain. Kadang kala kita perlu membuat database migration mungkin atas sebab kesilapan, atau mungkin atas sebab untuk menambah baik aplikasi.

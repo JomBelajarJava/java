@@ -1,7 +1,5 @@
 # Immutable Collections
 
-## Pengenalan
-
 Dalam tutorial `final`, variable tidak akan berubah apabila diletakkan keyword
 _final_, tetapi bagaimana pula untuk Collections seperti List, Map, dan Set?
 

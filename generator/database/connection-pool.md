@@ -1,7 +1,5 @@
 # Connection Pool
 
-## Pengenalan
-
 _Pool_ dalam English bermaksud 'kolam'. Biasanya orang menyimpan ikan yang ditangkap ke dalam kolam untuk diguna/dimakan di kemudian hari. Jadi, _connection pool_ bermaksud 'kolam connection database', supaya kita boleh menggunakan connection yang sudah disambung untuk membuat operasi database berkali-kali.
 
 Penyambungan ke database yang kita buat sebelum ini sebenarnya kurang efisyen terutamanya untuk aplikasi yang berjalan lama seperti web kerana kita perlu membuat penyambungan ke database semula tiap kali kita melakukan operasi database.

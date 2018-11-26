@@ -1,7 +1,5 @@
 # Final
 
-## Pengenalan
-
 `final` ialah keyword yang digunakan untuk memastikan sesuatu variable tidak
 berubah.
 

@@ -1,7 +1,5 @@
 # JDBC
 
-## Pengenalan
-
 *JDBC* ialah _interface_ yang kita boleh guna untuk menyambungkan aplikasi Java
 dengan database. Benda yang diperlukan untuk membuat connection JDBC ialah url,
 nama dan password untuk database tersebut.
