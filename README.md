@@ -37,7 +37,3 @@ _Move files from `generator/_book` into `docs`_ after compile.
 ```
 rm -rf docs && mv generator/_book docs
 ```
-
-## License
-
-[Open Publication License](https://www.opencontent.org/openpub/)
