@@ -11,3 +11,4 @@ pom.xml.asc
 .lein-failures
 /resources/public/
 /generator/_book/
+/generator/node_modules/
