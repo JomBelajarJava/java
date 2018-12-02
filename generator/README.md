@@ -16,18 +16,18 @@ memutuskan sama ada programming language ini bersesuaian dengan projek anda.
 
 Dalam programming language seperti C dan C++, programmer perlu menguruskan
 proses yang melibatkan penggunaan memory(RAM) secara manual. Penggunaan memory
-secara manual boleh menyebabkan kerosakan kepada application dengan sangat
-mudah, dan boleh meningkatkan masa untuk membangunkan application tersebut.
+secara manual mudah menyebabkan kerosakan kepada application, dan boleh
+meningkatkan masa untuk membangunkan application tersebut.
 
-Manakala dalam Java, proses tersebut dijalankan secara automatik, dinamakan
-*garbage collection*. Jadi, programmer Java tidak perlu bimbang mengenai masalah
-yang melibatkan memory.
+Dalam Java, proses yang dinamakan *garbage collection* dijalankan secara
+automatik untuk menguruskan penggunaan memory. Jadi, programmer Java tidak perlu
+bimbang mengenai masalah yang melibatkan memory.
 
 ## High performance
 
 Programming language Java mengorbankan saiz untuk kelajuan program. Walaupun
-Java sedikit perlahan berbanding C dan C++, tetapi berbanding programming
-language lain, Java sangat laju. Itulah sebabnya Java banyak digunakan dalam
+Java sedikit perlahan berbanding C dan C++, tetapi Java sangat laju berbanding
+programming language lain. Itulah sebabnya Java banyak digunakan dalam
 syarikat-syarikat kewangan(*finance*).
 
 ## Java Virtual Machine
@@ -38,7 +38,8 @@ kita install Java, kita sebenarnya sedang install JVM.
 JVM sangat canggih. JVM ini akan sentiasa mengoptimumkan program yang sedang
 berjalan supaya lebih laju dan efisyen. Teknik ini dinamakan *just-in-time
 compilation*. Maksudnya semakin lama program Java berjalan, semakin laju dan
-efisyen program tersebut. Itu sebabnya Java banyak digunakan sebagai server.
+efisyen program tersebut. Itu sebabnya Java banyak digunakan sebagai server,
+iaitu antara aplikasi yang mempunyai jangka hayat yang lama.
 
 Disebabkan kecanggihan JVM ini, banyak programming language lain yang menumpang
 di atas platform tersebut antaranya Scala, Kotlin, Clojure, JavaScript(Nashorn),
@@ -46,8 +47,8 @@ dan Ruby(JRuby).
 
 ## Verbose
 
-*Verbose* bermaksud, dalam code Java, kita perlu menulis banyak benda untuk
-melakukan benda yang simple, berbeza dengan programming language seperti Python.
+*Verbose* bermaksud, kita perlu menulis banyak syntax untuk melakukan benda yang
+simple, berbeza dengan programming language seperti Python.
 
 Ciri ini boleh jadi kelebihan atau kekurangan bergantung kepada projek. Untuk
 projek yang kecil-kecil, mungkin tidak sesuai. Untuk projek yang besar yang
