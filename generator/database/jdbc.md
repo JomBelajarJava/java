@@ -39,8 +39,8 @@ suka hati anda nak letak apa. Jadi, saya akan letak `com.jombelajarjava` sebagai
 `GroupId`. `ArtifactId` pula ialah nama package untuk projek kita. Jadi, saya
 akan letakkan `tutorialh2`. Setelah selesai, klik `Next`.
 
-Di skrin berikutnya, tentukan di mana anda ingin letak folder untuk projek anda.
-Kemudian, klik `Finish`.
+Di skrin berikutnya, tentukan di mana anda ingin meletakkan folder untuk projek
+anda. Kemudian, klik `Finish`.
 
 Setelah selesai, IntelliJ akan membina projek Maven dan anda akan nampak file
 XML seperti ini,
@@ -53,7 +53,7 @@ XML seperti ini,
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.jombelajarjava</groupId>
-    <artifactId>lalala</artifactId>
+    <artifactId>tutorialh2</artifactId>
     <version>1.0-SNAPSHOT</version>
 
 
@@ -102,7 +102,7 @@ Anda boleh check version library tersebut di
 [Maven Central](https://search.maven.org).
 
 Jika anda menggunakan IntelliJ, IntelliJ akan tanya sama ada anda ingin download
-library H2 tersebut.
+library H2 tersebut, maka download sahaja.
 
 ## Class Main
 
@@ -134,9 +134,9 @@ class H2Application {
 }
 ```
 
-Perhatian, dalam situasi sebenar, elakkan meletakkan nama dan password dalam
-code. Biasanya kita perlu dapatkan maklumat tersebut daripada _environment
-variable_ ataupun file yang berasingan supaya lebih selamat.
+> Perhatian, dalam situasi sebenar, elakkan dari meletakkan nama dan password
+> dalam code. Biasanya kita perlu dapatkan maklumat tersebut daripada
+> _environment variable_ ataupun file yang berasingan supaya lebih selamat.
 
 Selepas ini, dalam folder yang sama, create class `Main` untuk kita letakkan
 `main()` method untuk run aplikasi tersebut. Class `Main` akan menjadi seperti
@@ -212,7 +212,7 @@ Statement juga sama seperti Connection, perlu ditutup menggunakan method
 
 Jika kita lihat code tersebut agak menyusahkan kerana perlu `close()` setiap
 masa. Jika anda masih ingat, dalam tutorial
-[Exception](../essentials/exception-part-2.md) lepas kita ada belajar
+[Exception](../essentials/exception-part-2.md), kita ada belajar
 `try-with-resources`. Jadi, kita akan menggunakannya di sini. Code terbaru
 kemudiannya akan menjadi seperti ini:
 
