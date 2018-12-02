@@ -1,3 +1,8 @@
+---
+date: 2015-07-04
+description: Kita kembali kepada Exception untuk lihat satu cara yang lebih mudah jika melibatkan input dan output. Cara tersebut adalah dengan try-with-resources.
+---
+
 # Exception (part 2)
 
 Semasa membuat input/output, kita mesti membuat _exception handling_.

@@ -1,3 +1,8 @@
+---
+date: 2015-07-04
+description: Kita juga boleh menhasilkan output ke file menggunakan FileWriter. FileWriter juga boleh dibantu oleh BufferedWriter untuk lebih efisyen.
+---
+
 # Output ke file
 
 Selain boleh mengambil input daripada file, program juga boleh output ke

@@ -1,3 +1,8 @@
+---
+date: 2015-07-20
+description: Kita boleh mengambil input daripada file menggunakan FileReader. Penggunaan FileReader boleh dibantu oleh BufferedReader untuk lebih efisyen.
+---
+
 # Input dari file
 
 Kebanyakan program seperti Notepad, Photoshop, dan Word membenarkan user

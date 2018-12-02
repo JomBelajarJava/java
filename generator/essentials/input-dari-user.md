@@ -1,3 +1,8 @@
+---
+date: 2015-07-02
+description: Kita akan lihat cara untuk mengambil input daripada user menggunakan command line untuk menghasilkan program interaktif. Class Scanner digunakan untuk ini.
+---
+
 # Input dari user
 
 Antara keperluan yang patut ada pada sesuatu program ialah program itu
