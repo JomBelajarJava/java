@@ -31,7 +31,7 @@ tempat lain.
 ## Dependency injection framework
 
 Kalau anda lihat kembali code untuk membuat `dependency injection`, barangkali
-anda terfikir bagaimana jika sesuatu servis perlukan terlalu banyak servis lain.
+anda terfikir bagaimana jika sesuatu servis memerlukan terlalu banyak servis lain.
 Code tersebut nanti mungkin akan menjadi terlampau panjang dan serabut.
 
 Ya, dalam situasi sebenar memang akan ada servis yang bergantung kepada banyak
@@ -99,8 +99,8 @@ public UserServiceImpl(final UserLocaleRepository userLocaleRepository) {
 ```
 
 Apabila ditambah `@Inject`, class tersebut akan memberitahu Guice bahawa dia
-perlukan Guice untuk inject _dependency_ yang ada di parameter _constructor_
-tersebut. Kemudian Guice pun akan cari `dependency` yang diperlukan daripada
+memerlukan Guice untuk inject _dependency_ yang ada di parameter _constructor_
+tersebut. Kemudian Guice pun akan mencari `dependency` yang diperlukan daripada
 module.
 
 Setelah selesai dengan `UserModule`, buat benda yang sama dengan `GreetingModule`.
