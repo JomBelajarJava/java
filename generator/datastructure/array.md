@@ -1,3 +1,8 @@
+---
+date: 2015-07-05
+description: Array merupakan data structure yang paling simple yang boleh kita gunakan. Array digunakan untuk menyimpan lebih daripada satu data dengan cara tersusun.
+---
+
 # Array
 
 Sebelum ini, kita menggunakan variable untuk menyimpan data. Walau
