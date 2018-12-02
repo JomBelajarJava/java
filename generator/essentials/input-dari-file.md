@@ -11,7 +11,7 @@ semula dengan menggunakan file yang di-save tersebut. Java juga ada
 menyediakan class untuk mengambil input daripada file. Jadi, kita
 akan lihat cara penggunaan class tersebut.
 
-Sebelum itu, kita perlu buat file terlebih dahulu dengan menggunakan
+Sebelum itu, kita perlu membuat file terlebih dahulu dengan menggunakan
 mana-mana text editor. Kita tulis apa-apa sahaja yang kita mahu di
 dalam file tersebut. Selepas itu, kita save file tersebut
 sebagai `cubaan.txt` atau apa-apa sahaja yang anda mahu. Kemudian kita
@@ -23,7 +23,7 @@ Kita boleh menggunakan class `FileReader` untuk mengambil input daripada
 file. Untuk menggunakan class `FileReader`, kita perlu handle
 exception untuk mengelakkan error, contohnya jika file tersebut
 tidak wujud. Method `read()` boleh digunakan untuk mendapatkan
-character_daripada file. Selepas digunakan, class `FileReader` perlu
+character daripada file. Selepas digunakan, class `FileReader` perlu
 ditutup semula menggunakan method `close()`.
 
 ```java
@@ -33,9 +33,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class InputDariFile {
-
     public static void main(String[] args) throws IOException {
-
         FileReader reader = null;
 
         try {
@@ -64,9 +62,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class InputDariFile {
-
     public static void main(String[] args) throws IOException {
-
         FileReader reader = null;
 
         try {
@@ -91,9 +87,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class InputDariFile {
-
     public static void main(String[] args) throws IOException {
-
         FileReader reader = null;
 
         try {
@@ -129,9 +123,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class InputDariFile {
-
     public static void main(String[] args) throws IOException {
-
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(new FileReader("cubaan.txt"));
@@ -161,7 +153,6 @@ import java.io.IOException;
 
 public class InputDariFile {
     public static void main(String[] args) throws IOException {
-
         BufferedReader reader = null;
 
         try {
