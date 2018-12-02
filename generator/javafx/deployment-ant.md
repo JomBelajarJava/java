@@ -1,3 +1,8 @@
+---
+date: 2015-07-13
+description: Setelah siap program JavaFX, kita boleh membuat deployment untuk mengedarkan program kepada user. Kita akan lihat cara membuat JAR, EXE dan installer.
+---
+
 # Deployment (Ant)
 
 Setelah menyiapkan program JavaFX, kita boleh membuat _deployment_ untuk

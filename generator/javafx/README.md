@@ -1,3 +1,8 @@
+---
+date: 2015-07-08
+description: JavaFX ialah toolkit yang disediakan oleh Java untuk membuat graphical user interface (GUI). Java sudah tidak menggalakkan penggunaan Swing dan AWT.
+---
+
 # JavaFX
 
 JavaFX ialah toolkit yang disediakan oleh Java untuk membuat

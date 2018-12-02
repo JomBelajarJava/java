@@ -1,3 +1,8 @@
+---
+date: 2015-07-10
+description: Dengan kaedah MVC, kita boleh menggunakan FXML untuk menentukan rupa bentuk program kita. Kita juga akan lihat cara untuk membuat FXML injection.
+---
+
 # FXML
 
 Program HelloJavaFX sebelum ini dibuat hanya dengan menggunakan code

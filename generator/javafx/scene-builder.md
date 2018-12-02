@@ -1,3 +1,8 @@
+---
+date: 2015-07-08
+description: Scene Builder ialah salah satu software untuk membuat program JavaFX. Scene Builder boleh digunakan untuk menentukan bagaimana rupa sesebuah program JavaFX.
+---
+
 # Scene Builder
 
 Scene Builder ialah salah satu software untuk membuat program JavaFX.
