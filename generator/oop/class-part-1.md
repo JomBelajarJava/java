@@ -30,14 +30,13 @@ berikut:
 package kucing;
 
 public class Kucing {
-
     String nama;
     int umur;
 }
 ```
 
 `Fields` inilah yang dikatakan ciri-ciri kepada sesuatu class. Jadi,
-antara ciri-ciri untuk Kucing ialah nama dan umur.
+ciri-ciri untuk class Kucing sekarang ialah nama dan umur.
 
 ## Methods
 
@@ -48,7 +47,6 @@ tersebut. Contohnya,
 package kucing;
 
 public class Kucing {
-
     String nama;
     int umur;
 
@@ -62,5 +60,5 @@ public class Kucing {
 }
 ```
 
-Jadi, antara tingkah laku yang boleh dilakukan oleh Kucing ialah
+Jadi, tingkah laku yang boleh dilakukan oleh class Kucing sekarang ialah
 mengiau dan minum.
