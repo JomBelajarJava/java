@@ -16,7 +16,6 @@ import java.util.List;
 
 public class ContohList {
     public static void main(String[] args) {
-
         List<String> names = new ArrayList<>();
         names.add("Abu");
         names.add("Ali");
@@ -97,7 +96,8 @@ Untuk menggunakan `LinkedList`, tukar sahaja `ArrayList` kepada
 List<String> names = new LinkedList<>();
 ```
 
-Inilah kelebihan apabila menggunakan _program to interface_.
+Inilah kelebihan apabila menggunakan _program to interface_. Kita boleh terus
+menukar class implementation tanpa mengubah bahagian code yang lain.
 
 ## ArrayList vs LinkedList
 
