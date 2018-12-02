@@ -33,11 +33,8 @@ curly braces, `{}`. Contohnya,
 package kucing;
 
 public interface HaiwanBergerak {
-
     void jalan();
-
     void lari();
-
     void lompat();
 }
 ```
@@ -54,7 +51,6 @@ sesuatu interface. Contohnya,
 package kucing;
 
 public class Kucing implements HaiwanBergerak {
-
     private String nama;
     private int umur;
 
@@ -65,14 +61,13 @@ public class Kucing implements HaiwanBergerak {
 }
 ```
 
-Kemudian kita wajib menambah methods pada class Kucing mengikut
-methods yang ada pada interface HaiwanBergerak, seperti berikut:
+Kemudian kita wajib menambah method pada class Kucing mengikut
+method yang ada pada interface HaiwanBergerak, seperti berikut:
 
 ```java
 package kucing;
 
 public class Kucing implements HaiwanBergerak {
-
     private String nama;
     private int umur;
 
@@ -98,7 +93,7 @@ public class Kucing implements HaiwanBergerak {
 }
 ```
 
-`@Override` ditambah bertujuan untuk beritahu compiler bahawa kita
+`@Override` ditambah bertujuan untuk memberitahu compiler bahawa kita
 tahu apa yang kita tengah buat. Kemudian, kita boleh tambah code dalam
 methods tersebut bergantung kepada apa yang kita mahu:
 
@@ -106,7 +101,6 @@ methods tersebut bergantung kepada apa yang kita mahu:
 package kucing;
 
 public class Kucing implements HaiwanBergerak {
-
     private String nama;
     private int umur;
 
@@ -133,14 +127,13 @@ public class Kucing implements HaiwanBergerak {
 }
 ```
 
-Kita juga boleh menggunakan lebih dari satu interface pada satu
+Kita juga boleh menggunakan lebih daripada satu interface pada satu
 class, contohnya:
 
 ```java
 package kucing;
 
 public class Kucing implements HaiwanBergerak, HaiwanBeranak {
-
     private String nama;
     private int umur;
 
