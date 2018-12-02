@@ -28,7 +28,7 @@ Mail. Walaupun dua-dua ialah kereta Waja, tetapi satu milik Pak Man, dan
 satu lagi milik Pak Mail. Jadi, dua-dua kereta tersebut boleh
 dikategorikan dalam `class` yang sama, iaitu kereta Waja.
 
-Dalam programming, `class` yang menentukan ciri-ciri (_fields_) dan
+Dalam programming, `class` menentukan ciri-ciri (_fields_) dan
 tingkah laku (_methods_) sesuatu `object`.
 
 ## Inheritance
@@ -48,7 +48,7 @@ perlulah mematuhi keperluan sebagai sebuah kereta. Contohnya, kereta itu
 mestilah boleh bergerak ke depan dan ke belakang, boleh membelok ke kiri
 dan ke kanan, dan sebagainya.
 
-Dalam programming, kita boleh tetapkan tingkah laku (_methods_) sesuatu
+Dalam programming, kita boleh menetapkan tingkah laku (_methods_) sesuatu
 `class` menggunakan `interface`. Apabila sesuatu `class`
 menggunakan `interface`, `class` tersebut wajib menepati keperluan
 `interface` tersebut.
