@@ -5,10 +5,9 @@ description: Set digunakan untuk menyimpan data yang lain daripada yang lain. Ji
 
 # Set
 
-Set boleh digunakan untuk menyimpan data yang lain dari yang lain.
-Jika ada yang sama, Set akan menyimpan satu sahaja. Class yang
-menggunakan interface `Set` antaranya ialah `HashSet`, `TreeSet`, dan
-`LinkedHashSet`.
+Set boleh digunakan untuk menyimpan data yang unik. Jika ada yang sama, Set akan
+tetap menyimpan satu sahaja. Class yang menggunakan interface `Set` antaranya
+ialah `HashSet`, `TreeSet`, dan `LinkedHashSet`.
 
 ## HashSet
 
@@ -116,12 +115,11 @@ import java.util.Set;
 
 public class ContohSet {
     public static void main(String[] args) {
-
         Integer[] nombor = {1, 1, 1, 1, 2, 3, 4, 4, 4, 5, 6, 6, 6, 6, 7};
 
         Set<Integer> setNombor = new HashSet<>(Arrays.asList(nombor));
 
-        Integer[] nomborTanpaDuplicate = setNombor.toArray(new Integer[setNombor.size()]);
+        Integer[] nomborTanpaDuplicate = setNombor.toArray(new Integer[0]);
 
         for (Integer n : nomborTanpaDuplicate) {
             System.out.println(n);
@@ -129,6 +127,11 @@ public class ContohSet {
     }
 }
 ```
+
+> Parameter untuk method `toArray()` di atas hanya untuk menentukan jenis data
+> sahaja. Rujuk
+> [toArray()](https://docs.oracle.com/javase/7/docs/api/java/util/Set.html#toArray(T[]%29)
+> untuk maklumat lanjut.
 
 Contoh membuang duplicate dalam List:
 

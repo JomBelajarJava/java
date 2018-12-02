@@ -11,9 +11,7 @@ statement` biasa digunakan jika pilihan terlalu banyak.
 
 ```java
 public class TutorialSwitch {
-
     public static void main(String[] args) {
-
         int bulan = 5;
 
         switch (bulan) {
@@ -51,4 +49,4 @@ code tersebut menggunakan `if statement`.
 > P/S: Jangan lupa untuk menulis `break` selepas setiap
 > `case` kerana walaupun code tiada error, akan berlaku sesuatu yang
 > anda tidak jangkakan. Anda boleh cuba buang `break` untuk lihat apa
-> yang berlaku.
+> yang akan berlaku.

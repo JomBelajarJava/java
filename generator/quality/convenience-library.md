@@ -15,7 +15,7 @@ _Convenience_ bermaksud 'kemudahan'. Jadi, `convenience library` bermaksud
 library yang memudahkan kita untuk program menggunakan Java.
 
 Kebanyakan programmer tidak suka menggunakan Java kerana perlu menulis banyak
-benda hanya untuk melakukan benda yang simple. Oleh itu, beberapa library dibina
+syntax hanya untuk melakukan benda yang simple. Oleh itu, beberapa library dibina
 bagi mengurangkan bilangan code yang perlu ditulis. Pada pendapat saya, semakin
 kurang code yang perlu ditulis semakin kurang kesilapan yang akan berlaku kerana
 manusia mudah melakukan kecuaian.
@@ -33,7 +33,7 @@ Antara `convenience library` yang saya sudah perkenalkan:
   Java 8. Sangat digalakkan kepada yang minat _functional programming_ tetapi
   terpaksa menggunakan Java.
 
-Sekarang saya akan perkenalkan satu lagi _convenience library_ yang betul-betul
+Sekarang saya akan memperkenalkan satu lagi _convenience library_ yang betul-betul
 akan mengurangkan bilangan code Java, iaitu
 [Project Lombok](https://projectlombok.org/).
 

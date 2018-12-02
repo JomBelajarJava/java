@@ -21,10 +21,12 @@ constructor, contohnya:
 package kucing;
 
 public class Kucing {
-
     String nama;
     int umur;
 
+    /*
+     * Inilah yang dinamakan constructor.
+     */
     public Kucing() {
         nama = "Tiada nama";
         umur = 0;
@@ -72,7 +74,6 @@ fields.
 package kucing;
 
 public class Kucing {
-
     String nama;
     int umur;
 
@@ -81,6 +82,9 @@ public class Kucing {
         umur = 0;
     }
 
+    /*
+     * Ini contoh setter.
+     */
     public void setNama(String n) {
         nama = n;
     }
@@ -119,18 +123,7 @@ nombor negatif seperti berikut:
 package kucing;
 
 public class Kucing {
-
-    String nama;
-    int umur;
-
-    public Kucing() {
-        nama = "Tiada nama";
-        umur = 0;
-    }
-
-    public void setNama(String n) {
-        nama = n;
-    }
+    ...
 
     public void setUmur(int u) {
         if (u < 0) {
@@ -139,39 +132,25 @@ public class Kucing {
             umur = u;
         }
     }
-
-    public void mengiau() {
-        System.out.println("Meow");
-    }
-
-    public void minum() {
-        System.out.println("Slrrp, slrrp");
-    }
-
+    ...
 }
 ```
 
 ## Getter
 
-`Getter` pula ialah method untuk mengakses data. Berbeza dengan
-methods sebelum ini yang menggunakan keyword `void`, untuk mengakses
-data, kita perlu tukar keyword `void` kepada jenis data yang kita
-ingin akses. Contohnya, jika kita mahu mengakses data dari
-field `nama`, kita perlu tukar `void` kepada `String`:
+`Getter` pula ialah method untuk mengakses data. Berbeza dengan method sebelum
+ini, kita perlu menukar keyword `void` kepada jenis data yang kita ingin akses.
+Contohnya, jika kita mahu mengakses data dari field `nama`, kita perlu tukar
+`void` kepada `String`:
 
 ```java
 package kucing;
 
 public class Kucing {
-
     String nama;
     int umur;
 
-    public Kucing() {
-        nama = "Tiada nama";
-        umur = 0;
-    }
-
+    ...
     public String getNama() {
         return nama;
     }
@@ -179,31 +158,12 @@ public class Kucing {
     public int getUmur() {
         return umur;
     }
-
-    public void setNama(String n) {
-        nama = n;
-    }
-
-    public void setUmur(int u) {
-        if (u < 0) {
-            System.out.println("Error, umur tidak boleh negatif!");
-        } else {
-            umur = u;
-        }
-    }
-
-    public void mengiau() {
-        System.out.println("Meow");
-    }
-
-    public void minum() {
-        System.out.println("Slrrp, slrrp");
-    }
+    ...
 }
 ```
 
-Kita gunakan keyword `return` untuk akses data tersebut atau dalam
-erti kata lain _memulangkan_ data tersebut.
+Keyword `return` digunakan untuk mengakses data tersebut atau dalam
+erti kata lain _memulangkan_ data.
 
 Kita boleh menggunakan getter seperti berikut:
 

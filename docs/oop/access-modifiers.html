@@ -983,33 +983,19 @@ contoh:</p>
 <pre><code class="lang-java"><span class="hljs-keyword">package</span> kucing;
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Kucing</span> </span>{
+    <span class="hljs-keyword">private</span> String nama;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> umur;
 
-  <span class="hljs-keyword">private</span> String nama;
-  <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> umur;
+    ...
 
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Kucing</span><span class="hljs-params">()</span> </span>{
-    nama = <span class="hljs-string">&quot;Tiada nama&quot;</span>;
-    umur = <span class="hljs-number">0</span>;
-  }
-
-  <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getNama</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> nama; }
-
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getUmur</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> umur; }
-
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setNama</span><span class="hljs-params">(String n)</span> </span>{ nama = n; }
-
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setUmur</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u)</span> </span>{
-    <span class="hljs-keyword">if</span> (u &lt; <span class="hljs-number">0</span>) {
-      System.out.println(<span class="hljs-string">&quot;Error, umur tidak boleh negatif!&quot;</span>);
-    } <span class="hljs-keyword">else</span> {
-      umur = u;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getNama</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> nama;
     }
-  }
 
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">mengiau</span><span class="hljs-params">()</span> </span>{ System.out.println(<span class="hljs-string">&quot;Meow&quot;</span>); }
-
-  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">minum</span><span class="hljs-params">()</span> </span>{ System.out.println(<span class="hljs-string">&quot;Slrrp, slrrp&quot;</span>); }
-
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getUmur</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> umur;
+    }
+    ...
 }
 </code></pre>
 <p>Selepas meletakkan keyword <code>private</code>, maka kita tidak boleh compile code
@@ -1077,7 +1063,7 @@ subclass.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"date":"2015-06-30T00:00:00.000Z","description":"Access modifiers menentukan dari mana boleh akses sesuatu method atau field. Ini bertujuan untuk mengelakkan method atau field tidak digunakan dengan betul.","title":"Access modifiers","level":"1.3.5","depth":2,"next":{"title":"Class (part 3)","level":"1.3.6","depth":2,"path":"oop/class-part-3.md","ref":"oop/class-part-3.md","articles":[]},"previous":{"title":"Class (part 2)","level":"1.3.4","depth":2,"path":"oop/class-part-2.md","ref":"oop/class-part-2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["sitemap-general"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sitemap-general":{"prefix":"https://www.jombelajarjava.com/java/"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"oop/access-modifiers.md","mtime":"2018-12-02T02:40:55.643Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-02T03:48:15.159Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"date":"2015-06-30T00:00:00.000Z","description":"Access modifiers menentukan dari mana boleh akses sesuatu method atau field. Ini bertujuan untuk mengelakkan method atau field tidak digunakan dengan betul.","title":"Access modifiers","level":"1.3.5","depth":2,"next":{"title":"Class (part 3)","level":"1.3.6","depth":2,"path":"oop/class-part-3.md","ref":"oop/class-part-3.md","articles":[]},"previous":{"title":"Class (part 2)","level":"1.3.4","depth":2,"path":"oop/class-part-2.md","ref":"oop/class-part-2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["sitemap-general"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sitemap-general":{"prefix":"https://www.jombelajarjava.com/java/"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"oop/access-modifiers.md","mtime":"2018-12-02T07:06:27.687Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-02T11:51:40.299Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

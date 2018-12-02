@@ -13,8 +13,8 @@ String merupakan gabungan daripada beberapa character (huruf, nombor,
 simbol). Jadi, class String dibuat untuk menggabungkan character
 tersebut.
 
-Sama seperti class yang lain, String juga mempunyai method yang kita
-boleh gunakan.
+Sama seperti class yang lain, String juga mempunyai method yang boleh kita
+gunakan.
 
 ## length
 
@@ -26,7 +26,6 @@ _character_ yang ada dalam sesuatu String:
 package tutorialjava;
 
 public class Main {
-
     public static void main(String[] args) {
         String cikgu = "Cikgu suka main bola, hari-hari cikgu main bola";
         int bilanganCharacter = cikgu.length();
@@ -48,7 +47,6 @@ package tutorialjava;
 
 public class Main {
     public static void main(String[] args) {
-
         String cikgu = "Cikgu suka main bola, hari-hari cikgu main bola";
 
         char hurufPertama = cikgu.charAt(0);
@@ -75,7 +73,7 @@ bukannya,
 ## toLowerCase/toUpperCase
 
 Kita boleh menggunakan method `toLowerCase()` untuk menjadikan String
-tersebut kepada semuanya huruf kecil. Method `toUpperCase()` pula untuk
+tersebut kepada huruf kecil semuanya. Method `toUpperCase()` pula untuk
 menjadikan String kepada huruf besar.
 
 ```java
@@ -83,9 +81,7 @@ package tutorialjava;
 
 public class Main {
     public static void main(String[] args) {
-
         String cikgu = "Cikgu suka main bola, hari-hari cikgu main bola";
-
         String cikguHurufBesar = cikgu.toUpperCase();
 
         System.out.println(cikguHurufBesar);

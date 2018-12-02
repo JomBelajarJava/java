@@ -24,7 +24,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ContohMap {
-
     public static void main(String[] args) {
         Map<String, Double> harga = new HashMap<>();
         harga.put("burger_ayam", 2.0);
@@ -43,7 +42,7 @@ Berpandukan Java API, interface Map adalah seperti berikut:
 public interface Map<K,V>
 ```
 
-Ini bermaksud kita perlu letakkan dua jenis data untuk _generics_ K
+Ini bermaksud kita perlu meletakkan dua jenis data untuk _generics_ K
 (_key_) dan V (_value_). Oleh itu, code di atas bermaksud _key_ kita
 ialah jenis `String` dan _value_ kita ialah jenis `Double`.
 
@@ -65,7 +64,6 @@ import java.util.Map;
 import java.util.Set;
 
 public class ContohMap {
-
     public static void main(String[] args) {
         Map<String, Double> harga = new HashMap<>();
         harga.put("burger_ayam", 2.0);

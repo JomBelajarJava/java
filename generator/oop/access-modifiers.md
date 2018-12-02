@@ -24,33 +24,19 @@ contoh:
 package kucing;
 
 public class Kucing {
+    private String nama;
+    private int umur;
 
-  private String nama;
-  private int umur;
+    ...
 
-  public Kucing() {
-    nama = "Tiada nama";
-    umur = 0;
-  }
-
-  public String getNama() { return nama; }
-
-  public int getUmur() { return umur; }
-
-  public void setNama(String n) { nama = n; }
-
-  public void setUmur(int u) {
-    if (u < 0) {
-      System.out.println("Error, umur tidak boleh negatif!");
-    } else {
-      umur = u;
+    public String getNama() {
+        return nama;
     }
-  }
 
-  public void mengiau() { System.out.println("Meow"); }
-
-  public void minum() { System.out.println("Slrrp, slrrp"); }
-
+    public int getUmur() {
+        return umur;
+    }
+    ...
 }
 ```
 

@@ -986,9 +986,7 @@ lihat daging apa, kita selak roti yang di atas.</p>
 <span class="hljs-keyword">import</span> java.util.Deque;
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohDeque</span> </span>{
-
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
-
         Deque&lt;String&gt; burger = <span class="hljs-keyword">new</span> ArrayDeque&lt;&gt;();
         burger.push(<span class="hljs-string">&quot;roti&quot;</span>);
         burger.push(<span class="hljs-string">&quot;sayur&quot;</span>);
@@ -1001,9 +999,9 @@ lihat daging apa, kita selak roti yang di atas.</p>
         }
 
         System.out.println(<span class="hljs-string">&quot;Oops, lupa letak sos!&quot;</span>);
-        String pegang = burger.pop();   <span class="hljs-comment">// keluarkan roti paling atas</span>
+        String rotiDiTangan = burger.pop();   <span class="hljs-comment">// keluarkan roti paling atas</span>
         burger.push(<span class="hljs-string">&quot;sos + mayonis&quot;</span>);   <span class="hljs-comment">// tambah sos</span>
-        burger.push(pegang);    <span class="hljs-comment">// letak balik roti</span>
+        burger.push(rotiDiTangan);    <span class="hljs-comment">// letak balik roti</span>
 
         System.out.println(<span class="hljs-string">&quot;Susunan burger yang baru:&quot;</span>);
         <span class="hljs-keyword">for</span> (String partBurger : burger) {
@@ -1016,7 +1014,7 @@ lihat daging apa, kita selak roti yang di atas.</p>
 <ul>
 <li><code>push()</code> &#x2013; untuk memasukkan data di hujung/atas</li>
 <li><code>pop()</code> &#x2013; keluarkan data di hujung/atas</li>
-<li><code>peek()</code> &#x2013; untuk akses data di hujung/atas tanpa keluarkan data tersebut</li>
+<li><code>peek()</code> &#x2013; untuk mengakses data di hujung/atas tanpa mengeluarkan data tersebut</li>
 </ul>
 <p>Method yang boleh digunakan untuk FIFO pula adalah sama seperti Queue
 iaitu <code>offer()</code>, <code>poll()</code>, dan <code>peek()</code>.</p>
@@ -1066,7 +1064,7 @@ ArrayDeque lebih efisyen berbanding LinkedList.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"date":"2015-07-07T00:00:00.000Z","description":"Deque (cara sebutan deck) boleh menggunakan kaedah first in, first out (FIFO) dan last in, first out (LIFO). Secara ringkasnya, Deque ialah Queue + Stack.","title":"Deque","level":"1.5.9","depth":2,"next":{"title":"Map","level":"1.5.10","depth":2,"path":"datastructure/map.md","ref":"datastructure/map.md","articles":[]},"previous":{"title":"Queue","level":"1.5.8","depth":2,"path":"datastructure/queue.md","ref":"datastructure/queue.md","articles":[]},"dir":"ltr"},"config":{"plugins":["sitemap-general"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sitemap-general":{"prefix":"https://www.jombelajarjava.com/java/"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"datastructure/deque.md","mtime":"2018-12-02T03:07:03.743Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-02T03:48:15.159Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"date":"2015-07-07T00:00:00.000Z","description":"Deque (cara sebutan deck) boleh menggunakan kaedah first in, first out (FIFO) dan last in, first out (LIFO). Secara ringkasnya, Deque ialah Queue + Stack.","title":"Deque","level":"1.5.9","depth":2,"next":{"title":"Map","level":"1.5.10","depth":2,"path":"datastructure/map.md","ref":"datastructure/map.md","articles":[]},"previous":{"title":"Queue","level":"1.5.8","depth":2,"path":"datastructure/queue.md","ref":"datastructure/queue.md","articles":[]},"dir":"ltr"},"config":{"plugins":["sitemap-general"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sitemap-general":{"prefix":"https://www.jombelajarjava.com/java/"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"datastructure/deque.md","mtime":"2018-12-02T10:22:35.135Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-02T11:51:40.299Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

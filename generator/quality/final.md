@@ -78,8 +78,8 @@ pengguna sedang menggunakan software kita.
 Apabila anda sudah biasa menggunakan final, anda akan perasan sikit sahaja
 variable yang betul-betul kita gunakan sebagai variable. Contohnya variable
 untuk counter atau jumlah. Variable untuk counter atau jumlah memang tidak boleh
-dijadikan final, oleh itu kita perlu asingkan operasi untuk mengubah variable
-counter/jumlah ke method/function yang lain.
+dijadikan final, oleh itu kita perlu mengasingkan operasi untuk mengubah
+variable counter/jumlah ke method/function yang lain.
 
 Contoh:
 

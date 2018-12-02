@@ -7,18 +7,17 @@ description: Loop boleh membuatkan program kita mengulang sesuatu proses. Ini se
 
 Loop ialah kaedah untuk mengulangi sesuatu proses.
 
-Contohnya, jika kita mahu menulis sesuatu sebanyak 100 kali. Satu cara
-adalah dengan menulis `System.out.println()` sebanyak 100 kali, tapi
-apakan daya, kita manusia biasa. Jadi, kita boleh beritahu program untuk
+Contohnya, jika kita mahu menulis sesuatu sebanyak 100 kali. Satu cara adalah
+dengan menulis `System.out.println()` sebanyak 100 kali, tetapi apakan daya,
+kita manusia biasa. Jadi, kita boleh beritahu program untuk
 `System.out.println()` sebanyak 100 kali.
 
-Ada tiga cara untuk menulis loop, iaitu: `while loop`, `for loop`, dan
-`do while loop`. Semuanya lakukan benda yang sama iaitu untuk mengulangi
-sesuatu.
+Ada tiga cara untuk menulis loop, iaitu: `while loop`, `for loop`, dan `do while
+loop`. Semuanya melakukan benda yang sama iaitu untuk mengulangi sesuatu.
 
 ## While loop
 
-Program untuk menulis sesuatu berkali-kali:
+Program untuk menulis sesuatu berulang kali:
 
 ```java
 public class ContohWhileLoop {
@@ -26,7 +25,6 @@ public class ContohWhileLoop {
         int count = 0; // variable untuk mengira
 
         while (count < 100) { // bermaksud selagi count kurang daripada 100
-
             System.out.println("Cikgu suka main bola, hari-hari cikgu main bola.");
             count++; // tambah satu setelah menulis sesuatu pada terminal
         }

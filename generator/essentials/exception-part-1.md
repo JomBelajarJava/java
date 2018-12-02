@@ -22,7 +22,7 @@ public class BahagiKosong {
 }
 ```
 
-Apabila kita run code tersebut, program akan keluarkan teks
+Apabila kita run code tersebut, program akan memaparkan teks
 menjelaskan tentang error tersebut, iaitu `ArithmeticException: / by
 zero`.
 
@@ -88,21 +88,24 @@ public class BahagiKosong {
 
 ## throws
 
-Kita boleh menggunakan `throws` bagi menggantikan `catch`. Bezanya kita
-tidak boleh handle exception secara manual jika menggunakan `throws`.
+Kita boleh menggunakan `throws` jika kita tidak mahu handle exception pada waktu
+itu, mungkin kerana tidak mahu code serabut. Contoh jika kita throws exception
+daripada suatu method, maka kita boleh catch di method yang lain.
 
 ```java
 package essential;
 
 public class BahagiKosong {
-    public static void main(String[] args) throws ArithmeticException {
-        try {
-            int a = 1 / 0;
-        } finally {
-            System.out.println("ini confirm berlaku");
-        }
+    private static int bahagiKosong() throws ArithmeticException {
+        return 1 / 0;
+    }
 
-        System.out.println("ini selepas bahagi kosong");
+    public static void main(String[] args) {
+        try {
+            int a = bahagiKosong();
+        } catch (ArithmeticException e) {
+            System.out.println("tidak boleh bahagi kosong!");
+        }
     }
 }
 ```

@@ -26,9 +26,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class ContohDeque {
-
     public static void main(String[] args) {
-
         Deque<String> burger = new ArrayDeque<>();
         burger.push("roti");
         burger.push("sayur");
@@ -41,9 +39,9 @@ public class ContohDeque {
         }
 
         System.out.println("Oops, lupa letak sos!");
-        String pegang = burger.pop();   // keluarkan roti paling atas
+        String rotiDiTangan = burger.pop();   // keluarkan roti paling atas
         burger.push("sos + mayonis");   // tambah sos
-        burger.push(pegang);    // letak balik roti
+        burger.push(rotiDiTangan);    // letak balik roti
 
         System.out.println("Susunan burger yang baru:");
         for (String partBurger : burger) {
@@ -57,7 +55,7 @@ Method yang digunakan untuk LIFO ialah:
 
 -   `push()` – untuk memasukkan data di hujung/atas
 -   `pop()` – keluarkan data di hujung/atas
--   `peek()` – untuk akses data di hujung/atas tanpa keluarkan data tersebut
+-   `peek()` – untuk mengakses data di hujung/atas tanpa mengeluarkan data tersebut
 
 Method yang boleh digunakan untuk FIFO pula adalah sama seperti Queue
 iaitu `offer()`, `poll()`, dan `peek()`.

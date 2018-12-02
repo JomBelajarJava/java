@@ -5,12 +5,12 @@ description: Boolean boleh menyimpan data true atau false. Sebenarnya, kita tela
 
 # Boolean
 
-Salah satu jenis data ialah `boolean`. `Boolean` hanya boleh simpan dua
+Salah satu jenis data ialah `boolean`. `Boolean` hanya boleh menyimpan dua
 jenis data sahaja iaitu; `true` atau `false`. Jadi, di mana boleh kita
-gunakan `boolean` ini?
+menggunakan `boolean` ini?
 
 Cuba ingat kembali kurungan pada `if statement`, `while loop`, dan `do
-while loop` di mana kita buat perbandingan antara dua nombor.
+while loop` di mana kita membuat perbandingan antara dua nombor.
 Sebenarnya, apabila kita membuat perbandingan, kita telah menghasilkan
 `boolean`. Buktinya:
 

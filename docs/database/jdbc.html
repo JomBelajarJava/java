@@ -988,8 +988,8 @@ kita, biasanya kita letak mengikut nama domain. Jika anda tidak memiliki domain,
 suka hati anda nak letak apa. Jadi, saya akan letak <code>com.jombelajarjava</code> sebagai
 <code>GroupId</code>. <code>ArtifactId</code> pula ialah nama package untuk projek kita. Jadi, saya
 akan letakkan <code>tutorialh2</code>. Setelah selesai, klik <code>Next</code>.</p>
-<p>Di skrin berikutnya, tentukan di mana anda ingin letak folder untuk projek anda.
-Kemudian, klik <code>Finish</code>.</p>
+<p>Di skrin berikutnya, tentukan di mana anda ingin meletakkan folder untuk projek
+anda. Kemudian, klik <code>Finish</code>.</p>
 <p>Setelah selesai, IntelliJ akan membina projek Maven dan anda akan nampak file
 XML seperti ini,</p>
 <pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
@@ -999,7 +999,7 @@ XML seperti ini,</p>
     <span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span>
 
     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.jombelajarjava<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lalala<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>tutorialh2<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
 
 
@@ -1039,7 +1039,7 @@ XML seperti ini,</p>
 <p>Anda boleh check version library tersebut di
 <a href="https://search.maven.org" target="_blank">Maven Central</a>.</p>
 <p>Jika anda menggunakan IntelliJ, IntelliJ akan tanya sama ada anda ingin download
-library H2 tersebut.</p>
+library H2 tersebut, maka download sahaja.</p>
 <h2 id="class-main">Class Main</h2>
 <p>Code Java untuk projek Maven kebiasaannya diletakkan di dalam folder
 <code>src/main/java</code>. Jadi, right click folder tersebut, kemudian <code>New</code> dan klik
@@ -1065,9 +1065,11 @@ awalnya akan kelihatan seperti ini:</p>
     }
 }
 </code></pre>
-<p>Perhatian, dalam situasi sebenar, elakkan meletakkan nama dan password dalam
-code. Biasanya kita perlu dapatkan maklumat tersebut daripada <em>environment
-variable</em> ataupun file yang berasingan supaya lebih selamat.</p>
+<blockquote>
+<p>Perhatian, dalam situasi sebenar, elakkan dari meletakkan nama dan password
+dalam code. Biasanya kita perlu dapatkan maklumat tersebut daripada
+<em>environment variable</em> ataupun file yang berasingan supaya lebih selamat.</p>
+</blockquote>
 <p>Selepas ini, dalam folder yang sama, create class <code>Main</code> untuk kita letakkan
 <code>main()</code> method untuk run aplikasi tersebut. Class <code>Main</code> akan menjadi seperti
 ini,</p>
@@ -1129,7 +1131,7 @@ tersebut kita boleh jalankan code SQL menggunakan method <code>executeUpdate()</
 <h2 id="try-with-resources">try-with-resources</h2>
 <p>Jika kita lihat code tersebut agak menyusahkan kerana perlu <code>close()</code> setiap
 masa. Jika anda masih ingat, dalam tutorial
-<a href="../essentials/exception-part-2.html">Exception</a> lepas kita ada belajar
+<a href="../essentials/exception-part-2.html">Exception</a>, kita ada belajar
 <code>try-with-resources</code>. Jadi, kita akan menggunakannya di sini. Code terbaru
 kemudiannya akan menjadi seperti ini:</p>
 <pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span> </span>{
@@ -1230,7 +1232,7 @@ cara untuk buka H2 Console jika anda menggunakan Windows.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"date":"2017-07-09T00:00:00.000Z","description":"JDBC ialah interface yang kita boleh guna untuk menyambungkan aplikasi Java dengan database. Lihat bagaimana cara untuk membuat connection JDBC menggunakan Java.","title":"JDBC","level":"1.6.2","depth":2,"next":{"title":"DAO dan Service","level":"1.6.3","depth":2,"path":"database/dao-dan-service.md","ref":"database/dao-dan-service.md","articles":[]},"previous":{"title":"Build Tool","level":"1.6.1","depth":2,"path":"database/build-tool.md","ref":"database/build-tool.md","articles":[]},"dir":"ltr"},"config":{"plugins":["sitemap-general"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sitemap-general":{"prefix":"https://www.jombelajarjava.com/java/"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"database/jdbc.md","mtime":"2018-12-02T03:19:56.796Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-02T03:48:15.159Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"date":"2017-07-09T00:00:00.000Z","description":"JDBC ialah interface yang kita boleh guna untuk menyambungkan aplikasi Java dengan database. Lihat bagaimana cara untuk membuat connection JDBC menggunakan Java.","title":"JDBC","level":"1.6.2","depth":2,"next":{"title":"DAO dan Service","level":"1.6.3","depth":2,"path":"database/dao-dan-service.md","ref":"database/dao-dan-service.md","articles":[]},"previous":{"title":"Build Tool","level":"1.6.1","depth":2,"path":"database/build-tool.md","ref":"database/build-tool.md","articles":[]},"dir":"ltr"},"config":{"plugins":["sitemap-general"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sitemap-general":{"prefix":"https://www.jombelajarjava.com/java/"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"database/jdbc.md","mtime":"2018-12-02T10:37:47.068Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-02T11:51:40.299Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

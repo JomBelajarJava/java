@@ -5,13 +5,13 @@ description: Pengenalan kepada class masih lagi belum selesai. Kali ini kita did
 
 # Class (part 3)
 
-Kita kembali lagi ke class Kucing, dan kita akan membuat sesuatu yang
+Kita kembali semula ke class Kucing, dan kita akan membuat sesuatu yang
 dipanggil sebagai `constructor overloading` dan `method overloading`.
 Kita juga akan melihat pengenalan kepada keyword `this`.
 
 ## Constructor overloading
 
-Constructor overloading bermaksud kita letakkan lebih dari satu
+Constructor overloading bermaksud kita letakkan lebih daripada satu
 constructor untuk class tersebut, dengan syarat parameter mereka
 berlainan. Contohnya,
 
@@ -19,7 +19,6 @@ berlainan. Contohnya,
 package kucing;
 
 public class Kucing {
-
     private String nama;
     private int umur;
 
@@ -55,7 +54,7 @@ public class Main {
 
 ## Method overloading
 
-Method overloading juga sama, kita boleh letakkan lebih dari satu
+Method overloading juga sama, kita boleh meletakkan lebih daripada satu
 method yang mempunyai nama yang sama, dengan syarat parameter mereka
 berlainan. Contohnya method `setNama()`,
 
@@ -80,7 +79,6 @@ parameter yang kita letakkan:
 package kucing;
 
 public class Main {
-
     public static void main(String[] args) {
         Kucing kucingSaya = new Kucing();
 
@@ -95,10 +93,9 @@ public class Main {
 
 ## Keyword '`this`'
 
-Keyword `this` digunakan untuk merujuk object daripada class
-tersebut. Antara kegunaannya adalah untuk menentukan variable yang
-mana kita mahu gunakan. Contohnya apabila nama parameter adalah sama
-dengan nama field, seperti berikut:
+Keyword `this` digunakan untuk merujuk 'object ini'. Antara kegunaannya adalah
+untuk menentukan variable yang mana kita mahu gunakan. Contohnya apabila nama
+parameter adalah sama dengan nama field, seperti berikut:
 
 ```java
     ...
@@ -119,6 +116,9 @@ dengan nama field, seperti berikut:
     ...
 }
 ```
+
+Jadi, `this.nama = nama` bermaksud untuk 'nama object ini' kita masukkan data
+daripada parameter 'nama'.
 
 Satu lagi kegunaannya adalah untuk menghantar data dari parameter ke
 constructor yang lain, contohnya:
@@ -144,14 +144,13 @@ public class Kucing {
 }
 ```
 
-Oleh itu, kita boleh tulis semula class Kucing menggunakan keyword
-`this`, seperti berikut:
+Oleh itu, kita boleh tulis semula class Kucing menggunakan keyword `this`,
+seperti berikut:
 
 ```java
 package kucing;
 
 public class Kucing {
-
     private String nama;
     private int umur;
 

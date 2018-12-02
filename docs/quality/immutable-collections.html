@@ -980,10 +980,10 @@ System.out.println(cubaan);
 </code></pre>
 <p>Jika anda cuba code di atas, program akan print keempat-empat string tersebut.
 Maksudnya nilai variable tersebut berubah. Jadi, apa yang berlaku?</p>
-<p>Sebenarnya dalam Java, apa yang berlaku apabila kita letak final untuk object
-ialah cuma <em>reference</em> kepada object yang tidak berubah tetapi kandungan object
-masih boleh berubah.</p>
-<p>Ini contoh yang akan membuatkan program keluar error untuk Collections:</p>
+<p>Sebenarnya dalam Java, apa yang berlaku apabila kita meletakkan final untuk
+object ialah cuma <em>reference</em> kepada object yang tidak berubah tetapi kandungan
+object masih boleh berubah.</p>
+<p>Ini contoh yang akan membuatkan program mengeluarkan error untuk Collections:</p>
 <pre><code class="lang-java"><span class="hljs-keyword">final</span> List&lt;String&gt; cubaan = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(Arrays.asList(<span class="hljs-string">&quot;satu&quot;</span>, <span class="hljs-string">&quot;dua&quot;</span>, <span class="hljs-string">&quot;tiga&quot;</span>));
 cubaan = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
 </code></pre>
@@ -1007,8 +1007,8 @@ listAsal.add(<span class="hljs-string">&quot;empat&quot;</span>);
 
 System.out.println(listBaru);
 </code></pre>
-<p>Bagi mengatasi masalah ini, kita perlu menggunakan library yang ada <code>immutable
-collections</code>.</p>
+<p>Bagi mengatasi masalah ini, kita perlu menggunakan library yang mempunyai
+<code>immutable collections</code>.</p>
 <h2 id="immutable-collections">Immutable Collections</h2>
 <p>Antara library yang saya biasa guna yang ada <code>immutable collections</code> ialah
 <a href="https://github.com/vavr-io/vavr" target="_blank">Vavr</a> dan
@@ -1097,7 +1097,7 @@ System.out.println(bilanganNamaKucing);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"date":"2017-12-31T00:00:00.000Z","description":"Final sahaja tidak mencukup. Tutorial ini kita tambah pula immutable collections untuk tidak mengubah variable dan kandungan variable tersebut.","title":"Immutable Collections","level":"1.7.2","depth":2,"next":{"title":"Dependency Injection","level":"1.7.3","depth":2,"path":"quality/dependency-injection.md","ref":"quality/dependency-injection.md","articles":[]},"previous":{"title":"Final","level":"1.7.1","depth":2,"path":"quality/final.md","ref":"quality/final.md","articles":[]},"dir":"ltr"},"config":{"plugins":["sitemap-general"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sitemap-general":{"prefix":"https://www.jombelajarjava.com/java/"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"quality/immutable-collections.md","mtime":"2018-12-02T03:34:19.914Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-02T03:48:15.159Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"date":"2017-12-31T00:00:00.000Z","description":"Final sahaja tidak mencukup. Tutorial ini kita tambah pula immutable collections untuk tidak mengubah variable dan kandungan variable tersebut.","title":"Immutable Collections","level":"1.7.2","depth":2,"next":{"title":"Dependency Injection","level":"1.7.3","depth":2,"path":"quality/dependency-injection.md","ref":"quality/dependency-injection.md","articles":[]},"previous":{"title":"Final","level":"1.7.1","depth":2,"path":"quality/final.md","ref":"quality/final.md","articles":[]},"dir":"ltr"},"config":{"plugins":["sitemap-general"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sitemap-general":{"prefix":"https://www.jombelajarjava.com/java/"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"quality/immutable-collections.md","mtime":"2018-12-02T11:14:54.111Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-02T11:51:40.299Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

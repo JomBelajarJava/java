@@ -40,9 +40,9 @@ public class ContohForEachLoop {
 }
 ```
 
-For each loop akan akses semua data tanpa perlu meletakkan nombor
+For each loop akan mengakses semua data tanpa perlu meletakkan nombor
 indeks. Ini bagi memudahkan programmer lain. Jika nampak for each loop
-sahaja sudah tahu bahawa _loop_ tersebut akan akses semua data dalam
+sahaja sudah tahu bahawa _loop_ tersebut akan mengakses semua data dalam
 sesebuah data structure.
 
 Antara kelemahannya ialah for each loop tidak boleh akses dua data

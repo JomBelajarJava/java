@@ -41,7 +41,6 @@ pelbagai jenis data, dan cara untuk menggunakannya:
 public class ContohVariable {
 
     public static void main(String[] args) {
-
         // 'int' adalah jenis data yang kita nak simpan, int bermaksud
         // integer(nombor bulat). 'nomborBulat' adalah nama kepada variable
         // tersebut, kita boleh namakan apa-apa sahaja.
@@ -62,7 +61,7 @@ public class ContohVariable {
         System.out.println(betulAtauSalah);
 
         // String adalah jenis data untuk gabungan beberapa character
-        String email = "Email saya ialah [email protected]";
+        String email = "Email saya ialah jonbonjovi@gmail.com";
         System.out.println(email);
     }
 }
@@ -74,9 +73,7 @@ Variable boleh digunakan dalam operasi matematik:
 
 ```java
 public class ContohPenggunaanVariable {
-
     public static void main(String[] args) {
-
         int a = 10;
         int b = 15;
         int c = a + b;
@@ -91,9 +88,7 @@ digantikan dengan data yang baru:
 
 ```java
 public class ContohPenggunaanVariable {
-
     public static void main(String[] args) {
-
         int x = 5;
         x = 10;
         System.out.println(x);  // akan papar 10
@@ -107,7 +102,6 @@ operasi, kemudian masukkan kembali ke variable yang sama. Contoh:
 ```java
 public class ContohPenggunaanVariable {
     public static void main(String[] args) {
-
         int x = 5;
         x = x + 1;
         System.out.println(x);  // akan papar 6
@@ -120,7 +114,6 @@ Cara yang sama, cuma lebih ringkas:
 ```java
 public class ContohPenggunaanVariable {
     public static void main(String[] args) {
-
         int x = 5;
         x += 1;
         System.out.println(x);  // sama, akan papar 6
@@ -134,7 +127,6 @@ berkurang satu sahaja:
 ```java
 public class ContohPenggunaanVariable {
     public static void main(String[] args) {
-
         int x = 5;
         x++;
         System.out.println(x);  // juga sama, akan papar 6
@@ -152,7 +144,6 @@ string, kita menggabungkan dua string tersebut.
 ```java
 public class ContohPenggunaanVariable {
     public static void main(String[] args) {
-
         int nombor1 = 10;
         int nombor2 = 10;
         System.out.println(nombor1 + nombor2);  // akan papar 20
@@ -165,7 +156,6 @@ Berbeza dengan ini,
 ```java
 public class ContohPenggunaanVariable {
     public static void main(String[] args) {
-
         String nombor1 = "10";
         String nombor2 = "10";
         System.out.println(nombor1 + nombor2);  // akan papar 1010
@@ -173,12 +163,11 @@ public class ContohPenggunaanVariable {
 }
 ```
 
-Ataupun gabungan daripada yang berlainan jenis,
+Ataupun gabungan daripada jenis yang berlainan,
 
 ```java
 public class ContohPenggunaanVariable {
     public static void main(String[] args) {
-
         int duit = 150;
         String ayat = "Saya ada RM ";
         System.out.println(ayat + duit);  // "Saya ada RM 150"

@@ -24,9 +24,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class ContohQueue {
-
     public static void main(String[] args) {
-
         Queue<String> customers = new LinkedList<>();
         customers.offer("pelanggan pertama");
         customers.offer("pelanggan kedua");
@@ -37,7 +35,7 @@ public class ContohQueue {
         System.out.println("Ambik order " + customers.poll());
 
         System.out.println("Alamak makanan sudah habis, siapa pelanggaan seterusnya?");
-        System.out.println(customers .peek());
+        System.out.println(customers.peek());
         System.out.println(customers.peek() + " sedang menunggu...");
     }
 }
@@ -69,7 +67,6 @@ PriorityQueue:
 package datastructure;
 
 public class Penumpang {
-
     String jenis;
     int keutamaan;      // nombor besar bermaksud high priority
 
@@ -129,9 +126,7 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class ContohQueue {
-
     public static void main(String[] args) {
-
         Queue<Penumpang> airport = new PriorityQueue<>(new KeutamaanPenumpang());
         airport.offer(new Penumpang("lelaki dewasa bujang", 1));
         airport.offer(new Penumpang("wanita bujang", 1));

@@ -11,9 +11,10 @@ sebenarnya menyimpan data tersebut hanya dalam memory (RAM). Apabila program
 kita berhenti, data tersebut akan hilang daripada memory.
 
 Untuk mengekalkan (_persist_) data tersebut supaya tidak hilang, kita boleh
-output ke file seperti tutorial sebelum ini. Namun, kita lihat proses tersebut
-agak menyusahkan. Oleh itu, kita boleh menggunakan database untuk menyimpan
-data dengan cara yang lebih selamat dan tersusun.
+output ke file seperti tutorial sebelum ini. Namun, proses tersebut agak
+menyusahkan kerana kita perlu memikirkan bagaimana format untuk file itu nanti.
+Oleh itu, kita boleh menggunakan database untuk menyimpan data dengan cara yang
+lebih selamat dan tersusun.
 
 ## Bila perlu guna database?
 

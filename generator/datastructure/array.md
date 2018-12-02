@@ -45,7 +45,7 @@ public class ContohArray {
 
 Perhatikan kedudukan di dalam array bermula dengan 0, bukannya 1.
 
-Untuk mengakses kembali data di dalam array, sama juga tulis nama
+Untuk mengakses kembali data di dalam array, juga sama, tulis nama
 array serta kedudukannya:
 
 ```java

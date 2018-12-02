@@ -30,7 +30,6 @@ Sekarang tukar nombor kepada nombor ganjil:
 ```java
 public class TutorialIf {
     public static void main(String[] args) {
-
         int nombor = 5;
         int baki = nombor % 2;
 
@@ -43,10 +42,10 @@ public class TutorialIf {
 
 dan hasilnya tiada apa-apa yang terpapar.
 
-Sebelum kita pergi ke penerangan tentang code di atas, kita perlu tahu
-cara untuk menentukan nombor genap. Nombor genap tidak akan berbaki
-apabila dibahagi dengan dua, contohnya 10 bahagi 2 bersamaan 5 baki 0.
-Berlainan dengan nombor ganjil, contohnya 9 bahagi 2 bersamaan 4 baki 1.
+Sebelum kita pergi kepada penerangan tentang code di atas, kita perlu tahu cara
+untuk menentukan nombor genap. Nombor genap tidak akan berbaki apabila dibahagi
+dengan dua, contohnya 10 bahagi 2 bersamaan 5 baki 0. Berlainan dengan nombor
+ganjil, contohnya 9 bahagi 2 bersamaan 4 baki 1.
 
 Oleh itu, penentu kepada nombor genap ialah baki selepas nombor tersebut
 dibahagi dengan dua. Untuk mendapatkan baki, kita gunakan simbol `%`.
@@ -65,7 +64,6 @@ nombor ganjil:
 ```java
 public class TutorialIf {
     public static void main(String[] args) {
-
         int nombor = 5;
         int baki = nombor % 2;
 
@@ -90,7 +88,6 @@ Sekarang cuba code berikut dan lihat apa yang berlaku:
 ```java
 public class TutorialIfElse {
     public static void main(String[] args) {
-
         int umur = 60;
 
         if (umur > 50) {
@@ -104,14 +101,13 @@ public class TutorialIfElse {
 }
 ```
 
-Program akan paparkan kedua-duanya. Jika kita mahu paparkan hanya salah
+Program akan memaparkan kedua-duanya. Jika kita mahu paparkan hanya salah
 satu daripada pilihan tersebut, kita boleh menggunakan _if else
 statement_, seperti berikut:
 
 ```java
 public class TutorialIfElse {
     public static void main(String[] args) {
-
         int umur = 60;
 
         if (umur > 50) {
@@ -132,7 +128,6 @@ atasnya tidak terpilih. Contoh seperti berikut:
 ```java
 public class TutorialIfElse {
     public static void main(String[] args) {
-
         int umur = 5;
 
         if (umur > 50) {
@@ -148,13 +143,12 @@ public class TutorialIfElse {
 
 `else` tanpa `if` merupakan pilihan terakhir bagi code tersebut.
 
-Kita boleh tulis semula code untuk nombor genap menggunakan cara yang
+Kita boleh menulis semula code untuk nombor genap menggunakan cara yang
 sama:
 
 ```java
 public class TutorialIfElse {
     public static void main(String[] args) {
-
         int nombor = 5;
         int baki = nombor % 2;
 
@@ -177,7 +171,6 @@ barulah nampak lebih kemas.
 ```java
 public class TutorialNestedIf {
     public static void main(String[] args) {
-
         int umur = 5;
 
         if (umur >= 0) {    // umur tak boleh negatif

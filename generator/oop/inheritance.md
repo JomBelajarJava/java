@@ -5,7 +5,7 @@ description: Inheritance adalah apabila sesebuah class diubahsuai oleh class yan
 
 # Inheritance
 
-Tujuan kita membuat inheritance adalah untuk mengguna semula class
+Tujuan kita membuat inheritance adalah untuk menggunakan semula class
 yang sedia ada, dan membuat sedikit pengubahsuaian tanpa mengubahsuai
 class yang asal.
 
@@ -17,7 +17,6 @@ seperti berikut:
 package kucing;
 
 public class Kucing {
-
     private String nama;
     private int umur;
 
@@ -36,7 +35,7 @@ public class Kucing {
 }
 ```
 
-Kemudian kita buat class baru bernama KucingParsi. Untuk membuat
+Kemudian kita buat class baru dengan nama KucingParsi. Untuk membuat
 inheritance, kita gunakan keyword `extends` seperti berikut:
 
 ```java
@@ -47,7 +46,7 @@ public class KucingParsi extends Kucing {
 }
 ```
 
-Sekarang KucingParsi secara automatik sudah ada semua code yang ada di
+Sekarang KucingParsi secara automatik sudah mempunyai semua code yang ada di
 dalam class Kucing. Buktinya kita boleh cuba create object daripada
 class KucingParsi:
 
@@ -85,7 +84,6 @@ seperti berikut:
 package kucing;
 
 public class KucingParsi extends Kucing {
-
     public void makan() {
         System.out.println("Makan...");
     }
@@ -117,7 +115,6 @@ constructor class Kucing mempunyai parameter seperti berikut:
 package kucing;
 
 public class Kucing {
-
     private String nama;
     private int umur;
 

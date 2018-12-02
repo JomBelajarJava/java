@@ -6,7 +6,7 @@ description: Java terkenal dengan integrated development environment (IDE) yang 
 # Integrated Development Environment (IDE)
 
 Tutorial `object-oriented programming` akan melibatkan program yang
-mengandungi lebih dari satu file. Jadi, untuk memudahkan pengurusan
+mengandungi lebih daripada satu file. Jadi, untuk memudahkan pengurusan
 file-file tersebut, kita boleh menggunakan `integrated development
 environment (IDE)`.
 

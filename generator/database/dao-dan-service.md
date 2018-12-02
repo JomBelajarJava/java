@@ -46,7 +46,6 @@ package com.jombelajarjava.kucing;
 import java.time.LocalDate;
 
 public class Kucing {
-
     private final Long id;
     private final String nama;
     private final Jantina jantina;
@@ -148,7 +147,7 @@ public enum Jantina {
 
 ## Interface KucingDAO
 
-Sebelum kita menulis DAO untuk akses database, kita akan membuat interface
+Sebelum kita menulis DAO untuk mengakses database, kita akan membuat interface
 terlebih dahulu untuk merancang apa yang perlu ada pada class DAO nanti. Dengan
 membuat interface, kita juga boleh memberitahu programmer lain dalam team (jika
 ada) method yang akan ada dalam class DAO nanti tanpa perlu menunggu kita
@@ -198,7 +197,6 @@ import java.sql.*;
 import java.util.List;
 
 public class SimpleKucingDao implements KucingDao {
-
     private final String url;
     private final String name;
     private final String password;
@@ -247,10 +245,15 @@ masing-masing mempunyai pandangan dan hujah masing-masing. Ada yang suka, ada
 yang tak suka.
 
 Secara peribadi, saya tak suka sebab bila lihat standard library Java, tidak ada
-satu pun class yang menggunakan `Impl`.Kalau ada satu class sahaja yang
+satu pun class yang menggunakan `Impl`. Kalau ada satu class sahaja yang
 implement interface DAO tersebut, saya lebih suka menamakannya
 `DefaultKucingDao` contohnya. Jadi, tidak ada salah tidak ada betul. Ikut sahaja
-apa yang digunakan dalam syarikat.
+mana-mana yang digunakan dalam syarikat, asalkan konsisten.
+
+> Update: Akhirnya saya telah jumpa class yang berakhir dengan `Impl` dalam
+> standard library, iaitu
+> [SocketImpl](https://docs.oracle.com/javase/7/docs/api/java/net/SocketImpl.html).
+> Hmm...
 
 ## Class PendaftaranService
 
@@ -266,7 +269,6 @@ import com.jombelajarjava.kucing.KucingDao;
 import java.util.List;
 
 public class PendaftaranService {
-
     private final KucingDao kucingDAO;
 
     public PendaftaranService(final KucingDao kucingDAO) {
@@ -298,3 +300,21 @@ public class PendaftaranService {
     }
 }
 ```
+
+----
+
+Jika anda mengikuti tutorial ini sehingga habis, anda mungkin merasakan semua
+class dan interface ini seperti tidak berfaedah. Ya, saya setuju. Cara ini
+biasanya digunakan dalam team yang mempunyai *quality assurance*(QA) yang
+melibatkan testing. Jadi, mereka boleh terus menggunakan interface untuk menulis
+test, contohnya,
+
+```java
+public KucingDAOTest implements KucingDAO {
+    // Code untuk test
+}
+```
+
+Lagipun, sekarang telah banyak wujud framework dan library sehingga kita tidak
+perlu lagi menulis implementation DAO dan interface service. Kita akan lihat
+framework dan library tersebut pada tutorial akan datang.

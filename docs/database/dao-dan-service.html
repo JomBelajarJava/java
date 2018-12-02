@@ -1001,7 +1001,6 @@ Di sini saya letakkan class tersebut di dalam package
 <span class="hljs-keyword">import</span> java.time.LocalDate;
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Kucing</span> </span>{
-
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Long id;
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String nama;
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Jantina jantina;
@@ -1091,7 +1090,7 @@ tersebut supaya menggunakan huruf kecil apabila di-print.</p>
 }
 </code></pre>
 <h2 id="interface-kucingdao">Interface KucingDAO</h2>
-<p>Sebelum kita menulis DAO untuk akses database, kita akan membuat interface
+<p>Sebelum kita menulis DAO untuk mengakses database, kita akan membuat interface
 terlebih dahulu untuk merancang apa yang perlu ada pada class DAO nanti. Dengan
 membuat interface, kita juga boleh memberitahu programmer lain dalam team (jika
 ada) method yang akan ada dalam class DAO nanti tanpa perlu menunggu kita
@@ -1130,7 +1129,6 @@ data yang diperlukan untuk membuat sambungan ke database.</p>
 <span class="hljs-keyword">import</span> java.util.List;
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SimpleKucingDao</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">KucingDao</span> </span>{
-
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String url;
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String name;
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String password;
@@ -1177,10 +1175,16 @@ data yang diperlukan untuk membuat sambungan ke database.</p>
 masing-masing mempunyai pandangan dan hujah masing-masing. Ada yang suka, ada
 yang tak suka.</p>
 <p>Secara peribadi, saya tak suka sebab bila lihat standard library Java, tidak ada
-satu pun class yang menggunakan <code>Impl</code>.Kalau ada satu class sahaja yang
+satu pun class yang menggunakan <code>Impl</code>. Kalau ada satu class sahaja yang
 implement interface DAO tersebut, saya lebih suka menamakannya
 <code>DefaultKucingDao</code> contohnya. Jadi, tidak ada salah tidak ada betul. Ikut sahaja
-apa yang digunakan dalam syarikat.</p>
+mana-mana yang digunakan dalam syarikat, asalkan konsisten.</p>
+<blockquote>
+<p>Update: Akhirnya saya telah jumpa class yang berakhir dengan <code>Impl</code> dalam
+standard library, iaitu
+<a href="https://docs.oracle.com/javase/7/docs/api/java/net/SocketImpl.html" target="_blank">SocketImpl</a>.
+Hmm...</p>
+</blockquote>
 <h2 id="class-pendaftaranservice">Class PendaftaranService</h2>
 <p>Selepas wujud DAO, kita boleh membuat service untuk memanggil method daripada
 DAO tersebut,</p>
@@ -1192,7 +1196,6 @@ DAO tersebut,</p>
 <span class="hljs-keyword">import</span> java.util.List;
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PendaftaranService</span> </span>{
-
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> KucingDao kucingDAO;
 
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">PendaftaranService</span><span class="hljs-params">(<span class="hljs-keyword">final</span> KucingDao kucingDAO)</span> </span>{
@@ -1224,6 +1227,19 @@ DAO tersebut,</p>
     }
 }
 </code></pre>
+<hr>
+<p>Jika anda mengikuti tutorial ini sehingga habis, anda mungkin merasakan semua
+class dan interface ini seperti tidak berfaedah. Ya, saya setuju. Cara ini
+biasanya digunakan dalam team yang mempunyai <em>quality assurance</em>(QA) yang
+melibatkan testing. Jadi, mereka boleh terus menggunakan interface untuk menulis
+test, contohnya,</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> KucingDAOTest implements KucingDAO {
+    <span class="hljs-comment">// Code untuk test</span>
+}
+</code></pre>
+<p>Lagipun, sekarang telah banyak wujud framework dan library sehingga kita tidak
+perlu lagi menulis implementation DAO dan interface service. Kita akan lihat
+framework dan library tersebut pada tutorial akan datang.</p>
 
                                 
                                 </section>
@@ -1267,7 +1283,7 @@ DAO tersebut,</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"date":"2017-07-22T00:00:00.000Z","description":"Sebelum kita tulis lebih banyak SQL query, kita akan lihat bagaimana untuk menyusun code kita dengan lebih teratur menggunakan DAO dan Service layer.","title":"DAO dan Service","level":"1.6.3","depth":2,"next":{"title":"CRUD","level":"1.6.4","depth":2,"path":"database/crud.md","ref":"database/crud.md","articles":[]},"previous":{"title":"JDBC","level":"1.6.2","depth":2,"path":"database/jdbc.md","ref":"database/jdbc.md","articles":[]},"dir":"ltr"},"config":{"plugins":["sitemap-general"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sitemap-general":{"prefix":"https://www.jombelajarjava.com/java/"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"database/dao-dan-service.md","mtime":"2018-12-02T03:20:49.553Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-02T03:48:15.159Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"date":"2017-07-22T00:00:00.000Z","description":"Sebelum kita tulis lebih banyak SQL query, kita akan lihat bagaimana untuk menyusun code kita dengan lebih teratur menggunakan DAO dan Service layer.","title":"DAO dan Service","level":"1.6.3","depth":2,"next":{"title":"CRUD","level":"1.6.4","depth":2,"path":"database/crud.md","ref":"database/crud.md","articles":[]},"previous":{"title":"JDBC","level":"1.6.2","depth":2,"path":"database/jdbc.md","ref":"database/jdbc.md","articles":[]},"dir":"ltr"},"config":{"plugins":["sitemap-general"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sitemap-general":{"prefix":"https://www.jombelajarjava.com/java/"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"database/dao-dan-service.md","mtime":"2018-12-02T11:00:42.857Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-02T11:51:40.299Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

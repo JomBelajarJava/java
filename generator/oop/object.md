@@ -35,7 +35,8 @@ public class Main {
 }
 ```
 
-Sekarang barulah kelihatan sama seperti program yang pernah kita lihat.
+Sekarang barulah kelihatan sama seperti program yang pernah kita lihat sebelum
+ini.
 
 ## Create object
 
@@ -59,7 +60,6 @@ tersebut dengan menggunakan titik noktah:
 package kucing;
 
 public class Main {
-
     public static void main(String[] args) {
         Kucing kucingSaya = new Kucing();
         kucingSaya.nama = "Tompok";
@@ -75,9 +75,7 @@ titik noktah dan diakhiri dengan kurungan:
 package kucing;
 
 public class Main {
-
     public static void main(String[] args) {
-
         Kucing kucingSaya = new Kucing();
         kucingSaya.nama = "Tompok";
         kucingSaya.umur = 5;
@@ -86,16 +84,14 @@ public class Main {
 }
 ```
 
-Untuk create lebih dari satu object, kita boleh gunakan nama yang lain
+Untuk create lebih daripada satu object, kita boleh menggunakan nama yang lain
 untuk object tersebut, contohnya `kucingKawanSaya` seperti berikut:
 
 ```java
 package kucing;
 
 public class Main {
-
     public static void main(String[] args) {
-
         Kucing kucingSaya = new Kucing();
         kucingSaya.nama = "Tompok";
         kucingSaya.umur = 5;
