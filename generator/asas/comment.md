@@ -5,7 +5,7 @@ description: Code yang rumit tidak berguna kepada programmer yang lain. Masalah 
 
 # Comment
 
-Sebelum program kita jadi lebih rumit, kita akan lihat cara untuk letak
+Sebelum program kita jadi lebih rumit, kita akan lihat cara untuk meletakkan
 comment pada code kita.
 
 Comment ialah teks yang kita letak pada code untuk menerangkan kepada
@@ -18,7 +18,7 @@ dengan menggunakan simbol `//`. Semua teks yang berada selepas `//` akan
 menjadi comment.
 
 Sebagai alternatif jika comment kita terlalu panjang, kita juga boleh
-menggunakan simbol `/\*` dan `*/`. Semua teks yang berada di antara dua
+menggunakan simbol `/*` dan `*/`. Semua teks yang berada di antara dua
 simbol tersebut akan menjadi comment.
 
 Contoh comment yang kita boleh letak pada HelloWorld:
