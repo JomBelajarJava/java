@@ -1,3 +1,8 @@
+---
+date: 2017-12-31
+description: Final sahaja tidak mencukup. Tutorial ini kita tambah pula immutable collections untuk tidak mengubah variable dan kandungan variable tersebut.
+---
+
 # Immutable Collections
 
 Dalam tutorial `final`, variable tidak akan berubah apabila diletakkan keyword
