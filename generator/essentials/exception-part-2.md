@@ -7,8 +7,7 @@ description: Kita kembali kepada Exception untuk lihat satu cara yang lebih muda
 
 Semasa membuat input/output, kita mesti membuat _exception handling_.
 Jika perasan, semua class yang terlibat dengan input/output perlu
-ditutup selepas digunakan. Contohnya menggunakan method `close()`
-seperti berikut:
+ditutup menggunakan method `close()` selepas digunakan. Contohnya,
 
 ```java
 package essential;
@@ -18,9 +17,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class InputDariFile {
-
     public static void main(String[] args) throws IOException {
-
         BufferedReader reader =null;
 
         try {
@@ -59,14 +56,13 @@ import java.util.logging.Logger;
 public class InputDariFile {
     public static void main(String[] args) {
         try (BufferedReader reader = new BufferedReader(new FileReader("cubaan.txt"))) {
-
             String input;
 
             while ((input = reader.readLine()) != null) {
                 System.out.println(input);
             }
         } catch (IOException ex) {
-            Logger.getLogger(InputDariFile.class.getName()).log(Level.SEVERE, null, ex);
+            // Handle exception
         }
     }
 }
