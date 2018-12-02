@@ -1,3 +1,8 @@
+---
+date: 2015-06-27
+description: Variable ialah tempat untuk menyimpan sesuatu data. Program yang lebih menarik boleh dibuat dengan menggunakan variable. Lihat cara penggunaannya di sini.
+---
+
 # Variable
 
 Variable ialah tempat untuk menyimpan data.

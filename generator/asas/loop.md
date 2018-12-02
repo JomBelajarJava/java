@@ -1,3 +1,8 @@
+---
+date: 2015-06-27
+description: Loop boleh membuatkan program kita mengulang sesuatu proses. Ini sesuai digunakan kepada data yang banyak supaya kita tidak perlu copy paste code kita.
+---
+
 # Loop
 
 Loop ialah kaedah untuk mengulangi sesuatu proses.

@@ -1,3 +1,8 @@
+---
+date: 2015-06-26
+description: 1000 langkah bermula dari satu langkah pertama. Lihat cara untuk membuat program pertama anda menggunakan Java, iaitu program Hello World!.
+---
+
 # Simple Program
 
 > "1000 langkah bermula dari satu langkah pertama"
