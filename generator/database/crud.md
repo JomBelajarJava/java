@@ -1,3 +1,8 @@
+---
+date: 2017-07-22
+description: CRUD ialah akronim untuk Create, Read, Update dan Delete. Keempat-empat operasi tersebut ialah operasi yang biasa digunakan dengan database.
+---
+
 # CRUD
 
 CRUD ialah akronim (_acronym_) untuk `Create`, `Read`, `Update` dan `Delete`.

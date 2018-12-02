@@ -1,3 +1,8 @@
+---
+date: 2017-07-22
+description: Sebelum kita tulis lebih banyak SQL query, kita akan lihat bagaimana untuk menyusun code kita dengan lebih teratur menggunakan DAO dan Service layer.
+---
+
 # DAO dan Service
 
 Sebelum kita tulis lebih banyak SQL query, kita akan lihat bagaimana untuk

@@ -1,3 +1,8 @@
+---
+date: 2017-07-09
+description: JDBC ialah interface yang kita boleh guna untuk menyambungkan aplikasi Java dengan database. Lihat bagaimana cara untuk membuat connection JDBC menggunakan Java.
+---
+
 # JDBC
 
 *JDBC* ialah _interface_ yang kita boleh guna untuk menyambungkan aplikasi Java
