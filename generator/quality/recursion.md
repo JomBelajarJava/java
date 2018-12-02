@@ -11,7 +11,7 @@ pening dengan konsep ini semasa di universiti, anda tidak perlu bimbang kerana
 recursion sangat jarang digunakan dalam Java.
 
 Recursion tidak digalakkan dalam Java kerana Java tiada *tail call
-optimization*. Jika kita melakukan recursion dengan banyak Java akan
+optimization*. Jika kita melakukan recursion dengan banyak, program akan
 mengakibatkan *stackoverflow error*.
 
 Pendek kata, elakkan recursion.
@@ -91,7 +91,7 @@ Cara ini mungkin boleh mengurangkan risiko *stackoverflow error* kerana *stack
 memory* tidak perlu lagi menyimpan maklumat untuk operasi apa yang perlu
 dilakukan. Hanya perlu menyimpan maklumat ke mana method tersebut perlu return.
 Walaubagaimanapun, *stackoverflow error* masih boleh berlaku dalam Java jika
-method recursive terlalu banyak kali dipanggil.
+panggilan kepada method recursive terlalu banyak.
 
 ## Tail call optimization
 
