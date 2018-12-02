@@ -67,7 +67,6 @@ subclass. Jadi, kita boleh create object seperti berikut:
 package harimau;
 
 public class Main {
-
     public static void main(String[] args) {
         Harimau harimau1 = new Harimau();
         Harimau harimau2 = new HarimauBelang();
@@ -83,7 +82,6 @@ yang sama tetapi melakukan kerja yang berbeza seperti berikut:
 package harimau;
 
 public class Main {
-
     public static void main(String[] args) {
         Harimau harimau1 = new Harimau();
         Harimau harimau2 = new HarimauBelang();
