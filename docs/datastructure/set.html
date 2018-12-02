@@ -970,10 +970,9 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="set">Set</h1>
-<p>Set boleh digunakan untuk menyimpan data yang lain dari yang lain.
-Jika ada yang sama, Set akan menyimpan satu sahaja. Class yang
-menggunakan interface <code>Set</code> antaranya ialah <code>HashSet</code>, <code>TreeSet</code>, dan
-<code>LinkedHashSet</code>.</p>
+<p>Set boleh digunakan untuk menyimpan data yang unik. Jika ada yang sama, Set akan
+tetap menyimpan satu sahaja. Class yang menggunakan interface <code>Set</code> antaranya
+ialah <code>HashSet</code>, <code>TreeSet</code>, dan <code>LinkedHashSet</code>.</p>
 <h2 id="hashset">HashSet</h2>
 <p>HashSet digunakan jika kita tidak kisah bagaimana kedudukan data di
 dalam Set. Dari segi performance, HashSet adalah yang terbaik.</p>
@@ -1060,12 +1059,11 @@ yang lain.</p>
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContohSet</span> </span>{
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
-
         Integer[] nombor = {<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">6</span>, <span class="hljs-number">6</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>};
 
         Set&lt;Integer&gt; setNombor = <span class="hljs-keyword">new</span> HashSet&lt;&gt;(Arrays.asList(nombor));
 
-        Integer[] nomborTanpaDuplicate = setNombor.toArray(<span class="hljs-keyword">new</span> Integer[setNombor.size()]);
+        Integer[] nomborTanpaDuplicate = setNombor.toArray(<span class="hljs-keyword">new</span> Integer[<span class="hljs-number">0</span>]);
 
         <span class="hljs-keyword">for</span> (Integer n : nomborTanpaDuplicate) {
             System.out.println(n);
@@ -1073,6 +1071,12 @@ yang lain.</p>
     }
 }
 </code></pre>
+<blockquote>
+<p>Parameter untuk method <code>toArray()</code> di atas hanya untuk menentukan jenis data
+sahaja. Rujuk
+<a href="https://docs.oracle.com/javase/7/docs/api/java/util/Set.html#toArray(T[]%29" target="_blank">toArray()</a>
+untuk maklumat lanjut.</p>
+</blockquote>
 <p>Contoh membuang duplicate dalam List:</p>
 <pre><code class="lang-java"><span class="hljs-keyword">package</span> datastructure;
 
@@ -1142,7 +1146,7 @@ yang lain.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"date":"2015-07-06T00:00:00.000Z","description":"Set digunakan untuk menyimpan data yang lain daripada yang lain. Jika ada data yang sama, Set akan mengambil satu sahaja daripada data tersebut.","title":"Set","level":"1.5.7","depth":2,"next":{"title":"Queue","level":"1.5.8","depth":2,"path":"datastructure/queue.md","ref":"datastructure/queue.md","articles":[]},"previous":{"title":"List","level":"1.5.6","depth":2,"path":"datastructure/list.md","ref":"datastructure/list.md","articles":[]},"dir":"ltr"},"config":{"plugins":["sitemap-general"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sitemap-general":{"prefix":"https://www.jombelajarjava.com/java/"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"datastructure/set.md","mtime":"2018-12-02T03:05:39.189Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-02T03:48:15.159Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"date":"2015-07-06T00:00:00.000Z","description":"Set digunakan untuk menyimpan data yang lain daripada yang lain. Jika ada data yang sama, Set akan mengambil satu sahaja daripada data tersebut.","title":"Set","level":"1.5.7","depth":2,"next":{"title":"Queue","level":"1.5.8","depth":2,"path":"datastructure/queue.md","ref":"datastructure/queue.md","articles":[]},"previous":{"title":"List","level":"1.5.6","depth":2,"path":"datastructure/list.md","ref":"datastructure/list.md","articles":[]},"dir":"ltr"},"config":{"plugins":["sitemap-general"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sitemap-general":{"prefix":"https://www.jombelajarjava.com/java/"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"datastructure/set.md","mtime":"2018-12-02T10:14:25.499Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-02T11:51:40.299Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -979,7 +979,7 @@ termasuklah:</p>
 <li>menggunakan graphical user interface (GUI)</li>
 </ul>
 <h2 id="scanner">Scanner</h2>
-<p>Sebelum kita ambil input dari user, kita lihat class <code>Scanner</code> terlebih
+<p>Sebelum kita ambil input daripada user, kita lihat class <code>Scanner</code> terlebih
 dahulu. Class Scanner boleh digunakan untuk memisahkan sesuatu ayat
 (atau <em>string</em>) kepada beberapa perkataan (atau <em>token</em>). Contohnya,</p>
 <pre><code class="lang-java"><span class="hljs-keyword">package</span> essential;
@@ -987,7 +987,6 @@ dahulu. Class Scanner boleh digunakan untuk memisahkan sesuatu ayat
 <span class="hljs-keyword">import</span> java.util.Scanner;
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Input</span> </span>{
-
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
         String cikgu = <span class="hljs-string">&quot;Cikgu suka main bola, hari-hari cikgu main bola&quot;</span>;
 
@@ -999,24 +998,25 @@ dahulu. Class Scanner boleh digunakan untuk memisahkan sesuatu ayat
     }
 }
 </code></pre>
+<blockquote>
+<p>Jangan lupa untuk import class Scanner berdasarkan code di atas.</p>
+</blockquote>
 <p>Token tersebut boleh ditukar ke jenis data yang lain bergantung kepada
-method yang digunakan, contohnya <code>nextInt()</code> tukarkan token kepada
+method yang digunakan, contohnya <code>nextInt()</code> menukarkan token kepada
 integer, seperti berikut:</p>
 <pre><code class="lang-java"><span class="hljs-keyword">package</span> essential;
 
 <span class="hljs-keyword">import</span> java.util.Scanner;
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Input</span> </span>{
-
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
-
         String cikgu = <span class="hljs-string">&quot;12 tambah 23&quot;</span>;
 
         Scanner scan = <span class="hljs-keyword">new</span> Scanner(cikgu);
 
         <span class="hljs-keyword">int</span> nomborPertama = scan.nextInt();
 
-        String operasi = scan.next();
+        String operasi = scan.next();  <span class="hljs-comment">// ambil tetapi tidak diguna</span>
 
         <span class="hljs-keyword">int</span> nomborKedua = scan.nextInt();
 
@@ -1044,12 +1044,11 @@ akan tunggu input daripada kita. Contohnya,</p>
 <span class="hljs-keyword">import</span> java.util.Scanner;
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Input</span> </span>{
-
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
-
         Scanner scan = <span class="hljs-keyword">new</span> Scanner(System.in);
 
-        <span class="hljs-keyword">int</span> nomborPertama, nomborKedua;
+        <span class="hljs-keyword">int</span> nomborPertama;
+        <span class="hljs-keyword">int</span> nomborKedua;
 
         System.out.println(<span class="hljs-string">&quot;Kalkulator!! Tambah sahaja...&quot;</span>);
 
@@ -1070,7 +1069,6 @@ seluruh input, gunakan method <code>nextLine()</code>, contohnya:</p>
 <span class="hljs-keyword">import</span> java.util.Scanner;
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Input</span> </span>{
-
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
         Scanner scan = <span class="hljs-keyword">new</span> Scanner(System.in);
 
@@ -1130,7 +1128,7 @@ automatik.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"date":"2015-07-02T00:00:00.000Z","description":"Kita akan lihat cara untuk mengambil input daripada user menggunakan command line untuk menghasilkan program interaktif. Class Scanner digunakan untuk ini.","title":"Input dari user","level":"1.4.2","depth":2,"next":{"title":"Input dari file","level":"1.4.3","depth":2,"path":"essentials/input-dari-file.md","ref":"essentials/input-dari-file.md","articles":[]},"previous":{"title":"Exception (part 1)","level":"1.4.1","depth":2,"path":"essentials/exception-part-1.md","ref":"essentials/exception-part-1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["sitemap-general"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sitemap-general":{"prefix":"https://www.jombelajarjava.com/java/"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"essentials/input-dari-user.md","mtime":"2018-12-02T02:51:04.305Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-02T03:48:15.159Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"date":"2015-07-02T00:00:00.000Z","description":"Kita akan lihat cara untuk mengambil input daripada user menggunakan command line untuk menghasilkan program interaktif. Class Scanner digunakan untuk ini.","title":"Input dari user","level":"1.4.2","depth":2,"next":{"title":"Input dari file","level":"1.4.3","depth":2,"path":"essentials/input-dari-file.md","ref":"essentials/input-dari-file.md","articles":[]},"previous":{"title":"Exception (part 1)","level":"1.4.1","depth":2,"path":"essentials/exception-part-1.md","ref":"essentials/exception-part-1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["sitemap-general"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sitemap-general":{"prefix":"https://www.jombelajarjava.com/java/"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"essentials/input-dari-user.md","mtime":"2018-12-02T08:02:50.868Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-02T11:51:40.299Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

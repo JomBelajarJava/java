@@ -985,9 +985,7 @@ kita mesti handle exception untuk class FileWriter:</p>
 <span class="hljs-keyword">import</span> java.io.IOException;
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OutputKeFile</span> </span>{
-
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException </span>{
-
         FileWriter writer = <span class="hljs-keyword">null</span>;
 
         <span class="hljs-keyword">try</span> {
@@ -1006,9 +1004,7 @@ string ke file:</p>
 <span class="hljs-keyword">import</span> java.io.IOException;
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OutputKeFile</span> </span>{
-
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException </span>{
-
         String cikgu = <span class="hljs-string">&quot;Cikgu suka main bola, hari-hari cikgu main bola&quot;</span>;
 
         FileWriter writer = <span class="hljs-keyword">null</span>;
@@ -1016,7 +1012,7 @@ string ke file:</p>
         <span class="hljs-keyword">try</span> {
             writer = <span class="hljs-keyword">new</span> FileWriter(<span class="hljs-string">&quot;dingdong.txt&quot;</span>);
             writer.write(cikgu);
-            writer.write(cikgu);
+            writer.write(cikgu);  <span class="hljs-comment">// tulis sekali lagi</span>
         } <span class="hljs-keyword">finally</span> {
             writer.close();
         }
@@ -1032,7 +1028,6 @@ string ke file:</p>
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OutputKeFile</span> </span>{
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException </span>{
-
         String cikgu = <span class="hljs-string">&quot;Cikgu suka main bola, hari-hari cikgu main bola&quot;</span>;
 
         FileWriter writer = <span class="hljs-keyword">null</span>;
@@ -1049,7 +1044,7 @@ string ke file:</p>
 </code></pre>
 <h2 id="tambah-string-pada-file-yang-asal">Tambah string pada file yang asal</h2>
 <p>Kita boleh menggunakan constructor <code>FileWriter(String fileName, boolean
-append)</code> untuk menentukan sama ada untuk tambah ke file yang asal
+append)</code> untuk menentukan sama ada untuk menambah ke file yang asal
 ataupun tidak. Letak <code>true</code> pada parameter <code>boolean append</code> untuk
 menambah pada file yang asal:</p>
 <pre><code class="lang-java"><span class="hljs-keyword">package</span> essential;
@@ -1058,9 +1053,7 @@ menambah pada file yang asal:</p>
 <span class="hljs-keyword">import</span> java.io.IOException;
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OutputKeFile</span> </span>{
-
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException </span>{
-
         String cikgu = <span class="hljs-string">&quot;Cikgu suka main bola, hari-hari cikgu main bola&quot;</span>;
 
         FileWriter writer = <span class="hljs-keyword">null</span>;
@@ -1075,7 +1068,7 @@ menambah pada file yang asal:</p>
     }
 }
 </code></pre>
-<p>Program akan sentiasa tambah string tersebut ke dalam file setiap kali
+<p>Program akan sentiasa menambah string tersebut ke dalam file setiap kali
 kita run code tersebut.</p>
 <h2 id="bufferedwriter">BufferedWriter</h2>
 <p>BufferedWriter boleh digunakan untuk menjadikan program lebih efisyen.
@@ -1087,9 +1080,7 @@ BufferedWriter digunakan untuk membantu FileWriter:</p>
 <span class="hljs-keyword">import</span> java.io.IOException;
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OutputKeFile</span> </span>{
-
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException </span>{
-
         String cikgu = <span class="hljs-string">&quot;Cikgu suka main bola, hari-hari cikgu main bola&quot;</span>;
 
         BufferedWriter writer = <span class="hljs-keyword">null</span>;
@@ -1098,16 +1089,18 @@ BufferedWriter digunakan untuk membantu FileWriter:</p>
             writer = <span class="hljs-keyword">new</span> BufferedWriter(<span class="hljs-keyword">new</span> FileWriter(<span class="hljs-string">&quot;dingdong.txt&quot;</span>));
             writer.write(cikgu);
             writer.newLine();
-            writer.write(cikgu, <span class="hljs-number">11</span>, <span class="hljs-number">9</span>);
+            writer.write(cikgu, <span class="hljs-number">11</span>, <span class="hljs-number">9</span>);  <span class="hljs-comment">// offset 11 huruf, ambil 9 huruf</span>
         } <span class="hljs-keyword">finally</span> {
             writer.close();
         }
     }
 }
 </code></pre>
-<p>Kita boleh menggunakan method <code>newLine()</code> untuk membuat baris baru.
-Kita juga boleh menetapkan hanya sebahagian daripada string untuk keluar
-sebagai output.</p>
+<p>Kita boleh menggunakan method <code>newLine()</code> untuk membuat baris baru. Kita juga
+boleh menetapkan hanya sebahagian daripada string untuk keluar sebagai output.
+Rujuk
+<a href="https://docs.oracle.com/javase/7/docs/api/java/io/BufferedWriter.html#write(java.lang.String,%20int,%20int%29" target="_blank">BufferedWriter</a>
+untuk maklumat lanjut.</p>
 
                                 
                                 </section>
@@ -1151,7 +1144,7 @@ sebagai output.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"date":"2015-07-04T00:00:00.000Z","description":"Kita juga boleh menhasilkan output ke file menggunakan FileWriter. FileWriter juga boleh dibantu oleh BufferedWriter untuk lebih efisyen.","title":"Output ke file","level":"1.4.4","depth":2,"next":{"title":"Exception (part 2)","level":"1.4.5","depth":2,"path":"essentials/exception-part-2.md","ref":"essentials/exception-part-2.md","articles":[]},"previous":{"title":"Input dari file","level":"1.4.3","depth":2,"path":"essentials/input-dari-file.md","ref":"essentials/input-dari-file.md","articles":[]},"dir":"ltr"},"config":{"plugins":["sitemap-general"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sitemap-general":{"prefix":"https://www.jombelajarjava.com/java/"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"essentials/output-ke-file.md","mtime":"2018-12-02T02:53:34.290Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-02T03:48:15.159Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"date":"2015-07-04T00:00:00.000Z","description":"Kita juga boleh menhasilkan output ke file menggunakan FileWriter. FileWriter juga boleh dibantu oleh BufferedWriter untuk lebih efisyen.","title":"Output ke file","level":"1.4.4","depth":2,"next":{"title":"Exception (part 2)","level":"1.4.5","depth":2,"path":"essentials/exception-part-2.md","ref":"essentials/exception-part-2.md","articles":[]},"previous":{"title":"Input dari file","level":"1.4.3","depth":2,"path":"essentials/input-dari-file.md","ref":"essentials/input-dari-file.md","articles":[]},"dir":"ltr"},"config":{"plugins":["sitemap-general"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sitemap-general":{"prefix":"https://www.jombelajarjava.com/java/"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"essentials/output-ke-file.md","mtime":"2018-12-02T08:20:32.101Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-02T11:51:40.299Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

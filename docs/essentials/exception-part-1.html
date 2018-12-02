@@ -983,7 +983,7 @@ nombor dengan kosong:</p>
     }
 }
 </code></pre>
-<p>Apabila kita run code tersebut, program akan keluarkan teks
+<p>Apabila kita run code tersebut, program akan memaparkan teks
 menjelaskan tentang error tersebut, iaitu <code>ArithmeticException: / by
 zero</code>.</p>
 <h2 id="try-catch">try-catch</h2>
@@ -1036,19 +1036,22 @@ lain yang tidak disangkakan berlaku.</p>
 }
 </code></pre>
 <h2 id="throws">throws</h2>
-<p>Kita boleh menggunakan <code>throws</code> bagi menggantikan <code>catch</code>. Bezanya kita
-tidak boleh handle exception secara manual jika menggunakan <code>throws</code>.</p>
+<p>Kita boleh menggunakan <code>throws</code> jika kita tidak mahu handle exception pada waktu
+itu, mungkin kerana tidak mahu code serabut. Contoh jika kita throws exception
+daripada suatu method, maka kita boleh catch di method yang lain.</p>
 <pre><code class="lang-java"><span class="hljs-keyword">package</span> essential;
 
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BahagiKosong</span> </span>{
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> ArithmeticException </span>{
-        <span class="hljs-keyword">try</span> {
-            <span class="hljs-keyword">int</span> a = <span class="hljs-number">1</span> / <span class="hljs-number">0</span>;
-        } <span class="hljs-keyword">finally</span> {
-            System.out.println(<span class="hljs-string">&quot;ini confirm berlaku&quot;</span>);
-        }
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">bahagiKosong</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> ArithmeticException </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> / <span class="hljs-number">0</span>;
+    }
 
-        System.out.println(<span class="hljs-string">&quot;ini selepas bahagi kosong&quot;</span>);
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-keyword">int</span> a = bahagiKosong();
+        } <span class="hljs-keyword">catch</span> (ArithmeticException e) {
+            System.out.println(<span class="hljs-string">&quot;tidak boleh bahagi kosong!&quot;</span>);
+        }
     }
 }
 </code></pre>
@@ -1095,7 +1098,7 @@ tidak boleh handle exception secara manual jika menggunakan <code>throws</code>.
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"date":"2015-07-02T00:00:00.000Z","description":"Exception ialah sesuatu yang dilancarkan setiap kali error berlaku. Secara default, Java telah pun menguruskan penggunaan Exception tersebut.","title":"Exception (part 1)","level":"1.4.1","depth":2,"next":{"title":"Input dari user","level":"1.4.2","depth":2,"path":"essentials/input-dari-user.md","ref":"essentials/input-dari-user.md","articles":[]},"previous":{"title":"Class yang Penting","level":"1.4","depth":1,"path":"essentials/README.md","ref":"essentials/README.md","articles":[{"title":"Exception (part 1)","level":"1.4.1","depth":2,"path":"essentials/exception-part-1.md","ref":"essentials/exception-part-1.md","articles":[]},{"title":"Input dari user","level":"1.4.2","depth":2,"path":"essentials/input-dari-user.md","ref":"essentials/input-dari-user.md","articles":[]},{"title":"Input dari file","level":"1.4.3","depth":2,"path":"essentials/input-dari-file.md","ref":"essentials/input-dari-file.md","articles":[]},{"title":"Output ke file","level":"1.4.4","depth":2,"path":"essentials/output-ke-file.md","ref":"essentials/output-ke-file.md","articles":[]},{"title":"Exception (part 2)","level":"1.4.5","depth":2,"path":"essentials/exception-part-2.md","ref":"essentials/exception-part-2.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["sitemap-general"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sitemap-general":{"prefix":"https://www.jombelajarjava.com/java/"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"essentials/exception-part-1.md","mtime":"2018-12-02T02:50:00.892Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-02T03:48:15.159Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"date":"2015-07-02T00:00:00.000Z","description":"Exception ialah sesuatu yang dilancarkan setiap kali error berlaku. Secara default, Java telah pun menguruskan penggunaan Exception tersebut.","title":"Exception (part 1)","level":"1.4.1","depth":2,"next":{"title":"Input dari user","level":"1.4.2","depth":2,"path":"essentials/input-dari-user.md","ref":"essentials/input-dari-user.md","articles":[]},"previous":{"title":"Class yang Penting","level":"1.4","depth":1,"path":"essentials/README.md","ref":"essentials/README.md","articles":[{"title":"Exception (part 1)","level":"1.4.1","depth":2,"path":"essentials/exception-part-1.md","ref":"essentials/exception-part-1.md","articles":[]},{"title":"Input dari user","level":"1.4.2","depth":2,"path":"essentials/input-dari-user.md","ref":"essentials/input-dari-user.md","articles":[]},{"title":"Input dari file","level":"1.4.3","depth":2,"path":"essentials/input-dari-file.md","ref":"essentials/input-dari-file.md","articles":[]},{"title":"Output ke file","level":"1.4.4","depth":2,"path":"essentials/output-ke-file.md","ref":"essentials/output-ke-file.md","articles":[]},{"title":"Exception (part 2)","level":"1.4.5","depth":2,"path":"essentials/exception-part-2.md","ref":"essentials/exception-part-2.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["sitemap-general"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sitemap-general":{"prefix":"https://www.jombelajarjava.com/java/"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Burhanuddin Baharuddin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Belajar Java","language":"ms","gitbook":"*","description":"Belajar Java, programming language utama di Java Virtual Machine (JVM)"},"file":{"path":"essentials/exception-part-1.md","mtime":"2018-12-02T07:56:01.553Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-02T11:51:40.299Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
