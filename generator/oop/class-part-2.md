@@ -1,3 +1,8 @@
+---
+date: 2015-06-29
+description: Pengenalan kepada class masih belum selesai. Di sini kita lihat penggunaan sesuatu yang dipanggil sebagai constructor, setter, dan getter.
+---
+
 # Class (part 2)
 
 Kita kembali kepada class Kucing untuk menambah sesuatu pada

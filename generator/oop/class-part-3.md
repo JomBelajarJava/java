@@ -1,3 +1,8 @@
+---
+date: 2015-06-30
+description: Pengenalan kepada class masih lagi belum selesai. Kali ini kita didedahkan dengan constructor overloading, method overloading, dan keyword this.
+---
+
 # Class (part 3)
 
 Kita kembali lagi ke class Kucing, dan kita akan membuat sesuatu yang

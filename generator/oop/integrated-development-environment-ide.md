@@ -1,3 +1,8 @@
+---
+date: 2015-06-28
+description: Java terkenal dengan integrated development environment (IDE) yang canggih. IDE banyak membantu programmer. Lihat IDE yang popular untuk Java di sini.
+---
+
 # Integrated Development Environment (IDE)
 
 Tutorial `object-oriented programming` akan melibatkan program yang
