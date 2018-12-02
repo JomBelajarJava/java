@@ -20,7 +20,6 @@ hanya mengira sahaja tanpa menulis jawapan.
 ```java
 public class Matematik {
     public static void main(String[] args) {
-
         // Java akan terus kira jawapan kepada operasi Matematik berikut
         System.out.println(3 + 4);
         System.out.println(5 - 7);
