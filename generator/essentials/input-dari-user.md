@@ -15,7 +15,7 @@ termasuklah:
 
 ## Scanner
 
-Sebelum kita ambil input dari user, kita lihat class `Scanner` terlebih
+Sebelum kita ambil input daripada user, kita lihat class `Scanner` terlebih
 dahulu. Class Scanner boleh digunakan untuk memisahkan sesuatu ayat
 (atau _string_) kepada beberapa perkataan (atau _token_). Contohnya,
 
@@ -25,7 +25,6 @@ package essential;
 import java.util.Scanner;
 
 public class Input {
-
     public static void main(String[] args) {
         String cikgu = "Cikgu suka main bola, hari-hari cikgu main bola";
 
@@ -38,8 +37,10 @@ public class Input {
 }
 ```
 
+> Jangan lupa untuk import class Scanner berdasarkan code di atas.
+
 Token tersebut boleh ditukar ke jenis data yang lain bergantung kepada
-method yang digunakan, contohnya `nextInt()` tukarkan token kepada
+method yang digunakan, contohnya `nextInt()` menukarkan token kepada
 integer, seperti berikut:
 
 ```java
@@ -48,16 +49,14 @@ package essential;
 import java.util.Scanner;
 
 public class Input {
-
     public static void main(String[] args) {
-
         String cikgu = "12 tambah 23";
 
         Scanner scan = new Scanner(cikgu);
 
         int nomborPertama = scan.nextInt();
 
-        String operasi = scan.next();
+        String operasi = scan.next();  // ambil tetapi tidak diguna
 
         int nomborKedua = scan.nextInt();
 
@@ -92,12 +91,11 @@ package essential;
 import java.util.Scanner;
 
 public class Input {
-
     public static void main(String[] args) {
-
         Scanner scan = new Scanner(System.in);
 
-        int nomborPertama, nomborKedua;
+        int nomborPertama;
+        int nomborKedua;
 
         System.out.println("Kalkulator!! Tambah sahaja...");
 
@@ -121,7 +119,6 @@ package essential;
 import java.util.Scanner;
 
 public class Input {
-
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
