@@ -20,11 +20,11 @@ System.out.println(cubaan);
 Jika anda cuba code di atas, program akan print keempat-empat string tersebut.
 Maksudnya nilai variable tersebut berubah. Jadi, apa yang berlaku?
 
-Sebenarnya dalam Java, apa yang berlaku apabila kita letak final untuk object
-ialah cuma _reference_ kepada object yang tidak berubah tetapi kandungan object
-masih boleh berubah.
+Sebenarnya dalam Java, apa yang berlaku apabila kita meletakkan final untuk
+object ialah cuma _reference_ kepada object yang tidak berubah tetapi kandungan
+object masih boleh berubah.
 
-Ini contoh yang akan membuatkan program keluar error untuk Collections:
+Ini contoh yang akan membuatkan program mengeluarkan error untuk Collections:
 
 ```java
 final List<String> cubaan = new ArrayList<>(Arrays.asList("satu", "dua", "tiga"));
@@ -60,8 +60,8 @@ listAsal.add("empat");
 System.out.println(listBaru);
 ```
 
-Bagi mengatasi masalah ini, kita perlu menggunakan library yang ada `immutable
-collections`.
+Bagi mengatasi masalah ini, kita perlu menggunakan library yang mempunyai
+`immutable collections`.
 
 ## Immutable Collections
 
