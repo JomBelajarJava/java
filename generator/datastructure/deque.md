@@ -1,3 +1,8 @@
+---
+date: 2015-07-07
+description: Deque (cara sebutan deck) boleh menggunakan kaedah first in, first out (FIFO) dan last in, first out (LIFO). Secara ringkasnya, Deque ialah Queue + Stack.
+---
+
 # Deque
 
 Deque (cara sebutan 'deck') boleh menggunakan kaedah _first in, first

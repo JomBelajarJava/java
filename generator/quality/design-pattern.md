@@ -1,3 +1,8 @@
+---
+date: 2018-01-14
+description: Kadang-kadang code menggunakan Java agak menyusahkan programmer. Adakah cara yang lebih tersusun untuk sesuatu masalah semasa membina struktur code? Jom lihat design pattern!
+---
+
 # Design Pattern
 
 Sebelum kita lihat dengan lebih mendalam mengenai `design pattern`, kita lihat

@@ -1,3 +1,8 @@
+---
+date: 2015-07-09
+description: Di sini kita akan membuat program JavaFX yang simple menggunakan Netbeans. Kita juga akan lihat apa yang sebenarnya berlaku pada code program JavaFX.
+---
+
 # Hello JavaFX
 
 > "1000 langkah bermula dari satu langkah pertama"

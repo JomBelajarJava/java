@@ -1,3 +1,8 @@
+---
+date: 2015-07-05
+description: Programmer digalakkan untuk mengguna kaedah program to interface semasa menggunakan Collections. Di sini kita lihat antara interface yang ada.
+---
+
 # Interface Collections
 
 Berikut ialah beberapa interface yang ada dalam framework Collections:

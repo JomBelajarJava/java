@@ -1,3 +1,8 @@
+---
+date: 2015-07-06
+description: Collections menggunakan generics untuk menentukan class yang boleh digunakan di dalam sesebuah data structure. Kita juga akan lihat class wrapper di sini.
+---
+
 # Generics
 
 Cuba lihat mana-mana interface yang ada dalam Collections di Java API.

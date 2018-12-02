@@ -1,3 +1,8 @@
+---
+date: 2015-06-28
+description: Object boleh dihasilkan daripada sesuatu class. Setiap object mempunyai ciri-ciri (fields) yang tersendiri. Kita juga boleh membuat lebih dari satu object.
+---
+
 # Object
 
 Setelah berjaya membuat class Kucing, barulah kita boleh membuat

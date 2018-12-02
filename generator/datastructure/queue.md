@@ -1,3 +1,8 @@
+---
+date: 2015-07-20
+description: Queue menggunakan kaedah first in, first out (FIFO) yang bermaksud data yang mula-mula masuk akan keluar dahulu. Antaranya LinkedList dan PriorityQueue.
+---
+
 # Queue
 
 Queue menggunakan kaedah _first in, first out_ (FIFO) yang bermaksud

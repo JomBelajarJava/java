@@ -1,3 +1,8 @@
+---
+date: 2015-07-08
+description: Map digunakan untuk menghubungkan antara satu data (key) dengan data yang lain (value). Satu key hanya boleh dihubungkan dengan satu value sahaja.
+---
+
 # Map
 
 Map digunakan untuk menghubungkan antara satu data (_key_) dengan data

@@ -1,3 +1,8 @@
+---
+date: 2015-06-27
+description: Boolean boleh menyimpan data true atau false. Sebenarnya, kita telah pun menggunakan boolean di loop dan if statement. Lihat penjelasannya di sini.
+---
+
 # Boolean
 
 Salah satu jenis data ialah `boolean`. `Boolean` hanya boleh simpan dua

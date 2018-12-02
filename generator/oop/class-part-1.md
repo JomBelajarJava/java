@@ -1,3 +1,8 @@
+---
+date: 2015-06-28
+description: Class menentukan ciri-ciri (fields) dan tingkah laku (methods). Lihat cara untuk membuat sesuatu class dalam Java menggunakan Netbeans.
+---
+
 # Class (part 1)
 
 Buka Netbeans (atau mana-mana IDE yang anda guna), kemudian buat `New

@@ -1,3 +1,8 @@
+---
+date: 2017-09-27
+description: Tutorial Java untuk membuat connection pool menggunakan library HikariCP untuk menjadikan aplikasi lebih efisyen
+---
+
 # Connection Pool
 
 _Pool_ dalam English bermaksud 'kolam'. Biasanya orang menyimpan ikan yang ditangkap ke dalam kolam untuk diguna/dimakan di kemudian hari. Jadi, _connection pool_ bermaksud 'kolam connection database', supaya kita boleh menggunakan connection yang sudah disambung untuk membuat operasi database berkali-kali.

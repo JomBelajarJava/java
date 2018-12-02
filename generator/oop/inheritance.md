@@ -1,3 +1,8 @@
+---
+date: 2015-06-30
+description: Inheritance adalah apabila sesebuah class diubahsuai oleh class yang lain. Di sini juga kita lihat overriding, superclass vs subclass, dan keyword super.
+---
+
 # Inheritance
 
 Tujuan kita membuat inheritance adalah untuk mengguna semula class

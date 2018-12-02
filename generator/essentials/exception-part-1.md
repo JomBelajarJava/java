@@ -1,3 +1,8 @@
+---
+date: 2015-07-02
+description: Exception ialah sesuatu yang dilancarkan setiap kali error berlaku. Secara default, Java telah pun menguruskan penggunaan Exception tersebut.
+---
+
 # Exception (part 1)
 
 Java menggunakan exception untuk mengendalikan error. Apabila

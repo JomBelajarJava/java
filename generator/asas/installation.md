@@ -1,3 +1,8 @@
+---
+date: 2015-06-26
+description: Benda pertama sekali yang perlu ada pada komputer ialah Java Development Kit (JDK). Lihat cara untuk install JDK di Windows ataupun Linux di sini.
+---
+
 # Installation
 
 Sebelum kita boleh mula programming menggunakan Java, kita perlu install

@@ -1,3 +1,8 @@
+---
+date: 2015-06-30
+description: Interface meletakkan syarat-syarat yang perlu ada pada class yang menggunakan interface tersebut. Interface ini ibarat kontrak antara dua komponen.
+---
+
 # Interface
 
 Dalam sesetengah projek, ada masa code ditulis oleh beberapa orang

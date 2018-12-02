@@ -1,3 +1,8 @@
+---
+date: 2015-07-06
+description: List sama dengan array yang menggunakan indeks. Bezanya ialah List boleh berubah saiz. Antara class yang menggunakan List ialah ArrayList dan LinkedList.
+---
+
 # List
 
 Antara class yang menggunakan interface List ialah `ArrayList` dan

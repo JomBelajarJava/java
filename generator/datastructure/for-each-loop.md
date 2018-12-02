@@ -1,3 +1,8 @@
+---
+date: 2015-07-05
+description: Kita lihat satu lagi jenis loop yang boleh digunakan, iaitu for each loop. Loop ini hanya boleh digunakan untuk data structure bagi memudahkan programmer.
+---
+
 # For each loop
 
 Jika kita menggunakan sesebuah _data structure_, kebiasaannya akan ada

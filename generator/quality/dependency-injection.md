@@ -1,3 +1,8 @@
+---
+date: 2018-01-02
+description: Tutorial untuk membuat inversion of control. Memperkenalkan dependency injection framework seperti Guice untuk memudahkan dependency injection.
+---
+
 # Dependency Injection
 
 Dalam tutorial database, saya ada sentuh sedikit mengenai `dependency

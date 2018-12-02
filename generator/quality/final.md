@@ -1,3 +1,8 @@
+---
+date: 2017-12-31
+description: Menggunakan keyword final bagi membantu programmer membuat sedikit kesilapan, menghasilkan software yang lebih berkualiti
+---
+
 # Final
 
 `final` ialah keyword yang digunakan untuk memastikan sesuatu variable tidak

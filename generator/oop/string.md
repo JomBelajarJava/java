@@ -1,3 +1,8 @@
+---
+date: 2015-07-01
+description: String sebenarnya ialah class. Class String menggabungkan beberapa character. Sama seperti class yang lain, class String juga mempunyai methods.
+---
+
 # String
 
 Kalau perasan jenis data String ditulis bermula dengan huruf besar,

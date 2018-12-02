@@ -1,3 +1,7 @@
+---
+description: Dalam bab ini, kita akan lihat antara teknik yang membolehkan atau memaksa kita untuk meningkatkan kualiti code kita.
+---
+
 # Code Quality
 
 *Code quality* ialah bahagian code yang boleh membuatkan code tersebut mudah

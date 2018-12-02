@@ -1,3 +1,8 @@
+---
+date: 2015-07-05
+description: Disebabkan kelemahan array yang tidak boleh berubah saiz, Java menyediakan data structure lain di framework Collections untuk digunakan oleh programmer.
+---
+
 # Pengenalan kepada Collections
 
 `Array` merupakan _data structure_ yang paling simple. Antara

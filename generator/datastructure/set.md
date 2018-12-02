@@ -1,3 +1,8 @@
+---
+date: 2015-07-06
+description: Set digunakan untuk menyimpan data yang lain daripada yang lain. Jika ada data yang sama, Set akan mengambil satu sahaja daripada data tersebut.
+---
+
 # Set
 
 Set boleh digunakan untuk menyimpan data yang lain dari yang lain.

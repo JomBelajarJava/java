@@ -1,3 +1,8 @@
+---
+date: 2015-07-11
+description: Kita boleh menggunakan Cascading Style Sheets (CSS) untuk menghias program kita. JavaFX menggunakan CSS supaya designer tidak perlu belajar benda yang baru.
+---
+
 # Styling dengan CSS
 
 Kita boleh menggunakan _Cascading Style Sheets_ (CSS) untuk menghias

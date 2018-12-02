@@ -1,3 +1,8 @@
+---
+date: 2015-06-27
+description: Hidup kita dipenuhi dengan pelbagai pilihan yang perlu dibuat pada setiap masa. Sama juga dengan programming. Lihat cara membuat pilihan menggunakan if.
+---
+
 # If statement
 
 `If statement` membolehkan program untuk membuat pilihan.

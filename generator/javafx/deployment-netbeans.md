@@ -1,3 +1,8 @@
+---
+date: 2015-07-20
+description: Ada sesetengah steps sebelum ini yang mungkin terlebih rumit untuk sesetengah orang. Jika menggunakan Netbeans, ada beberapa shortcut untuk deployment.
+---
+
 # Deployment (NetBeans)
 
 Sebelum ini kita membuat _deployment_ dengan menggunakan _Ant build

@@ -1,3 +1,8 @@
+---
+date: 2015-06-27
+description: Programming dan matematik memang tidak dapat dipisahkan. Sesuatu program akan terus membuat pengiraan jika mana-mana simbol matematik digunakan.
+---
+
 # Matematik
 
 Programming dan matematik memang tidak dapat dipisahkan.

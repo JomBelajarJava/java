@@ -1,3 +1,8 @@
+---
+date: 2015-07-01
+description: Polymorphism membolehkan class yang sama superclass menggunakan method yang sama. Ini memudahkan programmer untuk memanipulasi class tersebut.
+---
+
 # Polymorphism
 
 Istilah `polymorphism` diambil daripada konsep biologi yang menyatakan

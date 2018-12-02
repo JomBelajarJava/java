@@ -1,3 +1,8 @@
+---
+date: 2015-07-12
+description: Animation boleh ditambah pada program JavaFX untuk menjadikan program kita lebih menarik. Semua benda yang ada pada program JavaFX boleh dianimasikan.
+---
+
 # Animation
 
 _Animation_ boleh ditambah pada program JavaFX untuk menjadikan program

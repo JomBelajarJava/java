@@ -1,3 +1,8 @@
+---
+date: 2018-01-04
+description: Kebanyakan programmer tidak suka menggunakan Java kerana Java memang verbose. Jadi gunakan convenience library untuk mengurangkan bilangan code Java.
+---
+
 # Convenience Library
 
 Dalam tutorial sebelum-sebelum ini, saya ada memperkenalkan beberapa library

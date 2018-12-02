@@ -1,4 +1,8 @@
-<!-- 26 November 2018 -->
+---
+date: 2018-11-26
+description: Recursion ialah apabila kita memanggil sesebuah method dalam method yang sama. Teknik ini antara bahagian yang memeningkan pelajar universiti.
+---
+
 # Recursion
 
 Recursion ialah apabila kita memanggil sesebuah method dalam method yang sama.

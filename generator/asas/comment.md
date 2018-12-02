@@ -1,3 +1,8 @@
+---
+date: 2015-06-26
+description: Code yang rumit tidak berguna kepada programmer yang lain. Masalah ini boleh diatasi menggunakan comment, iaitu teks yang menerangkan tentang sesuatu code.
+---
+
 # Comment
 
 Sebelum program kita jadi lebih rumit, kita akan lihat cara untuk letak

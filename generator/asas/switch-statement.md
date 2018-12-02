@@ -1,3 +1,8 @@
+---
+date: 2015-06-27
+description: Ada kala code yang ditulis menggunakan if statement sangat sukar dibaca. Jadi, cara lain untuk membuat pilihan adalah dengan manggunakan switch statement.
+---
+
 # Switch statement
 
 `Switch statement` adalah sama dengan `if statement` iaitu untuk
