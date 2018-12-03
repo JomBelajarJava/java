@@ -60,6 +60,7 @@
     * [Design Pattern](quality/design-pattern.md)
     * [Recursion](quality/recursion.md)
 
+<!--
 * [JavaFX](javafx/README.md)
     * [Scene Builder](javafx/scene-builder.md)
     * [Hello JavaFX](javafx/hello-javafx.md)
@@ -68,6 +69,7 @@
     * [Animation](javafx/animation.md)
     * [Deployment (Ant)](javafx/deployment-ant.md)
     * [Deployment (NetBeans)](javafx/deployment-netbeans.md)
+-->
 
 <!--
 * [2D Game Development](2dgame/README.md)
