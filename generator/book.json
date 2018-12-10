@@ -3,13 +3,17 @@
     "description": "Belajar Java, programming language utama di Java Virtual Machine (JVM)",
     "author": "Burhanuddin Baharuddin",
     "language": "ms",
-    "plugins": ["sitemap-general", "pageload-analytics"],
+    "plugins": ["sitemap-general", "pageload-analytics", "bulk-redirect"],
     "pluginsConfig": {
         "sitemap-general": {
             "prefix": "https://www.jombelajarjava.com/java/"
         },
         "pageload-analytics": {
             "token": "UA-64328787-1"
+        },
+        "bulk-redirect": {
+            "basepath": "/java/",
+            "redirectsFile": "redirects.json"
         }
     }
 }
