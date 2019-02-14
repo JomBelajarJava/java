@@ -7,7 +7,7 @@
         "sitemap-general",
         "pageload-analytics",
         "bulk-redirect",
-        "privacy-policy@git+https://github.com/JomBelajarJava/privacy-policy.git"
+        "privacy-policy@git+https://github.com/JomBelajarJava/gitbook-plugin-privacy-policy.git"
     ],
     "pluginsConfig": {
         "sitemap-general": {
