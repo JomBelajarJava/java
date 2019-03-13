@@ -1,5 +1,5 @@
 ---
-permalink: /:collection
+permalink: /:collection/
 description: Dalam bab ini, kita akan lihat antara teknik yang membolehkan atau memaksa kita untuk meningkatkan kualiti code kita.
 ---
 

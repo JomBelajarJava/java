@@ -1,6 +1,6 @@
 ---
 date: 2015-07-01
-permalink: /:collection
+permalink: /:collection/
 description: Di sini kita lihat pengenalan kepada Java Class Library iaitu koleksi class yang disediakan oleh Java. Kita boleh melihat class tersebut di Java API.
 ---
 

@@ -1,5 +1,5 @@
 ---
-permalink: /:collection
+permalink: /:collection/
 description: Data structure ialah penyusunan sekumpulan data. Dalam bab ini, kita akan melihat pelbagai jenis data structure yang disediakan oleh Java.
 ---
 
