@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Crud | Tutorial Java</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Crud" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CRUD ialah akronim untuk Create, Read, Update dan Delete. Keempat-empat operasi tersebut ialah operasi yang biasa digunakan dengan database." />
+<meta property="og:description" content="CRUD ialah akronim untuk Create, Read, Update dan Delete. Keempat-empat operasi tersebut ialah operasi yang biasa digunakan dengan database." />
+<link rel="canonical" href="http://localhost:4000/java/database/crud" />
+<meta property="og:url" content="http://localhost:4000/java/database/crud" />
+<meta property="og:site_name" content="Tutorial Java" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-07-22T00:00:00+08:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/java/database/crud"},"@type":"BlogPosting","url":"http://localhost:4000/java/database/crud","headline":"Crud","dateModified":"2017-07-22T00:00:00+08:00","datePublished":"2017-07-22T00:00:00+08:00","description":"CRUD ialah akronim untuk Create, Read, Update dan Delete. Keempat-empat operasi tersebut ialah operasi yang biasa digunakan dengan database.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/java/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/java/feed.xml" title="Tutorial Java" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/java/">Tutorial Java</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <a class="page-link" href="http://localhost:4000">Jom Belajar Java</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <h1 id="crud">CRUD</h1>
+
+<p>CRUD ialah akronim (<em>acronym</em>) untuk <code class="highlighter-rouge">Create</code>, <code class="highlighter-rouge">Read</code>, <code class="highlighter-rouge">Update</code> dan <code class="highlighter-rouge">Delete</code>.
+Keempat-empat operasi tersebut ialah operasi yang biasa digunakan dengan
+database.</p>
+
+<ul>
+  <li>Create - mencipta/membuat/memasukkan data</li>
+  <li>Read - membaca/mengambil data</li>
+  <li>Update - mengolah/mengemaskini data</li>
+  <li>Delete - membuang/memadam data</li>
+</ul>
+
+<p>Jadi setiap kali membuat project yang melibatkan database, anda boleh terus
+sahaja menyediakan keempat-empat operasi tersebut.</p>
+
+<h2 id="crud-dalam-kucingdao">CRUD dalam KucingDao</h2>
+
+<p>Berbalik ke aplikasi kita sebelum ini, operasi CRUD kita adalah seperti berikut:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operasi</th>
+      <th>Method dalam KucingDao</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Create</td>
+      <td>insertKucing()</td>
+    </tr>
+    <tr>
+      <td>Read</td>
+      <td>findAll(), findById(), findByNama()</td>
+    </tr>
+    <tr>
+      <td>Update</td>
+      <td>updateKucing()</td>
+    </tr>
+    <tr>
+      <td>Delete</td>
+      <td>deleteKucing()</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="insert">Insert</h2>
+
+<p>Saya akan membuat contoh untuk membuat operasi <code class="highlighter-rouge">Insert</code> dalam SimpleKucingDao.
+Caranya sama sahaja seperti membuat table, tetapi kita perlu menjadikan SQL
+query tersebut boleh mengambil data daripada code Java. Caranya adalah dengan
+menggunakan <code class="highlighter-rouge">PreparedStatement</code>:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Kucing</span> <span class="nf">insertKucing</span><span class="o">(</span><span class="kd">final</span> <span class="n">Kucing</span> <span class="n">kucing</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">insertQuery</span> <span class="o">=</span> <span class="s">"INSERT INTO KUCING(NAMA, JANTINA, TARIKH_LAHIR) VALUES(?, ?, ?)"</span><span class="o">;</span>
+
+        <span class="k">try</span> <span class="o">(</span><span class="n">Connection</span> <span class="n">conn</span> <span class="o">=</span> <span class="n">DriverManager</span><span class="o">.</span><span class="na">getConnection</span><span class="o">(</span><span class="n">url</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">password</span><span class="o">);</span>
+             <span class="n">PreparedStatement</span> <span class="n">stmt</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="na">prepareStatement</span><span class="o">(</span><span class="n">insertQuery</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">stmt</span><span class="o">.</span><span class="na">setString</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">kucing</span><span class="o">.</span><span class="na">getNama</span><span class="o">());</span>
+            <span class="n">stmt</span><span class="o">.</span><span class="na">setString</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">kucing</span><span class="o">.</span><span class="na">getJantina</span><span class="o">().</span><span class="na">toString</span><span class="o">());</span>
+            <span class="n">stmt</span><span class="o">.</span><span class="na">setDate</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="n">Date</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">kucing</span><span class="o">.</span><span class="na">getTarikhLahir</span><span class="o">()));</span>
+
+            <span class="n">stmt</span><span class="o">.</span><span class="na">executeUpdate</span><span class="o">();</span>
+
+            <span class="k">try</span> <span class="o">(</span><span class="n">ResultSet</span> <span class="n">generatedKeys</span> <span class="o">=</span> <span class="n">stmt</span><span class="o">.</span><span class="na">getGeneratedKeys</span><span class="o">())</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">generatedKeys</span><span class="o">.</span><span class="na">next</span><span class="o">())</span> <span class="o">{</span>
+                    <span class="kd">final</span> <span class="n">Long</span> <span class="n">id</span> <span class="o">=</span> <span class="n">generatedKeys</span><span class="o">.</span><span class="na">getLong</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+                    <span class="k">return</span> <span class="n">kucing</span><span class="o">.</span><span class="na">cloneWithId</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">SQLException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">kucing</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>Letakkan tanda soal, <code class="highlighter-rouge">?</code>, dalam SQL query sebagai tempat untuk kita masukkan
+data. Untuk mendapatkan <code class="highlighter-rouge">PreparedStatement</code>, gunakan method <code class="highlighter-rouge">prepareStatement()</code>
+dari <code class="highlighter-rouge">Connection</code>.</p>
+
+<p>Kemudian, untuk memasukkan data kita gunakan pelbagai method set yang ada
+mengikut jenis data tersebut. Contoh,</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">stmt</span><span class="o">.</span><span class="na">setString</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">kucing</span><span class="o">.</span><span class="na">getNama</span><span class="o">());</span>
+</code></pre></div></div>
+
+<p>bermaksud masukkan nama kucing di tempat (tanda soal) pertama.</p>
+
+<p>Dengan menggunakan JDBC, kita boleh mendapatkan kembali ID yang terhasil
+daripada proses Insert seperti code di atas, iaitu,</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>            <span class="k">try</span> <span class="o">(</span><span class="n">ResultSet</span> <span class="n">generatedKeys</span> <span class="o">=</span> <span class="n">stmt</span><span class="o">.</span><span class="na">getGeneratedKeys</span><span class="o">())</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">generatedKeys</span><span class="o">.</span><span class="na">next</span><span class="o">())</span> <span class="o">{</span>
+                    <span class="kd">final</span> <span class="n">Long</span> <span class="n">id</span> <span class="o">=</span> <span class="n">generatedKeys</span><span class="o">.</span><span class="na">getLong</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+                    <span class="k">return</span> <span class="n">kucing</span><span class="o">.</span><span class="na">cloneWithId</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+</code></pre></div></div>
+
+<p>Selepas mendapatkan ID, saya create object Kucing baru dengan data yang sama
+tetapi disertakan dengan ID.</p>
+
+<blockquote>
+  <p>Anda mungkin tertanya-tanya kenapa saya tidak menggunakan method <code class="highlighter-rouge">setId()</code>
+misalannya. Kalau tengok kembali pada class Kucing, semua fields saya letakkan
+keyword <code class="highlighter-rouge">final</code>. Keyword <code class="highlighter-rouge">final</code> akan menjadikan field tersebut tidak boleh
+berubah. Ada sebabnya, tetapi saya akan jelaskan pada tutorial akan datang.</p>
+</blockquote>
+
+<p>Code untuk operasi CRUD yang lain saya serahkan kepada pembaca sebagai latihan.</p>
+
+<h2 id="ambil-input">Ambil input</h2>
+
+<p>Sekarang kita sudah boleh membuat code aplikasi untuk berinteraksi dengan
+pengguna kemudian memasukkan data ke dalam database.</p>
+
+<p>Initialize <code class="highlighter-rouge">PendaftaranService</code> dan <code class="highlighter-rouge">Scanner</code> di constructor <code class="highlighter-rouge">H2Application</code>:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">private</span> <span class="kd">final</span> <span class="n">PendaftaranService</span> <span class="n">pendaftaranService</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">Scanner</span> <span class="n">scan</span><span class="o">;</span>
+
+    <span class="n">H2Application</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">pendaftaranService</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PendaftaranService</span><span class="o">(</span><span class="k">new</span> <span class="n">SimpleKucingDao</span><span class="o">(</span><span class="n">DATABASE_URL</span><span class="o">,</span> <span class="n">NAME</span><span class="o">,</span> <span class="n">PASSWORD</span><span class="o">));</span>
+        <span class="n">scan</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+
+        <span class="n">init</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Sebenarnya ada cara yang lebih baik berbanding menggunakan <code class="highlighter-rouge">new</code> untuk
+menggunakan service dan DAO iaitu dengan menggunakan <code class="highlighter-rouge">dependency injection
+framework</code>, tetapi ini hanya untuk demo penggunaan database. Jadi, kita buat
+dependency injection menggunakan <strong>new</strong> sahaja.</p>
+</blockquote>
+
+<p>Kita paparkan arahan aplikasi kepada pengguna dalam method <code class="highlighter-rouge">start()</code>, kemudian
+ambil input:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">void</span> <span class="nf">start</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Selamat Datang ke Pendaftaran Pet Kucing!\n"</span> <span class="o">+</span>
+                <span class="s">"\n"</span> <span class="o">+</span>
+                <span class="s">"Tekan nombor mengikut senarai di bawah:\n"</span> <span class="o">+</span>
+                <span class="s">"1. Daftar kucing.\n"</span> <span class="o">+</span>
+                <span class="s">"2. Tukar maklumat kucing.\n"</span> <span class="o">+</span>
+                <span class="s">"3. Padam maklumat kucing.\n"</span> <span class="o">+</span>
+                <span class="s">"4. Senaraikan semua kucing.\n"</span> <span class="o">+</span>
+                <span class="s">"5. Cari kucing mengikut nama.\n"</span> <span class="o">+</span>
+                <span class="s">"\n"</span> <span class="o">+</span>
+                <span class="s">"Pilihan: "</span><span class="o">);</span>
+
+        <span class="kd">final</span> <span class="kt">int</span> <span class="n">nombor</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">scan</span><span class="o">.</span><span class="na">nextLine</span><span class="o">().</span><span class="na">trim</span><span class="o">());</span>
+
+        <span class="k">switch</span> <span class="o">(</span><span class="n">nombor</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+                <span class="n">daftarKucing</span><span class="o">();</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">default</span><span class="o">:</span>
+                <span class="k">break</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="n">scan</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>Method <code class="highlighter-rouge">daftarKucing()</code>:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">daftarKucing</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"\nMasukkan nama kucing: "</span><span class="o">);</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">nama</span> <span class="o">=</span> <span class="n">scan</span><span class="o">.</span><span class="na">nextLine</span><span class="o">().</span><span class="na">trim</span><span class="o">();</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Masukkan jantina kucing ([J/j]antan/[B/b]etina): "</span><span class="o">);</span>
+        <span class="kd">final</span> <span class="kt">char</span> <span class="n">jantina</span> <span class="o">=</span> <span class="n">scan</span><span class="o">.</span><span class="na">nextLine</span><span class="o">().</span><span class="na">trim</span><span class="o">().</span><span class="na">charAt</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Masukkan tarikh lahir (yyyy-mm-dd): "</span><span class="o">);</span>
+        <span class="kd">final</span> <span class="n">LocalDate</span> <span class="n">tarikhLahir</span> <span class="o">=</span> <span class="n">LocalDate</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="n">scan</span><span class="o">.</span><span class="na">nextLine</span><span class="o">().</span><span class="na">trim</span><span class="o">());</span>
+
+        <span class="kd">final</span> <span class="n">Kucing</span> <span class="n">kucing</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Kucing</span><span class="o">(</span><span class="n">nama</span><span class="o">,</span> <span class="n">jantina</span><span class="o">,</span> <span class="n">tarikhLahir</span><span class="o">);</span>
+        <span class="kd">final</span> <span class="n">Long</span> <span class="n">id</span> <span class="o">=</span> <span class="n">pendaftaranService</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">kucing</span><span class="o">).</span><span class="na">getId</span><span class="o">();</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\nPendaftaran selesai.\nID kucing anda: "</span> <span class="o">+</span> <span class="n">id</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>Perhatikan kita hanya mengambil <code class="highlighter-rouge">char</code> untuk menentukan <code class="highlighter-rouge">Jantina</code> sedangkan
+class Kucing memerlukan data jenis enum. Oleh itu, kita perlu</p>
+
+<ul>
+  <li>mengubahsuai class Kucing untuk menerima <code class="highlighter-rouge">char</code> sebagai penentu <code class="highlighter-rouge">Jantina</code></li>
+  <li>mengubahsuai enum <code class="highlighter-rouge">Jantina</code> untuk memilih enum mengikut <code class="highlighter-rouge">char</code></li>
+</ul>
+
+<h2 id="enum-jantina-dari-character">Enum Jantina dari character</h2>
+
+<p>Tambah method <code class="highlighter-rouge">fromChar()</code> pada enum <code class="highlighter-rouge">Jantina</code>:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Jantina</span> <span class="nf">fromChar</span><span class="o">(</span><span class="kd">final</span> <span class="kt">char</span> <span class="n">firstChar</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">Jantina</span> <span class="n">jantina</span> <span class="o">:</span> <span class="n">Jantina</span><span class="o">.</span><span class="na">values</span><span class="o">())</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">jantina</span><span class="o">.</span><span class="na">text</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="mi">0</span><span class="o">)).</span><span class="na">equalsIgnoreCase</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">firstChar</span><span class="o">)))</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="n">jantina</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>Method tersebut bermaksud untuk setiap nilai enum <code class="highlighter-rouge">Jantina</code> yang ada, bandingkan
+huruf pertama dengan input tidak kira sama ada huruf besar atau kecil, jika sama
+pulangkan nilai enum tersebut.</p>
+
+<h2 id="overload-contructor-class-kucing">Overload contructor Class Kucing</h2>
+
+<p>Overload constructor untuk class Kucing:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">public</span> <span class="nf">Kucing</span><span class="o">(</span><span class="kd">final</span> <span class="n">String</span> <span class="n">nama</span><span class="o">,</span> <span class="kd">final</span> <span class="kt">char</span> <span class="n">jantina</span><span class="o">,</span> <span class="kd">final</span> <span class="n">LocalDate</span> <span class="n">tarikhLahir</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">(</span><span class="n">nama</span><span class="o">,</span> <span class="n">Jantina</span><span class="o">.</span><span class="na">fromChar</span><span class="o">(</span><span class="n">jantina</span><span class="o">),</span> <span class="n">tarikhLahir</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="demo">Demo</h2>
+
+<p>Setelah selesai semuanya, gunakan method <code class="highlighter-rouge">start()</code> untuk menjalankan aplikasi:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">jombelajarjava</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">H2Application</span> <span class="n">app</span> <span class="o">=</span> <span class="k">new</span> <span class="n">H2Application</span><span class="o">();</span>
+        <span class="n">app</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Anda boleh ke <a href="https://github.com/JomBelajarJava/contoh-code-java/tree/master/database/tutorialh2-jdbc">sini</a> untuk lihat code yang lengkap.</p>
+
+
+<nav style="padding: 20px 0; border-top: 1px solid #e8e8e8">
+  <div style="float:left"><a href="/java/database/dao-dan-service">&lsaquo; Sebelumnya</a></div>
+  <div style="float:right"><a href="/java/database/connection-pool">Seterusnya &rsaquo;</a></div>
+  <div style="margin:0 auto; width: 105px;">
+    <a href="/java/">&bull; Kandungan &bull;</a>
+  </div>
+</nav>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/java/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Tutorial Java</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Tutorial Java</li><li><a class="u-email" href="mailto:burhanclj@gmail.com">burhanclj@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/JomBelajarJava"><svg class="svg-icon"><use xlink:href="/java/assets/minima-social-icons.svg#github"></use></svg> <span class="username">JomBelajarJava</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

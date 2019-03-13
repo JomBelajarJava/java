@@ -1,0 +1,96 @@
+---
+layout: default
+---
+
+{%- assign chapters = site.data.navigation.chapters -%}
+
+{%- for chapter in chapters -%}
+  {%- if chapter.url == page.collection -%}
+    {%- assign chapter_position = forloop.index0 -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+
+
+
+{%- assign name = page.title | downcase | replace: " ", "-" -%}
+{%- assign tutorials = site.data.navigation[page.collection] -%}
+
+{%- for tutorial in tutorials -%}
+  {%- if tutorial.url == name -%}
+    {%- assign tutorial_position = forloop.index0 -%}
+    {%- assign is_first_tutorial = forloop.first -%}
+    {%- assign is_last_tutorial = forloop.last -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+
+
+
+{%- if is_first_tutorial -%}
+
+  {%- assign prev_link = page.collection | append: "/" | relative_url -%}
+
+  {%- assign next_tutorial_position = tutorial_position | plus: 1 -%}
+  {%- assign next_link = page.collection | append: "/" | append: tutorials[next_tutorial_position].url | relative_url -%}
+
+{%- elsif is_last_tutorial -%}
+
+  {%- assign prev_tutorial_position = tutorial_position | minus: 1 -%}
+  {%- assign prev_link = page.collection | append: "/" | append: tutorials[prev_tutorial_position].url | relative_url -%}
+
+  {%- assign next_chapter_position = chapter_position | plus: 1 -%}
+  {%- assign next_chapter = chapters[next_chapter_position] -%}
+  {%- if next_chapter -%}
+    {%- assign next_link = next_chapter.url | append: "/" | relative_url -%}
+  {%- endif -%}
+
+{%- elsif tutorial_position -%}
+
+  {%- assign prev_tutorial_position = tutorial_position | minus: 1 -%}
+  {%- assign prev_link = page.collection | append: "/" | append: tutorials[prev_tutorial_position].url | relative_url -%}
+
+  {%- assign next_tutorial_position = tutorial_position | plus: 1 -%}
+  {%- assign next_link = page.collection | append: "/" | append: tutorials[next_tutorial_position].url | relative_url -%}
+
+{%- else -%}
+
+  {%- assign prev_chapter_position = chapter_position | minus: 1 -%}
+  {%- if prev_chapter_position >= 0 -%}
+    {%- assign prev_chapter = chapters[prev_chapter_position] -%}
+    {%- assign prev_tutorial = site.data.navigation[prev_chapter.url] | last -%}
+    {%- assign prev_link = prev_chapter.url | append: "/" | append: prev_tutorial.url | relative_url -%}
+  {%- endif -%}
+
+  {%- assign next_tutorial = tutorials | first -%}
+  {%- if next_tutorial -%}
+    {%- assign next_link = page.collection | append: "/" | append: next_tutorial.url | relative_url -%}
+  {%- else -%}
+    {%- assign next_chapter_position = chapter_position | plus: 1 -%}
+    {%- assign next_chapter = chapters[next_chapter_position] -%}
+    {%- if next_chapter -%}
+      {%- assign next_link = next_chapter.url | append: "/" | relative_url -%}
+    {%- endif -%}
+  {%- endif -%}
+
+{%- endif -%}
+
+
+
+{{ content }}
+
+<nav style="padding: 20px 0; border-top: 1px solid #e8e8e8">
+  <div style="float:left">
+    {%- if prev_link -%}
+    <a href="{{ prev_link }}">&lsaquo; Sebelumnya</a>
+    {%- endif -%}
+  </div>
+  <div style="float:right">
+    {%- if next_link -%}
+    <a href="{{ next_link }}">Seterusnya &rsaquo;</a>
+    {%- endif -%}
+  </div>
+  <div style="margin:0 auto; width: 105px;">
+    <a href="{{ site.baseurl | append: "/" }}">&bull; Kandungan &bull;</a>
+  </div>
+</nav>

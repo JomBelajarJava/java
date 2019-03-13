@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Variable | Tutorial Java</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Variable" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Variable ialah tempat untuk menyimpan sesuatu data. Program yang lebih menarik boleh dibuat dengan menggunakan variable. Lihat cara penggunaannya di sini." />
+<meta property="og:description" content="Variable ialah tempat untuk menyimpan sesuatu data. Program yang lebih menarik boleh dibuat dengan menggunakan variable. Lihat cara penggunaannya di sini." />
+<link rel="canonical" href="http://localhost:4000/java/asas/variable" />
+<meta property="og:url" content="http://localhost:4000/java/asas/variable" />
+<meta property="og:site_name" content="Tutorial Java" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-06-27T00:00:00+08:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/java/asas/variable"},"@type":"BlogPosting","url":"http://localhost:4000/java/asas/variable","headline":"Variable","dateModified":"2015-06-27T00:00:00+08:00","datePublished":"2015-06-27T00:00:00+08:00","description":"Variable ialah tempat untuk menyimpan sesuatu data. Program yang lebih menarik boleh dibuat dengan menggunakan variable. Lihat cara penggunaannya di sini.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/java/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/java/feed.xml" title="Tutorial Java" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/java/">Tutorial Java</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <a class="page-link" href="http://localhost:4000">Jom Belajar Java</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <h1 id="variable">Variable</h1>
+
+<p>Variable ialah tempat untuk menyimpan data.</p>
+
+<p>Contohnya, jika kita buat sesuatu pengiraan dan sudah mendapat jawapan.
+Kemudian kita mahu menggunakan jawapan tersebut di tempat lain, tetapi
+kita tidak mahu membuat pengiraan semula. Jadi, kita boleh menggunakan
+variable untuk menyimpan jawapan tersebut dan terus guna di tempat yang
+kita mahu.</p>
+
+<p>Untuk membuat variable, kita tulis jenis data kemudian nama variable
+tersebut. Sebagai contoh,</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">nombor</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>Untuk menyimpan data dalam variable tersebut, tulis nama variable,
+kemudian tulis simbol <code class="highlighter-rouge">=</code> diikuti dengan data. Contoh,</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nombor</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>Kita juga boleh terus memasukkan data sebaik sahaja kita membuat
+variable,</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">nombor</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>Berikut adalah contoh program menggunakan variable untuk menyimpan
+pelbagai jenis data, dan cara untuk menggunakannya:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContohVariable</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 'int' adalah jenis data yang kita nak simpan, int bermaksud</span>
+        <span class="c1">// integer(nombor bulat). 'nomborBulat' adalah nama kepada variable</span>
+        <span class="c1">// tersebut, kita boleh namakan apa-apa sahaja.</span>
+        <span class="kt">int</span> <span class="n">nomborBulat</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">nomborBulat</span><span class="o">);</span>
+
+        <span class="c1">// 'double' adalah jenis data untuk nombor perpuluhan</span>
+        <span class="kt">double</span> <span class="n">nomborPerpuluhan</span> <span class="o">=</span> <span class="mf">6.7345</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">nomborPerpuluhan</span><span class="o">);</span>
+
+        <span class="c1">// 'char' adalah jenis data untuk character (huruf, nombor, simbol</span>
+        <span class="c1">// dan sebagainya)</span>
+        <span class="kt">char</span> <span class="n">huruf</span> <span class="o">=</span> <span class="sc">'z'</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">huruf</span><span class="o">);</span>
+
+        <span class="c1">// 'boolean' adalah jenis data untuk simpan true atau false sahaja</span>
+        <span class="kt">boolean</span> <span class="n">betulAtauSalah</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">betulAtauSalah</span><span class="o">);</span>
+
+        <span class="c1">// String adalah jenis data untuk gabungan beberapa character</span>
+        <span class="n">String</span> <span class="n">email</span> <span class="o">=</span> <span class="s">"Email saya ialah jonbonjovi@gmail.com"</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">email</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="contoh-penggunaan-variable">Contoh penggunaan variable</h2>
+
+<p>Variable boleh digunakan dalam operasi matematik:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContohPenggunaanVariable</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">15</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>  <span class="c1">// akan papar 25</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Variable hanya boleh menyimpan satu data pada satu masa. Apabila kita
+masukkan data yang lain pada variable yang sama, data yang asal akan
+digantikan dengan data yang baru:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContohPenggunaanVariable</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>  <span class="c1">// akan papar 10</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Kita boleh menggunakan data yang asal untuk digunakan dalam mana-mana
+operasi, kemudian masukkan kembali ke variable yang sama. Contoh:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContohPenggunaanVariable</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>  <span class="c1">// akan papar 6</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Cara yang sama, cuma lebih ringkas:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContohPenggunaanVariable</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+        <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>  <span class="c1">// sama, akan papar 6</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Juga cara yang sama, tetapi cara ini hanya boleh bertambah atau
+berkurang satu sahaja:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContohPenggunaanVariable</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+        <span class="n">x</span><span class="o">++;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>  <span class="c1">// juga sama, akan papar 6</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="tujuan-kita-perlu-menulis-jenis-data">Tujuan kita perlu menulis jenis data</h2>
+
+<p>Kita perlu menulis jenis data kerana ada sesetengah operasi yang boleh
+digunapakai oleh lebih dari satu jenis data. Contohnya, jika kita tambah
+dua nombor, kita akan dapat jumlahnya. Tetapi jika kita tambah dua
+string, kita menggabungkan dua string tersebut.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContohPenggunaanVariable</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">nombor1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">nombor2</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">nombor1</span> <span class="o">+</span> <span class="n">nombor2</span><span class="o">);</span>  <span class="c1">// akan papar 20</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Berbeza dengan ini,</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContohPenggunaanVariable</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">nombor1</span> <span class="o">=</span> <span class="s">"10"</span><span class="o">;</span>
+        <span class="n">String</span> <span class="n">nombor2</span> <span class="o">=</span> <span class="s">"10"</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">nombor1</span> <span class="o">+</span> <span class="n">nombor2</span><span class="o">);</span>  <span class="c1">// akan papar 1010</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Ataupun gabungan daripada jenis yang berlainan,</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContohPenggunaanVariable</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">duit</span> <span class="o">=</span> <span class="mi">150</span><span class="o">;</span>
+        <span class="n">String</span> <span class="n">ayat</span> <span class="o">=</span> <span class="s">"Saya ada RM "</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ayat</span> <span class="o">+</span> <span class="n">duit</span><span class="o">);</span>  <span class="c1">// "Saya ada RM 150"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+
+<nav style="padding: 20px 0; border-top: 1px solid #e8e8e8">
+  <div style="float:left"><a href="/java/asas/matematik">&lsaquo; Sebelumnya</a></div>
+  <div style="float:right"><a href="/java/asas/loop">Seterusnya &rsaquo;</a></div>
+  <div style="margin:0 auto; width: 105px;">
+    <a href="/java/">&bull; Kandungan &bull;</a>
+  </div>
+</nav>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/java/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Tutorial Java</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Tutorial Java</li><li><a class="u-email" href="mailto:burhanclj@gmail.com">burhanclj@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/JomBelajarJava"><svg class="svg-icon"><use xlink:href="/java/assets/minima-social-icons.svg#github"></use></svg> <span class="username">JomBelajarJava</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
