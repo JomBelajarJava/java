@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Build Tool | Tutorial Java</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Build Tool" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Setiap projek Java perlu menggunakan build tool bagi memudahkan deployment . Kita lihat pilihan build tool yang boleh kita gunakan dalam Java." />
+<meta property="og:description" content="Setiap projek Java perlu menggunakan build tool bagi memudahkan deployment . Kita lihat pilihan build tool yang boleh kita gunakan dalam Java." />
+<link rel="canonical" href="http://localhost:4000/java/database/build-tool" />
+<meta property="og:url" content="http://localhost:4000/java/database/build-tool" />
+<meta property="og:site_name" content="Tutorial Java" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-07-08T00:00:00+08:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/java/database/build-tool"},"@type":"BlogPosting","url":"http://localhost:4000/java/database/build-tool","headline":"Build Tool","dateModified":"2017-07-08T00:00:00+08:00","datePublished":"2017-07-08T00:00:00+08:00","description":"Setiap projek Java perlu menggunakan build tool bagi memudahkan deployment . Kita lihat pilihan build tool yang boleh kita gunakan dalam Java.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/java/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/java/feed.xml" title="Tutorial Java" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/java/">Tutorial Java</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <a class="page-link" href="http://localhost:4000">Jom Belajar Java</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <h1 id="build-tool">Build Tool</h1>
+
+<p>Sebelum ini kita diperkenalkan dengan beberapa IDE. Jika anda perasan saya tidak
+memaksa sesiapa untuk menggunakan IDE tertentu kerana setiap orang mempunyai
+citarasa masing-masing. Jadi, jika anda ingin memulakan sesuatu projek yang
+melibatkan lebih daripada seorang programmer, setiap programmer mungkin
+menggunakan IDE yang berlainan antara satu sama lain. Ini akan mendatangkan
+masalah kerana setiap IDE mempunyai cara yang berlainan untuk menguruskan
+projek Java. Oleh itu, kita sangat digalakkan untuk menggunakan <em>build
+automation software</em> atau dikenali sebagai <em>build tool</em>.</p>
+
+<p>Setiap programming language mempunyai <em>build tool</em> masing-masing. Untuk Java,
+kita boleh menggunakan,</p>
+
+<ul>
+  <li><a href="https://maven.apache.org">Maven</a></li>
+  <li><a href="https://gradle.org">Gradle</a></li>
+  <li><a href="http://www.scala-sbt.org">sbt</a></li>
+  <li><a href="http://ant.apache.org">Ant</a></li>
+</ul>
+
+<p><em>Maven</em> sememangnya biasa digunakan di industri yang menggunakan Java. Kelebihan
+Maven berbanding Ant ialah Maven boleh download secara automatik library
+yang kita gunakan dalam projek kita hanya dengan menulis nama library tersebut.
+Jadi, kita tidak perlu download file JAR secara manual. Ada yang tidak suka
+Maven kerana ia menggunakan XML untuk file config (sukar difahami).</p>
+
+<p><em>Gradle</em> lebih kurang sama dengan Maven. Kelebihannya ialah Gradle lebih mudah
+untuk membuat custom build script jika anda tahu programming language Groovy.
+File config Gradle juga lebih mudah difahami oleh manusia berbanding Maven.</p>
+
+<p><em>Sbt</em> sebenarnya ialah <em>build tool</em> untuk programming language Scala. Disebabkan
+Scala ialah programming language yang boleh run di Java Virtual Machine (JVM),
+kita juga boleh menggunakannya untuk projek Java. Contoh apabila anda
+menggunakan web framework seperti <a href="https://www.playframework.com">Play Framework</a>.</p>
+
+<p><em>Ant</em> ialah <em>build tool</em> yang digunakan secara default jika anda menggunakan IDE
+untuk generate projek Java. Seperti yang diberitahu sebelum ini, Ant lebih sukar
+untuk projek yang menggunakan banyak library. Cuba elakkan Ant kalau boleh.</p>
+
+<p>Pilihan <em>build tool</em> bergantung kepada team dan projek anda.</p>
+
+<p>Saya akan menggunakan Maven untuk tutorial database selepas ini kerana saya
+bercadang untuk menggunakan database H2. H2 sukar digunakan dengan Gradle
+kerana H2 ialah <em>embedded database</em> dan saya menghadapi masalah dengan
+classpath H2 semasa menggunakan Gradle. Plugin H2 untuk Gradle juga tidak
+sematang plugin H2 untuk Maven.</p>
+
+
+<nav style="padding: 20px 0; border-top: 1px solid #e8e8e8">
+  <div style="float:left"><a href="/java/database/">&lsaquo; Sebelumnya</a></div>
+  <div style="float:right"><a href="/java/database/jdbc">Seterusnya &rsaquo;</a></div>
+  <div style="margin:0 auto; width: 105px;">
+    <a href="/java/">&bull; Kandungan &bull;</a>
+  </div>
+</nav>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/java/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Tutorial Java</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Tutorial Java</li><li><a class="u-email" href="mailto:burhanclj@gmail.com">burhanclj@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/JomBelajarJava"><svg class="svg-icon"><use xlink:href="/java/assets/minima-social-icons.svg#github"></use></svg> <span class="username">JomBelajarJava</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

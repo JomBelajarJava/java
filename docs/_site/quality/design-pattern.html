@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Design Pattern | Tutorial Java</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Design Pattern" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Kadang-kadang code menggunakan Java agak menyusahkan programmer. Adakah cara yang lebih tersusun untuk sesuatu masalah semasa membina struktur code? Jom lihat design pattern!" />
+<meta property="og:description" content="Kadang-kadang code menggunakan Java agak menyusahkan programmer. Adakah cara yang lebih tersusun untuk sesuatu masalah semasa membina struktur code? Jom lihat design pattern!" />
+<link rel="canonical" href="http://localhost:4000/java/quality/design-pattern" />
+<meta property="og:url" content="http://localhost:4000/java/quality/design-pattern" />
+<meta property="og:site_name" content="Tutorial Java" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-01-14T00:00:00+08:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/java/quality/design-pattern"},"@type":"BlogPosting","url":"http://localhost:4000/java/quality/design-pattern","headline":"Design Pattern","dateModified":"2018-01-14T00:00:00+08:00","datePublished":"2018-01-14T00:00:00+08:00","description":"Kadang-kadang code menggunakan Java agak menyusahkan programmer. Adakah cara yang lebih tersusun untuk sesuatu masalah semasa membina struktur code? Jom lihat design pattern!","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/java/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/java/feed.xml" title="Tutorial Java" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/java/">Tutorial Java</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <a class="page-link" href="http://localhost:4000">Jom Belajar Java</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <h1 id="design-pattern">Design Pattern</h1>
+
+<p>Sebelum kita lihat dengan lebih mendalam mengenai <code class="highlighter-rouge">design pattern</code>, kita lihat
+kembali ke tutorial sebelum ini iaitu <a href="../quality/convenience-library.md">tutorial convenience
+library</a>. Lihat code yang paling terakhir,
+yang ini:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">...</span>
+<span class="kd">final</span> <span class="n">Pengguna</span> <span class="n">kassim</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pengguna</span><span class="o">(</span>
+        <span class="s">"Kassim"</span><span class="o">,</span>
+        <span class="mi">25</span><span class="o">,</span>
+        <span class="s">"Lelaki"</span><span class="o">,</span>
+        <span class="s">"123, Jalan 1"</span><span class="o">,</span>
+        <span class="s">"Kampung Dusun"</span><span class="o">,</span>
+        <span class="s">"kassimkgdusun@gmail.com"</span><span class="o">,</span>
+        <span class="s">"012-1234567"</span><span class="o">,</span>
+        <span class="s">"01-1234567"</span><span class="o">,</span>
+        <span class="s">"CIMB Bank"</span><span class="o">,</span>
+        <span class="s">"123456ABC"</span><span class="o">,</span>
+        <span class="s">"ABC123456"</span><span class="o">,</span>
+        <span class="n">Timestamp</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">now</span><span class="o">()),</span>
+        <span class="kc">null</span><span class="o">);</span>
+<span class="o">...</span>
+</code></pre></div></div>
+
+<p>Kalau lihat code tersebut, parameter untuk constructor terlalu banyak. Contoh
+kalau code tersebut ditulis oleh orang lain, adakah anda yakin kedudukan data
+tersebut memang betul ada di tempat yang betul.</p>
+
+<p>Sekali pandang memang tak salah, tetapi tak ada ke cara yang lebih elok?</p>
+
+<h2 id="builder">Builder</h2>
+
+<p>Perkenalkan <code class="highlighter-rouge">Builder</code>!</p>
+
+<p>Oleh sebab kita sudah diperkenalkan dengan Lombok, kita akan menggunakan Lombok
+untuk membuat Builder. Tambah sahaja <em>annotation</em> <code class="highlighter-rouge">@Builder</code> untuk class
+<code class="highlighter-rouge">Pengguna</code>:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Data</span>
+<span class="nd">@AllArgsConstructor</span>
+<span class="nd">@Builder</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Pengguna</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">nama</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">umur</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">jantina</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">alamat1</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">alamat2</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">email</span><span class="o">;</span>
+    <span class="o">...</span>
+</code></pre></div></div>
+
+<p>Cara untuk menggunakan builder adalah seperti berikut:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">final</span> <span class="n">Pengguna</span> <span class="n">kassim</span> <span class="o">=</span> <span class="n">Pengguna</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">nama</span><span class="o">(</span><span class="s">"Kassim"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">umur</span><span class="o">(</span><span class="mi">25</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">jantina</span><span class="o">(</span><span class="s">"Lelaki"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">alamat1</span><span class="o">(</span><span class="s">"123, Jalan 1"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">alamat2</span><span class="o">(</span><span class="s">"Kampung Dusun"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">email</span><span class="o">(</span><span class="s">"kassimkgdusun@gmail.com"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">telefonBimbit</span><span class="o">(</span><span class="s">"012-1234567"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">telefonRumah</span><span class="o">(</span><span class="s">"01-1234567"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">namaBank</span><span class="o">(</span><span class="s">"CIMB Bank"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">noAkaunBank</span><span class="o">(</span><span class="s">"123456ABC"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">noAkaunKwsp</span><span class="o">(</span><span class="s">"ABC123456"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">waktuDaftar</span><span class="o">(</span><span class="n">Timestamp</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">now</span><span class="o">()))</span>
+        <span class="o">.</span><span class="na">waktuKemaskini</span><span class="o">(</span><span class="kc">null</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>Sekarang barulah jelas data-data tersebut dimasukkan ke mana.</p>
+
+<p>Jika anda ingin lihat bagaimana code untuk builder, guna sahaja Delombok seperti
+yang kita sudah lihat di tutorial sebelum ini.</p>
+
+<p>Balik ke topik design pattern. Builder ialah salah satu daripada design pattern.
+Design pattern bermaksud cara-cara untuk menulis atau menyusun code untuk
+masalah yang ramai sudah hadapi.</p>
+
+<p>Jika anda masih baru dalam programming, anda mungkin biasa melihat code dalam
+tutorial mula dari <code class="highlighter-rouge">main()</code> kemudian menjalankan code berikutnya satu per satu
+sehinggalah habis.</p>
+
+<p>Dalam situasi sebenar, struktur code bukannya sebegitu, tetapi ada di
+merata-rata tempat. Jadi, design pattern boleh digunakan sebagai panduan untuk
+menjadikan code lebih teratur.</p>
+
+<h2 id="design-pattern-dalam-java">Design Pattern dalam Java</h2>
+
+<p>Setiap <em>design pattern</em> ada gelarannya.</p>
+
+<p>Dalam tutorial sebelum-sebelum ini, kita sudah lihat beberapa <em>design pattern</em>
+dalam Java; antaranya DAO dan Service, <em>dependency injection</em>, <em>module</em>, <em>object
+pool</em>, dan <em>facade</em>.</p>
+
+<p>Saya memang tidak mengharapkan anda untuk menghafal semua <em>design pattern</em> yang
+ada. Yang saya boleh cadangkan adalah anda boleh cari senarai <em>design pattern</em>
+dalam mana-mana website, kemudian setiap hari atau setiap minggu jenguk-jenguk
+website tersebut dan tengok satu atau dua <em>design pattern</em>.</p>
+
+<p>Website untuk <em>design pattern</em> yang saya selalu tengok adalah yang ini:</p>
+
+<p><a href="http://java-design-patterns.com/patterns/">java-design-patterns.com</a></p>
+
+<p>Di website tersebut, anda juga boleh tapis <em>design pattern</em> mengikut tahap
+kesukaran. Jika anda baru bermula, klik sahaja pada <code class="highlighter-rouge">difficulty-beginner</code>.</p>
+
+<h2 id="kritik">Kritik</h2>
+
+<p>Ada beberapa golongan yang mengkritik design pattern.</p>
+
+<p>Bagi sesetengah orang, design pattern menandakan kelemahan sesuatu programming
+language. Contoh untuk design pattern Builder, dalam sesetengah programming
+language lain tidak perlu membuat builder, hanya perlu menggunakan parameterized
+constructor untuk menyelesaikan masalah yang sama.</p>
+
+<p>Design pattern hanyalah panduan, anda boleh pilih untuk tidak menggunakan design
+pattern jika anda tidak mahu.</p>
+
+
+<nav style="padding: 20px 0; border-top: 1px solid #e8e8e8">
+  <div style="float:left"><a href="/java/quality/convenience-library">&lsaquo; Sebelumnya</a></div>
+  <div style="float:right"><a href="/java/quality/recursion">Seterusnya &rsaquo;</a></div>
+  <div style="margin:0 auto; width: 105px;">
+    <a href="/java/">&bull; Kandungan &bull;</a>
+  </div>
+</nav>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/java/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Tutorial Java</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Tutorial Java</li><li><a class="u-email" href="mailto:burhanclj@gmail.com">burhanclj@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/JomBelajarJava"><svg class="svg-icon"><use xlink:href="/java/assets/minima-social-icons.svg#github"></use></svg> <span class="username">JomBelajarJava</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

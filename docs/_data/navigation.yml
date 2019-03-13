@@ -1,0 +1,84 @@
+chapters:
+  - url: pengenalan
+    title: Pengenalan
+  - url: asas
+    title: Bab 1 - Asas
+  - url: oop
+    title: Bab 2 - Object-oriented programming
+  - url: essentials
+    title: Bab 3 - Class yang penting (essentials)
+  - url: datastructure
+    title: Bab 4 - Data structure
+  - url: database
+    title: Bab 5 - Database
+  - url: quality
+    title: Bab 6 - Code quality
+
+asas:
+  - url: installation
+  - url: simple-program
+  - url: comment
+  - url: matematik
+  - url: variable
+  - url: loop
+  - url: if-statement
+  - url: switch-statement
+  - url: boolean
+
+oop:
+  - url: integrated-development-environment-ide
+    title: IDE
+  - url: class-part-1
+    title: Class (part 1)
+  - url: object
+  - url: class-part-2
+    title: Class (part 2)
+  - url: access-modifiers
+  - url: class-part-3
+    title: Class (part 3)
+  - url: interface
+  - url: inheritance
+  - url: polymorphism
+  - url: string
+
+essentials:
+  - url: exception-part-1
+    title: Exception (part 1)
+  - url: input-dari-user
+  - url: input-dari-file
+  - url: output-ke-file
+  - url: exception-part-2
+    title: Exception (part 2)
+
+datastructure:
+  - url: array
+  - url: for-each-loop
+  - url: pengenalan-kepada-collections
+    title: Pengenalan kepada Collections
+  - url: interface-collections
+    title: Interface Collections
+  - url: generics
+  - url: list
+  - url: set
+  - url: queue
+  - url: deque
+  - url: map
+
+database:
+  - url: build-tool
+  - url: jdbc
+    title: JDBC
+  - url: dao-dan-service
+    title: DAO dan Service
+  - url: crud
+    title: CRUD
+  - url: connection-pool
+  - url: migration
+
+quality:
+  - url: final
+  - url: immutable-collections
+  - url: dependency-injection
+  - url: convenience-library
+  - url: design-pattern
+  - url: recursion
