@@ -154,6 +154,7 @@ public class OutputKeFile {
 
 Kita boleh menggunakan method `newLine()` untuk membuat baris baru. Kita juga
 boleh menetapkan hanya sebahagian daripada string untuk keluar sebagai output.
-Rujuk
-[BufferedWriter](https://docs.oracle.com/javase/7/docs/api/java/io/BufferedWriter.html#write(java.lang.String,%20int,%20int%29)
-untuk maklumat lanjut.
+Rujuk [BufferedWriter#write(String,int,int)][BufferedWriter docs] untuk maklumat
+lanjut.
+
+[BufferedWriter docs]: https://docs.oracle.com/javase/7/docs/api/java/io/BufferedWriter.html#write(java.lang.String,%20int,%20int)
