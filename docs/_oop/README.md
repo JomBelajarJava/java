@@ -1,6 +1,7 @@
 ---
 date: 2015-06-28
 permalink: /:collection/
+title: Object-oriented programming
 description: Object-oriented programming (OOP) ialah konsep programming yang mengambil contoh daripada dunia nyata. Di sini disenaraikan konsep-konsep yang digunakan.
 ---
 

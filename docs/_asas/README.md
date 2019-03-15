@@ -1,5 +1,6 @@
 ---
 permalink: /:collection/
+title: Asas
 description: Belajar asas programming language Java
 ---
 

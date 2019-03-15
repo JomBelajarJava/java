@@ -1,5 +1,6 @@
 ---
 permalink: /:collection/
+title: Pengenalan
 description: Belajar Java, programming language utama di Java Virtual Machine (JVM)
 ---
 

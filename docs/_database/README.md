@@ -1,6 +1,7 @@
 ---
 date: 2017-07-08
 permalink: /:collection/
+title: Database
 description: Database ialah tempat untuk kita menyimpan data yang berkaitan dengan projek. Setiap projek sepatutnya mempunyai database walaupun projek simple.
 ---
 
