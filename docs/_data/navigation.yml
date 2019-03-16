@@ -24,6 +24,7 @@ asas:
   - url: if-statement
   - url: switch-statement
   - url: boolean
+  - url: logik
 
 oop:
   - url: integrated-development-environment-ide
