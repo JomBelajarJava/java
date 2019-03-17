@@ -38,3 +38,35 @@ public class Matematik {
     }
 }
 ```
+
+## Perbandingan
+
+Kita juga boleh membuat perbandingan antara nombor. Contohnya,
+
+```java
+public class Matematik {
+    public static void main(String[] args) {
+        // Tanda == digunakan untuk melihat sama ada nombor adalah sama.
+        // Jadi di sini, program akan memaparkan true.
+        System.out.println(3 == 3);
+
+        // != untuk nombor yang berbeza. Di sini, program akan memaparkan false.
+        System.out.println(3 != 3);
+
+        // > untuk nombor yang lebih besar daripada nombor yang lain.
+        System.out.println(5 > 4);
+
+        // >= untuk nombor yang lebih besar atau sama dengan nombor yang lain.
+        System.out.println(5 >= 5);
+
+        // < untuk nombor yang lebih kecil daripada nombor yang lain.
+        System.out.println(5 < 7);
+
+        // <= untuk nombor yang lebih kecil atau sama dengan nombor yang lain.
+        System.out.println(7 <= 7);
+    }
+}
+```
+
+Perbandingan akan menghasilkan nilai `true` atau `false` menandakan sama ada
+betul ataupun tidak.
