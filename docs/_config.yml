@@ -104,6 +104,10 @@ defaults:
       path: ""
     values:
       layout: "default"
+  - scope:
+      path: "deprecated"
+    values:
+      sitemap: false
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
